@@ -3,7 +3,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { pageVariants } from '../../components/GlobalComponents/Initaltransition'
 import Carousel from '../../components/GlobalComponents/Carousel'
-import Scrolltotop from '../../components/GlobalComponents/Scrolltotop'
 
 import { MDBBtn } from 'mdbreact'
 import OneBusBody from '../../components/BusesComponents/OneBusBody'
@@ -17,7 +16,6 @@ const OneBus = () => {
         <motion.section initial="initial"
             animate="animate"
             variants={pageVariants}>
-            <Scrolltotop />
             <Carousel />
             <img src="/img/3.jpg" className="img-fluid mx-auto d-none logo" width="220px" id="contibus-logo" alt="logo" />
             <Fade triggerOnce direction="up">
