@@ -25,21 +25,6 @@ const DefaultLayout = ({ children }) => {
     }, [language])
 
     useEffect(() => {
-        SetContentFulData("busesData", "-fields.oradij").then(data => {
-            dispatch(setbusesData({
-                busesData: data
-            }))
-        })
-
-        SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
-            dispatch(setmuzeumData({
-                muzeumData: data
-            }))
-        })
-    }, [dispatch])
-
-
-    useEffect(() => {
         ReactGA.pageview(window.location.pathname)
     }, [router.pathname])
 
