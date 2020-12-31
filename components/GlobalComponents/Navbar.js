@@ -29,8 +29,6 @@ const Navbar = () => {
         }
     }, [pathname, language])
 
-    console.log(pathname)
-
     return (
         <>
             <MDBNavbar className="w-100 animated fadeInDown" fixed="top" color="elegant-color-dark" dark scrolling transparent expand="md">

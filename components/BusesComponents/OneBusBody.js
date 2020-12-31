@@ -21,7 +21,6 @@ const OneBusBody = () => {
     const router = useRouter()
     const language = useSelector(selectlanguage)
     const busesdata = useSelector(selectBusesData)
-    console.log(router)
     const [thisbus, setthisbus] = useState(null)
     const [notfound, setnotfound] = useState(false)
     const [thispicture, setthispicture] = useState(0)

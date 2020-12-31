@@ -13,10 +13,7 @@ import { useSelector } from 'react-redux'
 import { motion } from 'framer-motion';
 
 const Offer = () => {
-    const router = useRouter()
-    ReactGA.pageview(router.pathname)
     const language = useSelector(selectlanguage)
-
     return (
         <motion.div initial="initial"
             animate="animate"

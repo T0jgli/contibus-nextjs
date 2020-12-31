@@ -10,7 +10,6 @@ const Scrolltotop = () => {
       top: 0,
       left: 0,
     });
-    ReactGA.pageview(pathname)
   }, [pathname]);
 
   return null;

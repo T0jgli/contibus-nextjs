@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { selectlanguage, setbusesData, setlanguage, setmuzeumData } from '../lib/AppSlice'
+import { selectlanguage, setbusesData, setmuzeumData } from '../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 import InitialTransition from './GlobalComponents/Initaltransition';
@@ -12,11 +12,13 @@ import Scrolltopbutton from './GlobalComponents/Scrolltopbutton';
 import Cookie from './GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from '../lib/SetContentFulData';
-import Head from 'next/head';
+import { useRouter } from 'next/router';
+import ReactGA from 'react-ga'
 
 const DefaultLayout = ({ children }) => {
     const language = useSelector(selectlanguage)
     const dispatch = useDispatch()
+    const router = useRouter()
 
     useEffect(() => {
         window.document.documentElement.lang = language
@@ -35,6 +37,11 @@ const DefaultLayout = ({ children }) => {
             }))
         })
     }, [dispatch])
+
+
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname)
+    }, [router.pathname])
 
     return (
         <>
