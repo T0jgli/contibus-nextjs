@@ -34,4 +34,3 @@ const _app = ({ Component, pageProps }) => {
 }
 
 export default _app
-

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIframe, MDBIcon
 } from "mdbreact";
@@ -12,6 +12,8 @@ import ReactGA from 'react-ga'
 const Footer = () => {
     const [elveszett, setelveszett] = useState(false)
     const language = useSelector(selectlanguage)
+
+
 
     return (
         <>
@@ -42,7 +44,7 @@ const Footer = () => {
                                     <a href="/files/megrendelolap.docx">{language === "en" ? ("Order form") : ("Megrendelőlap")}</a>
                                 </p>
                                 <p>
-                                    <a href="#!">{language === "en" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
+                                    <a href="#">{language === "en" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
                                 </p>
                             </MDBCol>
 

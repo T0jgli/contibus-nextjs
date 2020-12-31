@@ -8,7 +8,7 @@ class MyDocument extends Document {
                 <Head />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="apple-touch-icon" href="/favicon.ico" />
-                <meta http-equiv="x-ua-compatible" content="ie=edge" />
+                <meta httpEquiv="x-ua-compatible" content="ie=edge" />
                 <meta name="description"
                     content="Cégünk autóbusz bérbeadással foglalkozik. 18-83 fős autóbuszokkal vállaljuk cégek, iskolák, baráti társaságok utazásainak lebonyolítását." />
                 <meta name="copyright" content="2020 © Contibus Neoline KFT." />

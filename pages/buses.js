@@ -5,28 +5,16 @@ import Carousel from '../components/GlobalComponents/Carousel';
 import Busesbody from "../components/BusesComponents/Busesbody"
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
-import { selectlanguage, setbusesData, setmuzeumData } from '../lib/AppSlice'
+import { selectBusesData, selectlanguage, setbusesData, setmuzeumData } from '../lib/AppSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { motion } from 'framer-motion';
 import SetContentFulData from '../lib/SetContentFulData';
 
-const Buses = () => {
+const Buses = ({ busesData, muzeumData }) => {
   const language = useSelector(selectlanguage)
+  const busesDataselector = useSelector(selectBusesData)
+
   const dispatch = useDispatch()
-  useEffect(() => {
-    SetContentFulData("busesData", "-fields.oradij").then(data => {
-      dispatch(setbusesData({
-        busesData: data
-      }))
-    })
-
-    SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
-      dispatch(setmuzeumData({
-        muzeumData: data
-      }))
-    })
-  }, [dispatch])
-
 
   return (
     <motion.section initial="initial"

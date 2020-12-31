@@ -28,6 +28,20 @@ const DefaultLayout = ({ children }) => {
         ReactGA.pageview(window.location.pathname)
     }, [router.pathname])
 
+    useEffect(() => {
+        SetContentFulData("busesData", "-fields.oradij").then(data => {
+            dispatch(setbusesData({
+                busesData: data
+            }))
+        })
+
+        SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
+            dispatch(setmuzeumData({
+                muzeumData: data
+            }))
+        })
+    }, [dispatch])
+
     return (
         <>
             {/* {typeof window !== "undefined" && localStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)} */}
