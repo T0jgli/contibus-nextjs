@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
     const language = useSelector(selectlanguage)
@@ -34,16 +35,11 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                 <div className="d-flex mx-3 justify-content-center">
 
                     <Tooltip title={language === "en" ? ("More") : ("Bővebben")}>
-                        <IconButton id="morebtn" onClick={() => {
-                            router.push({
-                                pathname: "/bus/[bus]",
-                                query: {
-                                    bus: `${data.fields.id.replaceAll(/\s+/g, "-")}`
-                                }
-                            })
-                        }}>
-                            <ControlPointIcon />
-                        </IconButton>
+                        <Link href={`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`}>
+                            <IconButton id="morebtn">
+                                <ControlPointIcon />
+                            </IconButton>
+                        </Link>
                     </Tooltip>
 
                     {/*                     <MDBBtn color="warning" size="sm" className="roundedbtn black-text mt-3 muzeumbtn"

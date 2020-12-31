@@ -4,6 +4,7 @@ import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const Cardbodys = ({ item, what }) => {
     const language = useSelector(selectlanguage)
@@ -25,22 +26,15 @@ const Cardbodys = ({ item, what }) => {
                         </p>
                         {what === "Muzeum" ? (<p className='card-text d-sm-none d-md-inline'>{item.fields.desc}</p>) :
                             (<div className="card-text font-weight-bolder">
-                                <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mx-auto mt-lg-5 muzeumbtn"
-                                    onClick={() => {
-                                        router.push({
-                                            pathname: "/bus/[bus]",
-                                            query: {
-                                                bus: `${item.fields.id.replaceAll(/\s+/g, "-")}`
-                                            }
-                                        })
-                                    }}>
-                                    {language === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
-                                </MDBBtn>
+                                <Link href={`/bus/${item.fields.id.replaceAll(/\s+/g, "-")}`}>
+                                    <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mx-auto mt-lg-5 muzeumbtn">
+                                        {language === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
+                                    </MDBBtn>
+                                </Link>
+
                             </div>)}
                     </MDBCardBody>
                 </MDBCard>
-
-
             ) : (
                     <MDBCard className="invisible" />
                 )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import db from '../../lib/firebase';
 import publicIp from "public-ip";
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ const Rating = () => {
     const dispatch = useDispatch()
     const language = useSelector(selectlanguage)
 
-    const [value, setValue] = useState(typeof window !== "undefined" && Number(localStorage.getItem("Feedback")) || 0);
+    const [value, setValue] = useState(0);
     const [textareavalue, settextareavalue] = useState(null);
     const [popover, setpopover] = useState({
         popover: false,
@@ -30,6 +30,11 @@ const Rating = () => {
         4: language === "en" ? ("Good") : ('Jó'),
         5: language === "en" ? ("Perfect") : ('Tökéletes'),
     };
+
+    useEffect(() => {
+        if (typeof window !== "undefined")
+            setValue(Number(localStorage.getItem("Feedback")) || 0)
+    }, [])
 
     const SendFeedback = () => {
         publicIp.v4({

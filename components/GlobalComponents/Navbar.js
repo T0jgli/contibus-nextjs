@@ -43,23 +43,21 @@ const Navbar = () => {
                     <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
                         <MDBNavbarNav left>
                             <MDBNavItem active={pathname === "" ? (true) : pathname === "/" ? (true) : (false)}>
-                                <Link href="/">
-                                    <a className="nav-link Ripple-parent rounded">{language === "en" ? ("Home") : ("Kezdőlap")}
+                                <Link href="/" passHref>
+                                    <a data-test="nav-link" className="nav-link Ripple-parent rounded">{language === "en" ? ("Home") : ("Kezdőlap")}
                                     </a>
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem active={pathname === "/offer" ? (true) : (false)}>
-                                <Link href="/offer">
-                                    <a className="nav-link Ripple-parent rounded">{language === "en" ? ("Offer request") : ("Ajánlatkérés")}
+                                <Link href="/offer" passHref>
+                                    <a data-test="nav-link" className="nav-link Ripple-parent rounded">{language === "en" ? ("Offer request") : ("Ajánlatkérés")}
                                     </a>
-
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem active={pathname.includes("bus") ? (true) : (false)}>
-                                <Link href="/buses">
-                                    <a className="nav-link Ripple-parent rounded">{language === "en" ? ("Our buses") : ("Autóbuszok")}
+                                <Link href="/buses" passHref>
+                                    <a data-test="nav-link" className="nav-link Ripple-parent rounded">{language === "en" ? ("Our buses") : ("Autóbuszok")}
                                     </a>
-
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem>

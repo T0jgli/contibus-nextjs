@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
-import { Helmet } from 'react-helmet';
-
 
 export const pageVariants = {
     initial: { y: -20, opacity: 0 },

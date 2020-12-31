@@ -12,6 +12,7 @@ import Scrolltopbutton from './GlobalComponents/Scrolltopbutton';
 import Cookie from './GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from '../lib/SetContentFulData';
+import Head from 'next/head';
 
 const DefaultLayout = ({ children }) => {
     const language = useSelector(selectlanguage)
@@ -42,7 +43,6 @@ const DefaultLayout = ({ children }) => {
             <AnimatePresence exitBeforeEnter>
                 {children}
             </AnimatePresence>
-
             <Cookie />
             <Footer />
             <div className="d-none d-md-block">
