@@ -24,7 +24,7 @@ const Carousel = () => {
     const language = useSelector(selectlanguage)
     const [contactform, setcontactform] = useState(false)
     useEffect(() => {
-        shuffleArray(carids);
+        carids.sort(() => Math.random() - 0.5)
     }, [])
     return (
         <>
