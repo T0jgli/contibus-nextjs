@@ -7,12 +7,10 @@ import { Tooltip } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
     const language = useSelector(selectlanguage)
-    const router = useRouter()
 
     return (
         <tr className="tablesor" id={data.fields.bus}>
@@ -34,13 +32,13 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                 <hr className="mb-2 mt-2 mb-lg-3 mt-lg-3 d-none d-lg-block" />
                 <div className="d-flex mx-3 justify-content-center">
 
-                    <Tooltip title={language === "en" ? ("More") : ("Bővebben")}>
-                        <Link href={`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`}>
+                    <Link href={`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`}>
+                        <Tooltip title={language === "en" ? ("More") : ("Bővebben")}>
                             <IconButton id="morebtn">
                                 <ControlPointIcon />
                             </IconButton>
-                        </Link>
-                    </Tooltip>
+                        </Tooltip>
+                    </Link>
 
                     {/*                     <MDBBtn color="warning" size="sm" className="roundedbtn black-text mt-3 muzeumbtn"
                         onClick={() => { history.push(`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`) }}>

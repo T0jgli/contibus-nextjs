@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import db from "../../lib/firebase"
 import firebase from "firebase/app"
@@ -33,7 +33,7 @@ const initialstate = {
 
 const Formoffer = () => {
     const dispatch = useDispatch()
-    const location = useRouter();
+    const router = useRouter();
     const language = useSelector(selectlanguage)
 
     const [state, setstate] = useState({
@@ -45,7 +45,7 @@ const Formoffer = () => {
         indulas: "",
         erkezes: "",
         seat: "def",
-        selectedbus: location.state?.selectedbus || null,
+        selectedbus: router.query?.selectedbus || null,
         newsletter: false,
         comment: "",
         loading: false,
@@ -148,6 +148,10 @@ const Formoffer = () => {
         }
     }
 
+    useEffect(() => {
+        if (router.query.selectedbus)
+            window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div className="">
@@ -317,7 +321,7 @@ const Formoffer = () => {
                                                 <span className="font-weight-bolder pl-2 pt-2 pt-md-0">{state.selectedbus}</span>
                                                 <Tooltip title={language === "en" ? ("Remove") : ("Eltávolítás")}>
                                                     <IconButton className="mt-md-0 mt-2"
-                                                        onClick={() => { setstate({ ...state, selectedbus: null }); location.state.selectedbus = null }}>
+                                                        onClick={() => { setstate({ ...state, selectedbus: null }) }}>
                                                         <ClearIcon />
                                                     </IconButton>
                                                 </Tooltip>

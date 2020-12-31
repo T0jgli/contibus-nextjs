@@ -137,9 +137,12 @@ const OneBusBody = () => {
                         <MDBRow className="flex-center mt-5 pt-2 mx-auto">
                             <Fade direction="up">
                                 <MDBBtn color="warning" onClick={() => {
-                                    history.push("/offer", {
-                                        selectedbus: thisbus.fields.bus.replaceAll(/\s/g, '-')
-                                    });
+                                    router.push({
+                                        pathname: "/offer",
+                                        query: {
+                                            selectedbus: thisbus.fields.bus.replaceAll(/\s/g, '-')
+                                        }
+                                    })
                                 }} className="my-1 black-text roundedbtn font-weight-bold">
                                     {language === "en" ? ("Order") : ("Megrendelem")}
                                 </MDBBtn>
