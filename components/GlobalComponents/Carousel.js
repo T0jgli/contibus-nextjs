@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
 import { selectlanguage } from '../../lib/AppSlice'
@@ -8,24 +8,13 @@ import ReactGA from 'react-ga'
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
 
-const carids = ["carr11", "carr22", "carr33"];
-
-function shuffleArray (array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
 
 const Carousel = () => {
     const { pathname } = useRouter();
     const language = useSelector(selectlanguage)
     const [contactform, setcontactform] = useState(false)
-    useEffect(() => {
-        carids.sort(() => Math.random() - 0.5)
-    }, [])
+    const carids = ["carr11", "carr22", "carr33"].sort(() => Math.random() - 0.5);
+
     return (
         <>
             <MDBCarousel
@@ -37,7 +26,7 @@ const Carousel = () => {
             >
                 <MDBCarouselInner className="carousel-inner">
                     <MDBCarouselItem className="carousel-item" itemId="1">
-                        <MDBView id={carids[0]} className={pathname !== "/" ? "h-100" : ""}>
+                        <MDBView id={carids[0]} className={pathname !== "/" ? "h-100 carr" : "carr"}>
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5">
                                     <Fade triggerOnce direction="down">
@@ -78,7 +67,7 @@ const Carousel = () => {
                         </MDBView>
                     </MDBCarouselItem>
                     <MDBCarouselItem className="carousel-item" itemId="2">
-                        <MDBView id={carids[1]} className={pathname !== "/" ? "h-100" : ""}>
+                        <MDBView id={carids[1]} className={pathname !== "/" ? "h-100 carr" : "carr"}>
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5">
                                     <Fade triggerOnce direction="down">
@@ -123,7 +112,7 @@ const Carousel = () => {
                         </MDBView>
                     </MDBCarouselItem>
                     <MDBCarouselItem className="carousel-item" itemId="3">
-                        <MDBView id={carids[2]} className={pathname !== "/" ? "h-100" : ""}>
+                        <MDBView id={carids[2]} className={pathname !== "/" ? "h-100 carr" : "carr"}>
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5">
                                     <Fade triggerOnce direction="down">
