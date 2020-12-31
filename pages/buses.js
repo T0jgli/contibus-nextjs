@@ -18,7 +18,7 @@ const Buses = () => {
       <Carousel />
       <Busesbody />
       <Head>
-        <title>{language === "en" ? ("Contibus - Our Buses - Specialist Coach Travel") : ("Contibus - Autóbuszaink - Az utazás szakértői")}</title>
+        <title>{language === "en" ? ("Autóbuszaink - Contibus - Our Buses - Specialist Coach Travel") : ("Autóbuszaink - Contibus - Az utazás szakértői")}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
       </Head>

@@ -261,26 +261,6 @@ const Formoffer = () => {
                                             </MDBCol>
                                         </div>
                                     </Fade>
-                                    {/*
-                                    <Fade triggerOnce>
-                                    <div className="form-row my-4">
-                                        <MDBCol className="form-group">
-                                            <div className="input-group z-depth-1">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text" id="inputGroupFileAddon01"><i
-                                                        className="fas fa-folder prefix"></i></span>
-                                                </div>
-                                                <div className="custom-file">
-                                                    <input type="file" className="custom-file-input" id="inputGroupFile01"
-                                                        aria-describedby="inputGroupFileAddon01" name="file" />
-                                                    <label className="custom-file-label" htmlFor="inputGroupFile01" data-browse={language === "en" ? ("Browse") : ("Tallózás")}>
-                                                        {language === "en" ? ("Choose file") : ("Fájl csatolása")}</label>
-                                                </div>
-                                            </div>
-                                        </MDBCol>
-                                    </div>
-                                    </Fade>
- */}
                                     <Fade triggerOnce>
                                         <div className="form-row my-4">
                                             <FormGroup className="px-md-3 px-2">

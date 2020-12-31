@@ -42,7 +42,7 @@ const Streak = () => {
                                             {({ countUpRef }) => (
                                                 <VisibilitySensor offset={{
                                                     top:
-                                                        10
+                                                        100
                                                 }} onChange={(isVisible) => {
                                                     if (isVisible) { setFocus(true); }
                                                 }}

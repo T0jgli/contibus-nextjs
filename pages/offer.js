@@ -20,7 +20,7 @@ const Offer = () => {
             <Formoffer />
             <Gallery />
             <Head>
-                <title>{language === "en" ? ("Contibus - Offer - Specialist Coach Travel") : ("Contibus - Ajánlatkérés - Az utazás szakértői")}</title>
+                <title>{language === "en" ? ("Offer - Contibus - Specialist Coach Travel") : ("Ajánlatkérés - Contibus - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
             </Head>

@@ -28,7 +28,7 @@ const Home = () => {
             <Streak />
             <Cards />
             <Head>
-                <title>{language === "en" ? ("Contibus - Home - Specialist Coach Travel") : ("Contibus - Kezdőlap - Az utazás szakértői")}</title>
+                <title>{language === "en" ? ("Home - Contibus - Specialist Coach Travel") : ("Kezdőlap - Contibus - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             </Head>
         </motion.div>
