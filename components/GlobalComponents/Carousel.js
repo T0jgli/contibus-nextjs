@@ -23,9 +23,6 @@ const Carousel = () => {
     const { pathname } = useRouter();
     const language = useSelector(selectlanguage)
     const [contactform, setcontactform] = useState(false)
-    useEffect(() => {
-        shuffleArray(carids);
-    }, [])
     return (
         <>
             <MDBCarousel
