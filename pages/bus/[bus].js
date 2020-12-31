@@ -34,7 +34,6 @@ const OneBus = () => {
                     </MDBBtn>
                 </div>
             </Fade>
-
             <OneBusBody />
         </motion.section>
     )
