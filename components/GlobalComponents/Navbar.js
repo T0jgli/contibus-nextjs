@@ -44,20 +44,20 @@ const Navbar = () => {
                         <MDBNavbarNav left>
                             <MDBNavItem active={pathname === "" ? (true) : pathname === "/" ? (true) : (false)}>
                                 <Link href="/">
-                                    <a className="nav-link rounded">{language === "en" ? ("Home") : ("Kezdőlap")}
+                                    <a className="nav-link Ripple-parent rounded">{language === "en" ? ("Home") : ("Kezdőlap")}
                                     </a>
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem active={pathname === "/offer" ? (true) : (false)}>
                                 <Link href="/offer">
-                                    <a className="nav-link rounded">{language === "en" ? ("Offer request") : ("Ajánlatkérés")}
+                                    <a className="nav-link Ripple-parent rounded">{language === "en" ? ("Offer request") : ("Ajánlatkérés")}
                                     </a>
 
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem active={pathname.includes("bus") ? (true) : (false)}>
                                 <Link href="/buses">
-                                    <a className="nav-link rounded">{language === "en" ? ("Our buses") : ("Autóbuszok")}
+                                    <a className="nav-link Ripple-parent rounded">{language === "en" ? ("Our buses") : ("Autóbuszok")}
                                     </a>
 
                                 </Link>

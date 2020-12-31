@@ -99,26 +99,23 @@ const Rating = () => {
             </Fade>
             <Fade triggerOnce delay={200}>
                 <MDBRow className="justify-content-center mx-auto pb-5">
-                    {value > 0 && (
-                        <RatingComp
-                            name="feedback"
-                            value={value}
-                            precision={1}
-                            onChange={(event, newValue) => {
-                                if (newValue === null) {
-                                    localStorage.removeItem("Feedback")
-                                }
-                                else
-                                    localStorage.setItem("Feedback", newValue)
-                                setValue(newValue);
-                                setpopover({ popover: true, anchorEl: event.currentTarget })
-                            }}
-                            onChangeActive={(event, newHover) => {
-                            }}
-                            size="large"
-                        />
-                    )}
-
+                    <RatingComp
+                        name="feedback"
+                        value={value}
+                        precision={1}
+                        onChange={(event, newValue) => {
+                            if (newValue === null) {
+                                localStorage.removeItem("Feedback")
+                            }
+                            else
+                                localStorage.setItem("Feedback", newValue)
+                            setValue(newValue);
+                            setpopover({ popover: true, anchorEl: event.currentTarget })
+                        }}
+                        onChangeActive={(event, newHover) => {
+                        }}
+                        size="large"
+                    />
                     {value > 0 && (
                         <Popover
                             open={popover.popover}
