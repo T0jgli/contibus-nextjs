@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8080",
-    "export": "next export"
+    "start": "next start -p 8080"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",

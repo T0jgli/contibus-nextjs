@@ -43,19 +43,19 @@ const Navbar = () => {
                         <MDBNavbarNav left>
                             <MDBNavItem active={pathname === "" ? (true) : pathname === "/" ? (true) : (false)}>
                                 <Link href="/" passHref>
-                                    <a data-test="nav-link" className="nav-link Ripple-parent rounded">{language === "en" ? ("Home") : ("Kezdőlap")}
+                                    <a data-test="nav-link" className="nav-link rounded">{language === "en" ? ("Home") : ("Kezdőlap")}
                                     </a>
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem active={pathname === "/offer" ? (true) : (false)}>
                                 <Link href="/offer" passHref>
-                                    <a data-test="nav-link" className="nav-link Ripple-parent rounded">{language === "en" ? ("Offer request") : ("Ajánlatkérés")}
+                                    <a data-test="nav-link" className="nav-link rounded">{language === "en" ? ("Offer request") : ("Ajánlatkérés")}
                                     </a>
                                 </Link>
                             </MDBNavItem>
                             <MDBNavItem active={pathname.includes("bus") ? (true) : (false)}>
                                 <Link href="/buses" passHref>
-                                    <a data-test="nav-link" className="nav-link Ripple-parent rounded">{language === "en" ? ("Our buses") : ("Autóbuszok")}
+                                    <a data-test="nav-link" className="nav-link rounded">{language === "en" ? ("Our buses") : ("Autóbuszok")}
                                     </a>
                                 </Link>
                             </MDBNavItem>

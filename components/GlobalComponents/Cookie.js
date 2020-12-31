@@ -12,10 +12,13 @@ const Cookie = () => {
     const [ready, setready] = useState(false)
 
     useEffect(() => {
-        if (localStorage.getItem("EnableCookies") !== "true") {
-            setshow(true)
-        }
         setready(true)
+        if (localStorage.getItem("EnableCookies") !== "true") {
+            setTimeout(() => {
+                setshow(true)
+            }, 750);
+        }
+
     }, [])
     return (
         <>
