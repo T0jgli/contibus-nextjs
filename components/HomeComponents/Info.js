@@ -33,11 +33,11 @@ const Info = () => {
                         <section>
                             <h2 className="mb-3">{language === "en" ? ("Who are we?") : ("Kik vagyunk mi?")}</h2>
                             <hr />
-                            <p className="m-0">{language === "en" ? ("The company has been dealing passenger traffic since 1992.") :
+                            <p>{language === "en" ? ("The company has been dealing passenger traffic since 1992.") :
                                 ("Cégünk 1992 óta foglalkozik személyszállítással.")}</p>
-                            <p className="m-0">{language === "en" ? ("All of our buses fit the strict international standards.") :
+                            <p>{language === "en" ? ("All of our buses fit the strict international standards.") :
                                 ("Minden autóbuszunk megfelel a szigorú nemzetközi előírásoknak.")} </p>
-                            <p className="m-0">{language === "en" ? ("Our drivers have a lot of experience in European travel.") :
+                            <p>{language === "en" ? ("Our drivers have a lot of experience in European travel.") :
                                 ("Gépkocsivezetőink nagy tapasztalattal rendelkeznek az európai utaztatásban.")}</p>
                             <p className="mt-1 mb-0 desctext">{language === "en" ? ("Our partners: ") : ("Partnereink:")}
                             </p>
