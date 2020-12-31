@@ -74,12 +74,12 @@ const Footer = () => {
                             </MDBCol>
                         </MDBRow>
                         <MDBCol className="mx-auto flex-center mt-2 mb-4" id="footer-social">
-                            <a className="fb-ic flag" target="_blank" rel="noopener noreferrer"
+                            <a role="button" className="fb-ic flag" target="_blank" rel="noopener noreferrer"
                                 href="https://www.facebook.com/Contibus-Neoline-432462590213055">
                                 <MDBIcon fab icon="facebook-f" size="lg" className="pr-2" />
                             </a>
 
-                            <a className="tw-ic flag" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/contibus_hivatalos/">
+                            <a role="button" className="tw-ic flag" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/contibus_hivatalos/">
                                 <MDBIcon fab icon="instagram" size="lg" className="pl-2" />
                             </a>
                         </MDBCol>

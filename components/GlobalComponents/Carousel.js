@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
 import { selectlanguage } from '../../lib/AppSlice'
@@ -8,25 +8,24 @@ import ReactGA from 'react-ga'
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
 
+const carids = ["carr11", "carr22", "carr33"];
+
+function shuffleArray (array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
 const Carousel = () => {
     const { pathname } = useRouter();
     const language = useSelector(selectlanguage)
     const [contactform, setcontactform] = useState(false)
-
-    const carids = ["carr11", "carr22", "carr33"];
-
-    function shuffleArray (array) {
-        if (!contactform)
-            for (let i = array.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                let temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-    }
-
-    shuffleArray(carids);
+    useEffect(() => {
+        shuffleArray(carids);
+    }, [])
     return (
         <>
             <MDBCarousel

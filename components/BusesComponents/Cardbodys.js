@@ -26,12 +26,11 @@ const Cardbodys = ({ item, what }) => {
                         </p>
                         {what === "Muzeum" ? (<p className='card-text d-sm-none d-md-inline'>{item.fields.desc}</p>) :
                             (<div className="card-text font-weight-bolder">
-                                <Link href={`/bus/${item.fields.id.replaceAll(/\s+/g, "-")}`}>
+                                <Link href={`/bus/${item.fields.id.replaceAll(/\s+/g, "-")}`} passHref>
                                     <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mx-auto mt-lg-5 muzeumbtn">
                                         {language === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
                                     </MDBBtn>
                                 </Link>
-
                             </div>)}
                     </MDBCardBody>
                 </MDBCard>

@@ -50,7 +50,9 @@ const DefaultLayout = ({ children }) => {
             <AnimatePresence exitBeforeEnter>
                 {children}
             </AnimatePresence>
-            <Cookie />
+            {typeof windows !== "undefined" && (
+                <Cookie />
+            )}
             <Footer />
             <div className="d-none d-md-block">
                 <Scrolltopbutton />
