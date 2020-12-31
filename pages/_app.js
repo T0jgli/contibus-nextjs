@@ -6,6 +6,10 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import 'react-image-lightbox/style.css';
 
+import '@fullcalendar/common/main.css' // @fullcalendar/react imports @fullcalendar/common
+import '@fullcalendar/daygrid/main.css' // @fullcalendar/timegrid imports @fullcalendar/daygrid
+import '@fullcalendar/timegrid/main.css' // @fullcalendar/timegrid is a direct import
+import '@fullcalendar/list/main.css' // @fullcalendar/timegrid is a direct import
 
 import '../styles/print.scss'
 import '../styles/index.css';
