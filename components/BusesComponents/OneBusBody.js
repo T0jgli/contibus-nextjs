@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectBusesData, selectlanguage } from '../../lib/AppSlice'
 

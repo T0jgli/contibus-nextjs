@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga'
-import { useRouter } from "next/router"
 import Head from 'next/head'
 
 import Info from "../components/HomeComponents/Info"
@@ -30,7 +28,7 @@ const Home = () => {
             <Streak />
             <Cards />
             <Head>
-                <title>{language === "en" ? ("Contibus - Specialist Coach Travel - Home") : ("Contibus - Az utazás szakértői - Kezdőlap")}</title>
+                <title>{language === "en" ? ("Contibus - Home - Specialist Coach Travel") : ("Contibus - Kezdőlap - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             </Head>
         </motion.div>

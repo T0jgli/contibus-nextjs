@@ -22,8 +22,6 @@ const Carousel = () => {
     const { pathname } = useRouter();
     const language = useSelector(selectlanguage)
     const [contactform, setcontactform] = useState(false)
-    const caridsss = shufflearray(["carr11", "carr22", "carr33"])
-
     const carids = ["carr11", "carr22", "carr33"].sort(() => 0.5 - Math.random())
     return (
         <>

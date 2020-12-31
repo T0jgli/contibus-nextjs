@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { selectlanguage, setbusesData, setmuzeumData } from '../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
-import InitialTransition from './GlobalComponents/Initaltransition';
+//import InitialTransition from './GlobalComponents/Initaltransition';
 import Navbar from './GlobalComponents/Navbar'
 import Snackbars from './GlobalComponents/Snackbars'
 

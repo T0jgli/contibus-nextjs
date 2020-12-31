@@ -10,11 +10,9 @@ import OneBusBody from '../../components/BusesComponents/OneBusBody'
 import { useSelector } from 'react-redux'
 import { selectlanguage } from '../../lib/AppSlice'
 import { Fade } from 'react-awesome-reveal'
-import { useRouter } from 'next/router'
 
 const OneBus = () => {
     const language = useSelector(selectlanguage)
-    const router = useRouter()
     return (
         <motion.section initial="initial"
             animate="animate"

@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga'
-import { useRouter } from "next/router"
 import Head from 'next/head'
 
 import Carousel from '../components/GlobalComponents/Carousel';
@@ -22,7 +20,7 @@ const Offer = () => {
             <Formoffer />
             <Gallery />
             <Head>
-                <title>{language === "en" ? ("Contibus - Specialist Coach Travel - Offer") : ("Contibus - Az utazás szakértői - Ajánlatkérés")}</title>
+                <title>{language === "en" ? ("Contibus - Offer - Specialist Coach Travel") : ("Contibus - Ajánlatkérés - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
             </Head>
