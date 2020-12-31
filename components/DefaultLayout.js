@@ -50,7 +50,7 @@ const DefaultLayout = ({ children }) => {
             <AnimatePresence exitBeforeEnter>
                 {children}
             </AnimatePresence>
-            {typeof windows !== "undefined" && (
+            {typeof window !== "undefined" && (
                 <Cookie />
             )}
             <Footer />
