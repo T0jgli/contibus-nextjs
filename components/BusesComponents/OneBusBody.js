@@ -8,12 +8,12 @@ import UpdateIcon from '@material-ui/icons/Update';
 import SpeedIcon from '@material-ui/icons/Speed';
 import NumberFormat from 'react-number-format';
 import Fslightboxes from '../GlobalComponents/Fslightboxes'
-import { Helmet } from 'react-helmet'
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import { IconButton, Tooltip } from '@material-ui/core'
 import AirlineSeatReclineNormalIcon from '@material-ui/icons/AirlineSeatReclineNormal';
 import { Fade } from 'react-awesome-reveal'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 //import { getEquipmentList } from '../../lib/getEquipmentList'
 
 
@@ -41,9 +41,10 @@ const OneBusBody = () => {
         <>
             {thisbus ? (
                 <>
-                    <Helmet>
+                    <Head>
                         <title>Contibus - {thisbus.fields.bus}</title>
-                    </Helmet>
+                        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                    </Head>
 
                     <div className="onebus__container w-75 mx-auto my-5 pt-3">
                         <MDBRow>
