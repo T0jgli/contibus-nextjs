@@ -8,13 +8,23 @@ import ReactGA from 'react-ga'
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
 
+function shufflearray (array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * i)
+        let k = array[i]
+        array[i] = array[j]
+        array[j] = k
+    }
+    return array
+}
 
 const Carousel = () => {
     const { pathname } = useRouter();
     const language = useSelector(selectlanguage)
     const [contactform, setcontactform] = useState(false)
-    const carids = ["carr11", "carr22", "carr33"].sort(() => Math.random() - 0.5);
+    const caridsss = shufflearray(["carr11", "carr22", "carr33"])
 
+    const carids = ["carr11", "carr22", "carr33"].sort(() => 0.5 - Math.random())
     return (
         <>
             <MDBCarousel
