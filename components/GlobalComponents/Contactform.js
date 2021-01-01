@@ -32,8 +32,8 @@ const Contactform = ({ contactform, setcontactform }) => {
             url: "/api/contact",
             data: state
         }).then((response) => {
-            setstate({ ...state, loading: false })
             if (response.status == 200) {
+                setstate(initialState)
                 dispatch(setsnackbar({
                     snackbar: {
                         open: true,
@@ -42,7 +42,6 @@ const Contactform = ({ contactform, setcontactform }) => {
                         en: "Successfully sent! We will contact you shortly.",
                     }
                 }))
-                setstate(initialState)
                 setcontactform(!contactform)
                 ReactGA.pageview(window.location.pathname)
                 window.scrollTo(0, 0)

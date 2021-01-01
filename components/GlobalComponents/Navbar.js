@@ -11,6 +11,8 @@ import Link from 'next/link'
 import Calendar from './Calendar';
 import ReactGA from 'react-ga'
 import { setCookie } from '../../lib/CookieHelper';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Navbar = () => {
     const router = useRouter();
@@ -27,7 +29,7 @@ const Navbar = () => {
     }, [router.pathname])
     return (
         <>
-            <MDBNavbar className="w-100 animated fadeInDown" fixed="top" color="elegant-color-dark" dark scrolling transparent expand="md">
+            {/* <MDBNavbar className="w-100 animated fadeInDown" fixed="top" color="elegant-color-dark" dark scrolling transparent expand="md">
                 <div className="container px-0 py-lg-2">
                     <MDBNavbarBrand onClick={() => window.location.reload(false)} >
                         <MDBIcon icon="bus" />
@@ -140,7 +142,79 @@ const Navbar = () => {
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </div>
-            </MDBNavbar>
+            </MDBNavbar> */}
+            <nav>
+                <div className="navbar__container">
+                    <a className="navbar__logo">
+                        <MDBIcon icon="bus" />
+                        <span style={{ cursor: "pointer", paddingLeft: "5px" }}>ContiBUS
+                        </span>
+
+                    </a>
+                    <div className="navbar__mobileicon" onClick={() => setIsOpen(true)}>
+                        <MenuIcon fontSize="large" />
+                    </div>
+                    <ul className="navbar__menu">
+                        <li>
+                            <Link href="/" passHref>
+                                <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} navbar__link`}>
+                                    Kezdőlap
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/offer" passHref>
+                                <a className={`${router.pathname === "/offer" && "active"} navbar__link`}>
+                                    Ajánlatkérés
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/buses" passHref>
+                                <a className={`${router.pathname.includes("bus") && "active"} navbar__link`}>
+                                    Autóbuszaink
+                                </a>
+                            </Link>
+                        </li>
+                    </ul>
+                    <div className="navbar__btn">
+                        <a>
+                            Jegyfoglalás
+                    </a>
+                    </div>
+                </div>
+            </nav>
+            <aside className={`${isOpen ? "open" : "closed"}`}>
+                <div className="sidebar__icon">
+                    <CloseIcon fontSize="large" onClick={() => setIsOpen(!isOpen)} />
+                </div>
+                <div>
+                    <ul>
+                        <Link href="/" passHref>
+                            <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} sidebar__link`}>
+                                Kezdőlap
+                            </a>
+                        </Link>
+                        <Link href="/offer" passHref>
+                            <a className={`${router.pathname === "/offer" && "active"} sidebar__link`}>
+                                Ajánlatkérés
+                            </a>
+                        </Link>
+
+                        <Link href="/buses" passHref>
+                            <a className={`${router.pathname.includes("bus") && "active"} sidebar__link`}>
+                                Autóbuszaink
+                        </a>
+                        </Link>
+                        <a className="sidebar__link">
+                            asdasd
+                    </a>
+                    </ul>
+                    <div className="sidebar__btn">
+                        <a>Jegyfoglalás</a>
+                    </div>
+                </div>
+            </aside>
 
             <Snackbar autoHideDuration={3000} open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
                 <SnackbarContent message={router.locale === "en" ? ("Language set") : ("Nyelv sikeresen beállítva")} />

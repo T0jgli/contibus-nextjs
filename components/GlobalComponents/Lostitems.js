@@ -63,8 +63,8 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                 url: "/api/lostitems",
                 data: state
             }).then((response) => {
-                setstate({ ...state, loading: false })
                 if (response.status == 200) {
+                    setstate(initialState)
                     dispatch(setsnackbar({
                         snackbar: {
                             open: true,
@@ -73,7 +73,6 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                             en: "Successfully sent! We will contact you shortly.",
                         }
                     }))
-                    setstate(initialState)
                     setelveszett(!elveszett)
                     ReactGA.pageview(window.location.pathname)
                     window.scrollTo(0, 0)

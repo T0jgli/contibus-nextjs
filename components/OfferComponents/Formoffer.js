@@ -73,8 +73,8 @@ const Formoffer = () => {
                         url: "/api/offer",
                         data: state
                     }).then((response) => {
-                        setstate({ ...state, loading: false })
                         if (response.status == 200) {
+                            setstate(initialstate)
                             window.scrollTo(0, 0)
                             dispatch(setsnackbar({
                                 snackbar: {
@@ -84,7 +84,6 @@ const Formoffer = () => {
                                     en: "Successfully sent! We will contact you shortly.",
                                 }
                             }))
-                            setstate(initialstate)
                         } else {
                             console.log(response.data)
                             window.scrollTo(0, 0)
