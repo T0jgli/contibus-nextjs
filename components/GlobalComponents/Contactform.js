@@ -33,7 +33,7 @@ const Contactform = ({ contactform, setcontactform }) => {
             data: state
         }).then((response) => {
             setstate({ ...state, loading: false })
-            if (response.data.status === 'success') {
+            if (response.status == 200) {
                 dispatch(setsnackbar({
                     snackbar: {
                         open: true,
@@ -46,14 +46,14 @@ const Contactform = ({ contactform, setcontactform }) => {
                 setcontactform(!contactform)
                 ReactGA.pageview(window.location.pathname)
                 window.scrollTo(0, 0)
-            } else if (response.data.status === 'fail') {
+            } else {
                 console.log(response.data)
                 dispatch(setsnackbar({
                     snackbar: {
                         open: true,
                         type: "success",
-                        hu: response.data,
-                        en: response.data,
+                        hu: response.data.error,
+                        en: response.data.error,
                     }
                 }))
                 setstate(initialState)
@@ -106,7 +106,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                                                     label={locale === "en" ? ("Email address") : ("Email cím")}
                                                     name="Email"
                                                     iconClass="grey-text"
-                                                    type="text"
+                                                    type="email"
                                                 />
                                             </MDBCol>
                                         </div>

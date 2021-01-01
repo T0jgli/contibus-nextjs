@@ -74,7 +74,7 @@ const Formoffer = () => {
                         data: state
                     }).then((response) => {
                         setstate({ ...state, loading: false })
-                        if (response.data.status === 'success') {
+                        if (response.status == 200) {
                             window.scrollTo(0, 0)
                             dispatch(setsnackbar({
                                 snackbar: {
@@ -85,15 +85,15 @@ const Formoffer = () => {
                                 }
                             }))
                             setstate(initialstate)
-                        } else if (response.data.status === 'fail') {
+                        } else {
                             console.log(response.data)
                             window.scrollTo(0, 0)
                             dispatch(setsnackbar({
                                 snackbar: {
                                     open: true,
                                     type: "error",
-                                    hu: response.data,
-                                    en: response.data,
+                                    hu: response.data.error,
+                                    en: response.data.error,
                                 }
                             }))
                             setstate(initialstate)
