@@ -9,24 +9,27 @@ import axios from 'axios';
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
 
+
+const initialState = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    loading: false
+}
+
 const Contactform = ({ contactform, setcontactform }) => {
     const { locale } = useRouter()
 
     const dispatch = useDispatch()
-    const [state, setstate] = useState({
-        name: null,
-        email: null,
-        subject: null,
-        message: null,
-        loading: false
-    })
+    const [state, setstate] = useState(initialState)
     const handlesubmit = (e) => {
         e.preventDefault();
         setstate({ ...state, loading: true })
 
         axios({
             method: "POST",
-            url: process.env.REACT_APP_CONTIBUS_CONTACTURL,
+            url: "/api/contact",
             data: state
         }).then((response) => {
             setstate({ ...state, loading: false })
@@ -39,7 +42,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                         en: "Successfully sent! We will contact you shortly.",
                     }
                 }))
-                setstate({})
+                setstate(initialState)
                 setcontactform(!contactform)
                 ReactGA.pageview(window.location.pathname)
                 window.scrollTo(0, 0)
@@ -53,7 +56,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                         en: response.data,
                     }
                 }))
-                setstate({})
+                setstate(initialState)
                 setcontactform(!contactform)
                 ReactGA.pageview(window.location.pathname)
                 window.scrollTo(0, 0)

@@ -27,7 +27,6 @@ const _app = ({ Component, pageProps }) => {
       <Component {...pageProps} />
     </DefaultLayout>
   )
-
 }
 
 export default wrapper.withRedux(_app);

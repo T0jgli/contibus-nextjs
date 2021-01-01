@@ -74,62 +74,60 @@ const Navbar = () => {
                         </MDBNavbarNav>
 
                         <MDBNavbarNav className="nav-flex-icons" right>
-                            {typeof window !== "undefined" && (
-                                <div className="d-flex">
-                                    <MDBNavItem>
-                                        <MDBCol className="flex-center">
-                                            <MDBRow className="">
-                                                <div className="img-fluid pr-2">
-                                                    <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
-                                                        onClick={() => {
-                                                            if (router.pathname.includes("bus/")) {
-                                                                router.push({
-                                                                    pathname: "/bus/[bus]",
-                                                                    query: {
-                                                                        bus: window.location.pathname.split("/").slice(-1)[0]
-                                                                    }
-                                                                }, "/bus/[bus]", { locale: "hu" })
-                                                            }
-                                                            else {
-                                                                router.push(router.pathname, router.pathname, { locale: "hu" })
-                                                            }
-                                                            document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-                                                            if (router.locale === "en")
-                                                                setlangtoast(true);
-                                                        }} alt="language_huicon" />
-                                                </div>
-                                            </MDBRow>
-                                        </MDBCol>
-                                    </MDBNavItem>
-                                    <MDBNavItem>
-                                        <MDBCol className="flex-center">
-                                            <MDBRow className="">
-                                                <div className="img-fluid pr-2">
-                                                    <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
-                                                        onClick={() => {
-                                                            if (router.pathname.includes("bus/")) {
-                                                                console.log(window.location.pathname.split("/").slice(-1)[0])
-                                                                router.push({
-                                                                    pathname: "/bus/[bus]",
-                                                                    query: {
-                                                                        bus: window.location.pathname.split("/").slice(-1)[0]
-                                                                    }
-                                                                }, "/bus/[bus]", { locale: "en" })
-                                                            }
-                                                            else {
-                                                                router.push(router.pathname, router.pathname, { locale: "en" })
-                                                            }
-                                                            setCookie("NEXT_LOCALE", "en", 365)
-                                                            if (router.locale === "hu")
-                                                                setlangtoast(true);
-                                                        }} alt="language_enicon" />
-                                                </div>
+                            <div className="d-flex">
+                                <MDBNavItem>
+                                    <MDBCol className="flex-center">
+                                        <MDBRow className="">
+                                            <div className="img-fluid pr-2">
+                                                <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                                                    onClick={() => {
+                                                        if (router.pathname.includes("bus/")) {
+                                                            router.push({
+                                                                pathname: "/bus/[bus]",
+                                                                query: {
+                                                                    bus: window.location.pathname.split("/").slice(-1)[0]
+                                                                }
+                                                            }, "/bus/[bus]", { locale: "hu" })
+                                                        }
+                                                        else {
+                                                            router.push(router.pathname, router.pathname, { locale: "hu" })
+                                                        }
+                                                        document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                                                        if (router.locale === "en")
+                                                            setlangtoast(true);
+                                                    }} alt="language_huicon" />
+                                            </div>
+                                        </MDBRow>
+                                    </MDBCol>
+                                </MDBNavItem>
+                                <MDBNavItem>
+                                    <MDBCol className="flex-center">
+                                        <MDBRow className="">
+                                            <div className="img-fluid pr-2">
+                                                <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
+                                                    onClick={() => {
+                                                        if (router.pathname.includes("bus/")) {
+                                                            console.log(window.location.pathname.split("/").slice(-1)[0])
+                                                            router.push({
+                                                                pathname: "/bus/[bus]",
+                                                                query: {
+                                                                    bus: window.location.pathname.split("/").slice(-1)[0]
+                                                                }
+                                                            }, "/bus/[bus]", { locale: "en" })
+                                                        }
+                                                        else {
+                                                            router.push(router.pathname, router.pathname, { locale: "en" })
+                                                        }
+                                                        setCookie("NEXT_LOCALE", "en", 365)
+                                                        if (router.locale === "hu")
+                                                            setlangtoast(true);
+                                                    }} alt="language_enicon" />
+                                            </div>
 
-                                            </MDBRow>
-                                        </MDBCol>
-                                    </MDBNavItem>
-                                </div>
-                            )}
+                                        </MDBRow>
+                                    </MDBCol>
+                                </MDBNavItem>
+                            </div>
 
 
                             <MDBNavItem id="ticketbtn" onClick={() => setIsOpen(!isOpen)} className="rounded">

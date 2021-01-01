@@ -13,22 +13,24 @@ import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
 
+const initialState = {
+    name: "",
+    date: "",
+    bus: "",
+    desc: "",
+    phone: "",
+    email: "",
+    comment: "",
+    newsletterlost: false,
+    file: null,
+    loading: false
+}
+
 const Lostitems = ({ elveszett, setelveszett }) => {
     const { locale } = useRouter()
     const dispatch = useDispatch()
 
-    const [state, setstate] = useState({
-        name: "",
-        date: "",
-        bus: "",
-        desc: "",
-        phone: "",
-        email: "",
-        comment: "",
-        newsletterlost: false,
-        file: null,
-        loading: false
-    })
+    const [state, setstate] = useState(initialState)
     const [accept, setaccept] = useState(false)
     const [accepterror, setaccepterror] = useState(false)
 
@@ -58,7 +60,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
 
             axios({
                 method: "POST",
-                url: process.env.REACT_APP_CONTIBUS_LOSTITEMSURL,
+                url: "/api/lostitems",
                 data: state
             }).then((response) => {
                 setstate({ ...state, loading: false })
@@ -71,7 +73,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                             en: "Successfully sent! We will contact you shortly.",
                         }
                     }))
-                    setstate({})
+                    setstate(initialState)
                     setelveszett(!elveszett)
                     ReactGA.pageview(window.location.pathname)
                     window.scrollTo(0, 0)
@@ -85,7 +87,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                             en: response.data,
                         }
                     }))
-                    setstate({})
+                    setstate(initialState)
                     setelveszett(!elveszett)
                     ReactGA.pageview(window.location.pathname)
                     window.scrollTo(0, 0)

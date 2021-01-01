@@ -36,19 +36,7 @@ const Formoffer = () => {
     const router = useRouter();
 
     const [state, setstate] = useState({
-        name: "",
-        phone: "",
-        email: "",
-        uticel: "",
-        koltseg: "",
-        indulas: "",
-        erkezes: "",
-        seat: "def",
-        selectedbus: router.query?.selectedbus || null,
-        newsletter: false,
-        comment: "",
-        loading: false,
-        accept: false
+        ...initialstate, selectedbus: router.query?.selectedbus || null
     })
     const [accepterror, setaccepterror] = useState(false)
     const handlesubmit = (e) => {
@@ -82,7 +70,7 @@ const Formoffer = () => {
 
                     axios({
                         method: "POST",
-                        url: process.env.REACT_APP_CONTIBUS_OFFERURL,
+                        url: "/api/offer",
                         data: state
                     }).then((response) => {
                         setstate({ ...state, loading: false })

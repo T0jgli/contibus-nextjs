@@ -11,6 +11,8 @@ import { useRouter } from 'next/router'
 
 const OneBus = () => {
     const router = useRouter()
+    console.log(router)
+
     return (
         <motion.section initial="initial"
             animate="animate"
