@@ -1,5 +1,4 @@
 import React from 'react'
-import { Provider } from 'react-redux';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -17,7 +16,7 @@ import "../styles/buses.scss"
 
 import DefaultLayout from '../components/DefaultLayout'
 import ReactGA from 'react-ga';
-import store, { wrapper } from '../lib/store';
+import { wrapper } from '../lib/store';
 
 ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID)
 

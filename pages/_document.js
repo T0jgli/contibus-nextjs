@@ -8,6 +8,7 @@ class MyDocument extends Document {
                 <Head />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="apple-touch-icon" href="/favicon.ico" />
+                <link rel="alternate" hreflang="en" href="https://contibus-nextjs.vercel.app/en" />
                 <meta httpEquiv="x-ua-compatible" content="ie=edge" />
                 <meta name="description"
                     content="Cégünk autóbusz bérbeadással foglalkozik. 18-83 fős autóbuszokkal vállaljuk cégek, iskolák, baráti társaságok utazásainak lebonyolítását." />
@@ -20,8 +21,8 @@ class MyDocument extends Document {
                 <meta name="content-language" content="hu, en" />
                 <meta property="og:description"
                     content="1990 óta foglalkozunk belföldi és nemzetközi autóbuszos személyszállítással. Szolgáltatásunk közé tartozik többek között: autóbusz bérlés és kölcsönzés, iskolai osztálykirándulások, szakmai utak, dolgozók szállítása és munkásjáratok szervezése." />
-                <meta property="og:url" content="https://contibus.web.app" />
-                <meta property="og:image" content="/img/3.jpg" />
+                <meta property="og:url" content="https://contibus-nextjs.vercel.app" />
+                <meta property="og:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
                 <meta property="og:site_name" content="Contibus - Az utazás szakértői" />
                 <meta property="og:title" content="Contibus - Az utazás szakértői" />
                 <meta property="og:locale" content="hu_HU" />
@@ -29,7 +30,7 @@ class MyDocument extends Document {
                 <meta name="twitter:title" content="Contibus - Az utazás szakértői" />
                 <meta name="twitter:description"
                     content="1990 óta foglalkozunk belföldi és nemzetközi autóbuszos személyszállítással. Szolgáltatásunk közé tartozik többek között: autóbusz bérlés és kölcsönzés, iskolai osztálykirándulások, szakmai utak, dolgozók szállítása és munkásjáratok szervezése." />
-                <meta name="twitter:image" content="/img/3.jpg" />
+                <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
                 <title>
                     Contibus
                 </title>
