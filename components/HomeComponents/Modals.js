@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 
 const Modals = ({ modalsopen, setmodalsopen }) => {
-    const router = useRouter()
+    const { locale } = useRouter()
     return (
         <>
             <MDBModal cascading modalStyle={modalsopen?.style}
@@ -24,7 +24,7 @@ const Modals = ({ modalsopen, setmodalsopen }) => {
                     ReactGA.pageview(window.location.pathname)
                 }
                 }>
-                    {router.locale === "en" ? (modalsopen?.title.en) : (modalsopen?.title.hu)}
+                    {locale === "en" ? (modalsopen?.title.en) : (modalsopen?.title.hu)}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     {modalsopen?.details}
@@ -36,7 +36,7 @@ const Modals = ({ modalsopen, setmodalsopen }) => {
                             ReactGA.pageview(window.location.pathname)
                         }
                         }>
-                            {router.locale === "en" ? ("Close") : ("Bezárás")}
+                            {locale === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

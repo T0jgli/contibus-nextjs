@@ -14,7 +14,7 @@ import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
 
 const Lostitems = ({ elveszett, setelveszett }) => {
-    const router = useRouter()
+    const { locale } = useRouter()
     const dispatch = useDispatch()
 
     const [state, setstate] = useState({
@@ -115,61 +115,74 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                     setelveszett(!elveszett)
                     ReactGA.pageview(window.location.pathname)
                 }}>
-                    {router.locale === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
+                    {locale === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     <MDBCard>
                         <MDBCardHeader className="text-small text-muted text-center">
-                            Az
-                            autóbuszon
-                            felejtett
-                            tárgyakért irodánk felelősséget nem vállal.
-                            <br />
+                            {locale === "en" ? (
+                                <span>
+                                    Our office is not responsible for items forgotten on the bus.
+                                    <br />
+                                    However, we assure you that we will do our best to ensure that the item will be returned to you.
+                                    <br />
+                                    You can pick up the found items at our office at a pre-arranged time.
+                                    <br />
+                                    These objects are stored for 3 months.
+                                </span>) : (
+                                    <span>
+                                        Az
+                                        autóbuszon
+                                        felejtett
+                                        tárgyakért irodánk felelősséget nem vállal.
+                                        <br />
                             Biztosítjuk arról azonban, hogy mindent megteszünk annak érdekében, hogy ha az autóbuszon felejtette
                             akkor visszakerül Önhöz.
-                            <br />
+                                        <br />
                             A megtalált tárgyakat irodánkban előre egyeztetett időpontban veheti át.
-                            <br />
+                                        <br />
                             A megtalált tárgyakat 3 hónapig őrizzük.
+                                    </span>)}
+
                         </MDBCardHeader>
                         <MDBCardBody>
                             <form onSubmit={handlesubmit} className="mx-2">
                                 <div className="form-row my-2">
                                     <MDBCol lg="6">
-                                        <MDBInput label={router.locale === "en" ? ("Name *") : ("Utas neve *")}
+                                        <MDBInput label={locale === "en" ? ("Name *") : ("Utas neve *")}
                                             icon="user" name="name" value={state.name} onChange={e => setstate({ ...state, name: e.target.value })} required />
                                     </MDBCol>
                                     <MDBCol lg="6">
-                                        <MDBInput label={router.locale === "en" ? ("Date of travel *") : ("Utazás dátuma *")}
+                                        <MDBInput label={locale === "en" ? ("Date of travel *") : ("Utazás dátuma *")}
                                             icon="calendar-week" name="date" value={state.date} onChange={e => setstate({ ...state, date: e.target.value })} required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
-                                        <MDBInput label={router.locale === "en" ? ("Which bus did you travel on? *") : ("Melyik autóbusszal utazott? *")}
+                                        <MDBInput label={locale === "en" ? ("Which bus did you travel on? *") : ("Melyik autóbusszal utazott? *")}
                                             value={state.bus} name="bus" onChange={e => setstate({ ...state, bus: e.target.value })} icon="bus" required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
                                         <MDBInput label=
-                                            {router.locale === "en" ? ("Description of the lost item *") : ("Az elveszett tárgy leírása *")}
+                                            {locale === "en" ? ("Description of the lost item *") : ("Az elveszett tárgy leírása *")}
                                             value={state.desc} name="desc" onChange={e => setstate({ ...state, desc: e.target.value })} icon="briefcase" required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol lg="6">
-                                        <MDBInput label={router.locale === "en" ? ("Phone number") : ("Telefonszám")}
+                                        <MDBInput label={locale === "en" ? ("Phone number") : ("Telefonszám")}
                                             type="tel" name="phone" value={state.phone} onChange={e => setstate({ ...state, phone: e.target.value })} icon="phone-alt" />
                                     </MDBCol>
                                     <MDBCol lg="6">
-                                        <MDBInput label={router.locale === "en" ? ("Email address *") : ("Email cím *")}
+                                        <MDBInput label={locale === "en" ? ("Email address *") : ("Email cím *")}
                                             type="email" name="email" value={state.email} onChange={e => setstate({ ...state, email: e.target.value })} icon="envelope" required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
-                                        <MDBInput label={router.locale === "en" ? ("Comment") : ("Egyéb közlendő")}
+                                        <MDBInput label={locale === "en" ? ("Comment") : ("Egyéb közlendő")}
                                             type="textarea" name="comment" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="4" icon="comment" />
                                     </MDBCol>
                                 </div>
@@ -191,8 +204,8 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                         setstate({ ...state, file: e.target.files[0] })
                                                     }}
                                                 />
-                                                <label className="custom-file-label" htmlFor="inputGroupFile01" data-browse={router.locale === "en" ? ("Browse") : ("Tallózás")}>
-                                                    {state.file ? (state.file.name) : router.locale === "en" ? ("Choose file") : ("Fájl csatolása")}
+                                                <label className="custom-file-label" htmlFor="inputGroupFile01" data-browse={locale === "en" ? ("Browse") : ("Tallózás")}>
+                                                    {state.file ? (state.file.name) : locale === "en" ? ("Choose file") : ("Fájl csatolása")}
                                                 </label>
                                             </div>
                                         </div>
@@ -205,7 +218,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                 <Checkbox color="primary" style={{ color: "black" }} checked={state.newsletterlost}
                                                     onChange={() => setstate({ ...state, newsletterlost: !state.newsletterlost })} />
                                             }
-                                            label={router.locale === "en" ? ("Subscribe to newsletter") : ("Feliratkozás a hírlevélre")}
+                                            label={locale === "en" ? ("Subscribe to newsletter") : ("Feliratkozás a hírlevélre")}
                                         />
                                     </FormGroup>
                                 </div>
@@ -216,7 +229,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                 <Checkbox color="primary" style={{ color: "black" }} checked={accept}
                                                     onChange={() => setaccept(!accept)} />
                                             }
-                                            label={router.locale === "en" ? (
+                                            label={locale === "en" ? (
                                                 <>I accept the <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
                                                     privacy policy</a>!
                                                         <ArrowLeftIcon className={accepterror ? ("visible") : ("invisible")} style={{ color: "red" }} />
@@ -235,7 +248,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                 <span className="sr-only">Loading...</span>
                                             </div>
                                         </div>
-                                    ) : router.locale === "en" ? ("Send") : ("Küldés")}
+                                    ) : locale === "en" ? ("Send") : ("Küldés")}
                                 </MDBBtn>
                             </form>
                         </MDBCardBody>
@@ -247,7 +260,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                             setelveszett(!elveszett);
                             ReactGA.pageview(window.location.pathname)
                         }}>
-                            {router.locale === "en" ? ("Close") : ("Bezárás")}
+                            {locale === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

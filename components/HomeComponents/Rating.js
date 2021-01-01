@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 
 const Rating = () => {
     const dispatch = useDispatch()
-    const router = useRouter()
+    const { locale } = useRouter()
 
     const [value, setValue] = useState(0);
     const [textareavalue, settextareavalue] = useState(null);
@@ -25,11 +25,11 @@ const Rating = () => {
     });
 
     const labels = {
-        1: router.locale === "en" ? ("Very bad") : ('Nagyon rossz'),
-        2: router.locale === "en" ? ("Bad") : ('Rossz'),
-        3: router.locale === "en" ? ("Okay") : ('Átlagos'),
-        4: router.locale === "en" ? ("Good") : ('Jó'),
-        5: router.locale === "en" ? ("Perfect") : ('Tökéletes'),
+        1: locale === "en" ? ("Very bad") : ('Nagyon rossz'),
+        2: locale === "en" ? ("Bad") : ('Rossz'),
+        3: locale === "en" ? ("Okay") : ('Átlagos'),
+        4: locale === "en" ? ("Good") : ('Jó'),
+        5: locale === "en" ? ("Perfect") : ('Tökéletes'),
     };
 
     useEffect(() => {
@@ -99,7 +99,7 @@ const Rating = () => {
             <Fade triggerOnce>
                 <MDBRow className="justify-content-center mx-auto pt-3 pb-4">
                     <h3>
-                        {router.locale === "en" ? ("Rate Us") : ("Értékeljen minket")}
+                        {locale === "en" ? ("Rate Us") : ("Értékeljen minket")}
                     </h3>
                 </MDBRow>
             </Fade>
@@ -141,14 +141,14 @@ const Rating = () => {
                                     {labels[value]}
                                 </MDBCardHeader>
                                 <MDBCardBody className="p-3">
-                                    <MDBInput type="textarea" label={router.locale === "en" ? ("Your opinion (optional)") : ("Vélemény (opcionális)")} rows="5" value={textareavalue}
+                                    <MDBInput type="textarea" label={locale === "en" ? ("Your opinion (optional)") : ("Vélemény (opcionális)")} rows="5" value={textareavalue}
                                         onChange={(e) => settextareavalue(e.target.value)} />
                                 </MDBCardBody>
                                 <MDBCardFooter className="p-0 justify-content-between d-flex">
                                     <MDBBtn onClick={SendFeedback} color="warning" className="roundedbtn black-text ml-3 font-weight-bold" size="sm">
-                                        {router.locale === "en" ? ("Send") : ("Küldés")}
+                                        {locale === "en" ? ("Send") : ("Küldés")}
                                     </MDBBtn>
-                                    <Tooltip title={router.locale === "en" ? ("The feedback will not be sent.") : ("Az értékelés nem lesz elküldve.")}>
+                                    <Tooltip title={locale === "en" ? ("The feedback will not be sent.") : ("Az értékelés nem lesz elküldve.")}>
                                         <IconButton onClick={() => setpopover({ popover: false })}>
                                             <CloseIcon />
                                         </IconButton>

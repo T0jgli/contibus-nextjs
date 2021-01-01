@@ -10,7 +10,7 @@ import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
 
 const Contactform = ({ contactform, setcontactform }) => {
-    const router = useRouter()
+    const { locale } = useRouter()
 
     const dispatch = useDispatch()
     const [state, setstate] = useState({
@@ -73,7 +73,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                     ReactGA.pageview(window.location.pathname)
 
                 }}>
-                    <MDBIcon icon="envelope" className="px-2" />{router.locale === "en" ? ("Contact form") : ("Kapcsolat")}
+                    <MDBIcon icon="envelope" className="px-2" />{locale === "en" ? ("Contact form") : ("Kapcsolat")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     <MDBRow>
@@ -88,7 +88,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                                                     required
                                                     value={state.name}
                                                     onChange={(e) => setstate({ ...state, name: e.target.value })}
-                                                    label={router.locale === "en" ? ("Name") : ("Név")}
+                                                    label={locale === "en" ? ("Name") : ("Név")}
                                                     name="Name"
                                                     iconClass="grey-text"
                                                     type="text"
@@ -100,7 +100,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                                                     required
                                                     value={state.email}
                                                     onChange={(e) => setstate({ ...state, email: e.target.value })}
-                                                    label={router.locale === "en" ? ("Email address") : ("Email cím")}
+                                                    label={locale === "en" ? ("Email address") : ("Email cím")}
                                                     name="Email"
                                                     iconClass="grey-text"
                                                     type="text"
@@ -114,7 +114,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                                                     required
                                                     value={state.subject}
                                                     onChange={(e) => setstate({ ...state, subject: e.target.value })}
-                                                    label={router.locale === "en" ? ("Subject") : ("Tárgy")}
+                                                    label={locale === "en" ? ("Subject") : ("Tárgy")}
                                                     name="Subject"
                                                     iconClass="grey-text"
                                                     type="text"
@@ -130,7 +130,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                                                     required
                                                     value={state.message}
                                                     onChange={(e) => setstate({ ...state, message: e.target.value })}
-                                                    label={router.locale === "en" ? ("Message") : ("Üzenet")}
+                                                    label={locale === "en" ? ("Message") : ("Üzenet")}
                                                     name="Message"
                                                     iconClass="grey-text"
                                                     type="textarea"
@@ -146,7 +146,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                                                         <span className="sr-only">Loading...</span>
                                                     </div>
                                                 </div>
-                                            ) : router.locale === "en" ? ("Send") : ("Küldés")}
+                                            ) : locale === "en" ? ("Send") : ("Küldés")}
                                         </MDBBtn>
                                     </form>
 
@@ -161,7 +161,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                             setcontactform(!contactform);
                             ReactGA.pageview(window.location.pathname)
                         }}>
-                            {router.locale === "en" ? ("Close") : ("Bezárás")}
+                            {locale === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

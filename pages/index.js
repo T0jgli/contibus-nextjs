@@ -12,9 +12,12 @@ import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { wrapper } from '../lib/store';
+import SetContentFulData from '../lib/SetContentFulData';
+import { setbusesData } from '../lib/AppSlice';
 
 const Home = () => {
-    const router = useRouter()
+    const { locale } = useRouter()
     return (
         <motion.div initial="initial"
             animate="animate"
@@ -27,7 +30,7 @@ const Home = () => {
             <Streak />
             <Cards />
             <Head>
-                <title>{router.locale === "en" ? ("Contibus - Specialist Coach Travel") : ("Contibus - Az utazás szakértői")}</title>
+                <title>{locale === "en" ? ("Contibus - Specialist Coach Travel") : ("Contibus - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             </Head>
         </motion.div>

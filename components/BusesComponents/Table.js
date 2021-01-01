@@ -14,7 +14,7 @@ import Fslightboxes from '../GlobalComponents/Fslightboxes';
 import { useRouter } from 'next/router';
 
 const Table = ({ tablazat, settablazat }) => {
-    const router = useRouter()
+    const { locale } = useRouter()
     const busesdata = useSelector(selectBusesData)
 
     const [imgtoggler, setimgtoggler] = useState({
@@ -26,7 +26,7 @@ const Table = ({ tablazat, settablazat }) => {
     return (
         <>
             <Fade triggerOnce direction="down">
-                <h3 className="text-center desctext my-4" id="buses-text">{router.locale === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
+                <h3 className="text-center desctext my-4" id="buses-text">{locale === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
             </Fade>
             <Fade triggerOnce direction="up">
                 <MDBBtnGroup className="my-3" id="buses-btngroup">
@@ -34,7 +34,7 @@ const Table = ({ tablazat, settablazat }) => {
                         settablazat(!tablazat)
                         localStorage.removeItem("defaultBusView")
                     }}>
-                        <Tooltip title={router.locale === "en" ? ("Cards") : ("Kártyák")}>
+                        <Tooltip title={locale === "en" ? ("Cards") : ("Kártyák")}>
                             <ViewAgendaIcon fontSize="small" />
                         </Tooltip>
                     </MDBBtn>
@@ -42,7 +42,7 @@ const Table = ({ tablazat, settablazat }) => {
                         settablazat(!tablazat)
                         localStorage.setItem("defaultBusView", "table")
                     }}>
-                        <Tooltip title={router.locale === "en" ? ("Table") : ("Táblázat")}>
+                        <Tooltip title={locale === "en" ? ("Table") : ("Táblázat")}>
                             <TableChartIcon fontSize="small" />
                         </Tooltip>
                     </MDBBtn>
@@ -74,13 +74,13 @@ const Table = ({ tablazat, settablazat }) => {
                         <MDBTableHead className="z-depth-1">
                             <tr className="text-center z-depth-1">
                                 <th>
-                                    <span className="font-weight-bolder">{router.locale === "en" ? ("Vehicles") : ("Járműveink")}</span>
+                                    <span className="font-weight-bolder">{locale === "en" ? ("Vehicles") : ("Járműveink")}</span>
                                 </th>
                                 <th>
 
                                 </th>
                                 <th className="pr-3 text-right">
-                                    <span className="font-weight-bolder">{router.locale === "en" ? ("Prices") : ("Árak")}</span>
+                                    <span className="font-weight-bolder">{locale === "en" ? ("Prices") : ("Árak")}</span>
                                 </th>
                             </tr>
                         </MDBTableHead>
@@ -98,16 +98,7 @@ const Table = ({ tablazat, settablazat }) => {
                 </Fade>
 
             )}
-            {tablazat && (
-                <>
-                    {/* {busesdata.length > 0 && toggler && busesdata.map((item, index) => {
-                        return (
-                            <Busmodals router.locale={router.locale} settoggler={settoggler} toggler={toggler} data={item} key={(400 + index)} dataid={index + 1} />
-                        )
-                    })} */}
-                    <Fslightboxes setimgtoggler={setimgtoggler} data={busesdata} imgtoggler={imgtoggler} />
-                </>
-            )}
+            <Fslightboxes setimgtoggler={setimgtoggler} data={busesdata} imgtoggler={imgtoggler} />
         </>
     )
 }

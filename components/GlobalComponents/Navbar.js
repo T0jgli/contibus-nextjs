@@ -25,7 +25,6 @@ const Navbar = () => {
             setIsOpen(false)
         }
     }, [router.pathname])
-    console.log(router.locale)
     return (
         <>
             <MDBNavbar className="w-100 animated fadeInDown" fixed="top" color="elegant-color-dark" dark scrolling transparent expand="md">
@@ -83,7 +82,15 @@ const Navbar = () => {
                                                 <div className="img-fluid pr-2">
                                                     <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
                                                         onClick={() => {
-                                                            router.push(router.pathname, router.pathname, { locale: "hu" })
+                                                            if (router.pathname.includes("bus/")) {
+                                                                router.push({
+                                                                    pathname: "/bus/[bus]",
+                                                                    query: {
+                                                                        bus: window.location.pathname.split("/").slice(-1)[0]
+                                                                    }
+                                                                }, "/bus/[bus]", { locale: "hu" })
+                                                            }
+                                                            else router.push(router.pathname, router.pathname, { locale: "hu" })
                                                             document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
                                                             if (router.locale === "en")
                                                                 setlangtoast(true);
@@ -98,7 +105,15 @@ const Navbar = () => {
                                                 <div className="img-fluid pr-2">
                                                     <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
                                                         onClick={() => {
-                                                            router.push(router.pathname, router.pathname, { locale: "en" })
+                                                            if (router.pathname.includes("bus/")) {
+                                                                router.push({
+                                                                    pathname: "/bus/[bus]",
+                                                                    query: {
+                                                                        bus: window.location.pathname.split("/").slice(-1)[0]
+                                                                    }
+                                                                }, "/bus/[bus]", { locale: "en" })
+                                                            }
+                                                            else router.push(router.pathname, router.pathname, { locale: "en" })
                                                             setCookie("NEXT_LOCALE", "en", 365)
                                                             if (router.locale === "hu")
                                                                 setlangtoast(true);

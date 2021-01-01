@@ -7,14 +7,14 @@ import Carddeck from './Carddeck';
 import { useRouter } from 'next/router';
 
 const Muzeum = () => {
-    const router = useRouter()
+    const { locale } = useRouter()
     const muzeumdata = useSelector(selectMuzeumData)
 
     let idd = 0;
     return (
         <div className="fadeIn animated">
             <Fade triggerOnce direction="down">
-                <h3 className="text-center text-muted my-4" id="buses-text">{router.locale === "en" ? ("Our museum") : ("Múzeumunk")}</h3>
+                <h3 className="text-center text-muted my-4" id="buses-text">{locale === "en" ? ("Our museum") : ("Múzeumunk")}</h3>
             </Fade>
             {muzeumdata.map((item, index, array) => {
                 if ((index + 1) % 2 !== 0) {

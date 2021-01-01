@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 const Snackbars = () => {
     const dispatch = useDispatch()
 
-    const router = useRouter()
+    const { locale } = useRouter()
     const snackbaropen = useSelector(selectsnackbar)
     return (
         <Snackbar open={snackbaropen?.open} anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -20,7 +20,7 @@ const Snackbars = () => {
                 onClose={(event, reason) => { if (reason === "clickaway") { return; }; dispatch(setsnackbar({ snackbar: { ...snackbaropen, open: false } })) }}
                 severity={snackbaropen?.type}
             >
-                {router.locale === "en" ? (snackbaropen?.en) : (snackbaropen?.hu)}
+                {locale === "en" ? (snackbaropen?.en) : (snackbaropen?.hu)}
             </MuiAlert>
         </Snackbar>
     )

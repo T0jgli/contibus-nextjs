@@ -102,7 +102,7 @@ const OneBusBody = () => {
                                         <div className="onebus__kmdijcontainer d-flex align-items-center mt-5 pt-3">
                                             <EmojiPeopleIcon fontSize="large" />
                                             <div>
-                                                <p className="grey-text m-0 pl-4">SZÁLLÍTHATÓ SZEMÉLYEK</p>
+                                                <p className="grey-text m-0 pl-4">{router.locale === "en" ? ("NUMBER OF SEATS") : ("SZÁLLÍTHATÓ SZEMÉLYEK")}</p>
                                                 <h4 className="grey-text font-weight-bold pt-2 m-0 pl-4">
                                                     {thisbus.fields.title.split(' ').slice(0, 3).join(" ")}
                                                 </h4>

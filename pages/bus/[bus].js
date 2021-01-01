@@ -8,6 +8,9 @@ import { MDBBtn } from 'mdbreact'
 import OneBusBody from '../../components/BusesComponents/OneBusBody'
 import { Fade } from 'react-awesome-reveal'
 import { useRouter } from 'next/router'
+import { wrapper } from '../../lib/store'
+import SetContentFulData from '../../lib/SetContentFulData'
+import { setbusesData } from '../../lib/AppSlice'
 
 const OneBus = () => {
     const router = useRouter()
@@ -20,11 +23,8 @@ const OneBus = () => {
             <Fade triggerOnce direction="up">
                 <div className="flex-center mt-5 mx-auto">
                     <MDBBtn id="back-button" color="warning" onClick={() => {
-                        window.history.back()
-/*                         if (router.length > 2)
-                            router.back()
-                        else router.push("/buses")
- */                    }} className="my-1 black-text roundedbtn font-weight-bolder">
+                        router.push("/buses")
+                    }} className="my-1 black-text roundedbtn font-weight-bolder">
                         « {router.locale === "en" ? ("Back") : ("Vissza")}
                     </MDBBtn>
                 </div>
@@ -35,3 +35,16 @@ const OneBus = () => {
 }
 
 export default OneBus
+
+
+
+export const getServerSideProps = wrapper.getServerSideProps(async ({ store }) => {
+    const busesData = await SetContentFulData("busesData", "-fields.oradij")
+    store.dispatch(
+        setbusesData(
+            {
+                busesData: busesData
+            }
+        )
+    );
+});

@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 const Offer = () => {
-    const router = useRouter()
+    const { locale } = useRouter()
     return (
         <motion.div initial="initial"
             animate="animate"
@@ -19,9 +19,8 @@ const Offer = () => {
             <Formoffer />
             <Gallery />
             <Head>
-                <title>{router.locale === "en" ? ("Offer - Contibus - Specialist Coach Travel") : ("Ajánlatkérés - Contibus - Az utazás szakértői")}</title>
+                <title>{locale === "en" ? ("Offer - Contibus - Specialist Coach Travel") : ("Ajánlatkérés - Contibus - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
             </Head>
         </motion.div>
     )

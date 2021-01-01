@@ -5,14 +5,14 @@ import {
 } from 'mdbreact';
 
 const Busmodals = ({ data, toggler, settoggler, dataid }) => {
-    const router = useRouter()
+    const { locale } = useRouter()
     let newarr = [...toggler];
     return (
         <>
             <MDBModal fade isOpen={toggler[dataid - 1].pict} toggle={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }} size="lg" className="rounded">
                 <MDBModalHeader className="rounded calendar" titleClass="heading lead font-weight-bolder"
                     toggle={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }}>
-                    {router.locale === "en" ? ("Pictures") : ("Képek")}
+                    {locale === "en" ? ("Pictures") : ("Képek")}
                 </MDBModalHeader>
                 <MDBModalBody className="px-3">
                     <MDBContainer>
@@ -37,7 +37,7 @@ const Busmodals = ({ data, toggler, settoggler, dataid }) => {
                 <MDBCard className="rounded">
                     <MDBCardFooter>
                         <MDBBtn color="dark" outline className="float-right roundedbtn" onClick={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }}>
-                            {router.locale === "en" ? ("Close") : ("Bezárás")}
+                            {locale === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

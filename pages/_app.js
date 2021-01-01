@@ -17,20 +17,18 @@ import "../styles/buses.scss"
 
 import DefaultLayout from '../components/DefaultLayout'
 import ReactGA from 'react-ga';
-import store from '../lib/store';
+import store, { wrapper } from '../lib/store';
 
 ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID)
 
 
 const _app = ({ Component, pageProps }) => {
   return (
-    <Provider store={store}>
-      <DefaultLayout>
-        <Component {...pageProps} />
-      </DefaultLayout>
-    </Provider>
+    <DefaultLayout>
+      <Component {...pageProps} />
+    </DefaultLayout>
   )
 
 }
 
-export default _app
+export default wrapper.withRedux(_app);

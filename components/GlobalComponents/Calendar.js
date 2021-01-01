@@ -16,7 +16,7 @@ import { useRouter } from 'next/router';
 
 
 const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
-    const router = useRouter()
+    const { locale } = useRouter()
 
     return (
         <MDBModal fade isOpen={calendaropen} toggle={() => {
@@ -29,7 +29,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                     setisOpen(false);
                     ReactGA.pageview(window.location.pathname)
                 }}>
-                {router.locale === "en" ? ("Calendar") : ("Naptár")}
+                {locale === "en" ? ("Calendar") : ("Naptár")}
             </MDBModalHeader>
             <MDBModalBody className="p-0">
                 <MDBContainer className="p-0">
@@ -52,7 +52,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                                         eventClick={(arg) => { arg.jsEvent.preventDefault(); window.open(arg.event.url, '_blank', 'width=700,height=600'); }}
                                         initialView='listMonth'
                                         googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_CALENDARKEY}
-                                        locale={router.locale === "en" ? null : (huLocale)}
+                                        locale={locale === "en" ? null : (huLocale)}
                                         eventSources={
                                             [
                                                 {
@@ -86,7 +86,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                         if (window.innerWidth < 767)
                             setisOpen(false)
                     }}>
-                        {router.locale === "en" ? ("Close") : ("Bezárás")}
+                        {locale === "en" ? ("Close") : ("Bezárás")}
                     </MDBBtn>
                 </MDBCardFooter>
             </MDBCard>

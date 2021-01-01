@@ -56,7 +56,7 @@ const text = {
 };
 
 const InitialTransition = () => {
-    const router = useRouter()
+    const { locale } = useRouter()
     const [complete, setcomplete] = useState(false)
     return (
         <>
@@ -96,7 +96,7 @@ const InitialTransition = () => {
                         y="50%"
                         style={{ fill: "url(#pattern)", fontSize: "25px" }}
                     >
-                        {router.locale === "en" ? ("There is something new") : ("Megújultunk")}
+                        {locale === "en" ? ("There is something new") : ("Megújultunk")}
                     </text>
                 </motion.svg>
             </motion.div>

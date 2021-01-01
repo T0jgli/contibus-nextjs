@@ -16,30 +16,25 @@ import ReactGA from 'react-ga'
 
 const DefaultLayout = ({ children }) => {
     const dispatch = useDispatch()
-    const router = useRouter()
-
-    useEffect(() => {
-        window.document.documentElement.lang = router.locale
-    }, [router.locale])
-
+    const { pathname } = useRouter()
     useEffect(() => {
         ReactGA.pageview(window.location.pathname)
-    }, [router.pathname])
+    }, [pathname])
 
-    useEffect(() => {
-        SetContentFulData("busesData", "-fields.oradij").then(data => {
-            dispatch(setbusesData({
-                busesData: data
-            }))
-        })
-
-        SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
-            dispatch(setmuzeumData({
-                muzeumData: data
-            }))
-        })
-    }, [dispatch])
-
+    /*     useEffect(() => {
+            SetContentFulData("busesData", "-fields.oradij").then(data => {
+                dispatch(setbusesData({
+                    busesData: data
+                }))
+            })
+    
+            SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
+                dispatch(setmuzeumData({
+                    muzeumData: data
+                }))
+            })
+        }, [dispatch])
+     */
     return (
         <>
             {/* {typeof window !== "undefined" && localStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)} */}
