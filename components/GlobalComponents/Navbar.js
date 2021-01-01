@@ -90,7 +90,9 @@ const Navbar = () => {
                                                                     }
                                                                 }, "/bus/[bus]", { locale: "hu" })
                                                             }
-                                                            else router.push(router.pathname, router.pathname, { locale: "hu" })
+                                                            else {
+                                                                router.push(router.pathname, router.pathname, { locale: "hu" })
+                                                            }
                                                             document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
                                                             if (router.locale === "en")
                                                                 setlangtoast(true);
@@ -106,6 +108,7 @@ const Navbar = () => {
                                                     <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
                                                         onClick={() => {
                                                             if (router.pathname.includes("bus/")) {
+                                                                console.log(window.location.pathname.split("/").slice(-1)[0])
                                                                 router.push({
                                                                     pathname: "/bus/[bus]",
                                                                     query: {
@@ -113,7 +116,9 @@ const Navbar = () => {
                                                                     }
                                                                 }, "/bus/[bus]", { locale: "en" })
                                                             }
-                                                            else router.push(router.pathname, router.pathname, { locale: "en" })
+                                                            else {
+                                                                router.push(router.pathname, router.pathname, { locale: "en" })
+                                                            }
                                                             setCookie("NEXT_LOCALE", "en", 365)
                                                             if (router.locale === "hu")
                                                                 setlangtoast(true);
