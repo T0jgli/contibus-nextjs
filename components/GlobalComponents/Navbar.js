@@ -183,7 +183,6 @@ const Navbar = () => {
                             <a className="navbar__link">
                                 Utazásaink <ArrowRightIcon />
                             </a>
-
                         </li>
                     </ul>
                     <div className="navbar__btn">
@@ -256,7 +255,7 @@ const Navbar = () => {
                         </a>
                         </Link>
                         <a className="sidebar__link">
-                            asdasd
+                            Utazásaink <ArrowRightIcon />
                         </a>
                     </ul>
                     <div className="sidebar__language">
