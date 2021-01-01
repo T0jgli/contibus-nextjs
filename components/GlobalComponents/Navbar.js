@@ -13,6 +13,7 @@ import ReactGA from 'react-ga'
 import { setCookie } from '../../lib/CookieHelper';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const Navbar = () => {
     const router = useRouter();
@@ -26,7 +27,7 @@ const Navbar = () => {
         if (window.innerWidth < 767) {
             setIsOpen(false)
         }
-    }, [router.pathname])
+    }, [router.pathname, router.locale])
     return (
         <>
             {/* <MDBNavbar className="w-100 animated fadeInDown" fixed="top" color="elegant-color-dark" dark scrolling transparent expand="md">
@@ -155,26 +156,34 @@ const Navbar = () => {
                         <MenuIcon fontSize="large" />
                     </div>
                     <ul className="navbar__menu">
-                        <li>
-                            <Link href="/" passHref>
+                        <Link href="/" passHref>
+                            <li>
+
                                 <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} navbar__link`}>
                                     Kezdőlap
                                 </a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/offer" passHref>
+                            </li>
+                        </Link>
+                        <Link href="/offer" passHref>
+                            <li>
                                 <a className={`${router.pathname === "/offer" && "active"} navbar__link`}>
                                     Ajánlatkérés
                                 </a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/buses" passHref>
+                            </li>
+                        </Link>
+                        <Link href="/buses" passHref>
+                            <li>
                                 <a className={`${router.pathname.includes("bus") && "active"} navbar__link`}>
                                     Autóbuszaink
                                 </a>
-                            </Link>
+                            </li>
+                        </Link>
+
+                        <li>
+                            <a className="navbar__link">
+                                Utazásaink <ArrowRightIcon />
+                            </a>
+
                         </li>
                     </ul>
                     <div className="navbar__btn">
@@ -183,7 +192,47 @@ const Navbar = () => {
                     </a>
                     </div>
                 </div>
+                <div className="navbar__language">
+                    <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                        onClick={() => {
+                            if (router.pathname.includes("bus/")) {
+                                router.push({
+                                    pathname: "/bus/[bus]",
+                                    query: {
+                                        bus: window.location.pathname.split("/").slice(-1)[0]
+                                    }
+                                }, "/bus/[bus]", { locale: "hu" })
+                            }
+                            else {
+                                router.push(router.pathname, router.pathname, { locale: "hu" })
+                            }
+                            document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                            if (router.locale === "en")
+                                setlangtoast(true);
+                        }} alt="language_huicon" />
+                    <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
+                        onClick={() => {
+                            if (router.pathname.includes("bus/")) {
+                                console.log(window.location.pathname.split("/").slice(-1)[0])
+                                router.push({
+                                    pathname: "/bus/[bus]",
+                                    query: {
+                                        bus: window.location.pathname.split("/").slice(-1)[0]
+                                    }
+                                }, "/bus/[bus]", { locale: "en" })
+                            }
+                            else {
+                                router.push(router.pathname, router.pathname, { locale: "en" })
+                            }
+                            setCookie("NEXT_LOCALE", "en", 365)
+                            if (router.locale === "hu")
+                                setlangtoast(true);
+                        }} alt="language_enicon" />
+                </div>
             </nav>
+
+
+
             <aside className={`${isOpen ? "open" : "closed"}`}>
                 <div className="sidebar__icon">
                     <CloseIcon fontSize="large" onClick={() => setIsOpen(!isOpen)} />
@@ -208,8 +257,46 @@ const Navbar = () => {
                         </Link>
                         <a className="sidebar__link">
                             asdasd
-                    </a>
+                        </a>
                     </ul>
+                    <div className="sidebar__language">
+                        <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                            onClick={() => {
+                                if (router.pathname.includes("bus/")) {
+                                    router.push({
+                                        pathname: "/bus/[bus]",
+                                        query: {
+                                            bus: window.location.pathname.split("/").slice(-1)[0]
+                                        }
+                                    }, "/bus/[bus]", { locale: "hu" })
+                                }
+                                else {
+                                    router.push(router.pathname, router.pathname, { locale: "hu" })
+                                }
+                                document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                                if (router.locale === "en")
+                                    setlangtoast(true);
+                            }} alt="language_huicon" />
+                        <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
+                            onClick={() => {
+                                if (router.pathname.includes("bus/")) {
+                                    console.log(window.location.pathname.split("/").slice(-1)[0])
+                                    router.push({
+                                        pathname: "/bus/[bus]",
+                                        query: {
+                                            bus: window.location.pathname.split("/").slice(-1)[0]
+                                        }
+                                    }, "/bus/[bus]", { locale: "en" })
+                                }
+                                else {
+                                    router.push(router.pathname, router.pathname, { locale: "en" })
+                                }
+                                setCookie("NEXT_LOCALE", "en", 365)
+                                if (router.locale === "hu")
+                                    setlangtoast(true);
+                            }} alt="language_enicon" />
+                    </div>
+
                     <div className="sidebar__btn">
                         <a>Jegyfoglalás</a>
                     </div>

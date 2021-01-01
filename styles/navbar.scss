@@ -1,5 +1,5 @@
 nav {
-    background: #000;
+    background: rgba(33, 33, 33, 1);
     height: 80px;
     /*     margin-top: -80px;
  */
@@ -7,8 +7,10 @@ nav {
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 10;
 
     @media (max-width: 960px) {
@@ -22,7 +24,7 @@ nav {
         z-index: 1;
         width: 75%;
         padding: 0 24px;
-        @media (max-width: 960px) {
+        @media (max-width: 768px) {
             width: 100%;
         }
 
@@ -33,7 +35,7 @@ nav {
             font-size: 1.5rem;
             display: flex;
             align-items: center;
-            margin-left: 24px;
+            margin-left: 38px;
             font-weight: bold;
             text-decoration: none;
         }
@@ -56,7 +58,7 @@ nav {
             align-items: center;
             list-style: none;
             text-align: center;
-            margin-right: -22px;
+            margin-right: -25px;
             padding-left: 0 !important;
             margin: 0;
             @media (max-width: 768px) {
@@ -97,17 +99,24 @@ nav {
                 padding: 10px 22px;
                 color: black;
                 font-size: 16px;
+                font-weight: bolder;
                 outline: none;
                 border: none;
                 cursor: pointer;
                 transition: all 0.5s ease-in-out;
                 text-decoration: none;
                 &:hover {
-                    transition: all 0.5s ease-in-out;
-                    background: #fff;
-                    color: #fb3;
+                    transition: all 0.3s ease-in-out;
+                    background: rgba(255, 187, 51, 0.75);
                 }
             }
+        }
+    }
+    .navbar__language {
+        position: absolute;
+        right: 15px;
+        @media (max-width: 768px) {
+            display: none;
         }
     }
 }
@@ -173,13 +182,15 @@ aside {
         .sidebar__btn {
             display: flex;
             justify-content: center;
+            color: black;
+
             a {
                 border-radius: 30px;
                 background-color: #fb3;
                 white-space: nowrap;
                 padding: 16px 64px;
-                color: black;
                 font-size: 16px;
+                font-weight: bolder;
                 outline: none;
                 border: none;
                 cursor: pointer;
@@ -187,10 +198,14 @@ aside {
                 text-decoration: none;
                 &:hover {
                     transition: all 0.3s ease-in-out;
-                    background: black;
-                    color: #fb3;
+                    background: rgba(255, 187, 51, 0.75);
                 }
             }
+        }
+
+        .sidebar__language {
+            text-align: center;
+            margin-bottom: 15px;
         }
     }
 }
