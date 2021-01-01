@@ -42,6 +42,10 @@ const OneBusBody = () => {
                     <Head>
                         <title>{thisbus.fields.bus} - Contibus</title>
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                        <meta property="og:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
+                        <meta name="twitter:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
+                        <meta property="og:url" content={`https://contibus-nextjs.vercel.app/bus/${thisbus.fields.id}`} />
+                        <link rel="alternate" hreflang="en" href={`https://contibus-nextjs.vercel.app/en/bus/${thisbus.fields.id}`} />
                     </Head>
 
                     <div className="onebus__container w-75 mx-auto my-5 pt-3">

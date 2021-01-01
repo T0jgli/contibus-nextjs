@@ -9,8 +9,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 const Buses = () => {
-  const { locale } = useRouter()
-
+  const router = useRouter()
   return (
     <motion.section initial="initial"
       animate="animate"
@@ -18,9 +17,12 @@ const Buses = () => {
       <Carousel />
       <Busesbody />
       <Head>
-        <title>{locale === "en" ? ("Our Buses - Contibus - Specialist Coach Travel") : ("Autóbuszaink - Contibus - Az utazás szakértői")}</title>
+        <title>{router.locale === "en" ? ("Our Buses - Contibus - Specialist Coach Travel") : ("Autóbuszaink - Contibus - Az utazás szakértői")}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+        <meta property="og:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
+        <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
+        <meta property="og:url" content="https://contibus-nextjs.vercel.app/buses" />
+        <link rel="alternate" hreflang="en" href="https://contibus-nextjs.vercel.app/en/buses" />
       </Head>
     </motion.section>
   )
