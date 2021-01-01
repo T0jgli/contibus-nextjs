@@ -24,7 +24,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
-        if (window.innerWidth < 767) {
+        if (window.innerWidth < 960) {
             setIsOpen(false)
         }
     }, [router.pathname, router.locale])
@@ -144,13 +144,12 @@ const Navbar = () => {
                     </MDBCollapse>
                 </div>
             </MDBNavbar> */}
-            <nav>
+            <nav className="animated fadeInDown">
                 <div className="navbar__container">
-                    <a className="navbar__logo">
+                    <a className="navbar__logo" onClick={() => window.location.reload(false)}>
                         <MDBIcon icon="bus" />
                         <span style={{ cursor: "pointer", paddingLeft: "5px" }}>ContiBUS
                         </span>
-
                     </a>
                     <div className="navbar__mobileicon" onClick={() => setIsOpen(true)}>
                         <MenuIcon fontSize="large" />
@@ -160,35 +159,35 @@ const Navbar = () => {
                             <li>
 
                                 <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} navbar__link`}>
-                                    Kezdőlap
+                                    {router.locale === "en" ? ("Home") : ("Kezdőlap")}
                                 </a>
                             </li>
                         </Link>
                         <Link href="/offer" passHref>
                             <li>
                                 <a className={`${router.pathname === "/offer" && "active"} navbar__link`}>
-                                    Ajánlatkérés
+                                    {router.locale === "en" ? ("Offer request") : ("Ajánlatkérés")}
                                 </a>
                             </li>
                         </Link>
                         <Link href="/buses" passHref>
                             <li>
                                 <a className={`${router.pathname.includes("bus") && "active"} navbar__link`}>
-                                    Autóbuszaink
+                                    {router.locale === "en" ? ("Our buses") : ("Autóbuszok")}
                                 </a>
                             </li>
                         </Link>
 
-                        <li>
+                        <li >
                             <a className="navbar__link">
-                                Utazásaink <ArrowRightIcon />
+                                {router.locale === "en" ? ("Travels") : ("Utazásaink")} <ArrowRightIcon />
                             </a>
                         </li>
                     </ul>
                     <div className="navbar__btn">
                         <a>
-                            Jegyfoglalás
-                    </a>
+                            {router.locale === "en" ? ("Ticket Order") : ("Jegyfoglalás")}
+                        </a>
                     </div>
                 </div>
                 <div className="navbar__language">
@@ -240,22 +239,22 @@ const Navbar = () => {
                     <ul>
                         <Link href="/" passHref>
                             <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} sidebar__link`}>
-                                Kezdőlap
+                                {router.locale === "en" ? ("Home") : ("Főoldal")}
                             </a>
                         </Link>
                         <Link href="/offer" passHref>
                             <a className={`${router.pathname === "/offer" && "active"} sidebar__link`}>
-                                Ajánlatkérés
+                                {router.locale === "en" ? ("Offer request") : ("Ajánlatkérés")}
                             </a>
                         </Link>
 
                         <Link href="/buses" passHref>
                             <a className={`${router.pathname.includes("bus") && "active"} sidebar__link`}>
-                                Autóbuszaink
-                        </a>
+                                {router.locale === "en" ? ("Our buses") : ("Autóbuszok")}
+                            </a>
                         </Link>
                         <a className="sidebar__link">
-                            Utazásaink <ArrowRightIcon />
+                            {router.locale === "en" ? ("Travels") : ("Utazásaink")} <ArrowRightIcon />
                         </a>
                     </ul>
                     <div className="sidebar__language">
@@ -297,7 +296,9 @@ const Navbar = () => {
                     </div>
 
                     <div className="sidebar__btn">
-                        <a>Jegyfoglalás</a>
+                        <a>
+                            {router.locale === "en" ? ("Ticket Order") : ("Jegyfoglalás")}
+                        </a>
                     </div>
                 </div>
             </aside>
