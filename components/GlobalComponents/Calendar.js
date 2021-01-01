@@ -11,13 +11,12 @@ import huLocale from '@fullcalendar/core/locales/hu';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import interactionPlugin from "@fullcalendar/interaction";
 
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import ReactGA from 'react-ga'
+import { useRouter } from 'next/router';
 
 
 const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
 
     return (
         <MDBModal fade isOpen={calendaropen} toggle={() => {
@@ -30,7 +29,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                     setisOpen(false);
                     ReactGA.pageview(window.location.pathname)
                 }}>
-                {language === "en" ? ("Calendar") : ("Naptár")}
+                {router.locale === "en" ? ("Calendar") : ("Naptár")}
             </MDBModalHeader>
             <MDBModalBody className="p-0">
                 <MDBContainer className="p-0">
@@ -53,7 +52,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                                         eventClick={(arg) => { arg.jsEvent.preventDefault(); window.open(arg.event.url, '_blank', 'width=700,height=600'); }}
                                         initialView='listMonth'
                                         googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_CALENDARKEY}
-                                        locale={language === "en" ? null : (huLocale)}
+                                        locale={router.locale === "en" ? null : (huLocale)}
                                         eventSources={
                                             [
                                                 {
@@ -87,7 +86,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                         if (window.innerWidth < 767)
                             setisOpen(false)
                     }}>
-                        {language === "en" ? ("Close") : ("Bezárás")}
+                        {router.locale === "en" ? ("Close") : ("Bezárás")}
                     </MDBBtn>
                 </MDBCardFooter>
             </MDBCard>

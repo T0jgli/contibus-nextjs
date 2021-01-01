@@ -4,18 +4,17 @@ import {
 } from "mdbreact";
 import { Fade } from "react-awesome-reveal";
 
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router';
 
 const Info = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
 
     return (
         <MDBContainer>
             <Fade triggerOnce>
                 <MDBAlert color="dark" className="rounded mt-5 text-center">
                     <MDBIcon icon="exclamation" className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                    {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                    {router.locale === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
                         ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
                     <MDBIcon icon="exclamation"
                         className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
@@ -31,37 +30,37 @@ const Info = () => {
                 <MDBCol md="6" className="mb-4 px-0">
                     <Fade delay={200} triggerOnce>
                         <section>
-                            <h2 className="mb-3">{language === "en" ? ("Who are we?") : ("Kik vagyunk mi?")}</h2>
+                            <h2 className="mb-3">{router.locale === "en" ? ("Who are we?") : ("Kik vagyunk mi?")}</h2>
                             <hr />
-                            <p className="m-0">{language === "en" ? ("The company has been dealing passenger traffic since 1992.") :
+                            <p className="m-0">{router.locale === "en" ? ("The company has been dealing passenger traffic since 1992.") :
                                 ("Cégünk 1992 óta foglalkozik személyszállítással.")}</p>
-                            <p className="m-0">{language === "en" ? ("All of our buses fit the strict international standards.") :
+                            <p className="m-0">{router.locale === "en" ? ("All of our buses fit the strict international standards.") :
                                 ("Minden autóbuszunk megfelel a szigorú nemzetközi előírásoknak.")} </p>
-                            <p className="m-0">{language === "en" ? ("Our drivers have a lot of experience in European travel.") :
+                            <p className="m-0">{router.locale === "en" ? ("Our drivers have a lot of experience in European travel.") :
                                 ("Gépkocsivezetőink nagy tapasztalattal rendelkeznek az európai utaztatásban.")}</p>
-                            <p className="mt-1 mb-0 desctext">{language === "en" ? ("Our partners: ") : ("Partnereink:")}
+                            <p className="mt-1 mb-0 desctext">{router.locale === "en" ? ("Our partners: ") : ("Partnereink:")}
                             </p>
                             <ul className="mt-0 pt-0 partners desctext">
                                 <li>
-                                    {language === "en" ? ("travel agencies") : ("utazási irodák")}
+                                    {router.locale === "en" ? ("travel agencies") : ("utazási irodák")}
                                 </li>
                                 <li>
-                                    {language === "en" ? ("music bands") : ("zenekarok")}
+                                    {router.locale === "en" ? ("music bands") : ("zenekarok")}
                                 </li>
                                 <li>
-                                    {language === "en" ? ("companies") : ("vállalkozások")}
+                                    {router.locale === "en" ? ("companies") : ("vállalkozások")}
                                 </li>
                                 <li>
-                                    {language === "en" ? ("foundations") : ("alapítványok")}
+                                    {router.locale === "en" ? ("foundations") : ("alapítványok")}
                                 </li>
                                 <li>
-                                    {language === "en" ? ("schools") : ("iskolák")}
+                                    {router.locale === "en" ? ("schools") : ("iskolák")}
                                 </li>
                                 <li>
-                                    {language === "en" ? ("sports associations") : ("sportegyesületek")}
+                                    {router.locale === "en" ? ("sports associations") : ("sportegyesületek")}
                                 </li>
                                 <li>
-                                    {language === "en" ? ("or just a group of friends") : ("vagy csak baráti társaságok")}
+                                    {router.locale === "en" ? ("or just a group of friends") : ("vagy csak baráti társaságok")}
                                 </li>
                             </ul>
                         </section>

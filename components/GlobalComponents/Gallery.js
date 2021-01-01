@@ -5,12 +5,11 @@ import {
 import { Fade } from "react-awesome-reveal";
 
 import gallery from "../../lib/gallery.json"
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import Fslightboxes from './Fslightboxes';
+import { useRouter } from 'next/router';
 
 const Gallery = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     const [galleryopen, setgalleryopen] = useState({
         toggler: false,
         slide: 0
@@ -40,7 +39,7 @@ const Gallery = () => {
                 <MDBCol>
                     <Fade triggerOnce direction="down">
                         <h2 className="pb-2 mb-0 text-center" id="gallerytext">
-                            {language === "en" ? ("Gallery") : ("Galéria")}
+                            {router.locale === "en" ? ("Gallery") : ("Galéria")}
                         </h2>
                     </Fade>
                     <MDBCarousel activeItem={1}

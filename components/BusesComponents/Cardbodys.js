@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact"
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 const Cardbodys = ({ item, what }) => {
-    const language = useSelector(selectlanguage)
     const [click, setclick] = useState(false)
     const router = useRouter()
     return (
@@ -28,7 +24,7 @@ const Cardbodys = ({ item, what }) => {
                             (<div className="card-text font-weight-bolder">
                                 <Link href={`/bus/${item.fields.id.replaceAll(/\s+/g, "-")}`} passHref>
                                     <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mx-auto mt-lg-5 muzeumbtn">
-                                        {language === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
+                                        {router.locale === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
                                     </MDBBtn>
                                 </Link>
                             </div>)}

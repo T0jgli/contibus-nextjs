@@ -6,12 +6,11 @@ import Gallery from '../components/GlobalComponents/Gallery'
 import Formoffer from '../components/OfferComponents/Formoffer';
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
-import { selectlanguage } from '../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const Offer = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     return (
         <motion.div initial="initial"
             animate="animate"
@@ -20,7 +19,7 @@ const Offer = () => {
             <Formoffer />
             <Gallery />
             <Head>
-                <title>{language === "en" ? ("Offer - Contibus - Specialist Coach Travel") : ("Ajánlatkérés - Contibus - Az utazás szakértői")}</title>
+                <title>{router.locale === "en" ? ("Offer - Contibus - Specialist Coach Travel") : ("Ajánlatkérés - Contibus - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
             </Head>

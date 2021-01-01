@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectBusesData, selectlanguage } from '../../lib/AppSlice';
+import { selectBusesData } from '../../lib/AppSlice';
 
 import { MDBTableBody, MDBTable, MDBTableHead, MDBBtn, MDBBtnGroup } from 'mdbreact';
 import { Tooltip } from '@material-ui/core';
@@ -11,9 +11,10 @@ import { Fade } from "react-awesome-reveal";
 import Carddeck from "./Carddeck";
 import Datatable from './Datatable';
 import Fslightboxes from '../GlobalComponents/Fslightboxes';
+import { useRouter } from 'next/router';
 
 const Table = ({ tablazat, settablazat }) => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     const busesdata = useSelector(selectBusesData)
 
     const [imgtoggler, setimgtoggler] = useState({
@@ -25,7 +26,7 @@ const Table = ({ tablazat, settablazat }) => {
     return (
         <>
             <Fade triggerOnce direction="down">
-                <h3 className="text-center desctext my-4" id="buses-text">{language === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
+                <h3 className="text-center desctext my-4" id="buses-text">{router.locale === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
             </Fade>
             <Fade triggerOnce direction="up">
                 <MDBBtnGroup className="my-3" id="buses-btngroup">
@@ -33,7 +34,7 @@ const Table = ({ tablazat, settablazat }) => {
                         settablazat(!tablazat)
                         localStorage.removeItem("defaultBusView")
                     }}>
-                        <Tooltip title={language === "en" ? ("Cards") : ("Kártyák")}>
+                        <Tooltip title={router.locale === "en" ? ("Cards") : ("Kártyák")}>
                             <ViewAgendaIcon fontSize="small" />
                         </Tooltip>
                     </MDBBtn>
@@ -41,7 +42,7 @@ const Table = ({ tablazat, settablazat }) => {
                         settablazat(!tablazat)
                         localStorage.setItem("defaultBusView", "table")
                     }}>
-                        <Tooltip title={language === "en" ? ("Table") : ("Táblázat")}>
+                        <Tooltip title={router.locale === "en" ? ("Table") : ("Táblázat")}>
                             <TableChartIcon fontSize="small" />
                         </Tooltip>
                     </MDBBtn>
@@ -73,13 +74,13 @@ const Table = ({ tablazat, settablazat }) => {
                         <MDBTableHead className="z-depth-1">
                             <tr className="text-center z-depth-1">
                                 <th>
-                                    <span className="font-weight-bolder">{language === "en" ? ("Vehicles") : ("Járműveink")}</span>
+                                    <span className="font-weight-bolder">{router.locale === "en" ? ("Vehicles") : ("Járműveink")}</span>
                                 </th>
                                 <th>
 
                                 </th>
                                 <th className="pr-3 text-right">
-                                    <span className="font-weight-bolder">{language === "en" ? ("Prices") : ("Árak")}</span>
+                                    <span className="font-weight-bolder">{router.locale === "en" ? ("Prices") : ("Árak")}</span>
                                 </th>
                             </tr>
                         </MDBTableHead>
@@ -88,7 +89,7 @@ const Table = ({ tablazat, settablazat }) => {
                                 return (
                                     <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler}
                                         dataid={index + 1}
-                                        language={language} data={item} key={index}
+                                        data={item} key={index}
                                     />
                                 )
                             })}
@@ -101,7 +102,7 @@ const Table = ({ tablazat, settablazat }) => {
                 <>
                     {/* {busesdata.length > 0 && toggler && busesdata.map((item, index) => {
                         return (
-                            <Busmodals language={language} settoggler={settoggler} toggler={toggler} data={item} key={(400 + index)} dataid={index + 1} />
+                            <Busmodals router.locale={router.locale} settoggler={settoggler} toggler={toggler} data={item} key={(400 + index)} dataid={index + 1} />
                         )
                     })} */}
                     <Fslightboxes setimgtoggler={setimgtoggler} data={busesdata} imgtoggler={imgtoggler} />

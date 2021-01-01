@@ -7,14 +7,13 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { Fade } from "react-awesome-reveal";
 
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { Parallax } from 'react-parallax';
+import { useRouter } from 'next/router';
 
 
 const Streak = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     const [focus, setFocus] = useState(false)
     const [bg, setbg] = useState("")
 
@@ -31,7 +30,7 @@ const Streak = () => {
                     <MDBContainer className="py-5">
                         <Fade triggerOnce direction="down">
                             <h3 className="text-center mb-5 pb-4 white-text font-weight-bolder">
-                                <span>{language === "en" ? ("Some facts about us") : ("Néhány tény rólunk")}</span>
+                                <span>{router.locale === "en" ? ("Some facts about us") : ("Néhány tény rólunk")}</span>
                             </h3>
                         </Fade>
                         <Fade delay={75} triggerOnce direction="up">
@@ -53,25 +52,25 @@ const Streak = () => {
                                                 </VisibilitySensor>
                                             )}
                                         </CountUp></h1>
-                                    <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "en" ? ("Happy clients") : ("Elégedett ügyfél")}</p>
+                                    <p className="white-text text-uppercase mt-3 font-weight-bold">{router.locale === "en" ? ("Happy clients") : ("Elégedett ügyfél")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
                                         <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={100000} separator={" "} suffix=" +">
                                         </CountUp></h1>
-                                    <p className="white-text text-uppercase mt-3 font-weight-bold" >{language === "en" ? ("Projects completed") : ("Sikeres projekt")}</p>
+                                    <p className="white-text text-uppercase mt-3 font-weight-bold" >{router.locale === "en" ? ("Projects completed") : ("Sikeres projekt")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
                                         <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={50000} separator={" "} suffix=" +">
                                         </CountUp></h1>
-                                    <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "en" ? ("Destinations") : ("Úticél")}</p>
+                                    <p className="white-text text-uppercase mt-3 font-weight-bold">{router.locale === "en" ? ("Destinations") : ("Úticél")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
                                         <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={150} separator={" "} suffix=" +">
                                         </CountUp></h1>
-                                    <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "en" ? ("Visited country") : ("Meglátogatott ország")}</p>
+                                    <p className="white-text text-uppercase mt-3 font-weight-bold">{router.locale === "en" ? ("Visited country") : ("Meglátogatott ország")}</p>
                                 </MDBCol>
                             </MDBRow>
 

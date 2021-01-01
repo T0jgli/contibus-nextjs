@@ -5,15 +5,14 @@ import {
 import ArrowDropUp from "@material-ui/icons/ArrowDropUp"
 
 import Modals from './Modals';
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import { Fade } from "react-awesome-reveal";
 import Rating from './Rating';
 import { Allasajanlatcontent, Csomagmegorzescontent, Glscontent, Vezetesiidocontent, Dpdcontent } from './Modalcontents';
 import ReactGA from 'react-ga'
+import { useRouter } from 'next/router';
 
 const Cards = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     const [modalsopen, setmodalsopen] = useState({
         open: false,
         style: null,
@@ -42,7 +41,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Price table") : ("Ártáblázat")}</h4>
+                                    <h4 className="card-title text-center mb-1">{router.locale === "en" ? ("Price table") : ("Ártáblázat")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -67,13 +66,13 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Driving time") : ("Vezetési idő")}</h4>
+                                    <h4 className="card-title text-center mb-1">{router.locale === "en" ? ("Driving time") : ("Vezetési idő")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
                             <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100 ">
                                 <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage alt="Állásajánlat kép" src={language === "en" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} waves />
+                                    <MDBCardImage alt="Állásajánlat kép" src={router.locale === "en" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} waves />
                                     <MDBMask onClick={() => {
                                         ReactGA.modalview('/joboffers');
 
@@ -93,7 +92,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Job offer") : ("Állásajánlataink")}</h4>
+                                    <h4 className="card-title text-center mb-1">{router.locale === "en" ? ("Job offer") : ("Állásajánlataink")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
                         </div>
@@ -125,7 +124,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Luggage store") : ("Csomagmegőrzés")}</h4>
+                                    <h4 className="card-title text-center mb-1">{router.locale === "en" ? ("Luggage store") : ("Csomagmegőrzés")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -151,7 +150,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("GLS ParcelShop") : ("GLS Csomagpont")}</h4>
+                                    <h4 className="card-title text-center mb-1">{router.locale === "en" ? ("GLS ParcelShop") : ("GLS Csomagpont")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -178,7 +177,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("DPD ParcelShop") : ("DPD csomagpont")}</h4>
+                                    <h4 className="card-title text-center mb-1">{router.locale === "en" ? ("DPD ParcelShop") : ("DPD csomagpont")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
                         </div>

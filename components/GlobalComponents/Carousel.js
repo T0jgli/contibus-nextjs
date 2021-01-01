@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import Contactform from './Contactform';
 import ReactGA from 'react-ga'
 import { Fade } from 'react-awesome-reveal';
@@ -19,8 +17,7 @@ function shufflearray (array) {
 }
 
 const Carousel = () => {
-    const { pathname } = useRouter();
-    const language = useSelector(selectlanguage)
+    const router = useRouter();
     const [contactform, setcontactform] = useState(false)
     const carids = ["carr11", "carr22", "carr33"].sort(() => 0.5 - Math.random())
     return (
@@ -30,16 +27,16 @@ const Carousel = () => {
                 length={3}
                 showControls={true}
                 showIndicators={true}
-                className={pathname !== "/" ? "carousel carouselup z-depth-1 " : "carousel headerclip z-depth-1"}
+                className={router.pathname !== "/" ? "carousel carouselup z-depth-1 " : "carousel headerclip z-depth-1"}
             >
                 <MDBCarouselInner className="carousel-inner">
                     <MDBCarouselItem className="carousel-item" itemId="1">
-                        <MDBView id={carids[0]} className={pathname !== "/" ? "h-100 carr" : "carr"}>
+                        <MDBView id={carids[0]} className={router.pathname !== "/" ? "h-100 carr" : "carr"}>
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5">
                                     <Fade triggerOnce direction="down">
                                         <h1 className="mb-4">
-                                            <strong className="font-weight-bold">{language === "en" ?
+                                            <strong className="font-weight-bold">{router.locale === "en" ?
                                                 (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
                                                 (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
                                         </h1>
@@ -47,12 +44,12 @@ const Carousel = () => {
                                     <Fade triggerOnce>
                                         <p className="mb-4 d-block">
                                             <span style={{ letterSpacing: "1px" }}>
-                                                <MDBIcon icon="check" className="px-2" />{language === "en" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
+                                                <MDBIcon icon="check" className="px-2" />{router.locale === "en" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
                                                 <MDBIcon icon="check" className="px-2" />
                                             </span>
                                         </p>
                                     </Fade>
-                                    {pathname === "/" ? (
+                                    {router.pathname === "/" ? (
                                         <>
                                             <Fade direction="up" triggerOnce>
 
@@ -63,7 +60,7 @@ const Carousel = () => {
                                                 }}
                                                     color="warning" size="lg"
                                                     className="font-weight-bold black-text roundedbtn kartya mt-5"><span
-                                                        className="">{language === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                                        className="">{router.locale === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
                                                 </MDBBtn>
                                             </Fade>
 
@@ -75,12 +72,12 @@ const Carousel = () => {
                         </MDBView>
                     </MDBCarouselItem>
                     <MDBCarouselItem className="carousel-item" itemId="2">
-                        <MDBView id={carids[1]} className={pathname !== "/" ? "h-100 carr" : "carr"}>
+                        <MDBView id={carids[1]} className={router.pathname !== "/" ? "h-100 carr" : "carr"}>
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5">
                                     <Fade triggerOnce direction="down">
                                         <h1 className="mb-4">
-                                            <strong className="font-weight-bold">{language === "en" ?
+                                            <strong className="font-weight-bold">{router.locale === "en" ?
                                                 (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
                                                 (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
                                         </h1>
@@ -88,15 +85,15 @@ const Carousel = () => {
                                     <Fade triggerOnce>
                                         <p className="mb-4 d-block text-center">
                                             <span style={{ letterSpacing: "1px" }}>
-                                                <MDBIcon icon="check" className="px-2 d-md-inline d-none" /> {language === "en" ? ("Safety") : ("Biztonság")}
-                                                <MDBIcon icon="check" className="px-2" />{language === "en" ? ("Comfort") : ("Kényelem")}
-                                                <MDBIcon icon="check" className="px-2" />{language === "en" ? ("Standards") : ("Színvonal")}
+                                                <MDBIcon icon="check" className="px-2 d-md-inline d-none" /> {router.locale === "en" ? ("Safety") : ("Biztonság")}
+                                                <MDBIcon icon="check" className="px-2" />{router.locale === "en" ? ("Comfort") : ("Kényelem")}
+                                                <MDBIcon icon="check" className="px-2" />{router.locale === "en" ? ("Standards") : ("Színvonal")}
                                                 <MDBIcon icon="check" className="px-2 d-md-inline d-none" />
                                             </span>
                                         </p>
                                     </Fade>
 
-                                    {pathname === "/" ? (
+                                    {router.pathname === "/" ? (
                                         <>
                                             <Fade direction="up" triggerOnce>
 
@@ -107,7 +104,7 @@ const Carousel = () => {
                                                 }}
                                                     color="warning" size="lg"
                                                     className="font-weight-bold black-text roundedbtn kartya mt-5"><span
-                                                        className="">{language === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                                        className="">{router.locale === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
                                                 </MDBBtn>
                                             </Fade>
 
@@ -120,12 +117,12 @@ const Carousel = () => {
                         </MDBView>
                     </MDBCarouselItem>
                     <MDBCarouselItem className="carousel-item" itemId="3">
-                        <MDBView id={carids[2]} className={pathname !== "/" ? "h-100 carr" : "carr"}>
+                        <MDBView id={carids[2]} className={router.pathname !== "/" ? "h-100 carr" : "carr"}>
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5">
                                     <Fade triggerOnce direction="down">
                                         <h1 className="mb-4">
-                                            <strong className="font-weight-bold">{language === "en" ?
+                                            <strong className="font-weight-bold">{router.locale === "en" ?
                                                 (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
                                                 (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
                                         </h1>
@@ -133,13 +130,13 @@ const Carousel = () => {
                                     <Fade triggerOnce>
                                         <p className="mb-4 d-block">
                                             <span style={{ letterSpacing: "1px" }}>
-                                                <MDBIcon icon="check" className="px-2" />{language === "en" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
+                                                <MDBIcon icon="check" className="px-2" />{router.locale === "en" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
                                                 <MDBIcon icon="check" className="px-2" />
                                             </span>
                                         </p>
                                     </Fade>
 
-                                    {pathname === "/" ? (
+                                    {router.pathname === "/" ? (
                                         <>
                                             <Fade direction="up" triggerOnce>
 
@@ -150,7 +147,7 @@ const Carousel = () => {
                                                 }}
                                                     color="warning" size="lg"
                                                     className="font-weight-bold black-text roundedbtn kartya mt-5"><span
-                                                        className="">{language === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                                        className="">{router.locale === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
                                                 </MDBBtn>
                                             </Fade>
 

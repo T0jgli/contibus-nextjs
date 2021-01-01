@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { selectlanguage, setbusesData, setmuzeumData } from '../lib/AppSlice'
-import { useSelector } from 'react-redux'
+import { setbusesData, setmuzeumData } from '../lib/AppSlice'
 
 //import InitialTransition from './GlobalComponents/Initaltransition';
 import Navbar from './GlobalComponents/Navbar'
@@ -16,13 +15,12 @@ import { useRouter } from 'next/router';
 import ReactGA from 'react-ga'
 
 const DefaultLayout = ({ children }) => {
-    const language = useSelector(selectlanguage)
     const dispatch = useDispatch()
     const router = useRouter()
 
     useEffect(() => {
-        window.document.documentElement.lang = language
-    }, [language])
+        window.document.documentElement.lang = router.locale
+    }, [router.locale])
 
     useEffect(() => {
         ReactGA.pageview(window.location.pathname)

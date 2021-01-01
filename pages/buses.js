@@ -5,12 +5,11 @@ import Carousel from '../components/GlobalComponents/Carousel';
 import Busesbody from "../components/BusesComponents/Busesbody"
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
-import { selectlanguage } from '../lib/AppSlice'
-import { useDispatch, useSelector } from 'react-redux'
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const Buses = () => {
-  const language = useSelector(selectlanguage)
+  const router = useRouter()
   return (
     <motion.section initial="initial"
       animate="animate"
@@ -18,7 +17,7 @@ const Buses = () => {
       <Carousel />
       <Busesbody />
       <Head>
-        <title>{language === "en" ? ("Autóbuszaink - Contibus - Our Buses - Specialist Coach Travel") : ("Autóbuszaink - Contibus - Az utazás szakértői")}</title>
+        <title>{router.locale === "en" ? ("Our Buses - Contibus - Specialist Coach Travel") : ("Autóbuszaink - Contibus - Az utazás szakértői")}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
       </Head>

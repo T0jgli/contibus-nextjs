@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
     MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIframe, MDBIcon
 } from "mdbreact";
 
 import Lostitems from './Lostitems';
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
 import { Fade } from "react-awesome-reveal";
 import ReactGA from 'react-ga'
+import { useRouter } from 'next/router';
 
 const Footer = () => {
     const [elveszett, setelveszett] = useState(false)
-    const language = useSelector(selectlanguage)
-
-
+    const router = useRouter()
 
     return (
         <>
@@ -29,31 +26,31 @@ const Footer = () => {
                                 </div>}
                             </MDBCol>
                             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-1" id="footer-links">
-                                <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Others") : ("Egyéb")}</h6>
+                                <h6 className="text-uppercase font-weight-bold">{router.locale === "en" ? ("Others") : ("Egyéb")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p onClick={() => {
                                     setelveszett(!elveszett);
                                     ReactGA.modalview('/lostitems');
                                 }} style={{ cursor: "pointer" }}>
-                                    {language === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
+                                    {router.locale === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                                 </p>
                                 <p>
-                                    <a href="/files/utazasi-szerzodes-2020.pdf" target="_blank">{language === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
+                                    <a href="/files/utazasi-szerzodes-2020.pdf" target="_blank">{router.locale === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
                                 </p>
                                 <p>
-                                    <a href="/files/megrendelolap.docx">{language === "en" ? ("Order form") : ("Megrendelőlap")}</a>
+                                    <a href="/files/megrendelolap.docx">{router.locale === "en" ? ("Order form") : ("Megrendelőlap")}</a>
                                 </p>
                                 <p>
-                                    <a href="#">{language === "en" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
+                                    <a href="#">{router.locale === "en" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
                                 </p>
                             </MDBCol>
 
                             <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-xl-1" id="footer-contact">
-                                <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Contact") : ("Kapcsolat")}</h6>
+                                <h6 className="text-uppercase font-weight-bold">{router.locale === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
                                     <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5
-                                    <span style={{ opacity: "0.8" }}>{language === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
+                                    <span style={{ opacity: "0.8" }}>{router.locale === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />contibus@contibus.hu</p>
                                 <p>
@@ -65,13 +62,13 @@ const Footer = () => {
                         </MDBRow>
                         <MDBRow className="mx-auto d-flex my-4">
                             <MDBCol className="mx-auto text-center" id="footer-opening">
-                                <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Our Office") : ("Irodánk")}</h6>
+                                <h6 className="text-uppercase font-weight-bold">{router.locale === "en" ? ("Our Office") : ("Irodánk")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p className="pb-2">1075 Budapest, Síp utca 4.</p>
-                                <p>{language === "en" ? ("From Monday to Friday") : ("Hétfőtől Péntekig")}: <span className="font-weight-bolder">9:00 - 17:00</span>
+                                <p>{router.locale === "en" ? ("From Monday to Friday") : ("Hétfőtől Péntekig")}: <span className="font-weight-bolder">9:00 - 17:00</span>
                                 </p>
-                                <p>{language === "en" ? ("Saturday, Sunday: ") : ("Szombat, vasárnap: ")}
-                                    <span className="font-weight-bolder">{language === "en" ? ("Closed") : ("Zárva")} </span>
+                                <p>{router.locale === "en" ? ("Saturday, Sunday: ") : ("Szombat, vasárnap: ")}
+                                    <span className="font-weight-bolder">{router.locale === "en" ? ("Closed") : ("Zárva")} </span>
                                 </p>
                             </MDBCol>
                         </MDBRow>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import db from '../../lib/firebase';
 import publicIp from "public-ip";
-import { useDispatch, useSelector } from 'react-redux';
-import { selectlanguage, setsnackbar } from '../../lib/AppSlice';
+import { useDispatch } from 'react-redux';
+import { setsnackbar } from '../../lib/AppSlice';
 import firebase from "firebase/app"
 
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardFooter, MDBCardHeader, MDBInput, MDBRow } from 'mdbreact';
@@ -11,10 +11,11 @@ import { Rating as RatingComp } from '@material-ui/lab';
 import { IconButton, Popover, Tooltip } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { Fade } from 'react-awesome-reveal';
+import { useRouter } from 'next/router';
 
 const Rating = () => {
     const dispatch = useDispatch()
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
 
     const [value, setValue] = useState(0);
     const [textareavalue, settextareavalue] = useState(null);
@@ -24,11 +25,11 @@ const Rating = () => {
     });
 
     const labels = {
-        1: language === "en" ? ("Very bad") : ('Nagyon rossz'),
-        2: language === "en" ? ("Bad") : ('Rossz'),
-        3: language === "en" ? ("Okay") : ('Átlagos'),
-        4: language === "en" ? ("Good") : ('Jó'),
-        5: language === "en" ? ("Perfect") : ('Tökéletes'),
+        1: router.locale === "en" ? ("Very bad") : ('Nagyon rossz'),
+        2: router.locale === "en" ? ("Bad") : ('Rossz'),
+        3: router.locale === "en" ? ("Okay") : ('Átlagos'),
+        4: router.locale === "en" ? ("Good") : ('Jó'),
+        5: router.locale === "en" ? ("Perfect") : ('Tökéletes'),
     };
 
     useEffect(() => {
@@ -98,7 +99,7 @@ const Rating = () => {
             <Fade triggerOnce>
                 <MDBRow className="justify-content-center mx-auto pt-3 pb-4">
                     <h3>
-                        {language === "en" ? ("Rate Us") : ("Értékeljen minket")}
+                        {router.locale === "en" ? ("Rate Us") : ("Értékeljen minket")}
                     </h3>
                 </MDBRow>
             </Fade>
@@ -140,14 +141,14 @@ const Rating = () => {
                                     {labels[value]}
                                 </MDBCardHeader>
                                 <MDBCardBody className="p-3">
-                                    <MDBInput type="textarea" label={language === "en" ? ("Your opinion (optional)") : ("Vélemény (opcionális)")} rows="5" value={textareavalue}
+                                    <MDBInput type="textarea" label={router.locale === "en" ? ("Your opinion (optional)") : ("Vélemény (opcionális)")} rows="5" value={textareavalue}
                                         onChange={(e) => settextareavalue(e.target.value)} />
                                 </MDBCardBody>
                                 <MDBCardFooter className="p-0 justify-content-between d-flex">
                                     <MDBBtn onClick={SendFeedback} color="warning" className="roundedbtn black-text ml-3 font-weight-bold" size="sm">
-                                        {language === "en" ? ("Send") : ("Küldés")}
+                                        {router.locale === "en" ? ("Send") : ("Küldés")}
                                     </MDBBtn>
-                                    <Tooltip title={language === "en" ? ("The feedback will not be sent.") : ("Az értékelés nem lesz elküldve.")}>
+                                    <Tooltip title={router.locale === "en" ? ("The feedback will not be sent.") : ("Az értékelés nem lesz elküldve.")}>
                                         <IconButton onClick={() => setpopover({ popover: false })}>
                                             <CloseIcon />
                                         </IconButton>

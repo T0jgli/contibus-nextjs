@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from "framer-motion";
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router';
 
 export const pageVariants = {
     initial: { y: -20, opacity: 0 },
@@ -57,7 +56,7 @@ const text = {
 };
 
 const InitialTransition = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     const [complete, setcomplete] = useState(false)
     return (
         <>
@@ -97,7 +96,7 @@ const InitialTransition = () => {
                         y="50%"
                         style={{ fill: "url(#pattern)", fontSize: "25px" }}
                     >
-                        {language === "en" ? ("There is something new") : ("Megújultunk")}
+                        {router.locale === "en" ? ("There is something new") : ("Megújultunk")}
                     </text>
                 </motion.svg>
             </motion.div>

@@ -1,16 +1,15 @@
 import React from 'react'
 
 import IconButton from '@material-ui/core/IconButton';
-import { selectlanguage } from '../../lib/AppSlice'
 
 import { Tooltip } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
 
     return (
         <tr className="tablesor" id={data.fields.bus}>
@@ -33,7 +32,7 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                 <div className="d-flex mx-3 justify-content-center">
 
                     <Link href={`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`}>
-                        <Tooltip title={language === "en" ? ("More") : ("Bővebben")}>
+                        <Tooltip title={router.locale === "en" ? ("More") : ("Bővebben")}>
                             <IconButton id="morebtn">
                                 <ControlPointIcon />
                             </IconButton>
@@ -42,10 +41,10 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
 
                     {/*                     <MDBBtn color="warning" size="sm" className="roundedbtn black-text mt-3 muzeumbtn"
                         onClick={() => { history.push(`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`) }}>
-                        {language === "en" ? ("More »") : ("Bővebben »")}
+                        {router.locale === "en" ? ("More »") : ("Bővebben »")}
                     </MDBBtn>
  */}
-                    {/* <Tooltip title={language === "en" ? ("Pictures") : ("Képek")}>
+                    {/* <Tooltip title={router.locale === "en" ? ("Pictures") : ("Képek")}>
                         <IconButton onClick={() => {
                             let newarr = [...toggler];
                             newarr[dataid - 1].pict = !newarr[dataid - 1].pict;
@@ -55,7 +54,7 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                             <PhotoLibraryIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title={language === "en" ? ("Seat positions") : ("Ülésrend")}>
+                    <Tooltip title={router.locale === "en" ? ("Seat positions") : ("Ülésrend")}>
                         <IconButton aria-label="seats" onClick={() => window.open(`https:${data.fields.seats.fields.file.url}`, "_blank")}>
                             <AirlineSeatReclineNormalIcon />
                         </IconButton>
@@ -65,10 +64,10 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
             </td>
             <td className="dijaktext">
                 <p className='m-0 pt-lg-5 mt-lg-3'>
-                    <NumberFormat suffix=" Ft / km" prefix={language === "en" ? ("Km charge: ") : ("Km díj: ")} value={data.fields.kmdij} displayType="text" />
+                    <NumberFormat suffix=" Ft / km" prefix={router.locale === "en" ? ("Km charge: ") : ("Km díj: ")} value={data.fields.kmdij} displayType="text" />
                 </p>
                 <p className='mb-2'>
-                    <NumberFormat suffix={language === "en" ? (" Ft / hour") : (" Ft / óra")} prefix={language === "en" ? ("Hourly rate: ") : ("Óradíj: ")}
+                    <NumberFormat suffix={router.locale === "en" ? (" Ft / hour") : (" Ft / óra")} prefix={router.locale === "en" ? ("Hourly rate: ") : ("Óradíj: ")}
                         thousandSeparator=" " value={data.fields.oradij} displayType="text" />
                 </p>
             </td>

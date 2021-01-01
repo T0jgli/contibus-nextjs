@@ -6,12 +6,11 @@ import Carousel from '../../components/GlobalComponents/Carousel'
 
 import { MDBBtn } from 'mdbreact'
 import OneBusBody from '../../components/BusesComponents/OneBusBody'
-import { useSelector } from 'react-redux'
-import { selectlanguage } from '../../lib/AppSlice'
 import { Fade } from 'react-awesome-reveal'
+import { useRouter } from 'next/router'
 
 const OneBus = () => {
-    const language = useSelector(selectlanguage)
+    const router = useRouter()
     return (
         <motion.section initial="initial"
             animate="animate"
@@ -26,7 +25,7 @@ const OneBus = () => {
                             router.back()
                         else router.push("/buses")
  */                    }} className="my-1 black-text roundedbtn font-weight-bolder">
-                        « {language === "en" ? ("Back") : ("Vissza")}
+                        « {router.locale === "en" ? ("Back") : ("Vissza")}
                     </MDBBtn>
                 </div>
             </Fade>

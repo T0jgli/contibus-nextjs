@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectBusesData, selectlanguage } from '../../lib/AppSlice'
+import { selectBusesData } from '../../lib/AppSlice'
 
 import { MDBBtn, MDBCol, MDBRow } from 'mdbreact'
 import UpdateIcon from '@material-ui/icons/Update';
@@ -18,7 +18,6 @@ import Head from 'next/head'
 
 const OneBusBody = () => {
     const router = useRouter()
-    const language = useSelector(selectlanguage)
     const busesdata = useSelector(selectBusesData)
     const [thisbus, setthisbus] = useState(null)
     const [notfound, setnotfound] = useState(false)
@@ -83,10 +82,10 @@ const OneBusBody = () => {
                                         <div className="onebus__oradijcontainer d-flex align-items-center mt-5">
                                             <UpdateIcon fontSize="large" />
                                             <div>
-                                                <p className="grey-text m-0 pl-4">PER {language === "en" ? ("HOUR") : ("ÓRA")}</p>
+                                                <p className="grey-text m-0 pl-4">PER {router.locale === "en" ? ("HOUR") : ("ÓRA")}</p>
 
                                                 <NumberFormat thousandSeparator=" " className="grey-text h4 font-weight-bold pt-2 m-0 pl-4"
-                                                    suffix={language === "en" ? (" Ft / hour") : (" Ft / óra")}
+                                                    suffix={router.locale === "en" ? (" Ft / hour") : (" Ft / óra")}
                                                     value={thisbus.fields.oradij} displayType="text" />
                                             </div>
                                         </div>
@@ -124,7 +123,7 @@ const OneBusBody = () => {
                             </MDBRow>
                             <MDBRow className="mx-auto mt-3 flex-center">
                                 <MDBCol lg="8" className="text-center">
-                                    <Tooltip title={language === "en" ? ("Seat positions") : ("Ülésrend")}>
+                                    <Tooltip title={router.locale === "en" ? ("Seat positions") : ("Ülésrend")}>
                                         <IconButton aria-label="seats" onClick={() => window.open(`https:${thisbus.fields.seats.fields.file.url}`, "_blank")}>
                                             <AirlineSeatReclineNormalIcon />
                                         </IconButton>
@@ -144,7 +143,7 @@ const OneBusBody = () => {
                                         }
                                     })
                                 }} className="my-1 black-text roundedbtn font-weight-bold">
-                                    {language === "en" ? ("Order") : ("Megrendelem")}
+                                    {router.locale === "en" ? ("Order") : ("Megrendelem")}
                                 </MDBBtn>
 
                             </Fade>
