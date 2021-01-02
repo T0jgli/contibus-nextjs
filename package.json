@@ -25,6 +25,7 @@
     "axios": "^0.20.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "contentful": "^8.1.6",
+    "es6-crawler-detect": "^3.1.2",
     "firebase": "^7.24.0",
     "framer-motion": "^2.9.5",
     "mdbreact": "^5.0.1",

@@ -234,7 +234,7 @@ const Navbar = () => {
 
             <Popper className="mt-3" style={{ zIndex: "1000" }}
                 open={menu.open} anchorEl={menu.ref} role={undefined} transition placement={menu.placement}>
-                {({ TransitionProps, placement }) => (
+                {({ TransitionProps }) => (
                     <Slide
                         timeout={500}
                         {...TransitionProps}

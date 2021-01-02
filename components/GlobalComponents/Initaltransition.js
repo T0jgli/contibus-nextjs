@@ -68,10 +68,12 @@ const InitialTransition = () => {
                 variants={blackBox}
                 onAnimationStart={() => {
                     window.scrollTo(0, 0);
+                    document.body.classList.add("overflow-hidden")
                 }}
                 onAnimationComplete={() => {
                     localStorage.setItem("InitalTransition", false)
                     setcomplete(true)
+                    document.body.classList.remove("overflow-hidden")
                 }
                 }
             >

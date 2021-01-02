@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { setbusesData, setmuzeumData } from '../lib/AppSlice'
 
-//import InitialTransition from './GlobalComponents/Initaltransition';
+import InitialTransition from './GlobalComponents/Initaltransition';
 import Navbar from './GlobalComponents/Navbar'
 import Snackbars from './GlobalComponents/Snackbars'
 
@@ -13,10 +13,15 @@ import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from '../lib/SetContentFulData';
 import { useRouter } from 'next/router';
 import ReactGA from 'react-ga'
+import { Crawler } from "es6-crawler-detect"
+
+const CrawlerDetector = new Crawler()
+const userAgentString = typeof window !== "undefined" && navigator.userAgent;
 
 const DefaultLayout = ({ children }) => {
     const dispatch = useDispatch()
     const { pathname } = useRouter()
+
     useEffect(() => {
         ReactGA.pageview(window.location.pathname)
     }, [pathname])
@@ -37,7 +42,7 @@ const DefaultLayout = ({ children }) => {
 
     return (
         <>
-            {/* {typeof window !== "undefined" && localStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)} */}
+            {typeof window !== "undefined" && localStorage.getItem("InitalTransition") !== "false" && !CrawlerDetector.isCrawler(userAgentString) && (<InitialTransition />)}
             <Navbar />
             <AnimatePresence exitBeforeEnter>
                 {children}
