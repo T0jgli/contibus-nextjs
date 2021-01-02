@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBCol, MDBRow
 } from "mdbreact";
-import { Snackbar, SnackbarContent } from '@material-ui/core';
+import { ClickAwayListener, Collapse, Divider, Grow, Menu, MenuItem, MenuList, Paper, Popper, Slide, Snackbar, SnackbarContent } from '@material-ui/core';
 import Link from 'next/link'
 
 import Calendar from './Calendar';
@@ -14,6 +14,32 @@ import { setCookie } from '../../lib/CookieHelper';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
+const menuitems = [
+    {
+        href: "/",
+        title: {
+            hu: "Kezdőlap",
+            en: "Home"
+        }
+    },
+    {
+        href: "/offer",
+        title: {
+            hu: "Ajánlatkérés",
+            en: "Offer request"
+        }
+    },
+    {
+        href: "/buses",
+        title: {
+            hu: "Autóbuszaink",
+            en: "Our Buses"
+        }
+    },
+
+]
 
 const Navbar = () => {
     const router = useRouter();
@@ -21,7 +47,11 @@ const Navbar = () => {
     const [langtoast, setlangtoast] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [navbarbg, setnavbarbg] = useState(false)
-
+    const [menu, setmenu] = useState({
+        open: false,
+        ref: null,
+        placement: null
+    })
 
     useEffect(() => {
         if (typeof window !== undefined) {
@@ -164,33 +194,31 @@ const Navbar = () => {
                         <span style={{ cursor: "pointer", paddingLeft: "5px" }}>ContiBUS
                         </span>
                     </a>
-                    <div className={`${navbarbg ? "topnav__mobileicon" : ("")} navbar__mobileicon`} onClick={() => setIsOpen(true)}>
+                    <div className={`${navbarbg ? "topnav__mobileicon" : ("")} navbar__mobileicon`} onClick={() => { setIsOpen(true) }}>
                         <MenuIcon fontSize="large" />
                     </div>
                     <ul className="navbar__menu">
-                        <Link href="/" passHref>
-                            <li className={`${navbarbg ? "topnav__li" : ("")}`}>
-                                <a className={`${router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")} navbar__link`}>
-                                    {router.locale === "en" ? ("Home") : ("Kezdőlap")}
-                                </a>
-                            </li>
-                        </Link>
-                        <Link href="/offer" passHref>
-                            <li className={`${navbarbg ? "topnav__li" : ("")}`}>
-                                <a className={`${router.pathname === "/offer" ? "active" : ("")} navbar__link`}>
-                                    {router.locale === "en" ? ("Offer request") : ("Ajánlatkérés")}
-                                </a>
-                            </li>
-                        </Link>
-                        <Link href="/buses" passHref>
-                            <li className={`${navbarbg ? "topnav__li" : ("")}`}>
-                                <a className={`${router.pathname.includes("bus") ? "active" : ("")} navbar__link`}>
-                                    {router.locale === "en" ? ("Our buses") : ("Autóbuszok")}
-                                </a>
-                            </li>
-                        </Link>
+                        {menuitems.map(item => (
+                            <Link href={item.href} passHref>
+                                <li className={`${navbarbg ? "topnav__li" : ("")}`}>
+                                    <a className={`${item.title.en === "Home" ? router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")
+                                        : item.title.en === "Offer request" ? router.pathname === "/offer" ? "active" : ("")
+                                            : item.title.en === "Our Buses" ? router.pathname.includes("bus") ? "active" : ("") : ("")
+                                        } navbar__link`}>
+                                        {router.locale === "en" ? (item.title.en) : (item.title.hu)}
+                                    </a>
+                                </li>
+                            </Link>
+                        ))}
                         <li className={`${navbarbg ? "topnav__li" : ("")}`}>
-                            <a className="navbar__link">
+                            <a
+                                onClick={(e) => setmenu({
+                                    ref: e.currentTarget,
+                                    open: !menu.open,
+                                    placement: "right-start"
+                                })}
+                                className={`${menu.open ? ("menuopened") : ("")} navbar__link`}
+                            >
                                 {router.locale === "en" ? ("Travels") : ("Utazásaink")} <ArrowRightIcon />
                             </a>
                         </li>
@@ -244,28 +272,29 @@ const Navbar = () => {
 
             <aside className={`${isOpen ? "open" : "closed"}`}>
                 <div className="sidebar__icon">
-                    <CloseIcon fontSize="large" onClick={() => setIsOpen(!isOpen)} />
+                    <CloseIcon fontSize="large" onClick={() => { setIsOpen(!isOpen) }} />
                 </div>
                 <div>
                     <ul>
-                        <Link href="/" passHref>
-                            <a className={`${router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")} sidebar__link`}>
-                                {router.locale === "en" ? ("Home") : ("Főoldal")}
-                            </a>
-                        </Link>
-                        <Link href="/offer" passHref>
-                            <a className={`${router.pathname === "/offer" ? "active" : ("")} sidebar__link`}>
-                                {router.locale === "en" ? ("Offer request") : ("Ajánlatkérés")}
-                            </a>
-                        </Link>
-
-                        <Link href="/buses" passHref>
-                            <a className={`${router.pathname.includes("bus") ? "active" : ("")} sidebar__link`}>
-                                {router.locale === "en" ? ("Our buses") : ("Autóbuszok")}
-                            </a>
-                        </Link>
-                        <a className="sidebar__link">
-                            {router.locale === "en" ? ("Travels") : ("Utazásaink")} <ArrowRightIcon />
+                        {menuitems.map(item => (
+                            <Link href={item.href} passHref>
+                                <a className={`${item.title.en === "Home" ? router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")
+                                    : item.title.en === "Offer request" ? router.pathname === "/offer" ? "active" : ("")
+                                        : item.title.en === "Our Buses" ? router.pathname.includes("bus") ? "active" : ("") : ("")
+                                    } sidebar__link`}>
+                                    {router.locale === "en" ? (item.title.en) : (item.title.hu)}
+                                </a>
+                            </Link>
+                        ))}
+                        <a className="sidebar__link"
+                            className={`${menu.open ? ("menuopened") : ("")} sidebar__link`}
+                            onClick={(e) => setmenu({
+                                ref: e.currentTarget,
+                                open: !menu.open,
+                                placement: "bottom"
+                            })}
+                        >
+                            {router.locale === "en" ? ("Travels") : ("Utazásaink")} <ArrowDropDownIcon />
                         </a>
                     </ul>
                     <div className="sidebar__language">
@@ -314,10 +343,51 @@ const Navbar = () => {
                 </div>
             </aside>
 
+            <Popper className="mt-3" style={{ zIndex: "1000" }}
+                open={menu.open} anchorEl={menu.ref} role={undefined} transition placement={menu.placement}>
+                {({ TransitionProps, placement }) => (
+                    <Slide
+                        timeout={500}
+                        {...TransitionProps}
+                    >
+                        <Paper style={{ borderRadius: "20px", backgroundColor: "#f5f5f5" }}>
+                            <ClickAwayListener onClickAway={() => setmenu({ ...menu, open: false })}>
+                                <MenuList>
+                                    <MenuItem
+                                        onClick={() => {
+                                            setcalendaropen(!calendaropen);
+                                            setmenu({ ...menu, open: false })
+                                            if (window.innerWidth < 767) {
+                                                setIsOpen(false)
+                                            }
+                                            ReactGA.modalview('/calendar');
+                                        }}
+                                        className="font-weight-bolder"
+                                    >
+                                        {router.locale === "en" ? ("Calendar") : ("Naptár")} »
+                                    </MenuItem>
+                                    <Divider />
+                                    <MenuItem
+                                        className="font-weight-bolder"
+
+                                        onClick={() => {
+                                            window.open("https://www.facebook.com/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315/events", "_blank")
+                                        }}
+                                        rel="noopener noreferrer"
+                                    >{router.locale === "en" ? ("Facebook events") : ("Facebook eseményeink")} »
+                                    </MenuItem>
+                                </MenuList>
+                            </ClickAwayListener>
+                        </Paper>
+                    </Slide>
+                )}
+            </Popper>
+
+
             <Snackbar autoHideDuration={3000} open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
                 <SnackbarContent message={router.locale === "en" ? ("Language set") : ("Nyelv sikeresen beállítva")} />
             </Snackbar>
-            <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} setisOpen={setIsOpen} />
+            <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} />
         </>
     )
 }

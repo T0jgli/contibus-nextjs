@@ -1,9 +1,6 @@
 .main {
   background-color: #f5f5f5;
 }
-.navbar {
-  background-color: rgba(0, 0, 0, 0.2);
-}
 .controls-top {
   text-align: center;
   margin-bottom: 15px;
@@ -16,17 +13,6 @@
 }
 .modal-content {
   border-radius: 1rem !important;
-}
-.top-nav-collapse {
-  background-color: #1c2331;
-}
-.nav-flex-icons {
-  margin-top: auto !important;
-  margin-left: auto !important;
-  padding-left: 5px;
-  padding-right: 3px;
-  margin-top: 10px;
-  justify-content: space-between;
 }
 .carr {
   height: 100vh;
@@ -78,9 +64,6 @@
   border-radius: 30px;
 }
 @media (max-width: 768px) {
-  .navbar {
-    background-color: #212121;
-  }
   .roundedimagemobile {
     border-radius: 0.6rem !important;
   }
@@ -121,22 +104,6 @@
   -moz-transition: all 1.5s !important;
   -webkit-transition: all 1.5s !important;
 }
-.dropdown-menu {
-  top: 50px !important;
-  animation: growDown 300ms ease-in-out forwards;
-  transform-origin: top center;
-}
-@keyframes growDown {
-  0% {
-    transform: scaleY(0);
-  }
-  80% {
-    transform: scaleY(1.1);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
 .ril__outer {
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
@@ -148,9 +115,6 @@
     left: auto;
     bottom: 0;
   }
-  .dropdown-menu {
-    top: 35px !important;
-  }
   .fc-toolbar-chunk {
     text-align: center;
     padding-bottom: 0.5rem;
@@ -160,17 +124,6 @@
     margin-right: auto;
     margin-left: auto;
   }
-}
-#ticketbtn {
-  transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  box-shadow: 0 0 10px rgba(20, 20, 20, 0.5);
-}
-#ticketbtn:hover {
-  -moz-transform: scale(1.04, 1.04);
-  -webkit-transform: scale(1.04, 1.04);
-  transform: scale(1.04, 1.04);
 }
 .cookiealert {
   position: fixed;
@@ -222,12 +175,6 @@
   background: rgb(120, 120, 120);
 }
 
-.dropdown-item:hover {
-  background-color: rgba(0, 0, 0, 0.08);
-  -moz-transform: scale(1.015, 1.015);
-  -webkit-transform: scale(1.015, 1.015);
-  transform: scale(1.015, 1.015);
-}
 #scrolltopbutton {
   position: fixed;
   width: 40px;
@@ -346,13 +293,6 @@
     display: none !important;
   }
 }
-#kalandozastravel {
-  opacity: 0.8;
-}
-#kalandozastravel:hover {
-  opacity: 1;
-}
-
 @media (max-width: 992px) {
   .section-description {
     margin-left: 5%;

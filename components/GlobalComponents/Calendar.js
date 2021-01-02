@@ -15,7 +15,7 @@ import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
 
 
-const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
+const Calendar = ({ setcalendaropen, calendaropen }) => {
     const { locale } = useRouter()
 
     return (
@@ -26,7 +26,6 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
             <MDBModalHeader className="rounded calendar" titleClass="heading lead font-weight-bolder"
                 toggle={() => {
                     setcalendaropen(!calendaropen);
-                    setisOpen(false);
                     ReactGA.pageview(window.location.pathname)
                 }}>
                 {locale === "en" ? ("Calendar") : ("Naptár")}
@@ -83,8 +82,6 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                         setcalendaropen(!calendaropen)
                         ReactGA.pageview(window.location.pathname)
 
-                        if (window.innerWidth < 767)
-                            setisOpen(false)
                     }}>
                         {locale === "en" ? ("Close") : ("Bezárás")}
                     </MDBBtn>
