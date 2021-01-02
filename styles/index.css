@@ -81,9 +81,6 @@
   .navbar {
     background-color: #212121;
   }
-  .carouselup {
-    height: 60vh !important;
-  }
   .roundedimagemobile {
     border-radius: 0.6rem !important;
   }
@@ -282,7 +279,7 @@
   opacity: 0.95;
 }
 .carouselup {
-  height: 50vh !important;
+  height: 60vh;
 }
 .modal {
   overflow-y: auto;
@@ -337,7 +334,7 @@
 }
 
 .carouselup {
-  clip-path: circle(450vh at 50% -400vh) !important;
+  clip-path: circle(460vh at 50% -400vh) !important;
 }
 
 .page-footer {

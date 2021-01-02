@@ -17,14 +17,27 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const Navbar = () => {
     const router = useRouter();
-
     const [calendaropen, setcalendaropen] = useState(false)
-
     const [langtoast, setlangtoast] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [navbarbg, setnavbarbg] = useState(false)
+
 
     useEffect(() => {
-        if (window.innerWidth < 960) {
+        if (typeof window !== undefined) {
+            window.addEventListener("scroll", () => {
+                if (window.scrollY >= 100) {
+                    setnavbarbg(true)
+                } else {
+                    setnavbarbg(false)
+                }
+
+            })
+        }
+    }, [])
+
+    useEffect(() => {
+        if (window.innerWidth < 768) {
             setIsOpen(false)
         }
     }, [router.pathname, router.locale])
@@ -144,41 +157,39 @@ const Navbar = () => {
                     </MDBCollapse>
                 </div>
             </MDBNavbar> */}
-            <nav className="animated fadeInDown">
+            <nav className={`${navbarbg ? "topnav" : ("")} animated fadeInDown`}>
                 <div className="navbar__container">
                     <a className="navbar__logo" onClick={() => window.location.reload(false)}>
                         <MDBIcon icon="bus" />
                         <span style={{ cursor: "pointer", paddingLeft: "5px" }}>ContiBUS
                         </span>
                     </a>
-                    <div className="navbar__mobileicon" onClick={() => setIsOpen(true)}>
+                    <div className={`${navbarbg ? "topnav__mobileicon" : ("")} navbar__mobileicon`} onClick={() => setIsOpen(true)}>
                         <MenuIcon fontSize="large" />
                     </div>
                     <ul className="navbar__menu">
                         <Link href="/" passHref>
-                            <li>
-
-                                <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} navbar__link`}>
+                            <li className={`${navbarbg ? "topnav__li" : ("")}`}>
+                                <a className={`${router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")} navbar__link`}>
                                     {router.locale === "en" ? ("Home") : ("Kezdőlap")}
                                 </a>
                             </li>
                         </Link>
                         <Link href="/offer" passHref>
-                            <li>
-                                <a className={`${router.pathname === "/offer" && "active"} navbar__link`}>
+                            <li className={`${navbarbg ? "topnav__li" : ("")}`}>
+                                <a className={`${router.pathname === "/offer" ? "active" : ("")} navbar__link`}>
                                     {router.locale === "en" ? ("Offer request") : ("Ajánlatkérés")}
                                 </a>
                             </li>
                         </Link>
                         <Link href="/buses" passHref>
-                            <li>
-                                <a className={`${router.pathname.includes("bus") && "active"} navbar__link`}>
+                            <li className={`${navbarbg ? "topnav__li" : ("")}`}>
+                                <a className={`${router.pathname.includes("bus") ? "active" : ("")} navbar__link`}>
                                     {router.locale === "en" ? ("Our buses") : ("Autóbuszok")}
                                 </a>
                             </li>
                         </Link>
-
-                        <li >
+                        <li className={`${navbarbg ? "topnav__li" : ("")}`}>
                             <a className="navbar__link">
                                 {router.locale === "en" ? ("Travels") : ("Utazásaink")} <ArrowRightIcon />
                             </a>
@@ -238,18 +249,18 @@ const Navbar = () => {
                 <div>
                     <ul>
                         <Link href="/" passHref>
-                            <a className={`${router.pathname === "/" ? "active" : router.pathname === "" && "active"} sidebar__link`}>
+                            <a className={`${router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")} sidebar__link`}>
                                 {router.locale === "en" ? ("Home") : ("Főoldal")}
                             </a>
                         </Link>
                         <Link href="/offer" passHref>
-                            <a className={`${router.pathname === "/offer" && "active"} sidebar__link`}>
+                            <a className={`${router.pathname === "/offer" ? "active" : ("")} sidebar__link`}>
                                 {router.locale === "en" ? ("Offer request") : ("Ajánlatkérés")}
                             </a>
                         </Link>
 
                         <Link href="/buses" passHref>
-                            <a className={`${router.pathname.includes("bus") && "active"} sidebar__link`}>
+                            <a className={`${router.pathname.includes("bus") ? "active" : ("")} sidebar__link`}>
                                 {router.locale === "en" ? ("Our buses") : ("Autóbuszok")}
                             </a>
                         </Link>

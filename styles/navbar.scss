@@ -1,5 +1,5 @@
 nav {
-    background: rgba(33, 33, 33, 1);
+    background: rgba(33, 33, 33, 0.5);
     height: 80px;
     /*     margin-top: -80px;
  */
@@ -12,6 +12,12 @@ nav {
     left: 0;
     right: 0;
     z-index: 10;
+    transition: all 0.5s ease-in;
+
+    &.topnav {
+        background: rgba(33, 33, 33, 1);
+        height: 70px;
+    }
 
     @media (max-width: 768px) {
         transition: 0.5s all ease;
@@ -50,9 +56,14 @@ nav {
                 bottom: 45px;
                 right: 0;
                 transform: translate(-100%, 60%);
+                transition: all 0.5s ease-in;
                 font-size: 1.8rem;
                 cursor: pointer;
                 color: #ffff;
+
+                &.topnav__mobileicon {
+                    bottom: 40px;
+                }
             }
         }
         .navbar__menu {
@@ -71,6 +82,10 @@ nav {
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
+                transition: all 0.5s ease-in;
+                &.topnav__li {
+                    height: 70px;
+                }
 
                 .navbar__link {
                     color: #fff;
@@ -226,6 +241,81 @@ aside {
         .sidebar__language {
             text-align: center;
             margin-bottom: 2rem;
+        }
+    }
+}
+
+$bgcolor: rgb(199, 199, 199);
+
+#notfound {
+    position: relative;
+    height: 100vh;
+    background-color: $bgcolor;
+
+    .notfound {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        max-width: 520px;
+        width: 100%;
+        line-height: 1.4;
+        text-align: center;
+
+        .notfound-404 {
+            position: relative;
+            height: 200px;
+            margin: 0px auto 20px;
+            z-index: -1;
+
+            @media only screen and (max-width: 480px) {
+                height: 148px;
+                margin: 0px auto 10px;
+            }
+
+            h1 {
+                font-family: "Montserrat", sans-serif;
+                font-size: 236px;
+                font-weight: 200;
+                margin: 0px;
+                color: #211b19;
+                text-transform: uppercase;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+
+                @media only screen and (max-width: 768px) {
+                    font-size: 148px;
+                }
+                @media only screen and (max-width: 480px) {
+                    font-size: 86px;
+                }
+            }
+
+            h2 {
+                font-family: "Montserrat", sans-serif;
+                font-size: 28px;
+                font-weight: 400;
+                text-transform: uppercase;
+                color: #211b19;
+                background: $bgcolor;
+                border-radius: 0.6rem;
+                padding: 10px 5px;
+                margin: auto;
+                display: inline-block;
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+                right: 0;
+                @media only screen and (max-width: 480px) {
+                    font-size: 16px;
+                }
+            }
         }
     }
 }

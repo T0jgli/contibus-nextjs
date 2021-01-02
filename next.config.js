@@ -9,7 +9,4 @@ module.exports = withTM({
         locales: ['hu', 'en'],
         defaultLocale: 'hu',
     },
-}, {
-    useFileSystemPublicRoutes: true,
-
 })
