@@ -1,7 +1,10 @@
 import { MDBCol, MDBContainer, MDBRow } from 'mdbreact'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+
 import React from 'react'
 import { Fade } from 'react-awesome-reveal'
+
 
 const Info2 = () => {
     const router = useRouter()
@@ -35,7 +38,7 @@ const Info2 = () => {
                     <MDBCol md="4" className="mb-5">
                         <i style={{ fontSize: "4rem", color: "#fb3" }} className="fa logo fa-heart"></i>
                         <h4 className="my-4 mx-0" style={{ fontWeight: "500" }}>{router.locale === "en" ? ("Adventure") : ("Élmény")}</h4>
-                        <p className="grey-text">Szolgatásaink közé tartozik az egyedik utazások lebonyolítása is, melyekkel felejthetetlen élményt tudunk nyújtani utasainknak. Kérjen árajánlatot <span className="privacytext" onClick={() => router.push("/offer")}>ide</span> kattintva.</p>
+                        <p className="grey-text">Szolgatásaink közé tartozik az egyedik utazások lebonyolítása is, melyekkel felejthetetlen élményt tudunk nyújtani utasainknak. Kérjen árajánlatot <Link href="/offer" passHref><a className="privacytext" onClick={() => router.push("/offer")}>ide</a></Link> kattintva.</p>
                     </MDBCol>
                 </MDBRow>
 
