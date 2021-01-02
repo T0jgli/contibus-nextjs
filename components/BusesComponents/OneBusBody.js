@@ -46,6 +46,7 @@ const OneBusBody = () => {
                         <meta name="twitter:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
                         <meta property="og:url" content={`https://contibus-nextjs.vercel.app/bus/${thisbus.fields.id}`} />
                         <link rel="alternate" hreflang="en" href={`https://contibus-nextjs.vercel.app/en/bus/${thisbus.fields.id}`} />
+                        <link rel="alternate" hreflang="hu" href={`https://contibus-nextjs.vercel.app/bus/${thisbus.fields.id}`} />
                     </Head>
 
                     <div className="onebus__container w-75 mx-auto my-5 pt-3">

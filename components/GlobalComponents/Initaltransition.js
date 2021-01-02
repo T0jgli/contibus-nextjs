@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
 
 export const pageVariants = {
-    initial: { y: -20, opacity: 0 },
+    initial: { y: -25, opacity: 0 },
     animate: {
         y: 0,
         opacity: 1,
@@ -67,7 +67,6 @@ const InitialTransition = () => {
                 animate="animate"
                 variants={blackBox}
                 onAnimationStart={() => {
-                    window.scrollTo(0, 0);
                     document.body.classList.add("overflow-hidden")
                 }}
                 onAnimationComplete={() => {

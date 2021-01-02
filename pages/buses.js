@@ -23,6 +23,7 @@ const Buses = () => {
         <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
         <meta property="og:url" content="https://contibus-nextjs.vercel.app/buses" />
         <link rel="alternate" hreflang="en" href="https://contibus-nextjs.vercel.app/en/buses" />
+        <link rel="alternate" hreflang="hu" href="https://contibus-nextjs.vercel.app/buses" />
       </Head>
     </motion.section>
   )

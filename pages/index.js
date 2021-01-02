@@ -36,6 +36,7 @@ const Home = () => {
                 <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
                 <meta property="og:url" content="https://contibus-nextjs.vercel.app" />
                 <link rel="alternate" hreflang="en" href="https://contibus-nextjs.vercel.app/en" />
+                <link rel="alternate" hreflang="hu" href="https://contibus-nextjs.vercel.app" />
             </Head>
         </motion.div>
     )
