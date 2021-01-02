@@ -12,9 +12,6 @@ import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { wrapper } from '../lib/store';
-import SetContentFulData from '../lib/SetContentFulData';
-import { setbusesData } from '../lib/AppSlice';
 
 const Home = () => {
     const { locale } = useRouter()
@@ -35,8 +32,6 @@ const Home = () => {
                 <meta property="og:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
                 <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
                 <meta property="og:url" content="https://contibus-nextjs.vercel.app" />
-                <link rel="alternate" hreflang="en" href="https://contibus-nextjs.vercel.app/en" />
-                <link rel="alternate" hreflang="hu" href="https://contibus-nextjs.vercel.app" />
             </Head>
         </motion.div>
     )

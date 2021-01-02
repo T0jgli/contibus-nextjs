@@ -263,7 +263,7 @@ const Navbar = () => {
                                             window.open("https://www.facebook.com/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315/events", "_blank")
                                         }}
                                         rel="noopener noreferrer"
-                                    >{router.locale === "en" ? ("Facebook events") : ("Facebook eseményeink")} »
+                                    >{router.locale === "en" ? ("Facebook events") : ("Facebook események")} »
                                     </MenuItem>
                                 </MenuList>
                             </ClickAwayListener>
