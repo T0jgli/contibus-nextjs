@@ -11,6 +11,7 @@ class MyDocument extends Document {
                 <meta httpEquiv="x-ua-compatible" content="ie=edge" />
                 <link rel="alternate" hrefLang="en" href="https://contibus-nextjs.vercel.app/en" />
                 <link rel="alternate" hrefLang="hu" href="https://contibus-nextjs.vercel.app" />
+                <link rel="canoncial" href="https://contibus-nextjs.vercel.app" />
                 <meta name="description"
                     content="Cégünk autóbusz bérbeadással foglalkozik. 18-83 fős autóbuszokkal vállaljuk cégek, iskolák, baráti társaságok utazásainak lebonyolítását." />
                 <meta name="copyright" content="2020 © Contibus Neoline KFT." />
