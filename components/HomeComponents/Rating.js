@@ -18,6 +18,7 @@ const Rating = () => {
     const { locale } = useRouter()
 
     const [value, setValue] = useState(0);
+    const [loading, setloading] = useState(false);
     const [textareavalue, settextareavalue] = useState(null);
     const [popover, setpopover] = useState({
         popover: false,
@@ -38,6 +39,7 @@ const Rating = () => {
     }, [])
 
     const SendFeedback = () => {
+        setloading(true)
         publicIp.v4({
             fallbackUrls: ["https://ifconfig.co/ip"]
         }).then((ip) => {
@@ -88,6 +90,7 @@ const Rating = () => {
                 }
             }))
         }).then(() => {
+            setloading(false)
             setpopover({ popover: false })
             settextareavalue("")
         })
@@ -145,8 +148,14 @@ const Rating = () => {
                                         onChange={(e) => settextareavalue(e.target.value)} />
                                 </MDBCardBody>
                                 <MDBCardFooter className="p-0 justify-content-between d-flex">
-                                    <MDBBtn onClick={SendFeedback} color="warning" className="roundedbtn black-text ml-3 font-weight-bold" size="sm">
-                                        {locale === "en" ? ("Send") : ("Küldés")}
+                                    <MDBBtn disabled={loading} onClick={SendFeedback} color="warning" className="roundedbtn black-text ml-3 font-weight-bold" size="sm">
+                                        {loading ? (
+                                            <div className="d-flex p-0 m-0 justify-content-center animated zoomIn">
+                                                <div className="spinner-border spinner-border-sm p-0 m-0" role="status">
+                                                    <span className="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        ) : locale === "en" ? ("Send") : ("Küldés")}
                                     </MDBBtn>
                                     <Tooltip title={locale === "en" ? ("The feedback will not be sent.") : ("Az értékelés nem lesz elküldve.")}>
                                         <IconButton onClick={() => setpopover({ popover: false })}>
