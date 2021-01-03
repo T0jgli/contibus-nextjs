@@ -117,7 +117,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar__language">
-                    <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                    <img width="30px" src="/img/svgs/hu.svg" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
                         onClick={() => {
                             if (router.pathname.includes("bus/")) {
                                 router.push({
@@ -134,7 +134,7 @@ const Navbar = () => {
                             if (router.locale === "en")
                                 setlangtoast(true);
                         }} alt="language_huicon" />
-                    <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
+                    <img width="30px" src="/img/svgs/uk.svg" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
                         onClick={() => {
                             if (router.pathname.includes("bus/")) {
                                 console.log(window.location.pathname.split("/").slice(-1)[0])
@@ -185,7 +185,7 @@ const Navbar = () => {
                         </a>
                     </ul>
                     <div className="sidebar__language">
-                        <img width="30px" src="/img/hu.png" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                        <img width="30px" src="/img/svgs/hu.svg" className={router.locale === "hu" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
                             onClick={() => {
                                 if (router.pathname.includes("bus/")) {
                                     router.push({
@@ -202,7 +202,7 @@ const Navbar = () => {
                                 if (router.locale === "en")
                                     setlangtoast(true);
                             }} alt="language_huicon" />
-                        <img width="30px" src="/img/uk.png" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
+                        <img width="30px" src="/img/svgs/uk.svg" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
                             onClick={() => {
                                 if (router.pathname.includes("bus/")) {
                                     console.log(window.location.pathname.split("/").slice(-1)[0])

@@ -1,5 +1,5 @@
 @media print {
-    .navbar,
+    nav,
     .carousel-fade,
     #gallerycontainer,
     #scrolltopbutton,
@@ -24,7 +24,8 @@
     #deck3,
     #deckmuzeum2,
     #deckmuzeum5,
-    .streak {
+    .streak,
+    .services__container {
         page-break-after: always;
     }
     .page-footer,

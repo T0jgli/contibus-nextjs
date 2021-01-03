@@ -17,10 +17,6 @@ nav {
         height: 75px;
     }
 
-    @media (max-width: 768px) {
-        transition: 0.5s all ease;
-    }
-
     .navbar__container {
         display: flex;
         justify-content: space-between;
@@ -28,6 +24,7 @@ nav {
         z-index: 1;
         width: 75%;
         padding: 0 24px;
+
         @media (max-width: 768px) {
             width: 100%;
         }
@@ -45,6 +42,12 @@ nav {
             align-items: center;
             font-weight: bold;
             text-decoration: none;
+            transition: all 0.5s;
+            &:hover {
+                color: white;
+                opacity: 0.6;
+                transition: all 0.5s;
+            }
         }
 
         .navbar__mobileicon {
@@ -54,6 +57,7 @@ nav {
             &:hover::after {
                 transform: translateY(-12px) rotate(-135deg);
             }
+
             &:hover::before {
                 transform: translateY(12px) rotate(135deg);
             }
@@ -77,9 +81,11 @@ nav {
             justify-content: center;
             list-style: none;
             margin: 0;
+
             @media (max-width: 768px) {
                 display: none;
             }
+
             li {
                 height: 80px;
                 display: flex;
@@ -87,6 +93,7 @@ nav {
                 align-items: center;
                 justify-content: center;
                 transition: all 0.5s ease-in-out;
+
                 &.topnav__li {
                     height: 75px;
                 }
@@ -102,6 +109,7 @@ nav {
                     padding: 0 1rem;
                     height: 100%;
                     cursor: pointer;
+
                     &.menuopened {
                         color: #fb3 !important;
                     }
@@ -110,10 +118,12 @@ nav {
                         border-bottom: 4px solid gray;
                         color: #fb3;
                     }
+
                     &:hover {
                         color: #fb3;
                         transition: 0.3s ease-in-out;
                     }
+
                     @media (max-width: 1140px) {
                         padding: 0 0.5rem;
                     }
@@ -124,9 +134,11 @@ nav {
         .navbar__btn {
             display: flex;
             align-items: center;
+
             @media (max-width: 768px) {
                 display: none;
             }
+
             a {
                 border-radius: 30px;
                 background: #fb3;
@@ -140,6 +152,7 @@ nav {
                 cursor: pointer;
                 transition: all 0.5s ease-in-out;
                 text-decoration: none;
+
                 &:hover {
                     transition: all 0.3s ease-in-out;
                     background: rgba(255, 187, 51, 0.75);
@@ -150,13 +163,16 @@ nav {
     .navbar__language {
         position: absolute;
         right: 15px;
+
         @media (max-width: 768px) {
             display: none;
         }
+
         @media (max-width: 850px) {
             left: 15px;
             z-index: 5;
         }
+
         @media (min-width: 850px) {
             right: 15px;
         }
@@ -173,14 +189,17 @@ aside {
     align-items: center;
     left: 0;
     transition: 0.5s ease-in-out;
+
     &.open {
         opacity: 100%;
         top: 0;
     }
+
     &.closed {
         opacity: 0;
         top: -100%;
     }
+
     .sidebar__icon {
         position: absolute;
         top: 1.2rem;
@@ -190,20 +209,25 @@ aside {
         font-size: 2rem;
         cursor: pointer;
         outline: none;
+
         &:hover {
             color: #fb3;
         }
     }
+
     div {
         color: #fff;
+
         ul {
             display: grid;
             padding-left: 0 !important;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(6, 80px);
+
             @media (max-width: 480px) {
                 grid-template-rows: repeat(6, 60px);
             }
+
             .sidebar__link {
                 display: flex;
                 align-items: center;
@@ -214,13 +238,16 @@ aside {
                 transition: 0.3s ease-in-out;
                 color: #fff;
                 cursor: pointer;
+
                 &.menuopened {
                     color: #fb3 !important;
                 }
+
                 &:hover {
                     color: #fb3;
                     transition: 0.3s ease-in-out;
                 }
+
                 &.active {
                     color: #fb3;
                 }
@@ -245,6 +272,7 @@ aside {
                 cursor: pointer;
                 transition: all 0.3s ease-in-out;
                 text-decoration: none;
+
                 &:hover {
                     transition: all 0.3s ease-in-out;
                     background: rgba(255, 187, 51, 0.75);
@@ -255,81 +283,6 @@ aside {
         .sidebar__language {
             text-align: center;
             margin-bottom: 2rem;
-        }
-    }
-}
-
-$bgcolor: rgb(199, 199, 199);
-
-#notfound {
-    position: relative;
-    height: 100vh;
-    background-color: $bgcolor;
-
-    .notfound {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        max-width: 520px;
-        width: 100%;
-        line-height: 1.4;
-        text-align: center;
-
-        .notfound-404 {
-            position: relative;
-            height: 200px;
-            margin: 0px auto 20px;
-            z-index: -1;
-
-            @media only screen and (max-width: 480px) {
-                height: 148px;
-                margin: 0px auto 10px;
-            }
-
-            h1 {
-                font-family: "Montserrat", sans-serif;
-                font-size: 236px;
-                font-weight: 200;
-                margin: 0px;
-                color: #211b19;
-                text-transform: uppercase;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-
-                @media only screen and (max-width: 768px) {
-                    font-size: 148px;
-                }
-                @media only screen and (max-width: 480px) {
-                    font-size: 86px;
-                }
-            }
-
-            h2 {
-                font-family: "Montserrat", sans-serif;
-                font-size: 28px;
-                font-weight: 400;
-                text-transform: uppercase;
-                color: #211b19;
-                background: $bgcolor;
-                border-radius: 0.6rem;
-                padding: 10px 5px;
-                margin: auto;
-                display: inline-block;
-                position: absolute;
-                bottom: 0px;
-                left: 0;
-                right: 0;
-                @media only screen and (max-width: 480px) {
-                    font-size: 16px;
-                }
-            }
         }
     }
 }
@@ -361,16 +314,24 @@ $bgcolor: rgb(199, 199, 199);
             max-height: 375px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             transition: all 0.5s ease-in-out;
+
             &:hover {
                 transform: scale(1.02);
                 transition: all 0.5s ease-in-out;
             }
+
             .icon {
                 height: 300px;
                 width: 300px;
                 margin-bottom: 1.5rem;
                 transition: all 0.3s linear;
                 z-index: 3;
+
+                @media (max-width: 990px) {
+                    height: 250px;
+                    width: 250px;
+                }
+
                 &:hover {
                     transform: scale(1.1);
                     transition: all 0.3s linear;
@@ -390,14 +351,14 @@ $bgcolor: rgb(199, 199, 199);
             h4 {
                 margin-bottom: 2rem;
                 font-weight: 400;
-                transition: all 0.5s;
+                transition: all 0.5s linear;
                 width: 100%;
                 text-align: center;
 
                 &:hover {
                     cursor: default;
                     opacity: 0.6;
-                    transition: all 0.5s;
+                    transition: all 0.5s linear;
                 }
             }
         }

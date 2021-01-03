@@ -84,7 +84,7 @@ const OneBusBody = () => {
                                 <Fade delay={200} triggerOnce>
                                     <div className="onebus__detailscontainer">
                                         <h2 className="text-center text-lg-left">{thisbus.fields.bus}</h2>
-                                        <div className="onebus__oradijcontainer d-flex align-items-center mt-5">
+                                        <div className="onebus__oradijcontainer d-flex align-items-center pb-2 mt-5">
                                             <UpdateIcon fontSize="large" />
                                             <div>
                                                 <p className="grey-text m-0 pl-4">PER {router.locale === "en" ? ("HOUR") : ("ÓRA")}</p>
@@ -95,7 +95,7 @@ const OneBusBody = () => {
                                             </div>
                                         </div>
                                         <hr className="my-4" />
-                                        <div className="onebus__kmdijcontainer d-flex align-items-center mt-3">
+                                        <div className="onebus__kmdijcontainer d-flex align-items-center pt-2 mt-4">
                                             <SpeedIcon fontSize="large" />
                                             <div>
                                                 <p className="grey-text m-0 pl-4">PER KM</p>
@@ -135,6 +135,7 @@ const OneBusBody = () => {
                                     </Tooltip>
                                 </MDBCol>
                             </MDBRow>
+
                         </Fade>
 
 

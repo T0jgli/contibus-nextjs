@@ -21,7 +21,7 @@ const Cards = () => {
     })
     return (
         <>
-            <div className="pt-5 main z-depth-1">
+            <div className="pt-5 z-depth-1" style={{ backgroundColor: "#f0f0f0" }}>
                 <div className="services__container flex-center flex-column">
                     <div className="services__wrapper">
                         <Fade triggerOnce>

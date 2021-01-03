@@ -56,8 +56,8 @@ const Calendar = ({ setcalendaropen, calendaropen }) => {
                                             [
                                                 {
                                                     googleCalendarId: process.env.NEXT_PUBLIC_GOOGLE_CALENDARID_CONTIBUS,
-                                                    className: 'ContiBUS',
-                                                    color: 'green',
+                                                    className: 'contibus-calendar',
+                                                    color: '#fb3',
                                                     textColor: 'black',
                                                     displayEventTime: true,
                                                 },
