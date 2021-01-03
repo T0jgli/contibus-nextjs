@@ -27,7 +27,7 @@ const Info = () => {
                         <img src="/img/3.jpg" className="img-fluid mx-auto d-block logo" alt="Contibus logo" />
                     </Fade>
                 </MDBCol>
-                <MDBCol md="6" className="mb-4 px-0">
+                <MDBCol md="6" className="mb-4 mt-4 mt-md-0 px-1 px-md-0">
                     <Fade delay={200} triggerOnce>
                         <section>
                             <h2 className="mb-3">{locale === "en" ? ("Who are we?") : ("Kik vagyunk mi?")}</h2>
@@ -36,7 +36,7 @@ const Info = () => {
                                 ("Cégünk 1992 óta foglalkozik személyszállítással.")}</p>
                             <p className="m-0">{locale === "en" ? ("All of our buses fit the strict international standards.") :
                                 ("Minden autóbuszunk megfelel a szigorú nemzetközi előírásoknak.")} </p>
-                            <p className="m-0">{locale === "en" ? ("Our drivers have a lot of experience in European travel.") :
+                            <p className="m-0 mb-2">{locale === "en" ? ("Our drivers have a lot of experience in European travel.") :
                                 ("Gépkocsivezetőink nagy tapasztalattal rendelkeznek az európai utaztatásban.")}</p>
                             <p className="mt-1 mb-0 desctext">{locale === "en" ? ("Our partners: ") : ("Partnereink:")}
                             </p>
