@@ -84,7 +84,7 @@ const Navbar = () => {
                     </div>
                     <ul className="navbar__menu">
                         {menuitems.map(item => (
-                            <Link href={item.href} passHref>
+                            <Link key={item.href + "navbar"} href={item.href} passHref>
                                 <li className={`${navbarbg ? "topnav__li" : ("")}`}>
                                     <a className={`${item.title.en === "Home" ? router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")
                                         : item.title.en === "Offer request" ? router.pathname === "/offer" ? "active" : ("")
@@ -164,7 +164,7 @@ const Navbar = () => {
                 <div>
                     <ul>
                         {menuitems.map(item => (
-                            <Link href={item.href} passHref>
+                            <Link key={item.href + "sidebar"} href={item.href} passHref>
                                 <a className={`${item.title.en === "Home" ? router.pathname === "/" ? "active" : router.pathname === "" ? "active" : ("")
                                     : item.title.en === "Offer request" ? router.pathname === "/offer" ? "active" : ("")
                                         : item.title.en === "Our Buses" ? router.pathname.includes("bus") ? "active" : ("") : ("")

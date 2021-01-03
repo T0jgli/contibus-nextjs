@@ -214,11 +214,6 @@
 .roundedimg {
   border-radius: 0.6rem 0.6rem 0 0 !important;
 }
-.kartya:hover {
-  -moz-transform: scale(1.02, 1.02) !important;
-  -webkit-transform: scale(1.02, 1.02) !important;
-  transform: scale(1.02, 1.02) !important;
-}
 .logo:hover {
   opacity: 0.95 !important;
 }

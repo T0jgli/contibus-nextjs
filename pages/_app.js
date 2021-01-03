@@ -11,9 +11,10 @@ import '@fullcalendar/timegrid/main.css' // @fullcalendar/timegrid is a direct i
 import '@fullcalendar/list/main.css' // @fullcalendar/timegrid is a direct import
 
 import '../styles/print.scss'
-import '../styles/index.css';
+import '../styles/index.css'
 import "../styles/buses.scss"
 import "../styles/navbar.scss"
+import "../styles/cards.scss"
 
 import DefaultLayout from '../components/DefaultLayout'
 import ReactGA from 'react-ga';
