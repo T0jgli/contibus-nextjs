@@ -38,28 +38,6 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                             </IconButton>
                         </Tooltip>
                     </Link>
-
-                    {/*                     <MDBBtn color="warning" size="sm" className="roundedbtn black-text mt-3 muzeumbtn"
-                        onClick={() => { history.push(`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`) }}>
-                        {locale === "en" ? ("More »") : ("Bővebben »")}
-                    </MDBBtn>
- */}
-                    {/* <Tooltip title={locale === "en" ? ("Pictures") : ("Képek")}>
-                        <IconButton onClick={() => {
-                            let newarr = [...toggler];
-                            newarr[dataid - 1].pict = !newarr[dataid - 1].pict;
-                            settoggler(newarr)
-                            ReactGA.modalview(`/images/${data.fields.bus.replaceAll(/\s+/g, "-")}`)
-                        }} aria-label="pictures">
-                            <PhotoLibraryIcon />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title={locale === "en" ? ("Seat positions") : ("Ülésrend")}>
-                        <IconButton aria-label="seats" onClick={() => window.open(`https:${data.fields.seats.fields.file.url}`, "_blank")}>
-                            <AirlineSeatReclineNormalIcon />
-                        </IconButton>
-                    </Tooltip> */}
-
                 </div>
             </td>
             <td className="dijaktext">

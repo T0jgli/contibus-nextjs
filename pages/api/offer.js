@@ -16,7 +16,7 @@ export default function formHandler (req, res) {
     if (req.method === "POST" && req.body) {
         const mail = {
             from: '"Ajánlatkérés" ajanlat@contibus.hu',
-            to: 'tojgli12@gmail.com',
+            to: 'buszrendeles@contibus.hu',
             subject: 'Autóbusz ajánlat kérés > contibus.hu',
             html: ` <html><body style="text-align: center;">
           <h1>Ajánlatkérő űrlap a contibus.hu-n keresztül</h1>

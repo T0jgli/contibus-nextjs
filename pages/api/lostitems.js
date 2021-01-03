@@ -16,13 +16,13 @@ export default function formHandler (req, res) {
     if (req.method === "POST" && req.body) {
         const mail = {
             from: '"Elveszett tárgyak" elveszetttargyak@contibus.hu',
-            to: 'tojgli12@gmail.com',
+            to: 'buszrendeles@contibus.hu',
             subject: 'Elveszett tárgy > contibus.hu',
             html: ` <html><body style="text-align: center;">
               <h1>Elveszett tárgy űrlap a contibus.hu-n keresztül</h1>
               <hr>
               <p style="font-weight: bold;">Utas neve:</p><p style="padding-bottom: 20px">${req.body.name}</p>
-              <p style="font-weight: bold;">Utas telefonszáma:</p><p style="padding-bottom: 20px">${req.body.email}</p>
+              <p style="font-weight: bold;">Utas telefonszáma:</p><p style="padding-bottom: 20px">${req.body.phone}</p>
               <p style="font-weight: bold;">Utas email címe:</p><p style="padding-bottom: 20px">${req.body.email}</p>
               <p style="font-weight: bold;">Utazás dátuma:</p><p style="padding-bottom: 20px">${req.body.date}</p>
               <p style="font-weight: bold;">Busz:</p><p style="padding-bottom: 20px">${req.body.bus}</p>

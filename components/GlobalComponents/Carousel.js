@@ -37,8 +37,9 @@ const Carousel = () => {
                                     <Fade triggerOnce direction="down">
                                         <h1 className="mb-4">
                                             <strong className="font-weight-bold">{router.locale === "en" ?
-                                                (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
-                                                (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
+                                                (<span><span className="d-none d-md-inline">Contibus – </span>Specialist Coach Travel</span>) :
+                                                (<span><span className="d-none d-md-inline">Contibus – </span>Az utazás szakértői</span>)}</strong>
+
                                         </h1>
                                     </Fade>
                                     <Fade triggerOnce>
@@ -78,8 +79,8 @@ const Carousel = () => {
                                     <Fade triggerOnce direction="down">
                                         <h1 className="mb-4">
                                             <strong className="font-weight-bold">{router.locale === "en" ?
-                                                (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
-                                                (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
+                                                (<span><span className="d-none d-md-inline">Contibus – </span>Specialist Coach Travel</span>) :
+                                                (<span><span className="d-none d-md-inline">Contibus – </span>Az utazás szakértői</span>)}</strong>
                                         </h1>
                                     </Fade>
                                     <Fade triggerOnce>
@@ -123,8 +124,9 @@ const Carousel = () => {
                                     <Fade triggerOnce direction="down">
                                         <h1 className="mb-4">
                                             <strong className="font-weight-bold">{router.locale === "en" ?
-                                                (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
-                                                (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
+                                                (<span><span className="d-none d-md-inline">Contibus – </span>Specialist Coach Travel</span>) :
+                                                (<span><span className="d-none d-md-inline">Contibus – </span>Az utazás szakértői</span>)}</strong>
+
                                         </h1>
                                     </Fade>
                                     <Fade triggerOnce>

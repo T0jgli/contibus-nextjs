@@ -154,9 +154,6 @@ const OneBusBody = () => {
                             </Fade>
                         </MDBRow>
 
-
-
-
                     </div>
                     <Fslightboxes name={thisbus.fields.bus} data={thisbus.fields.pictures} imgtoggler={lightbox} setimgtoggler={setlightbox} />
                 </>
