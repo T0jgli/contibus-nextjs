@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import {
-    MDBRow, MDBCard, MDBView, MDBCardImage, MDBMask, MDBCardBody
-} from "mdbreact";
 import ArrowDropUp from "@material-ui/icons/ArrowDropUp"
 
 import Modals from './Modals';
@@ -24,167 +21,159 @@ const Cards = () => {
     })
     return (
         <>
-            <hr className="mt-4 mb-0 d-none" />
             <div className="pt-5 main z-depth-1">
-                <Fade delay={200} triggerOnce>
-                    <MDBRow className="d-flex justify-content-center mx-auto w-100">
-                        <div className="card-deck h-100">
-                            <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100">
-                                <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage src="/img/artablazat.png" alt="Ártáblázat kép" waves />
-                                    <a role="button" href="/files/artablazat.docx" download>
-                                        <MDBMask overlay="black-light" className="flex-center">
-                                            <p className="white-text"><ArrowDropUp /></p>
-                                        </MDBMask>
-                                    </a>
-                                </MDBView>
-                                <MDBCardBody>
-                                    <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
-                                    <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{locale === "en" ? ("Price table") : ("Ártáblázat")}</h4>
-                                </MDBCardBody>
-                            </MDBCard>
+                <div className="services__container flex-center flex-column">
+                    <div className="services__wrapper">
+                        <Fade triggerOnce>
 
-                            <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100">
-                                <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage src="/img/hatralevo-vezetesi-ido-szamitas.jpg" alt="Vezetésiidő kép" waves />
-                                    <MDBMask onClick={() => {
-                                        ReactGA.modalview('/drivingtime');
-                                        setmodalsopen({
-                                            open: true,
-                                            style: "info",
-                                            title: {
-                                                en: "Driving time",
-                                                hu: "Vezetési idő"
-                                            },
-                                            details: <Vezetesiidocontent />
-                                        })
-                                    }} overlay="black-light" className="flex-center">
-                                        <p className="white-text"><ArrowDropUp /></p>
-                                    </MDBMask>
-                                </MDBView>
-                                <MDBCardBody>
-                                    <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
-                                    <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{locale === "en" ? ("Driving time") : ("Vezetési idő")}</h4>
-                                </MDBCardBody>
-                            </MDBCard>
+                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded" onClick={() => window.open("/files/artablazat.docx", "_parent", "download")}>
+                                    <img className="icon" src="/img/svgs/pricetable.svg" />
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
-                            <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100 ">
-                                <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage alt="Állásajánlat kép" src={locale === "en" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} waves />
-                                    <MDBMask onClick={() => {
-                                        ReactGA.modalview('/joboffers');
 
-                                        setmodalsopen({
-                                            open: true,
-                                            style: "danger",
-                                            title: {
-                                                en: "Current job offers",
-                                                hu: "Aktuális állásajánlataink"
-                                            },
-                                            details: <Allasajanlatcontent />
-                                        })
-                                    }} overlay="black-light" className="flex-center">
-                                        <p className="white-text"><ArrowDropUp /></p>
-                                    </MDBMask>
-                                </MDBView>
-                                <MDBCardBody>
-                                    <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
-                                    <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{locale === "en" ? ("Job offer") : ("Állásajánlataink")}</h4>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </div>
-                    </MDBRow>
-                </Fade>
-                <Fade delay={200} triggerOnce>
-                    <MDBRow className="pb-4 mt-3 justify-content-center d-flex w-100 mx-auto">
-                        <div className="card-deck h-100">
-                            <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100">
-                                <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage alt="Csomagmegőrzés kép" src="/img/luggage.jpg" waves />
-                                    <MDBMask onClick={() => {
-                                        ReactGA.modalview('/luggagestore');
+                                <h4>{locale === "en" ? ("Price table") : ("Ártáblázat")}</h4>
 
-                                        setmodalsopen({
-                                            open: true,
-                                            style: "success",
-                                            title: {
-                                                en: "Luggage store",
-                                                hu: "Csomagmegőrzés"
-                                            },
-                                            details:
-                                                <Csomagmegorzescontent />
-                                        })
-                                    }} overlay="black-light" className="flex-center">
-                                        <p className="white-text"><ArrowDropUp /></p>
-                                    </MDBMask>
-                                </MDBView>
-                                <MDBCardBody>
-                                    <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
-                                    <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{locale === "en" ? ("Luggage store") : ("Csomagmegőrzés")}</h4>
-                                </MDBCardBody>
-                            </MDBCard>
+                            </div>
+                        </Fade>
 
-                            <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100">
-                                <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage alt="GLS kép" src="/img/gls.jpg" waves />
-                                    <MDBMask onClick={() => {
-                                        ReactGA.modalview('/gls');
+                        <Fade triggerOnce>
 
-                                        setmodalsopen({
-                                            open: true,
-                                            style: "warning",
-                                            title: {
-                                                en: "GLS ParcelShop",
-                                                hu: "GLS Csomagpont"
-                                            },
-                                            details: <Glscontent />
-                                        })
-                                    }} overlay="black-light" className="flex-center">
-                                        <p className="white-text"><ArrowDropUp /></p>
-                                    </MDBMask>
-                                </MDBView>
-                                <MDBCardBody>
-                                    <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
-                                    <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{locale === "en" ? ("GLS ParcelShop") : ("GLS Csomagpont")}</h4>
-                                </MDBCardBody>
-                            </MDBCard>
+                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded" onClick={() => {
+                                    ReactGA.modalview('/drivingtime');
+                                    setmodalsopen({
+                                        open: true,
+                                        style: "info",
+                                        title: {
+                                            en: "Driving time",
+                                            hu: "Vezetési idő"
+                                        },
+                                        details: <Vezetesiidocontent />
+                                    })
+                                }}>
+                                    <img className="icon" src="/img/svgs/time.svg" />
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
-                            <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100">
-                                <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
-                                    <MDBCardImage alt="DPD kép" src="/img/dpd.jpg" waves />
-                                    <MDBMask onClick={() => {
-                                        ReactGA.modalview('/dpd');
+                                <h4>{locale === "en" ? ("Driving time") : ("Vezetési idő")}</h4>
 
-                                        setmodalsopen({
-                                            open: true,
-                                            style: "danger",
-                                            title: {
-                                                en: "DPD ParcelShop",
-                                                hu: "DPD Csomagpont"
-                                            },
-                                            details:
-                                                <Dpdcontent />
-                                        })
-                                    }} overlay="black-light" className="flex-center">
-                                        <p className="white-text"><ArrowDropUp /></p>
-                                    </MDBMask>
-                                </MDBView>
-                                <MDBCardBody>
-                                    <p className="text-center pb-0 mb-0 arrowdropup"><ArrowDropUp /></p>
-                                    <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{locale === "en" ? ("DPD ParcelShop") : ("DPD csomagpont")}</h4>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </div>
-                    </MDBRow>
+                            </div>
+                        </Fade>
 
-                </Fade>
-                <hr className="w-50 mx-auto mb-5 mt-4" />
+                        <Fade triggerOnce>
+
+                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded" onClick={() => {
+                                    ReactGA.modalview('/joboffers');
+
+                                    setmodalsopen({
+                                        open: true,
+                                        style: "success",
+                                        title: {
+                                            en: "Current job offers",
+                                            hu: "Aktuális állásajánlataink"
+                                        },
+                                        details: <Allasajanlatcontent />
+                                    })
+                                }}>
+                                    <img className="icon" src="/img/svgs/job.svg" />
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
+
+                                <h4>{locale === "en" ? ("Job offer") : ("Állásajánlataink")}</h4>
+
+                            </div>
+                        </Fade>
+
+                        <Fade triggerOnce>
+
+                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded" onClick={() => {
+                                    ReactGA.modalview('/gls');
+
+                                    setmodalsopen({
+                                        open: true,
+                                        style: "warning",
+                                        title: {
+                                            en: "GLS ParcelShop",
+                                            hu: "GLS Csomagpont"
+                                        },
+                                        details: <Glscontent />
+                                    })
+                                }}>
+                                    <img className="icon" src="/img/svgs/package.svg" />
+                                    <img className="icon__edit" src="/img/svgs/gls.svg" />
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
+
+
+                                <h4>{locale === "en" ? ("GLS parcelshop") : ("GLS csomagpont")}</h4>
+
+                            </div>
+                        </Fade>
+
+                        <Fade triggerOnce>
+
+                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded" onClick={() => {
+                                    ReactGA.modalview('/luggagestore');
+
+                                    setmodalsopen({
+                                        open: true,
+                                        style: "success",
+                                        title: {
+                                            en: "Luggage store",
+                                            hu: "Csomagmegőrzés"
+                                        },
+                                        details:
+                                            <Csomagmegorzescontent />
+                                    })
+                                }}>
+                                    <img className="icon" src="/img/svgs/suitcase.svg" />
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
+
+
+                                <h4>{locale === "en" ? ("Luggage store") : ("Csomagmegőrzés")}</h4>
+
+                            </div>
+                        </Fade>
+
+                        <Fade triggerOnce>
+
+                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded" onClick={() => {
+                                    ReactGA.modalview('/dpd');
+
+                                    setmodalsopen({
+                                        open: true,
+                                        style: "danger",
+                                        title: {
+                                            en: "DPD ParcelShop",
+                                            hu: "DPD Csomagpont"
+                                        },
+                                        details:
+                                            <Dpdcontent />
+                                    })
+                                }}>
+                                    <img className="icon" src="/img/svgs/package.svg" />
+                                    <img className="icon__edit" src="/img/svgs/dpd.svg" />
+
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
+
+
+                                <h4>{locale === "en" ? ("DPD parcelshop") : ("DPD csomagpont")}</h4>
+
+                            </div>
+                        </Fade>
+
+                    </div>
+
+                </div>
+                <hr className="w-50 mx-auto my-5" />
                 <Rating />
             </div>
             <Modals modalsopen={modalsopen} setmodalsopen={setmodalsopen} />

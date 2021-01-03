@@ -21,7 +21,7 @@ export const Allasajanlatcontent = () => {
     return (
         <MDBCard>
             <MDBCardBody>
-                <img src={locale === "en" ? ("/img/allas_k_eng.jpg") : ("/img/allas.jpg")} alt="Állásajánlat logo"
+                <img src={locale === "en" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} alt="Állásajánlat logo"
                     className="p-3 img-fluid float-center mx-auto d-block w-50" />
                 <p className="text-center font-weight-bolder">{locale === "en" ? ("Position to be filled:") : ("Betöltendő pozíció:")}</p>
                 <p className="mb-0 pb-0">{locale === "en" ? ("Driver") : ("Gépkocsivezető")}</p>
