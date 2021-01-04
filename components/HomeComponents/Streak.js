@@ -3,13 +3,12 @@ import {
     MDBContainer, MDBMask, MDBRow, MDBCol
 } from "mdbreact";
 
-import CountUp from 'react-countup';
-import VisibilitySensor from 'react-visibility-sensor';
 import { Fade } from "react-awesome-reveal";
 
 import { useEffect } from 'react';
 import { Parallax } from 'react-parallax';
 import { useRouter } from 'next/router';
+import NumberFormat from 'react-number-format';
 
 
 const Streak = () => {
@@ -37,39 +36,31 @@ const Streak = () => {
                             <MDBRow className="text-center">
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={80000} separator={" "} suffix=" +">
-                                            {({ countUpRef }) => (
-                                                <VisibilitySensor offset={{
-                                                    top:
-                                                        100
-                                                }} onChange={(isVisible) => {
-                                                    if (isVisible) { setFocus(true); }
-                                                }}
-                                                    scrollDelay={0}
+                                        <NumberFormat suffix=" +" thousandSeparator=" " value={80000} displayType="text" />
 
-                                                >
-                                                    <span ref={countUpRef} />
-                                                </VisibilitySensor>
-                                            )}
-                                        </CountUp></h1>
+
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? ("Happy clients") : ("Elégedett ügyfél")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={100000} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+
+                                        <NumberFormat suffix=" +" thousandSeparator=" " value={100000} displayType="text" />
+
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold" >{locale === "en" ? ("Projects completed") : ("Sikeres projekt")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={50000} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+                                        <NumberFormat suffix=" +" thousandSeparator=" " value={50000} displayType="text" />
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? ("Destinations") : ("Úticél")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={150} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+                                        <NumberFormat suffix=" +" thousandSeparator=" " value={150} displayType="text" />
+
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? ("Visited country") : ("Meglátogatott ország")}</p>
                                 </MDBCol>
                             </MDBRow>

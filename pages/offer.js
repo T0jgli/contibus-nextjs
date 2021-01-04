@@ -5,8 +5,8 @@ import Spinner from "../components/GlobalComponents/Spinner"
 
 const Formoffer = dynamic(() => import("../components/OfferComponents/Formoffer"), { loading: () => <Spinner /> });
 const Gallery = dynamic(() => import("../components/GlobalComponents/Gallery"), { loading: () => <Spinner /> });
+const Carousel = dynamic(() => import("../components/GlobalComponents/Carousel"),);
 
-import Carousel from '../components/GlobalComponents/Carousel';
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
 import { motion } from 'framer-motion';
