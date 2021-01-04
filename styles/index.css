@@ -290,8 +290,8 @@
 }
 @media (max-width: 992px) {
   .section-description {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
   }
 }
 

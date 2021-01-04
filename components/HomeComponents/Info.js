@@ -10,7 +10,7 @@ const Info = () => {
     const { locale } = useRouter()
 
     return (
-        <MDBContainer>
+        <MDBContainer className="mx-auto">
             <Fade triggerOnce>
                 <MDBAlert color="dark" className="rounded mt-5 text-center">
                     <MDBIcon icon="exclamation" className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
@@ -21,13 +21,13 @@ const Info = () => {
                 </MDBAlert>
             </Fade>
 
-            <MDBRow className="pt-5 mt-2 px-lg-0 px-2">
+            <MDBRow className="pt-5 mt-2 px-lg-0">
                 <MDBCol md="6" className="mb-4">
                     <Fade triggerOnce>
                         <img src="/img/3.jpg" className="img-fluid mx-auto d-block logo" alt="Contibus logo" />
                     </Fade>
                 </MDBCol>
-                <MDBCol md="6" className="mb-4 mt-4 mt-md-0 px-1 px-md-0">
+                <MDBCol md="6" className="mb-4 mt-4 mt-md-0">
                     <Fade delay={200} triggerOnce>
                         <section>
                             <h2 className="mb-3">{locale === "en" ? ("Who are we?") : ("Kik vagyunk mi?")}</h2>
