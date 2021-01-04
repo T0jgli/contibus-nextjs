@@ -7,13 +7,14 @@ import {
 import { ClickAwayListener, Divider, MenuItem, MenuList, Paper, Popper, Slide, Snackbar, SnackbarContent } from '@material-ui/core';
 import Link from 'next/link'
 
-import Calendar from './Calendar';
 import ReactGA from 'react-ga'
 import { setCookie } from '../../lib/CookieHelper';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import dynamic from 'next/dynamic';
+const Calendar = dynamic(() => import("./Calendar"));
 
 const menuitems = [
     {

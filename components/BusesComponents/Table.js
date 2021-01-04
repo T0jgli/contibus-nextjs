@@ -8,11 +8,11 @@ import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import { Fade } from "react-awesome-reveal";
 
-import Fslightboxes from '../GlobalComponents/Fslightboxes';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Spinner from "../GlobalComponents/Spinner"
 
+const Fslightboxes = dynamic(() => import("../GlobalComponents/Fslightboxes"));
 const Carddeck = dynamic(() => import("./Carddeck"), { loading: () => <Spinner /> });
 const Datatable = dynamic(() => import("./Datatable"), { loading: () => <Spinner /> });
 

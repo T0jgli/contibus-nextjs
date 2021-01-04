@@ -5,8 +5,10 @@ import {
 import { Fade } from "react-awesome-reveal";
 
 import gallery from "../../lib/gallery.json"
-import Fslightboxes from './Fslightboxes';
 import { useRouter } from 'next/router';
+
+import dynamic from 'next/dynamic';
+const Fslightboxes = dynamic(() => import("./Fslightboxes"));
 
 const Gallery = () => {
     const router = useRouter()

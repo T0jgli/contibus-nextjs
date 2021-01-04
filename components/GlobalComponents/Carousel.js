@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
-import Contactform from './Contactform';
 import ReactGA from 'react-ga'
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
-
-function shufflearray (array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * i)
-        let k = array[i]
-        array[i] = array[j]
-        array[j] = k
-    }
-    return array
-}
+import dynamic from 'next/dynamic';
+const Contactform = dynamic(() => import("./Contactform"));
 
 const Carousel = () => {
     const router = useRouter();
