@@ -77,6 +77,11 @@
   -webkit-transform: scale(1.17, 1.17);
   transform: scale(1.17, 1.17);
 }
+.kartya:hover {
+  -moz-transform: scale(1.02, 1.02) !important;
+  -webkit-transform: scale(1.02, 1.02) !important;
+  transform: scale(1.02, 1.02) !important;
+}
 .flag,
 .dropdown-item,
 .kartya,

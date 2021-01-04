@@ -28,8 +28,9 @@ const Cards = () => {
                     <div className="services__wrapper">
                         <Fade triggerOnce>
 
-                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={() => window.open("/files/artablazat.docx", "_parent", "download")}>
+                            <div onClick={() => window.open("/files/artablazat.docx", "_parent", "download")}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded">
                                     <img className="icon" src="/img/svgs/pricetable.svg" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
@@ -42,20 +43,21 @@ const Cards = () => {
 
                         <Fade triggerOnce>
 
-                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={async () => {
-                                    ReactGA.modalview('/drivingtime');
-                                    const { Vezetesiidocontent } = (await import('./Modalcontents'))
-                                    setmodalsopen({
-                                        open: true,
-                                        style: "info",
-                                        title: {
-                                            en: "Driving time",
-                                            hu: "Vezetési idő"
-                                        },
-                                        details: <Vezetesiidocontent />
-                                    })
-                                }}>
+                            <div onClick={async () => {
+                                ReactGA.modalview('/drivingtime');
+                                const { Vezetesiidocontent } = (await import('./Modalcontents'))
+                                setmodalsopen({
+                                    open: true,
+                                    style: "info",
+                                    title: {
+                                        en: "Driving time",
+                                        hu: "Vezetési idő"
+                                    },
+                                    details: <Vezetesiidocontent />
+                                })
+                            }}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded">
                                     <img className="icon" src="/img/svgs/time.svg" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
@@ -67,21 +69,22 @@ const Cards = () => {
 
                         <Fade triggerOnce>
 
-                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={async () => {
-                                    ReactGA.modalview('/joboffers');
-                                    const { Allasajanlatcontent } = (await import('./Modalcontents'))
+                            <div onClick={async () => {
+                                ReactGA.modalview('/joboffers');
+                                const { Allasajanlatcontent } = (await import('./Modalcontents'))
 
-                                    setmodalsopen({
-                                        open: true,
-                                        style: "success",
-                                        title: {
-                                            en: "Current job offers",
-                                            hu: "Aktuális állásajánlataink"
-                                        },
-                                        details: <Allasajanlatcontent />
-                                    })
-                                }}>
+                                setmodalsopen({
+                                    open: true,
+                                    style: "success",
+                                    title: {
+                                        en: "Current job offers",
+                                        hu: "Aktuális állásajánlataink"
+                                    },
+                                    details: <Allasajanlatcontent />
+                                })
+                            }}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded">
                                     <img className="icon" src="/img/svgs/job.svg" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
@@ -93,21 +96,22 @@ const Cards = () => {
 
                         <Fade triggerOnce>
 
-                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={async () => {
-                                    ReactGA.modalview('/gls');
-                                    const { Glscontent } = (await import('./Modalcontents'))
+                            <div onClick={async () => {
+                                ReactGA.modalview('/gls');
+                                const { Glscontent } = (await import('./Modalcontents'))
 
-                                    setmodalsopen({
-                                        open: true,
-                                        style: "warning",
-                                        title: {
-                                            en: "GLS ParcelShop",
-                                            hu: "GLS Csomagpont"
-                                        },
-                                        details: <Glscontent />
-                                    })
-                                }}>
+                                setmodalsopen({
+                                    open: true,
+                                    style: "warning",
+                                    title: {
+                                        en: "GLS ParcelShop",
+                                        hu: "GLS Csomagpont"
+                                    },
+                                    details: <Glscontent />
+                                })
+                            }}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded">
                                     <img className="icon" src="/img/svgs/package.svg" />
                                     <img className="icon__edit" src="/img/svgs/gls.svg" />
                                 </div>
@@ -121,22 +125,23 @@ const Cards = () => {
 
                         <Fade triggerOnce>
 
-                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={async () => {
-                                    ReactGA.modalview('/luggagestore');
-                                    const { Csomagmegorzescontent } = (await import('./Modalcontents'))
+                            <div onClick={async () => {
+                                ReactGA.modalview('/luggagestore');
+                                const { Csomagmegorzescontent } = (await import('./Modalcontents'))
 
-                                    setmodalsopen({
-                                        open: true,
-                                        style: "success",
-                                        title: {
-                                            en: "Luggage store",
-                                            hu: "Csomagmegőrzés"
-                                        },
-                                        details:
-                                            <Csomagmegorzescontent />
-                                    })
-                                }}>
+                                setmodalsopen({
+                                    open: true,
+                                    style: "success",
+                                    title: {
+                                        en: "Luggage store",
+                                        hu: "Csomagmegőrzés"
+                                    },
+                                    details:
+                                        <Csomagmegorzescontent />
+                                })
+                            }}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded">
                                     <img className="icon" src="/img/svgs/suitcase.svg" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
@@ -149,22 +154,23 @@ const Cards = () => {
 
                         <Fade triggerOnce>
 
-                            <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={async () => {
-                                    ReactGA.modalview('/dpd');
-                                    const { Dpdcontent } = (await import('./Modalcontents'))
+                            <div onClick={async () => {
+                                ReactGA.modalview('/dpd');
+                                const { Dpdcontent } = (await import('./Modalcontents'))
 
-                                    setmodalsopen({
-                                        open: true,
-                                        style: "danger",
-                                        title: {
-                                            en: "DPD ParcelShop",
-                                            hu: "DPD Csomagpont"
-                                        },
-                                        details:
-                                            <Dpdcontent />
-                                    })
-                                }}>
+                                setmodalsopen({
+                                    open: true,
+                                    style: "danger",
+                                    title: {
+                                        en: "DPD ParcelShop",
+                                        hu: "DPD Csomagpont"
+                                    },
+                                    details:
+                                        <Dpdcontent />
+                                })
+                            }}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
+                                <div className="view mb-3 rounded">
                                     <img className="icon" src="/img/svgs/package.svg" />
                                     <img className="icon__edit" src="/img/svgs/dpd.svg" />
 

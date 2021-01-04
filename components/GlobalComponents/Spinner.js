@@ -3,8 +3,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Spinner = () => {
     return (
-        <div className="spinner">
-            <CircularProgress style={{ color: "grey" }} size={100} />
+        <div className="spinner m-5 pt-5">
+            <CircularProgress style={{ color: "grey" }} size={75} />
         </div>
     )
 }
