@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import Spinner from "../components/GlobalComponents/Spinner"
 
 const Busesbody = dynamic(() => import("../components/BusesComponents/Busesbody"), { loading: () => <Spinner /> });
-const Carousel = dynamic(() => import("../components/GlobalComponents/Carousel"),);
+import Carousel from '../components/GlobalComponents/Carousel';
 
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 

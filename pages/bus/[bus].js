@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { pageVariants } from '../../components/GlobalComponents/Initaltransition'
 import Spinner from "../../components/GlobalComponents/Spinner"
 
-const Carousel = dynamic(() => import("../../components/GlobalComponents/Carousel"),);
+import Carousel from '../components/GlobalComponents/Carousel';
 const OneBusBody = dynamic(() => import("../../components/BusesComponents/OneBusBody"), { loading: () => <Spinner /> });
 
 import { MDBBtn } from 'mdbreact'

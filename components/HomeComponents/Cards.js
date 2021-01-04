@@ -7,7 +7,6 @@ const Rating = dynamic(() => import("./Rating"), { loading: () => <Spinner /> })
 const Modals = dynamic(() => import("./Modals"), { loading: () => <Spinner /> });
 
 import { Fade } from "react-awesome-reveal";
-import { Allasajanlatcontent, Csomagmegorzescontent, Glscontent, Vezetesiidocontent, Dpdcontent } from './Modalcontents';
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
 
@@ -44,8 +43,9 @@ const Cards = () => {
                         <Fade triggerOnce>
 
                             <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={() => {
+                                <div className="view mb-3 rounded" onClick={async () => {
                                     ReactGA.modalview('/drivingtime');
+                                    const { Vezetesiidocontent } = (await import('./Modalcontents'))
                                     setmodalsopen({
                                         open: true,
                                         style: "info",
@@ -68,8 +68,9 @@ const Cards = () => {
                         <Fade triggerOnce>
 
                             <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={() => {
+                                <div className="view mb-3 rounded" onClick={async () => {
                                     ReactGA.modalview('/joboffers');
+                                    const { Allasajanlatcontent } = (await import('./Modalcontents'))
 
                                     setmodalsopen({
                                         open: true,
@@ -93,8 +94,9 @@ const Cards = () => {
                         <Fade triggerOnce>
 
                             <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={() => {
+                                <div className="view mb-3 rounded" onClick={async () => {
                                     ReactGA.modalview('/gls');
+                                    const { Glscontent } = (await import('./Modalcontents'))
 
                                     setmodalsopen({
                                         open: true,
@@ -120,8 +122,9 @@ const Cards = () => {
                         <Fade triggerOnce>
 
                             <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={() => {
+                                <div className="view mb-3 rounded" onClick={async () => {
                                     ReactGA.modalview('/luggagestore');
+                                    const { Csomagmegorzescontent } = (await import('./Modalcontents'))
 
                                     setmodalsopen({
                                         open: true,
@@ -147,8 +150,9 @@ const Cards = () => {
                         <Fade triggerOnce>
 
                             <div className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
-                                <div className="view mb-3 rounded" onClick={() => {
+                                <div className="view mb-3 rounded" onClick={async () => {
                                     ReactGA.modalview('/dpd');
+                                    const { Dpdcontent } = (await import('./Modalcontents'))
 
                                     setmodalsopen({
                                         open: true,

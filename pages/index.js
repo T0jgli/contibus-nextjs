@@ -8,7 +8,7 @@ const Gallery = dynamic(() => import("../components/GlobalComponents/Gallery"), 
 const Info2 = dynamic(() => import("../components/HomeComponents/Info2"), { loading: () => <Spinner /> });
 const Streak = dynamic(() => import("../components/HomeComponents/Streak"), { loading: () => <Spinner /> });
 const Cards = dynamic(() => import("../components/HomeComponents/Cards"), { loading: () => <Spinner /> });
-const Carousel = dynamic(() => import("../components/GlobalComponents/Carousel"),);
+import Carousel from '../components/GlobalComponents/Carousel';
 
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
