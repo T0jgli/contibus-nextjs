@@ -34,7 +34,7 @@ const menuitems = [
     {
         href: "/buses",
         title: {
-            hu: "Autóbuszaink",
+            hu: "Autóbuszok",
             en: "Our Buses"
         }
     },
