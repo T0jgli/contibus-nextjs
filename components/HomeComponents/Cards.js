@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import ArrowDropUp from "@material-ui/icons/ArrowDropUp"
+import dynamic from 'next/dynamic';
+import Spinner from "../GlobalComponents/Spinner"
 
-import Modals from './Modals';
+const Rating = dynamic(() => import("./Rating"), { loading: () => <Spinner /> });
+const Modals = dynamic(() => import("./Modals"), { loading: () => <Spinner /> });
+
 import { Fade } from "react-awesome-reveal";
-import Rating from './Rating';
 import { Allasajanlatcontent, Csomagmegorzescontent, Glscontent, Vezetesiidocontent, Dpdcontent } from './Modalcontents';
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';

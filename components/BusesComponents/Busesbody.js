@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 
 import { MDBBtn, MDBContainer } from "mdbreact"
+import dynamic from 'next/dynamic';
+import Spinner from "../GlobalComponents/Spinner"
 
-import Muzeum from "./Muzeum"
-import Table from "./Table"
+const Muzeum = dynamic(() => import("./Muzeum"), { loading: () => <Spinner /> });
+const Table = dynamic(() => import("./Table"), { loading: () => <Spinner /> });
+
 import { Fade } from "react-awesome-reveal";
 import { useRouter } from 'next/router'
 

@@ -1,9 +1,12 @@
 import React from 'react';
 import Head from 'next/head'
+import dynamic from 'next/dynamic';
+import Spinner from "../components/GlobalComponents/Spinner"
+
+const Formoffer = dynamic(() => import("../components/OfferComponents/Formoffer"), { loading: () => <Spinner /> });
+const Gallery = dynamic(() => import("../components/GlobalComponents/Gallery"), { loading: () => <Spinner /> });
 
 import Carousel from '../components/GlobalComponents/Carousel';
-import Gallery from '../components/GlobalComponents/Gallery'
-import Formoffer from '../components/OfferComponents/Formoffer';
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
 import { motion } from 'framer-motion';

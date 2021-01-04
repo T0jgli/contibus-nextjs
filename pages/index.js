@@ -1,12 +1,14 @@
 import React from 'react';
 import Head from 'next/head'
+import dynamic from 'next/dynamic';
+import Spinner from "../components/GlobalComponents/Spinner"
 
-import Info from "../components/HomeComponents/Info"
-import Info2 from "../components/HomeComponents/Info2"
+const Info = dynamic(() => import("../components/HomeComponents/Info"), { loading: () => <Spinner /> });
+const Gallery = dynamic(() => import("../components/GlobalComponents/Gallery"), { loading: () => <Spinner /> });
+const Info2 = dynamic(() => import("../components/HomeComponents/Info2"), { loading: () => <Spinner /> });
+const Streak = dynamic(() => import("../components/HomeComponents/Streak"), { loading: () => <Spinner /> });
+const Cards = dynamic(() => import("../components/HomeComponents/Cards"), { loading: () => <Spinner /> });
 
-import Cards from "../components/HomeComponents/Cards"
-import Streak from '../components/HomeComponents/Streak';
-import Gallery from '../components/GlobalComponents/Gallery';
 import Carousel from '../components/GlobalComponents/Carousel';
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 

@@ -1,5 +1,8 @@
 import React from 'react'
-import Cardbodys from './Cardbodys'
+import dynamic from 'next/dynamic';
+import Spinner from "../GlobalComponents/Spinner"
+
+const Cardbodys = dynamic(() => import("./Cardbodys"), { loading: () => <Spinner /> });
 
 const Carddeck = ({ idd, item, nextitem, nextnextitem, what, length, itemid }) => {
     return (

@@ -1,11 +1,14 @@
 import React from 'react'
+import dynamic from 'next/dynamic';
 
 import { motion } from 'framer-motion'
 import { pageVariants } from '../../components/GlobalComponents/Initaltransition'
 import Carousel from '../../components/GlobalComponents/Carousel'
+import Spinner from "../../components/GlobalComponents/Spinner"
+
+const OneBusBody = dynamic(() => import("../../components/BusesComponents/OneBusBody"), { loading: () => <Spinner /> });
 
 import { MDBBtn } from 'mdbreact'
-import OneBusBody from '../../components/BusesComponents/OneBusBody'
 import { Fade } from 'react-awesome-reveal'
 import { useRouter } from 'next/router'
 

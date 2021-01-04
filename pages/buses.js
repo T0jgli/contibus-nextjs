@@ -1,8 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
+import dynamic from 'next/dynamic';
+import Spinner from "../components/GlobalComponents/Spinner"
+
+const Busesbody = dynamic(() => import("../components/BusesComponents/Busesbody"), { loading: () => <Spinner /> });
 
 import Carousel from '../components/GlobalComponents/Carousel';
-import Busesbody from "../components/BusesComponents/Busesbody"
 import { pageVariants } from '../components/GlobalComponents/Initaltransition';
 
 import { motion } from 'framer-motion';

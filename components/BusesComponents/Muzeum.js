@@ -3,8 +3,11 @@ import { useSelector } from 'react-redux'
 import { selectMuzeumData } from '../../lib/AppSlice';
 import { Fade } from "react-awesome-reveal";
 
-import Carddeck from './Carddeck';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import Spinner from "../GlobalComponents/Spinner"
+
+const Carddeck = dynamic(() => import("./Carddeck"), { loading: () => <Spinner /> });
 
 const Muzeum = () => {
     const { locale } = useRouter()
