@@ -13,6 +13,7 @@ import '@fullcalendar/list/main.css' // @fullcalendar/timegrid is a direct impor
 import '../styles/print.scss'
 import '../styles/index.css'
 import "../styles/buses.scss"
+import "../styles/notfound.scss"
 import "../styles/navbar.scss"
 import "../styles/cards.scss"
 

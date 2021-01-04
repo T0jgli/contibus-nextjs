@@ -2,18 +2,21 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { setbusesData, setmuzeumData } from '../lib/AppSlice'
 
-import InitialTransition from './GlobalComponents/Initaltransition';
 import Navbar from './GlobalComponents/Navbar'
-import Snackbars from './GlobalComponents/Snackbars'
 
-import Footer from './GlobalComponents/Footer'
-import Scrolltopbutton from './GlobalComponents/Scrolltopbutton';
-import Cookie from './GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from '../lib/SetContentFulData';
 import { useRouter } from 'next/router';
 import ReactGA from 'react-ga'
 import { Crawler } from "es6-crawler-detect"
+import dynamic from 'next/dynamic';
+import Spinner from "./GlobalComponents/Spinner"
+
+const Footer = dynamic(() => import("./GlobalComponents/Footer"), { loading: () => <Spinner /> });
+const Scrolltopbutton = dynamic(() => import("./GlobalComponents/Scrolltopbutton"), { loading: () => <Spinner /> });
+const InitialTransition = dynamic(() => import("./GlobalComponents/Initaltransition"));
+const Cookie = dynamic(() => import("./GlobalComponents/Cookie"));
+const Snackbars = dynamic(() => import("./GlobalComponents/Snackbars"));
 
 const CrawlerDetector = new Crawler()
 const userAgentString = typeof window !== "undefined" && navigator.userAgent;
@@ -48,6 +51,7 @@ const DefaultLayout = ({ children }) => {
                 {children}
             </AnimatePresence>
             <Cookie />
+
             <Footer />
             <div className="d-none d-md-block">
                 <Scrolltopbutton />
