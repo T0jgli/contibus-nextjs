@@ -148,4 +148,16 @@
       }
     }
   }
+
+  .equipment__div {
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    .break {
+      width: 100%;
+    }
+  }
 }

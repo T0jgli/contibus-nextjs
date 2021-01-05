@@ -12,8 +12,9 @@ import AirlineSeatReclineNormalIcon from '@material-ui/icons/AirlineSeatReclineN
 import { Fade } from 'react-awesome-reveal'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-//import { getEquipmentList } from '../../lib/getEquipmentList'
 import dynamic from 'next/dynamic';
+import EquipmentList from './EquipmentList';
+import { getEquipmentList } from '../../lib/getEquipmentList';
 const Fslightboxes = dynamic(() => import("../GlobalComponents/Fslightboxes"));
 
 
@@ -121,7 +122,8 @@ const OneBusBody = () => {
 
                             </MDBCol>
                         </MDBRow>
-                        <Fade triggerOnce>
+                        {/*                         <EquipmentList desc={thisbus.fields.desc} />
+ */}                        <Fade triggerOnce>
                             <MDBRow className="mt-5 pt-4 mx-auto flex-center">
                                 <MDBCol lg="8" className="text-center">
                                     <p className="grey-text">{thisbus.fields.desc}</p>

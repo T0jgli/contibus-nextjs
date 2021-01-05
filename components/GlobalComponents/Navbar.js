@@ -56,7 +56,7 @@ const Navbar = () => {
     useEffect(() => {
         if (typeof window !== undefined) {
             window.addEventListener("scroll", () => {
-                if (window.scrollY >= 100) {
+                if (window.scrollY >= 75) {
                     setnavbarbg(true)
                 } else {
                     setnavbarbg(false)
