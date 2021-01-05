@@ -1,15 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
-import ReactGA from 'react-ga'
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
-const Contactform = dynamic(() => import("./Contactform"));
 
 const Carousel = () => {
     const router = useRouter();
-    const [contactform, setcontactform] = useState(false)
     const carids = ["carr11", "carr22", "carr33"].sort(() => 0.5 - Math.random())
     return (
         <>
@@ -46,13 +42,13 @@ const Carousel = () => {
                                             <Fade direction="up" triggerOnce>
 
                                                 <MDBBtn onClick={() => {
-                                                    setcontactform(true);
-                                                    ReactGA.modalview('/contactform');
-
                                                 }}
                                                     color="warning" size="lg"
+                                                    target="_blank" rel="noopener noreferrer"
+                                                    href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                                     className="font-weight-bold black-text roundedbtn kartya mt-5"><span
                                                         className="">{router.locale === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                                    <MDBIcon fab icon="facebook-square" className="pl-2" />
                                                 </MDBBtn>
                                             </Fade>
 
@@ -90,13 +86,13 @@ const Carousel = () => {
                                             <Fade direction="up" triggerOnce>
 
                                                 <MDBBtn onClick={() => {
-                                                    setcontactform(true);
-                                                    ReactGA.modalview('/contactform');
-
                                                 }}
                                                     color="warning" size="lg"
+                                                    target="_blank" rel="noopener noreferrer"
+                                                    href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                                     className="font-weight-bold black-text roundedbtn kartya mt-5"><span
                                                         className="">{router.locale === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                                    <MDBIcon fab icon="facebook-square" className="pl-2" />
                                                 </MDBBtn>
                                             </Fade>
 
@@ -134,13 +130,13 @@ const Carousel = () => {
                                             <Fade direction="up" triggerOnce>
 
                                                 <MDBBtn onClick={() => {
-                                                    setcontactform(true);
-                                                    ReactGA.modalview('/contactform');
-
                                                 }}
                                                     color="warning" size="lg"
+                                                    target="_blank" rel="noopener noreferrer"
+                                                    href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                                     className="font-weight-bold black-text roundedbtn kartya mt-5"><span
                                                         className="">{router.locale === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                                    <MDBIcon fab icon="facebook-square" className="pl-2" />
                                                 </MDBBtn>
                                             </Fade>
 
@@ -153,8 +149,6 @@ const Carousel = () => {
                     </MDBCarouselItem>
                 </MDBCarouselInner>
             </MDBCarousel>
-            <Contactform contactform={contactform} setcontactform={setcontactform} />
-
         </>
     )
 }

@@ -106,8 +106,8 @@ const Rating = () => {
                     </h3>
                 </MDBRow>
             </Fade>
-            <Fade triggerOnce delay={200}>
-                <MDBRow className="justify-content-center mx-auto pb-5">
+            <Fade triggerOnce delay={200} direction="up">
+                <MDBRow className="justify-content-center mx-auto mb-4">
                     <RatingComp
                         name="feedback"
                         value={value}

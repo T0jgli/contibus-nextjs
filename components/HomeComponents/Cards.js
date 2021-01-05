@@ -9,6 +9,8 @@ const Modals = dynamic(() => import("./Modals"), { loading: () => <Spinner /> })
 import { Fade } from "react-awesome-reveal";
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
+import Contact from './Contact';
+
 
 const Cards = () => {
     const { locale } = useRouter()
@@ -21,6 +23,7 @@ const Cards = () => {
         },
         details: null
     })
+
     return (
         <>
             <div className="pt-5 z-depth-1" style={{ backgroundColor: "#f0f0f0" }}>
@@ -188,6 +191,7 @@ const Cards = () => {
                 </div>
                 <hr className="w-50 mx-auto my-5" />
                 <Rating />
+                <Contact />
             </div>
             <Modals modalsopen={modalsopen} setmodalsopen={setmodalsopen} />
 

@@ -11,7 +11,16 @@
     transition: all 0.5s !important;
 
     &:hover {
-        transform: scale(1.17, 1.17);
+        transform: scale(1.17, 1.17) !important;
+    }
+}
+
+.socialicon {
+    transition: all 0.5s !important;
+    color: white;
+    &:hover {
+        opacity: 0.6 !important;
+        color: white;
     }
 }
 
@@ -230,8 +239,7 @@
                     color: #fff !important;
                 }
 
-                &.calendar,
-                &.contactmodal {
+                &.calendar {
                     .close {
                         color: #000 !important;
                     }
@@ -247,6 +255,47 @@
             @media (min-width: 1200px) {
                 margin-top: 3% !important;
             }
+        }
+    }
+}
+
+//Contact
+.contact__div {
+    .contact__card {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+        .contact__submitbtn {
+            width: 60px;
+            outline: 0;
+            border: 0;
+            right: 0.5rem;
+            line-height: 45px;
+            font-size: 1.625rem;
+            height: 60px;
+            vertical-align: middle;
+            position: absolute;
+            bottom: -4px;
+            border-radius: 50%;
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+
+            transition: all 0.5s;
+
+            @media (max-width: 768px) {
+                right: 0.8rem;
+                bottom: 0;
+            }
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .rightinformations {
+        background-color: #212121;
+
+        hr {
+            opacity: 0.8;
         }
     }
 }

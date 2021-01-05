@@ -11,13 +11,12 @@ const Info2 = () => {
     return (
         <MDBContainer>
             <Fade triggerOnce>
-                <h2 className="text-center my-5 pt-3">{router.locale === "en" ? ("Travels around the world") : ("Világkörüli utazások")}</h2>
+                <h2 className="text-center my-5 pt-3">{router.locale === "en" ? ("Travels around the world") : ("Rólunk")}</h2>
             </Fade>
 
             <Fade delay={200} triggerOnce>
-                <p className="text-center mb-5 section-description desctext d-none">
-                    Szolgáltatásunk közé tartozik többek között:
-                    autóbusz bérlés és kölcsönzés, iskolai osztálykirándulások, szakmai utak és munkásjáratok szervezése.
+                <p className="text-center mb-5 pb-3 section-description desctext">
+                    Autóbuszparkunkat folyamatosan újítjuk, továbbra is luxus színvonalon utazhatnak kiválasztott úticéljuk felé, létszámtól függően, mikrobusszal, emelt szintű vagy emeletes, kényelmes, minden extrával (légkondicionáló, toalett, dvd) ellátott autóbuszainkon.
                 </p>
             </Fade>
 

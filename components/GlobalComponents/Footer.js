@@ -49,8 +49,7 @@ const Footer = () => {
                                 <h6 className="text-uppercase font-weight-bold">{locale === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
-                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5
-                                    <span style={{ opacity: "0.8" }}>{locale === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
+                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5 <span style={{ opacity: "0.8" }} className="ml-4">{locale === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />contibus@contibus.hu</p>
                                 <p>
@@ -72,16 +71,6 @@ const Footer = () => {
                                 </p>
                             </MDBCol>
                         </MDBRow>
-                        <MDBCol className="mx-auto flex-center mt-2 mb-4" id="footer-social">
-                            <a role="button" className="fb-ic flag" target="_blank" rel="noopener noreferrer"
-                                href="https://www.facebook.com/Contibus-Neoline-432462590213055">
-                                <MDBIcon fab icon="facebook-f" size="lg" className="pr-2" />
-                            </a>
-
-                            <a role="button" className="tw-ic flag" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/contibus_hivatalos/">
-                                <MDBIcon fab icon="instagram" size="lg" className="pl-2" />
-                            </a>
-                        </MDBCol>
                     </MDBContainer>
                 </Fade>
                 <div className="footer-copyright text-center py-3">© {(new Date().getFullYear())} Copyright: <span>
