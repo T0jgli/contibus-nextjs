@@ -108,7 +108,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
 
     return (
         <>
-            <MDBModal cascading className="lostmodal rounded" fade modalStyle="warning" isOpen={elveszett} toggle={() => {
+            <MDBModal cascading className="rounded" fade modalStyle="warning" isOpen={elveszett} toggle={() => {
                 setelveszett(!elveszett)
                 ReactGA.pageview(window.location.pathname)
             }} size="lg">

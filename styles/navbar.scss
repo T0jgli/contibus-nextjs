@@ -1,5 +1,5 @@
 nav {
-    background: rgba(33, 33, 33, 0.25);
+    background: rgba(33, 33, 33, 0.2);
     height: 80px;
     display: flex;
     justify-content: center;
@@ -164,6 +164,13 @@ nav {
         position: absolute;
         right: 15px;
 
+        .activelanguage {
+            opacity: 0.6;
+        }
+        .notactivelang {
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             display: none;
         }
@@ -178,6 +185,8 @@ nav {
         }
     }
 }
+
+//Mobile
 
 aside {
     position: fixed;
@@ -291,5 +300,20 @@ aside {
     li {
         padding-top: 20px !important;
         padding-bottom: 20px !important;
+    }
+}
+
+//Calendar
+
+.modal {
+    @media (max-width: 992px) {
+        .fc-header-toolbar {
+            display: block !important;
+            margin: auto;
+            .fc-toolbar-chunk {
+                text-align: center;
+                padding-bottom: 0.5rem;
+            }
+        }
     }
 }

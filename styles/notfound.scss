@@ -1,9 +1,4 @@
-$bgcolor: rgb(148, 148, 148);
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+$bgcolor: rgb(173, 173, 173);
 
 #notfound {
   position: relative;
@@ -14,8 +9,6 @@ $bgcolor: rgb(148, 148, 148);
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     max-width: 520px;
     width: 100%;
@@ -43,8 +36,6 @@ $bgcolor: rgb(148, 148, 148);
         position: absolute;
         left: 50%;
         top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
 
         @media only screen and (max-width: 768px) {

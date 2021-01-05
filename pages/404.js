@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react'
+import { Fade } from 'react-awesome-reveal';
 
 function Notfound () {
     const { locale } = useRouter()
@@ -8,10 +9,15 @@ function Notfound () {
         <>
             <div id="notfound">
                 <div class="notfound">
-                    <div class="notfound-404">
-                        <h1>Oops!</h1>
-                        <h2>{locale === "en" ? ("404 - The Page can't be found") : ("404 - Az oldal nem található")}</h2>
-                    </div>
+                    <Fade triggerOnce direction="up">
+                        <div class="notfound-404">
+                            <Fade triggerOnce>
+
+                                <h1>Oops!</h1>
+                            </Fade>
+                            <h2>{locale === "en" ? ("404 - The Page can't be found") : ("404 - Az oldal nem található")}</h2>
+                        </div>
+                    </Fade>
                 </div>
             </div>
             <Head>

@@ -112,6 +112,7 @@ const Rating = () => {
                         name="feedback"
                         value={value}
                         precision={1}
+                        style={{ color: "#fb3" }}
                         onChange={(event, newValue) => {
                             if (newValue === null) {
                                 localStorage.removeItem("Feedback")

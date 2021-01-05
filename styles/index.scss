@@ -1,0 +1,328 @@
+@use "./buses";
+@use "./cards";
+@use "./navbar";
+@use "./notfound";
+@use "./print";
+
+//Misc
+
+.flag,
+.controls-top > a:hover > i {
+    transition: all 0.5s !important;
+
+    &:hover {
+        transform: scale(1.17, 1.17);
+    }
+}
+
+.logo {
+    transition: all 0.5s !important;
+
+    &:hover {
+        opacity: 0.9 !important;
+    }
+}
+
+.roundedbtn {
+    border-radius: 30px;
+}
+
+.rounded {
+    border-radius: 0.6rem !important;
+}
+
+.desctext {
+    color: #757575 !important;
+}
+
+.privacytext {
+    transition: all 0.5s !important;
+    color: rgb(100, 100, 100) !important;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(50, 50, 50) !important;
+    }
+}
+
+.kartya {
+    transition: all 0.5s !important;
+
+    &:hover {
+        transform: scale(1.02, 1.02) !important;
+    }
+}
+
+.width-75 {
+    @media (min-width: 768px) {
+        width: 75% !important;
+    }
+
+    @media (max-width: 768px) {
+        width: 100% !important;
+    }
+}
+
+.main {
+    background-color: #f5f5f5;
+}
+
+//Scrollbar
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(165, 165, 165);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: all 0.5s;
+
+    &:hover {
+        background: rgb(150, 150, 150);
+        outline: 1px solid #fff;
+    }
+
+    &:active {
+        background: rgb(120, 120, 120);
+    }
+}
+
+//Carousel
+
+.carousel {
+    &.carouselup {
+        clip-path: circle(460vh at 50% -400vh) !important;
+        height: 60vh;
+    }
+
+    &.headerclip {
+        clip-path: circle(400vh at 50% -300vh) !important;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        transition: all 1.5s !important;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    .carr {
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: all 1.5s;
+
+        &:hover {
+            transform: scale(1.05, 1.05);
+        }
+    }
+
+    #carr11 {
+        background-image: url(/img/carousel_1.jpg);
+    }
+
+    #carr22 {
+        background-image: url(/img/carousel_2.jpg);
+    }
+
+    #carr33 {
+        background-image: url(/img/carousel_3.jpg);
+    }
+}
+
+//Info
+
+.partners {
+    li {
+        transition: all 0.5s !important;
+
+        &:hover {
+            color: black;
+            cursor: default;
+        }
+    }
+}
+
+.section-description {
+    margin-left: 15%;
+    margin-right: 15%;
+
+    @media (max-width: 992px) {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+//Gallery
+
+.carousel-multi-item {
+    .controls-top {
+        text-align: center;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        transition: all 0.5s !important;
+
+        .btn-floating {
+            padding: 7px;
+            margin-bottom: 5px;
+            padding-top: 3px;
+        }
+    }
+
+    .carousel-item {
+        .kartya {
+            @media (min-width: 768px) {
+                float: left;
+
+                .roundedimage1 {
+                    border-radius: 0.6rem 0 0 0.6rem !important;
+                }
+
+                .roundedimage2 {
+                    border-radius: 0 0.6rem 0.6rem 0 !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .roundedimagemobile {
+                    border-radius: 0.6rem !important;
+                }
+            }
+        }
+    }
+}
+
+//Streak
+
+.streak {
+    transition: all 0.5s !important;
+
+    &:hover {
+        opacity: 0.95;
+    }
+}
+
+//Modals
+
+.modal {
+    backdrop-filter: brightness(0.75);
+
+    .modal-dialog {
+        .modal-content {
+            border-radius: 1rem !important;
+
+            .modal-header {
+                align-items: center;
+
+                .close {
+                    color: #fff !important;
+                }
+
+                &.calendar,
+                &.contactmodal {
+                    .close {
+                        color: #000 !important;
+                    }
+                }
+            }
+
+            .rounded {
+                border-radius: 1rem !important;
+            }
+        }
+
+        &.cascading-modal {
+            @media (min-width: 1200px) {
+                margin-top: 3% !important;
+            }
+        }
+    }
+}
+
+//Form
+
+.form-control {
+    border-radius: 0.6rem;
+    background-color: whitesmoke;
+}
+
+//Cookie
+
+.cookiealert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    margin: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 0;
+    transform: translateY(100%);
+    transition: all 500ms ease-out;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    .privacycookietext {
+        color: rgb(175, 175, 175) !important;
+        transition: all 0.5s !important;
+
+        &:hover {
+            color: rgb(150, 150, 150) !important;
+        }
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0%);
+    }
+
+    .acceptcookies {
+        margin-left: 10px;
+        vertical-align: baseline;
+    }
+}
+
+//ScrollTopButton
+
+#scrolltopbutton {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.75);
+    bottom: 20px;
+    right: 50px;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 20px;
+
+    &:hover {
+        transform: scale(1.06, 1.06);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+//Mui
+
+.MuiSnackbarContent-root {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    justify-content: center;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}

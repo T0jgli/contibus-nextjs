@@ -275,7 +275,8 @@ const Navbar = () => {
 
 
             <Snackbar autoHideDuration={3000} open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
-                <SnackbarContent message={router.locale === "en" ? ("Language set") : ("Nyelv sikeresen beállítva")} />
+                <SnackbarContent className="rounded"
+                    message={router.locale === "en" ? ("Language set") : ("Nyelv sikeresen beállítva")} />
             </Snackbar>
             <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} />
         </>

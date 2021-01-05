@@ -19,6 +19,7 @@ const Snackbars = () => {
             <MuiAlert elevation={5} variant="filled"
                 onClose={(event, reason) => { if (reason === "clickaway") { return; }; dispatch(setsnackbar({ snackbar: { ...snackbaropen, open: false } })) }}
                 severity={snackbaropen?.type}
+                className="rounded"
             >
                 {locale === "en" ? (snackbaropen?.en) : (snackbaropen?.hu)}
             </MuiAlert>

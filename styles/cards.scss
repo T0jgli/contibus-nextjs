@@ -25,6 +25,13 @@
                 transition: all 0.5s ease-in-out;
             }
 
+            .arrowdropup {
+                transition: all 0.5s !important;
+                &:hover {
+                    color: #fb3 !important;
+                }
+            }
+
             .icon {
                 height: 300px;
                 width: 300px;
