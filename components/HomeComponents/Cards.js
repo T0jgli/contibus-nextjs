@@ -5,12 +5,11 @@ import Spinner from "../GlobalComponents/Spinner"
 
 const Rating = dynamic(() => import("./Rating"), { loading: () => <Spinner /> });
 const Modals = dynamic(() => import("./Modals"), { loading: () => <Spinner /> });
+const Contact = dynamic(() => import("./Contact"), { loading: () => <Spinner /> });
 
 import { Fade } from "react-awesome-reveal";
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
-import Contact from './Contact';
-
 
 const Cards = () => {
     const { locale } = useRouter()

@@ -49,7 +49,7 @@ const Footer = () => {
                                 <h6 className="text-uppercase font-weight-bold">{locale === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
-                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5 <span style={{ opacity: "0.8" }} className="ml-4">{locale === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
+                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5 <span style={{ opacity: "0.8" }} className="ml-lg-4">{locale === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />contibus@contibus.hu</p>
                                 <p>
