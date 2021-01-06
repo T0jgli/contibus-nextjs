@@ -40,26 +40,26 @@ const Streak = () => {
                             <MDBRow className="text-center">
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={80000} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={80000} separator={" "} suffix=" +" />
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? ("Happy clients") : ("Elégedett ügyfél")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={100000} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={100000} separator={" "} suffix=" +" />
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold" >{locale === "en" ? ("Projects completed") : ("Sikeres projekt")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={50000} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={50000} separator={" "} suffix=" +" />
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? ("Destinations") : ("Úticél")}</p>
                                 </MDBCol>
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">
-                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={150} separator={" "} suffix=" +">
-                                        </CountUp></h1>
+                                        <CountUp start={focus ? 0 : null} redraw={true} useEasing={true} duration={2} end={150} separator={" "} suffix=" +" />
+                                    </h1>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? ("Visited country") : ("Meglátogatott ország")}</p>
                                 </MDBCol>
                             </MDBRow>
