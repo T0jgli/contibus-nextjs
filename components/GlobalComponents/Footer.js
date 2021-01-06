@@ -28,11 +28,14 @@ const Footer = () => {
                             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-1" id="footer-links">
                                 <h6 className="text-uppercase font-weight-bold">{locale === "en" ? ("Others") : ("Egyéb")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
-                                <p onClick={() => {
-                                    setelveszett(!elveszett);
-                                    ReactGA.modalview('/lostitems');
-                                }} style={{ cursor: "pointer" }}>
-                                    {locale === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
+                                <p>
+                                    <a onClick={() => {
+                                        setelveszett(!elveszett);
+                                        ReactGA.modalview('/lostitems');
+                                    }} >
+                                        {locale === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
+                                    </a>
+
                                 </p>
                                 <p>
                                     <a href="/files/utazasi-szerzodes-2020.pdf" target="_blank">{locale === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>

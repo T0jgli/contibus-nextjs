@@ -376,3 +376,13 @@
     font-size: 1rem !important;
     font-weight: 500 !important;
 }
+
+//Footer
+#footer-links {
+    a {
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            color: #fb3;
+        }
+    }
+}
