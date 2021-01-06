@@ -140,7 +140,7 @@ const Rating = () => {
                                 horizontal: 'left',
                             }}
                         >
-                            <MDBCard>
+                            <MDBCard className="">
                                 <MDBCardHeader className="p-3">
                                     {labels[value]}
                                 </MDBCardHeader>

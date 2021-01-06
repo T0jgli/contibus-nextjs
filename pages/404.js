@@ -8,9 +8,9 @@ function Notfound () {
     return (
         <>
             <div id="notfound">
-                <div class="notfound">
+                <div className="notfound">
                     <Fade triggerOnce direction="up">
-                        <div class="notfound-404">
+                        <div className="notfound-404">
                             <Fade triggerOnce>
 
                                 <h1>Oops!</h1>

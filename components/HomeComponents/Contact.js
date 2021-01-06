@@ -61,7 +61,7 @@ const Contact = () => {
                     <MDBRow>
                         <MDBCol lg="8">
                             <MDBCardBody>
-                                <h4 className="mt-4"> <MDBIcon icon="envelope" className="px-2" />{locale === "en" ? ("Write to us") : ("Írjon Nekünk")}</h4>
+                                <h4 className="mt-4"> <MDBIcon icon="envelope" className="pr-2" />{locale === "en" ? ("Write to us") : ("Üzenet küldése")}</h4>
                                 <form onSubmit={handlesubmit}>
                                     <MDBRow style={{ marginTop: "12px" }}>
                                         <MDBCol md="6">
@@ -125,7 +125,7 @@ const Contact = () => {
                         </MDBCol>
                         <MDBCol lg="4" className="h-100">
                             <MDBCardBody className="white-text h-100 rounded rightinformations">
-                                <h3 className="my-4 pb-2">{locale === "en" ? ("Informations") : ("Információk")}</h3>
+                                <h3 className="my-4 pb-2"><MDBIcon icon="info-circle" className="pr-2" />{locale === "en" ? ("Informations") : ("Információk")}</h3>
                                 <ul className="text-lg-left list-unstyled ml-4">
                                     <li className="pb-2">
                                         <p><MDBIcon icon="map-marker" className="pr-2 grey-text" />1088 Budapest, Szentkirályi utca 5 <span className="grey-text pl-lg-3">

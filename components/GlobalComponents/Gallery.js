@@ -44,28 +44,31 @@ const Gallery = () => {
                             {router.locale === "en" ? ("Gallery") : ("Galéria")}
                         </h2>
                     </Fade>
-                    <MDBCarousel activeItem={1}
-                        length={3}
-                        showControls={true}
-                        showIndicators={false}
-                        slide
-                        className="carousel slide carousel-multi-item carousel-multi-item-2"
-                        data-ride="carousel"
-                        multiItem
-                    >
-                        <MDBCarouselInner className="carousel-inner">
-                            <MDBCarouselItem className="carousel-item" itemId="1">
-                                {galleryfill(0)}
-                            </MDBCarouselItem>
-                            <MDBCarouselItem className="carousel-item" itemId="2">
-                                {galleryfill(4)}
-                            </MDBCarouselItem>
-                            <MDBCarouselItem className="carousel-item" itemId="3">
-                                {galleryfill(8)}
-                            </MDBCarouselItem>
+                    <Fade triggerOnce>
+                        <MDBCarousel activeItem={1}
+                            length={3}
+                            showControls={true}
+                            showIndicators={false}
+                            slide
+                            className="carousel slide carousel-multi-item carousel-multi-item-2"
+                            data-ride="carousel"
+                            multiItem
+                        >
+                            <MDBCarouselInner className="carousel-inner">
+                                <MDBCarouselItem className="carousel-item" itemId="1">
+                                    {galleryfill(0)}
+                                </MDBCarouselItem>
+                                <MDBCarouselItem className="carousel-item" itemId="2">
+                                    {galleryfill(4)}
+                                </MDBCarouselItem>
+                                <MDBCarouselItem className="carousel-item" itemId="3">
+                                    {galleryfill(8)}
+                                </MDBCarouselItem>
 
-                        </MDBCarouselInner>
-                    </MDBCarousel>
+                            </MDBCarouselInner>
+                        </MDBCarousel>
+                    </Fade>
+
                 </MDBCol>
             </MDBRow>
             <Fslightboxes gallery data={gallery} imgtoggler={galleryopen} setimgtoggler={setgalleryopen} />
