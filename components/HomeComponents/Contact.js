@@ -61,7 +61,7 @@ const Contact = () => {
                     <MDBRow>
                         <MDBCol lg="8">
                             <MDBCardBody>
-                                <h4 className="mt-4"> <MDBIcon icon="envelope" className="pr-2" />{locale === "en" ? ("Write to us") : ("Üzenet küldése")}</h4>
+                                <h3 className="mt-4"> <MDBIcon icon="envelope" className="pr-2" />{locale === "en" ? ("Write to us") : ("Üzenet küldése")}</h3>
                                 <form onSubmit={handlesubmit}>
                                     <MDBRow style={{ marginTop: "12px" }}>
                                         <MDBCol md="6">

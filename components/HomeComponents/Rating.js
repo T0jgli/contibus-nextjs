@@ -165,6 +165,7 @@ const Rating = () => {
                                     </Tooltip>
                                 </MDBCardFooter>
                             </MDBCard>
+
                         </Popover>
                     )}
 
