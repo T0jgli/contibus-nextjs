@@ -113,7 +113,13 @@ const Contact = () => {
                                             />
                                             <Tooltip enterDelay={500} title="Küldés">
                                                 <button type="submit" className="contact__submitbtn btn-lg warning-color white-text mr-0 text-center">
-                                                    <MDBIcon far icon="paper-plane" />
+                                                    {state.loading ? (
+                                                        <div className="d-flex p-0 m-0 justify-content-center animated zoomIn">
+                                                            <div className="spinner-border p-0 m-0" role="status">
+                                                                <span className="sr-only">Loading...</span>
+                                                            </div>
+                                                        </div>
+                                                    ) : <MDBIcon far icon="paper-plane" />}
                                                 </button>
                                             </Tooltip>
                                         </MDBCol>
