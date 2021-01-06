@@ -17,7 +17,7 @@
 
 .socialicon {
     transition: all 0.5s !important;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     &:hover {
         opacity: 0.6 !important;
         color: white;
@@ -293,6 +293,7 @@
 
     .rightinformations {
         background-color: #212121;
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 
         hr {
             opacity: 0.8;

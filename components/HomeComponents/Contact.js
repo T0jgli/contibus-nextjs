@@ -103,7 +103,7 @@ const Contact = () => {
                                     <MDBRow>
                                         <MDBCol>
                                             <MDBInput
-                                                rows="6"
+                                                rows="7"
                                                 required
                                                 value={state.message}
                                                 onChange={(e) => setstate({ ...state, message: e.target.value })}
@@ -149,7 +149,7 @@ const Contact = () => {
                                     <li className="pb-2">
                                         <p><MDBIcon far icon="envelope" className="pr-2 grey-text" />contibus@contibus.hu</p>
                                     </li>
-                                    <li className="pb-2">
+                                    <li className="pb-3">
                                         <p><MDBIcon icon="envelope" className="pr-2 grey-text" />buszrendeles@contibus.hu</p>
                                     </li>
 
