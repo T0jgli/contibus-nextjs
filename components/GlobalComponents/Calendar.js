@@ -1,15 +1,12 @@
-import React from 'react'
 import {
     MDBModal, MDBCard, MDBModalHeader, MDBBtn, MDBModalBody, MDBRow, MDBContainer, MDBCardFooter, MDBCol, MDBCardBody
 } from "mdbreact";
 
 import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
 import listplugin from '@fullcalendar/list'
-import timeGridPlugin from '@fullcalendar/timegrid';
 import huLocale from '@fullcalendar/core/locales/hu';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
-import interactionPlugin from "@fullcalendar/interaction";
+import dayGridPlugin from '@fullcalendar/daygrid'
 
 import ReactGA from 'react-ga'
 import { useRouter } from 'next/router';
@@ -36,12 +33,12 @@ const Calendar = ({ setcalendaropen, calendaropen }) => {
                         <MDBCol>
                             <MDBCard>
                                 <MDBCardBody className="px-4">
-                                    <FullCalendar plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin, listplugin, googleCalendarPlugin]}
+                                    <FullCalendar plugins={[dayGridPlugin, listplugin, googleCalendarPlugin]}
                                         headerToolbar={
                                             {
                                                 left: 'prev,next today',
                                                 center: 'title',
-                                                right: 'dayGridMonth,timeGridDay,listMonth'
+                                                right: 'dayGridMonth,listMonth'
                                             }
                                         }
                                         selectable={true}

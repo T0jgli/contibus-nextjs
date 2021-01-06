@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
     MDBContainer, MDBMask, MDBRow, MDBCol
 } from "mdbreact";
@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { Parallax } from 'react-parallax';
 import { useRouter } from 'next/router';
 
+const images = ["/img/carousel_1_.jpg", "/img/carousel_2_.jpg", "/img/carousel_3_.jpg"]
 
 const Streak = () => {
     const { locale } = useRouter()
@@ -17,14 +18,12 @@ const Streak = () => {
     const [bg, setbg] = useState("")
 
     useEffect(() => {
-        const ramdom = Math.floor(Math.random() * (3 - 1 + 1));
-        const images = ["/img/carousel_1_.jpg", "/img/carousel_2_.jpg", "/img/carousel_3_.jpg"]
-        setbg(images[ramdom])
+        setbg(images[Math.floor(Math.random() * (3 - 1 + 1))])
     }, [])
 
     return (
         <div className="streak streak-photo streak-long-2">
-            <Parallax bgImage={bg} strength={600}>
+            <Parallax bgImage={bg} strength={750}>
                 <MDBMask overlay="black-light" className="flex-center">
                     <MDBContainer className="py-5">
                         <Fade triggerOnce direction="down">
@@ -32,8 +31,8 @@ const Streak = () => {
                                 <span>{locale === "en" ? ("Some facts about us") : ("Néhány tény rólunk")}</span>
                             </h3>
                         </Fade>
-                        <Fade onVisibilityChange={(e) => {
-                            if (e) {
+                        <Fade onVisibilityChange={(onScreen) => {
+                            if (onScreen) {
                                 setFocus(true)
                             }
                         }} delay={75} triggerOnce direction="up">

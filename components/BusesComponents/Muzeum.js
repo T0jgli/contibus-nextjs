@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectMuzeumData } from '../../lib/AppSlice';
 import { Fade } from "react-awesome-reveal";

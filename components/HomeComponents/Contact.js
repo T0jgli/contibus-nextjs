@@ -1,6 +1,6 @@
 import { MDBCardBody, MDBCol, MDBIcon, MDBInput, MDBRow } from 'mdbreact'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setsnackbar } from '../../lib/AppSlice'
 import axios from 'axios';
@@ -55,7 +55,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="contact__div text-center py-5 container">
+        <div className="contact__div text-center py-5 container" id="contact">
             <Fade triggerOnce delay={200}>
                 <div className="rounded contact__card mb-2">
                     <MDBRow>

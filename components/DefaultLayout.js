@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { setbusesData, setmuzeumData } from '../lib/AppSlice'
 
@@ -14,9 +14,9 @@ import Spinner from "./GlobalComponents/Spinner"
 
 const Footer = dynamic(() => import("./GlobalComponents/Footer"), { loading: () => <Spinner /> });
 const Scrolltopbutton = dynamic(() => import("./GlobalComponents/Scrolltopbutton"), { loading: () => <Spinner /> });
-const InitialTransition = dynamic(() => import("./GlobalComponents/Initaltransition"));
 const Cookie = dynamic(() => import("./GlobalComponents/Cookie"));
 const Snackbars = dynamic(() => import("./GlobalComponents/Snackbars"));
+const InitialTransition = dynamic(() => import("./GlobalComponents/Initaltransition"));
 
 const CrawlerDetector = new Crawler()
 const userAgentString = typeof window !== "undefined" && navigator.userAgent;

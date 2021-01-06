@@ -1,4 +1,3 @@
-import React from 'react'
 import {
     MDBBtn,
     MDBModal, MDBModalBody, MDBCard,

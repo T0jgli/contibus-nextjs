@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 import { MDBAlert, MDBRow, MDBContainer, MDBBtn } from 'mdbreact'
 import { useState } from 'react'

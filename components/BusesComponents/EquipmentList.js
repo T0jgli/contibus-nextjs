@@ -1,5 +1,4 @@
 import { MDBCard, MDBCardBody, MDBCol } from 'mdbreact'
-import React from 'react'
 import { getEquipmentList } from '../../lib/getEquipmentList'
 import AirportShuttleIcon from '@material-ui/icons/AirportShuttle';
 

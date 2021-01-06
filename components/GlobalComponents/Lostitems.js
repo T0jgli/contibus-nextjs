@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 import db from "../../lib/firebase"
 import firebase from "firebase/app"

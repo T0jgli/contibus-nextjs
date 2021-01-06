@@ -1,9 +1,6 @@
-import React from 'react'
-
 import IconButton from '@material-ui/core/IconButton';
 
 import { Tooltip } from '@material-ui/core';
-import NumberFormat from 'react-number-format';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -42,11 +39,10 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
             </td>
             <td className="dijaktext">
                 <p className='m-0 pt-lg-5 mt-lg-3'>
-                    <NumberFormat suffix=" Ft / km" prefix={locale === "en" ? ("Km charge: ") : ("Km díj: ")} value={data.fields.kmdij} displayType="text" />
+                    {`${locale === "en" ? ("Km charge:") : ("Km díj:")} ${data.fields.kmdij.toLocaleString()} ${"Ft / km"}`}
                 </p>
                 <p className='mb-2'>
-                    <NumberFormat suffix={locale === "en" ? (" Ft / hour") : (" Ft / óra")} prefix={locale === "en" ? ("Hourly rate: ") : ("Óradíj: ")}
-                        thousandSeparator=" " value={data.fields.oradij} displayType="text" />
+                    {`${locale === "en" ? ("Hourly rate:") : ("Óradíj:")} ${data.fields.oradij.toLocaleString()} ${locale === "en" ? ("Ft / hour") : ("Ft / óra")}`}
                 </p>
             </td>
         </tr >

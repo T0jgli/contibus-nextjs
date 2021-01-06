@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
     MDBMask, MDBRow, MDBCol, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBCard, MDBCardImage
 } from "mdbreact";

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact"
 import { useRouter } from 'next/router'
 import Link from 'next/link'

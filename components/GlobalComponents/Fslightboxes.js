@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Lightbox from 'react-image-lightbox';
 
 const Fslightboxes = ({ imgtoggler, setimgtoggler, data, name, gallery }) => {

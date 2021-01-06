@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectBusesData } from '../../lib/AppSlice'
 
 import { MDBBtn, MDBCol, MDBRow } from 'mdbreact'
 import UpdateIcon from '@material-ui/icons/Update';
 import SpeedIcon from '@material-ui/icons/Speed';
-import NumberFormat from 'react-number-format';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import { IconButton, Tooltip } from '@material-ui/core'
 import AirlineSeatReclineNormalIcon from '@material-ui/icons/AirlineSeatReclineNormal';
@@ -90,10 +89,9 @@ const OneBusBody = () => {
                                             <UpdateIcon fontSize="large" />
                                             <div>
                                                 <p className="grey-text m-0 pl-4">PER {router.locale === "en" ? ("HOUR") : ("ÓRA")}</p>
-
-                                                <NumberFormat thousandSeparator=" " className="grey-text h4 font-weight-bold pt-2 m-0 pl-4"
-                                                    suffix={router.locale === "en" ? (" Ft / hour") : (" Ft / óra")}
-                                                    value={thisbus.fields.oradij} displayType="text" />
+                                                <p className="grey-text h4 font-weight-bold pt-2 m-0 pl-4">
+                                                    {thisbus.fields.oradij.toLocaleString()} {" "} {router.locale === "en" ? ("Ft / hour") : ("Ft / óra")}
+                                                </p>
                                             </div>
                                         </div>
                                         <hr className="my-4" />
@@ -101,8 +99,9 @@ const OneBusBody = () => {
                                             <SpeedIcon fontSize="large" />
                                             <div>
                                                 <p className="grey-text m-0 pl-4">PER KM</p>
-                                                <NumberFormat thousandSeparator=" " className="grey-text h4 font-weight-bold pt-2 m-0 pl-4"
-                                                    suffix=" Ft / km" value={thisbus.fields.kmdij} displayType="text" />
+                                                <p className="grey-text h4 font-weight-bold pt-2 m-0 pl-4">
+                                                    {thisbus.fields.kmdij.toLocaleString()} {" "}Ft / km
+                                                </p>
                                             </div>
                                         </div>
 

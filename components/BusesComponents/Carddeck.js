@@ -1,4 +1,3 @@
-import React from 'react'
 import dynamic from 'next/dynamic';
 import Spinner from "../GlobalComponents/Spinner"
 

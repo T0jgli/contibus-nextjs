@@ -1,6 +1,5 @@
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBCol, MDBContainer, MDBRow, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact'
 import { useRouter } from 'next/router'
-import React from 'react'
 
 export const Vezetesiidocontent = () => {
     return (

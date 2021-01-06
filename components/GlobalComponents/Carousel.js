@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';

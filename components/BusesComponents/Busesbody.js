@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { MDBBtn, MDBContainer } from "mdbreact"
 import dynamic from 'next/dynamic';

@@ -1,8 +1,7 @@
-import { MDBCol, MDBContainer, MDBRow } from 'mdbreact'
+import { MDBCol, MDBContainer, MDBIcon, MDBRow } from 'mdbreact'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import React from 'react'
 import { Fade } from 'react-awesome-reveal'
 
 
@@ -23,19 +22,19 @@ const Info2 = () => {
             <Fade delay={400} triggerOnce>
                 <MDBRow className="text-center">
                     <MDBCol md="4" className="mb-5">
-                        <i style={{ fontSize: "4rem", color: "#fb3" }} className="fa logo fa-camera-retro"></i>
+                        <MDBIcon icon="camera-retro" className="logo" style={{ fontSize: "4rem", color: "#fb3" }} />
                         <h4 className="my-4 mx-0" style={{ fontWeight: "500" }}>{router.locale === "en" ? ("Experience") : ("Tapasztalat")}</h4>
                         <p className="grey-text">Közel 30 éves tapasztalattal rendelkezünk az utaztatásban. Folyamatosan hallgatunk ügyfeleink visszajelzéseire, ezáltal biztosítva a legminőségibb szolgáltatást.</p>
                     </MDBCol>
 
                     <MDBCol md="4" className="mb-5">
-                        <i style={{ fontSize: "4rem", color: "#fb3" }} className="fas logo fa-user-shield"></i>
+                        <MDBIcon icon="user-shield" className="logo" style={{ fontSize: "4rem", color: "#fb3" }} />
                         <h4 className="my-4 mx-0" style={{ fontWeight: "500" }}>{router.locale === "en" ? ("Safety") : ("Biztonság")}</h4>
                         <p className="grey-text">Járműveink műszaki és esztétikai állapota kifogástalan. Gépkocsivezetőink szigorúan betartják a pihenési időt, garantálva, hogy utazása során biztonságban érezze magát.</p>
                     </MDBCol>
 
                     <MDBCol md="4" className="mb-5">
-                        <i style={{ fontSize: "4rem", color: "#fb3" }} className="fa logo fa-heart"></i>
+                        <MDBIcon icon="heart" className="logo" style={{ fontSize: "4rem", color: "#fb3" }} />
                         <h4 className="my-4 mx-0" style={{ fontWeight: "500" }}>{router.locale === "en" ? ("Adventure") : ("Élmény")}</h4>
                         <p className="grey-text">Szolgatásaink közé tartozik az egyedik utazások lebonyolítása is, melyekkel felejthetetlen élményt tudunk nyújtani utasainknak. Kérjen árajánlatot <Link href="/offer" passHref><a className="privacytext" onClick={() => router.push("/offer")}>ide</a></Link> kattintva.</p>
                     </MDBCol>
