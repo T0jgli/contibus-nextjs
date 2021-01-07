@@ -292,6 +292,13 @@ aside {
         .sidebar__language {
             text-align: center;
             margin-bottom: 2rem;
+
+            .activelanguage {
+                opacity: 0.6;
+            }
+            .notactivelang {
+                cursor: pointer;
+            }
         }
     }
 }

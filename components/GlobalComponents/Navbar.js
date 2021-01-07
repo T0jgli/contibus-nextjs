@@ -131,10 +131,10 @@ const Navbar = () => {
                             else {
                                 router.push(router.pathname, router.pathname, { locale: "hu" })
                             }
-                            document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                            setCookie("NEXT_LOCALE", "hu", 365)
                             if (router.locale === "en")
                                 setlangtoast(true);
-                        }} alt="language_huicon" />
+                        }} alt="Váltás magyar nyelvre zászló" />
                     <img width="30px" src="/img/svgs/uk.svg" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
                         onClick={() => {
                             if (router.pathname.includes("bus/")) {
@@ -152,7 +152,7 @@ const Navbar = () => {
                             setCookie("NEXT_LOCALE", "en", 365)
                             if (router.locale === "hu")
                                 setlangtoast(true);
-                        }} alt="language_enicon" />
+                        }} alt="Váltás angol nyelvre zászló" />
                 </div>
             </nav>
 
@@ -199,10 +199,10 @@ const Navbar = () => {
                                 else {
                                     router.push(router.pathname, router.pathname, { locale: "hu" })
                                 }
-                                document.cookie = "NEXT_LOCALE= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                                setCookie("NEXT_LOCALE", "hu", 365)
                                 if (router.locale === "en")
                                     setlangtoast(true);
-                            }} alt="language_huicon" />
+                            }} alt="Váltás magyar nyelvre zászló (mobil nézet)" />
                         <img width="30px" src="/img/svgs/uk.svg" className={router.locale === "en" ? ("flag ml-2 activelanguage") : ("flag ml-2 notactivelang")} id="engicon"
                             onClick={() => {
                                 if (router.pathname.includes("bus/")) {
@@ -220,7 +220,7 @@ const Navbar = () => {
                                 setCookie("NEXT_LOCALE", "en", 365)
                                 if (router.locale === "hu")
                                     setlangtoast(true);
-                            }} alt="language_enicon" />
+                            }} alt="Váltás angol nyelvre zászló (mobil nézet)" />
                     </div>
 
                     <div className="sidebar__btn">

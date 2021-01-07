@@ -45,34 +45,35 @@ const Formoffer = () => {
             if (state.seat !== "def") {
                 if (new Date(state.indulas).toLocaleDateString() < new Date(state.erkezes).toLocaleDateString()) {
                     setstate({ ...state, loading: true })
-                    db.collection("formofferusers").add({
-                        name: state.name,
-                        phone: state.phone,
-                        email: state.email,
-                        uticel: state.uticel,
-                        koltseg: state.koltseg,
-                        indulas: new Date(state.indulas).toLocaleDateString(),
-                        erkezes: new Date(state.erkezes).toLocaleDateString(),
-                        selectedbus: state.selectedbus || "Nincs",
-                        seat: state.seat,
-                        comment: state.comment,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    })
-
-                    if (state.newsletter) {
-                        db.collection("newsletterusers").doc(state.email).set({
-                            name: state.name,
-                            phone: state.phone,
-                            email: state.email,
-                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                        })
-                    }
-
                     axios({
                         method: "POST",
                         url: "/api/offer",
                         data: state
                     }).then((response) => {
+                        db.collection("formofferusers").add({
+                            name: state.name,
+                            phone: state.phone,
+                            email: state.email,
+                            uticel: state.uticel,
+                            koltseg: state.koltseg,
+                            indulas: new Date(state.indulas).toLocaleDateString(),
+                            erkezes: new Date(state.erkezes).toLocaleDateString(),
+                            selectedbus: state.selectedbus || "Nincs",
+                            seat: state.seat,
+                            comment: state.comment,
+                            sent: response.status == 200 ? true : response.data.error,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        })
+
+                        if (state.newsletter) {
+                            db.collection("newsletterusers").doc(state.email).set({
+                                name: state.name,
+                                phone: state.phone,
+                                email: state.email,
+                                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                            })
+                        }
+
                         if (response.status == 200) {
                             setstate(initialstate)
                             window.scrollTo(0, 0)
@@ -84,7 +85,8 @@ const Formoffer = () => {
                                     en: "Successfully sent! We will contact you shortly.",
                                 }
                             }))
-                        } else {
+                        }
+                        else {
                             console.log(response.data)
                             window.scrollTo(0, 0)
                             dispatch(setsnackbar({
@@ -95,7 +97,6 @@ const Formoffer = () => {
                                     en: response.data.error,
                                 }
                             }))
-                            setstate(initialstate)
                         }
                     })
                 }
@@ -241,7 +242,7 @@ const Formoffer = () => {
                                                     name="desc" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="5" required></textarea>
                                                 <small className="form-text text-muted text-center">
                                                     {router.locale === "en" ?
-                                                        ("If you find our offer favorable, please order in writing. Sending a request for a quote - and the response to it - is not considered an order!") :
+                                                        ("If you find our offer favorable, please order in email. Sending a request for a quote - and the response to it - is not considered an order!") :
                                                         ("Amennyiben ajánlatunkat kedvezőnek találja, írásban kérjük megrendelni. Az ajánlat kérés - és az arra kapott válasz - elküldése nem tekinthető megrendelésnek!")}
                                                 </small>
                                             </MDBCol>

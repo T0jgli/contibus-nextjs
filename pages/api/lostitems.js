@@ -34,7 +34,7 @@ export default function formHandler (req, res) {
         }
         transporter.sendMail(mail, (err, data) => {
             if (err) {
-                console.err(err)
+                console.log(err)
                 res.status(500).json({
                     error: err
                 })

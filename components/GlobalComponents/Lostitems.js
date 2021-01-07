@@ -38,31 +38,32 @@ const Lostitems = ({ elveszett, setelveszett }) => {
         e.preventDefault();
         if (accept) {
             setstate({ ...state, loading: true })
-            db.collection("lostitemusers").add({
-                name: state.name,
-                phone: state.phone,
-                email: state.email,
-                date: state.date,
-                bus: state.bus,
-                desc: state.desc,
-                comment: state.comment,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            })
-
-            if (state.newsletterlost) {
-                db.collection("newsletterusers").doc(state.email).set({
-                    name: state.name,
-                    phone: state.phone,
-                    email: state.email,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                })
-            }
-
             axios({
                 method: "POST",
                 url: "/api/lostitems",
                 data: state
             }).then((response) => {
+                db.collection("lostitemusers").add({
+                    name: state.name,
+                    phone: state.phone,
+                    email: state.email,
+                    date: state.date,
+                    bus: state.bus,
+                    desc: state.desc,
+                    sent: response.status == 200 ? true : response.data.error,
+                    comment: state.comment,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
+
+                if (state.newsletterlost) {
+                    db.collection("newsletterusers").doc(state.email).set({
+                        name: state.name,
+                        phone: state.phone,
+                        email: state.email,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    })
+                }
+
                 if (response.status == 200) {
                     setstate(initialState)
                     dispatch(setsnackbar({
@@ -76,7 +77,8 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                     setelveszett(!elveszett)
                     ReactGA.pageview(window.location.pathname)
                     window.scrollTo(0, 0)
-                } else {
+                }
+                else {
                     console.log(response.data)
                     dispatch(setsnackbar({
                         snackbar: {

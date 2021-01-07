@@ -29,11 +29,10 @@ const Cards = () => {
                 <div className="services__container flex-center flex-column">
                     <div className="services__wrapper">
                         <Fade triggerOnce>
-
                             <div onClick={() => window.open("/files/artablazat.docx", "_parent", "download")}
                                 className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
                                 <div className="view mb-3 rounded">
-                                    <img className="icon" src="/img/svgs/pricetable.svg" />
+                                    <img className="icon" src="/img/svgs/pricetable.svg" alt="Ártáblázat kártya kép" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
@@ -60,7 +59,7 @@ const Cards = () => {
                             }}
                                 className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
                                 <div className="view mb-3 rounded">
-                                    <img className="icon" src="/img/svgs/time.svg" />
+                                    <img className="icon" src="/img/svgs/time.svg" alt="Vezetésiidő kártya kép" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
@@ -87,7 +86,7 @@ const Cards = () => {
                             }}
                                 className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
                                 <div className="view mb-3 rounded">
-                                    <img className="icon" src="/img/svgs/job.svg" />
+                                    <img className="icon" src="/img/svgs/job.svg" alt="Állásajánlat kártya kép" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
@@ -114,8 +113,8 @@ const Cards = () => {
                             }}
                                 className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
                                 <div className="view mb-3 rounded">
-                                    <img className="icon" src="/img/svgs/package.svg" />
-                                    <img className="icon__edit" src="/img/svgs/gls.svg" />
+                                    <img className="icon" src="/img/svgs/package.svg" alt="GLS kép" />
+                                    <img className="icon__edit" src="/img/svgs/gls.svg" alt="GLS kártya kép" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
@@ -144,7 +143,7 @@ const Cards = () => {
                             }}
                                 className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
                                 <div className="view mb-3 rounded">
-                                    <img className="icon" src="/img/svgs/suitcase.svg" />
+                                    <img className="icon" src="/img/svgs/suitcase.svg" alt="Csomagmegőrzés kártya kép" />
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
 
@@ -173,8 +172,8 @@ const Cards = () => {
                             }}
                                 className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3">
                                 <div className="view mb-3 rounded">
-                                    <img className="icon" src="/img/svgs/package.svg" />
-                                    <img className="icon__edit" src="/img/svgs/dpd.svg" />
+                                    <img className="icon" src="/img/svgs/package.svg" alt="DPD kép" />
+                                    <img className="icon__edit" src="/img/svgs/dpd.svg" alt="DPD kártya kép" />
 
                                 </div>
                                 <p className="text-center w-100 d-block mb-3 arrowdropup"><ArrowDropUp /></p>
