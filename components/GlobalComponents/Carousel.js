@@ -1,10 +1,20 @@
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon, MDBBtn } from "mdbreact";
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from "react";
+
+const shuffle = arr =>
+    [...arr].reduceRight((res, _, __, arr) =>
+        (res.push(arr.splice(0 | Math.random() * arr.length, 1)[0]), res), []);
 
 const Carousel = () => {
     const router = useRouter();
-    const carids = ["carr11", "carr22", "carr33"].sort(() => 0.5 - Math.random())
+    const [carids, setcarids] = useState([])
+
+    useEffect(() => {
+        setcarids(shuffle(["carr11", "carr22", "carr33"]))
+    }, [])
+
     return (
         <>
             <MDBCarousel

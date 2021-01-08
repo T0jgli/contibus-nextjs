@@ -73,15 +73,16 @@ const Navbar = () => {
     }, [router.pathname, router.locale])
     return (
         <>
-            <nav className={`${navbarbg ? "topnav" : ("")} animated fadeInDown`}>
+            <nav className={`${navbarbg ? "topnav" : ("")}`}>
                 <div className="navbar__container">
                     <a className="navbar__logo" onClick={() => window.location.reload(false)}>
                         <MDBIcon icon="bus" />
                         <span style={{ cursor: "pointer", paddingLeft: "5px" }}>ContiBUS
                         </span>
                     </a>
-                    <div className={`${navbarbg ? "topnav__mobileicon" : ("")} navbar__mobileicon`} onClick={() => { setIsOpen(true) }}>
-                        <MenuIcon fontSize="large" />
+                    <div className={`navbar__mobileicon`}
+                        onClick={() => { setIsOpen(true) }}>
+                        <MenuIcon className={`${isOpen ? ("navbar__mobileicon__open") : ("")}`} fontSize="large" />
                     </div>
                     <ul className="navbar__menu">
                         {menuitems.map(item => (

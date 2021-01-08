@@ -52,14 +52,13 @@ nav {
 
         .navbar__mobileicon {
             display: none;
-            transition: all 3s ease-in;
 
-            &:hover::after {
-                transform: translateY(-12px) rotate(-135deg);
+            svg {
+                transition: 0.5s ease-in;
             }
 
-            &:hover::before {
-                transform: translateY(12px) rotate(135deg);
+            .navbar__mobileicon__open {
+                transform: rotate(90deg);
             }
 
             @media (max-width: 768px) {

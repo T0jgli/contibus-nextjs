@@ -19,7 +19,7 @@ const Rating = () => {
 
     const [value, setValue] = useState(0);
     const [loading, setloading] = useState(false);
-    const [textareavalue, settextareavalue] = useState(null);
+    const [textareavalue, settextareavalue] = useState("");
     const [popover, setpopover] = useState({
         popover: false,
         anchorEl: null
@@ -45,7 +45,9 @@ const Rating = () => {
         }).then((ip) => {
             db.collection("feedbacks").where("ipaddress", "==", ip).get().then((datas) => {
                 let exists = false
+                console.log()
                 datas.forEach(data => {
+                    console.log(data)
                     if (data)
                         exists = true
                 })
