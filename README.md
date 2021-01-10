@@ -1,3 +1,3 @@
-# Contibus webpage with using React, Redux and MDBootstrap
+# Contibus webpage with using NextJS, Redux and MDBootstrap
 
-### [Live](https://contibus.web.app)
+### [Live](https://contibus.vercel.app)
