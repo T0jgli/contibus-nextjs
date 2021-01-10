@@ -77,7 +77,7 @@ const Navbar = () => {
                 <div className="navbar__container">
                     <a className="navbar__logo" onClick={() => window.location.reload(false)}>
                         <MDBIcon icon="bus" />
-                        <span style={{ cursor: "pointer", paddingLeft: "5px" }}>ContiBUS
+                        <span>ContiBUS
                         </span>
                     </a>
                     <div className={`navbar__mobileicon`}
