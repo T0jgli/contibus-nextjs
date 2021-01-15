@@ -29,18 +29,18 @@ const DefaultLayout = ({ children }) => {
         ReactGA.pageview(window.location.pathname)
     }, [pathname])
 
-    useEffect(() => {
-        SetContentFulData("busesData", "-fields.oradij").then(data => {
-            dispatch(setbusesData({
-                busesData: data
-            }))
-        })
+    const getCMSData = async () => {
+        dispatch(setbusesData({
+            busesData: await SetContentFulData("busesData", "-fields.oradij")
+        }))
+        dispatch(setmuzeumData({
+            muzeumData: await SetContentFulData("muzeumdata", "sys.createdAt")
+        }))
+    }
 
-        SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
-            dispatch(setmuzeumData({
-                muzeumData: data
-            }))
-        })
+    useEffect(() => {
+        getCMSData()
+
     }, [dispatch])
 
     return (

@@ -63,6 +63,15 @@
 
 //Cards
 
+#buses-container {
+  width: 65%;
+  @media (max-width: 968px) {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .muzeumbusz {
   .muzeumcardbody {
     position: absolute;

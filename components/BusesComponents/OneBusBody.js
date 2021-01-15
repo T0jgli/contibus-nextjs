@@ -30,7 +30,7 @@ const OneBusBody = () => {
 
     useEffect(() => {
         if (busesdata.length > 0) {
-            setthisbus(busesdata.filter(bus => bus.fields.id === router.query.bus)[0]);
+            setthisbus(busesdata.find(bus => bus.fields.id === router.query.bus));
             if (!thisbus)
                 setnotfound(true)
         }

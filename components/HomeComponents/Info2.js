@@ -10,7 +10,7 @@ const Info2 = () => {
     return (
         <MDBContainer>
             <Fade triggerOnce>
-                <h2 className="text-center my-5 pt-3">{router.locale === "en" ? ("Travels around the world") : ("Rólunk")}</h2>
+                <h2 className="text-center my-5 pt-3">{router.locale === "en" ? ("Travelling around the world") : ("Rólunk")}</h2>
             </Fade>
 
             <Fade delay={200} triggerOnce>

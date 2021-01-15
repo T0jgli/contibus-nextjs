@@ -50,7 +50,7 @@ const Busesbody = () => {
 
             </div>
 
-            <MDBContainer className="text-center my-5 px-lg-0" id="buses-container">
+            <div className="text-center my-5 mx-auto px-lg-0" id="buses-container">
                 <hr className="w-25 mt-5" />
                 <Fade triggerOnce>
                     <MDBBtn color="dark" outline onClick={() => setshowmuzeum(!showmuzeum)} className="my-1 roundedbtn muzeumbtn">
@@ -59,7 +59,7 @@ const Busesbody = () => {
                 </Fade>
                 <hr className="w-25 mb-3" />
                 {showmuzeum ? <Muzeum /> : <Table tablazat={tablazat} settablazat={settablazat} />}
-            </MDBContainer>
+            </div>
         </>
     )
 }

@@ -157,14 +157,14 @@ const Contact = () => {
                                 <hr className="hr-light my-4" />
                                 <ul className="list-inline text-center list-unstyled">
                                     <li className="list-inline-item">
-                                        <a href="https://www.facebook.com/Contibus-Neoline-432462590213055"
+                                        <a aria-label="Facebook link" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                             target="_blank" rel="noopener noreferrer"
                                             role="button" className="fa-lg socialicon">
                                             <MDBIcon fab icon="facebook" />
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://www.instagram.com/contibus_hivatalos/"
+                                        <a aria-label="Instagram link" href="https://www.instagram.com/contibus_hivatalos/"
                                             target="_blank" rel="noopener noreferrer"
                                             role="button" className="fa-lg socialicon"
                                         >

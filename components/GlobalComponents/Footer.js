@@ -21,6 +21,7 @@ const Footer = () => {
                             <MDBCol md="5" lg="6" xl="5" className="mx-auto mb-1" id="map-div">
                                 {<div className="p-0 map-container" style={{ height: "80%" }}>
                                     <MDBIframe
+                                        title="Google Maps Iframe"
                                         src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key=" + process.env.NEXT_PUBLIC_GOOGLE_MAPSKEY}
                                         frameborder="0" style={{ height: "80%" }} />
                                 </div>}
