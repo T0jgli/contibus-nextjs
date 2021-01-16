@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { setbusesData, setmuzeumData } from '../lib/AppSlice'
+import { setbusesData, setmuzeumData } from '../lib/redux/reducers'
 
 import Navbar from './GlobalComponents/Navbar'
 
@@ -30,15 +30,16 @@ const DefaultLayout = ({ children }) => {
     }, [pathname])
 
     const getCMSData = async () => {
-        dispatch(setbusesData({
-            busesData: await SetContentFulData("busesData", "-fields.oradij")
-        }))
-        dispatch(setmuzeumData({
-            muzeumData: await SetContentFulData("muzeumdata", "sys.createdAt")
-        }))
+        dispatch(setbusesData(
+            await SetContentFulData("busesData", "-fields.oradij")
+        ))
+        dispatch(setmuzeumData(
+            await SetContentFulData("muzeumdata", "sys.createdAt")
+        ))
     }
 
     useEffect(() => {
+
         getCMSData()
 
     }, [dispatch])

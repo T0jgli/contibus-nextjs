@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectBusesData } from '../../lib/AppSlice';
 
 import { MDBTableBody, MDBTable, MDBTableHead, MDBBtn, MDBBtnGroup } from 'mdbreact';
 import { Tooltip } from '@material-ui/core';
@@ -14,11 +13,11 @@ import Spinner from "../GlobalComponents/Spinner"
 
 const Fslightboxes = dynamic(() => import("../GlobalComponents/Fslightboxes"));
 const Carddeck = dynamic(() => import("./Carddeck"), { loading: () => <Spinner /> });
-const Datatable = dynamic(() => import("./Datatable"), { loading: () => <Spinner /> });
+const Datatable = dynamic(() => import("./Datatable"));
 
 const Table = ({ tablazat, settablazat }) => {
     const { locale } = useRouter()
-    const busesdata = useSelector(selectBusesData)
+    const busesdata = useSelector(state => state.app.busesData)
 
     const [imgtoggler, setimgtoggler] = useState({
         toggler: false,

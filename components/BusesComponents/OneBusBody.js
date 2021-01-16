@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectBusesData } from '../../lib/AppSlice'
 
 import { MDBBtn, MDBCol, MDBRow } from 'mdbreact'
 import UpdateIcon from '@material-ui/icons/Update';
@@ -19,8 +18,7 @@ const Fslightboxes = dynamic(() => import("../GlobalComponents/Fslightboxes"));
 
 const OneBusBody = () => {
     const router = useRouter()
-    const busesdata = useSelector(selectBusesData)
-    const [thisbus, setthisbus] = useState(null)
+    const thisbus = useSelector(state => state.app.busesData.find(bus => bus.fields.id === router.query.bus))
     const [notfound, setnotfound] = useState(false)
     const [thispicture, setthispicture] = useState(0)
     const [lightbox, setlightbox] = useState({
@@ -29,13 +27,10 @@ const OneBusBody = () => {
     })
 
     useEffect(() => {
-        if (busesdata.length > 0) {
-            setthisbus(busesdata.find(bus => bus.fields.id === router.query.bus));
-            if (!thisbus)
-                setnotfound(true)
-        }
+        if (!thisbus)
+            setnotfound(true)
+    }, [thisbus])
 
-    }, [busesdata])
     return (
         <>
             {thisbus ? (

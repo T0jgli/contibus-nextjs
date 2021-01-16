@@ -2,7 +2,7 @@ import { MDBCardBody, MDBCol, MDBIcon, MDBInput, MDBRow } from 'mdbreact'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setsnackbar } from '../../lib/AppSlice'
+import { setsnackbar } from '../../lib/redux/reducers'
 import axios from 'axios';
 import { Tooltip } from '@material-ui/core'
 import { Fade } from 'react-awesome-reveal'

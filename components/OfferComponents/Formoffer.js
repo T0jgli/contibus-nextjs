@@ -11,7 +11,7 @@ import ArrowDropUp from '@material-ui/icons/ArrowDropUp';
 import { Checkbox, FormControlLabel, FormGroup, IconButton, Tooltip } from '@material-ui/core';
 import { Fade } from "react-awesome-reveal";
 
-import { setsnackbar } from '../../lib/AppSlice'
+import { setsnackbar } from '../../lib/redux/reducers'
 import { useDispatch } from 'react-redux'
 import ClearIcon from '@material-ui/icons/Clear';
 import { useRouter } from 'next/router';

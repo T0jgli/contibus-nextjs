@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux'
-import { selectMuzeumData } from '../../lib/AppSlice';
 import { Fade } from "react-awesome-reveal";
 
 import { useRouter } from 'next/router';
@@ -10,7 +9,7 @@ const Carddeck = dynamic(() => import("./Carddeck"), { loading: () => <Spinner /
 
 const Muzeum = () => {
     const { locale } = useRouter()
-    const muzeumdata = useSelector(selectMuzeumData)
+    const muzeumdata = useSelector(state => state.app.muzeumData)
 
     let idd = 0;
     return (

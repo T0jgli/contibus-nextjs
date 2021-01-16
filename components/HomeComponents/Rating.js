@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import db from '../../lib/firebase';
 import publicIp from "public-ip";
 import { useDispatch } from 'react-redux';
-import { setsnackbar } from '../../lib/AppSlice';
+import { setsnackbar } from '../../lib/redux/reducers';
 import firebase from "firebase/app"
 
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardFooter, MDBCardHeader, MDBInput, MDBRow } from 'mdbreact';

@@ -1,6 +1,6 @@
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { selectsnackbar, setsnackbar } from "../../lib/AppSlice"
+import { setsnackbar } from "../../lib/redux/reducers"
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
 
@@ -8,7 +8,7 @@ const Snackbars = () => {
     const dispatch = useDispatch()
 
     const { locale } = useRouter()
-    const snackbaropen = useSelector(selectsnackbar)
+    const snackbaropen = useSelector(state => state.app.snackbar)
     return (
         <Snackbar open={snackbaropen?.open} anchorOrigin={{ vertical: "top", horizontal: "right" }}
             autoHideDuration={3500} onClose={(event, reason) => {

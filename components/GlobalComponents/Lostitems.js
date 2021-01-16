@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import db from "../../lib/firebase"
 import firebase from "firebase/app"
-import { setsnackbar } from '../../lib/AppSlice'
+import { setsnackbar } from '../../lib/redux/reducers'
 import { useDispatch } from 'react-redux'
 
 import {
