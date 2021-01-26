@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 
 const Busesbody = () => {
     const { locale } = useRouter()
-    const [showmuzeum, setshowmuzeum] = useState(false)
+    const [showMuzeum, setshowMuzeum] = useState(false)
     const [tablazat, settablazat] = useState(typeof window !== "undefined" && localStorage.getItem("defaultBusView") === "table" ? true : false)
 
     return (
@@ -53,12 +53,12 @@ const Busesbody = () => {
             <div className="text-center my-5 mx-auto px-lg-0" id="buses-container">
                 <hr className="w-25 mt-5" />
                 <Fade triggerOnce>
-                    <MDBBtn color="dark" outline onClick={() => setshowmuzeum(!showmuzeum)} className="my-1 roundedbtn muzeumbtn">
-                        {showmuzeum ? locale === "en" ? ("« Current buses") : ("« Jelenlegi autóbuszaink") : locale === "en" ? ("Autobus museum »") : ("Autóbusz múzeumunk »")}
+                    <MDBBtn color="dark" outline onClick={() => setshowMuzeum(!showMuzeum)} className="my-1 roundedbtn muzeumbtn">
+                        {showMuzeum ? locale === "en" ? ("« Current buses") : ("« Jelenlegi autóbuszaink") : locale === "en" ? ("Autobus museum »") : ("Autóbusz múzeumunk »")}
                     </MDBBtn>
                 </Fade>
                 <hr className="w-25 mb-3" />
-                {showmuzeum ? <Muzeum /> : <Table tablazat={tablazat} settablazat={settablazat} />}
+                {showMuzeum ? <Muzeum /> : <Table tablazat={tablazat} settablazat={settablazat} />}
             </div>
         </>
     )

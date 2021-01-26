@@ -51,7 +51,7 @@ const Table = ({ tablazat, settablazat }) => {
                 </MDBBtnGroup>
             </Fade>
 
-            {tablazat === false ? (
+            {!tablazat ? (
                 busesdata.map((item, index, array) => {
                     if (index % 3 === 0) {
                         idd++;

@@ -189,32 +189,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                             type="textarea" name="comment" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="4" icon="comment" />
                                     </MDBCol>
                                 </div>
-                                {/*                                 <div className="form-row my-3">
-                                    <MDBCol>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text" id="inputGroupFileAddon01">
-                                                    <MDBIcon icon="folder" />
-                                                </span>
-                                            </div>
-                                            <div className="custom-file">
-                                                <input
-                                                    type="file"
-                                                    className="custom-file-input"
-                                                    id="inputGroupFile01"
-                                                    aria-describedby="inputGroupFileAddon01"
-                                                    onChange={(e) => {
-                                                        setstate({ ...state, file: e.target.files[0] })
-                                                    }}
-                                                />
-                                                <label className="custom-file-label" htmlFor="inputGroupFile01" data-browse={locale === "en" ? ("Browse") : ("Tallózás")}>
-                                                    {state.file ? (state.file.name) : locale === "en" ? ("Choose file") : ("Fájl csatolása")}
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </MDBCol>
-                                </div>
- */}                             <div className="form-row my-2">
+                                <div className="form-row my-2">
                                     <FormGroup className="px-md-3 px-2">
                                         <FormControlLabel
                                             control={

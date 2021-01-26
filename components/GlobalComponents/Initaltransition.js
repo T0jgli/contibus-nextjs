@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { motion } from "framer-motion";
-import { useRouter } from 'next/router';
 
 export const pageVariants = {
     initial: { y: -25, opacity: 0 },
@@ -14,7 +11,11 @@ export const pageVariants = {
     },
 }
 
-const blackBox = {
+/*
+import { useState } from 'react'
+import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
+ const blackBox = {
     initial: {
         height: "100%",
         bottom: 0,
@@ -107,4 +108,4 @@ const InitialTransition = () => {
 
 
 
-export default InitialTransition
+export default InitialTransition */
