@@ -58,7 +58,10 @@ const Busesbody = () => {
                     </MDBBtn>
                 </Fade>
                 <hr className="w-25 mb-3" />
-                {showMuzeum ? <Muzeum /> : <Table tablazat={tablazat} settablazat={settablazat} />}
+                {showMuzeum ?
+                    <Muzeum /> :
+                    <Table tablazat={tablazat} settablazat={settablazat} />
+                }
             </div>
         </>
     )

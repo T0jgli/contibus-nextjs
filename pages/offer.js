@@ -14,9 +14,11 @@ import { useRouter } from 'next/router';
 const Offer = () => {
     const { locale } = useRouter()
     return (
-        <motion.div initial="initial"
+        <motion.section
+            initial="initial"
             animate="animate"
-            variants={pageVariants}>
+            variants={pageVariants}
+        >
             <Carousel />
             <Formoffer />
             <Gallery />
@@ -29,7 +31,7 @@ const Offer = () => {
                 <link rel="alternate" hrefLang="en" href="https://contibus-nextjs.vercel.app/en/offer" />
                 <link rel="alternate" hrefLang="hu" href="https://contibus-nextjs.vercel.app/offer" />
             </Head>
-        </motion.div>
+        </motion.section>
     )
 }
 

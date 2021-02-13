@@ -4,6 +4,8 @@ import { Fade } from "react-awesome-reveal";
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Spinner from "../GlobalComponents/Spinner"
+import { muzeumAnimation } from '../GlobalComponents/Initaltransition';
+import { motion } from "framer-motion"
 
 const Carddeck = dynamic(() => import("./Carddeck"), { loading: () => <Spinner /> });
 
@@ -13,7 +15,14 @@ const Muzeum = () => {
 
     let idd = 0;
     return (
-        <div className="fadeIn animated">
+        <motion.div
+            initial="initial"
+            animate="animate"
+            variants={muzeumAnimation}
+            exit="exit"
+            key="muzeum"
+
+        >
             <Fade triggerOnce direction="down">
                 <h3 className="text-center text-muted my-4" id="buses-text">{locale === "en" ? ("Our museum") : ("Múzeumunk")}</h3>
             </Fade>
@@ -29,7 +38,7 @@ const Muzeum = () => {
                 }
 
             })}
-        </div>
+        </motion.div>
     )
 }
 

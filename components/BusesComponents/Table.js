@@ -10,6 +10,8 @@ import { Fade } from "react-awesome-reveal";
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Spinner from "../GlobalComponents/Spinner"
+import { AnimatePresence, motion } from "framer-motion"
+import { tableAnimation, cardAnimation } from '../GlobalComponents/Initaltransition';
 
 const Fslightboxes = dynamic(() => import("../GlobalComponents/Fslightboxes"));
 const Carddeck = dynamic(() => import("./Carddeck"), { loading: () => <Spinner /> });
@@ -32,7 +34,7 @@ const Table = ({ tablazat, settablazat }) => {
             </Fade>
             <Fade triggerOnce direction="up">
                 <MDBBtnGroup className="my-3" id="buses-btngroup">
-                    <MDBBtn disabled={tablazat ? (false) : (true)} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => {
+                    <MDBBtn disabled={!tablazat} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => {
                         settablazat(!tablazat)
                         localStorage.removeItem("defaultBusView")
                     }}>
@@ -40,7 +42,7 @@ const Table = ({ tablazat, settablazat }) => {
                             <ViewAgendaIcon fontSize="small" />
                         </Tooltip>
                     </MDBBtn>
-                    <MDBBtn disabled={tablazat ? (true) : (false)} color="elegant" style={{ borderRadius: "0 10px 10px 0" }} onClick={() => {
+                    <MDBBtn disabled={tablazat} color="elegant" style={{ borderRadius: "0 10px 10px 0" }} onClick={() => {
                         settablazat(!tablazat)
                         localStorage.setItem("defaultBusView", "table")
                     }}>
@@ -51,55 +53,73 @@ const Table = ({ tablazat, settablazat }) => {
                 </MDBBtnGroup>
             </Fade>
 
-            {!tablazat ? (
-                busesdata.map((item, index, array) => {
-                    if (index % 3 === 0) {
-                        idd++;
-                        return (
-                            <Fade key={index} triggerOnce>
-                                <Carddeck
-                                    length={array.length} idd={idd} item={item}
-                                    nextnextitem={array[index + 2]} nextitem={array[index + 1]}
-                                    what={"Table"} />
-                            </Fade>
-                        )
-                    }
-                    else {
-                        return null;
-                    }
-                })
-            ) : null}
+            <AnimatePresence exitBeforeEnter>
+                {!tablazat ? (
+                    busesdata.map((item, index, array) => {
+                        if (index % 3 === 0) {
+                            idd++;
+                            return (
+                                <motion.section
+                                    initial="initial"
+                                    animate="animate"
+                                    variants={tableAnimation}
+                                    exit="exit"
+                                    key="busesCards"
+                                >
+                                    <Carddeck
+                                        length={array.length} idd={idd} item={item}
+                                        nextnextitem={array[index + 2]} nextitem={array[index + 1]}
+                                        what={"Table"} />
+                                </motion.section>
+                            )
+                        }
+                        else {
+                            return null;
+                        }
+                    })
+                ) : null}
 
-            {tablazat && (
-                <Fade triggeronce>
-                    <MDBTable striped hover responsive className="w-100 mt-4 busestable">
-                        <MDBTableHead className="z-depth-1">
-                            <tr className="text-center z-depth-1">
-                                <th>
-                                    <span className="font-weight-bolder">{locale === "en" ? ("Vehicles") : ("Járműveink")}</span>
-                                </th>
-                                <th>
+                {tablazat && (
+                    <motion.section
+                        initial="initial"
+                        animate="animate"
+                        variants={cardAnimation}
+                        exit="exit"
+                        key="busesTable"
 
-                                </th>
-                                <th className="pr-3 text-right">
-                                    <span className="font-weight-bolder">{locale === "en" ? ("Prices") : ("Árak")}</span>
-                                </th>
-                            </tr>
-                        </MDBTableHead>
-                        <MDBTableBody>
-                            {busesdata.map((item, index) => {
-                                return (
-                                    <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler}
-                                        dataid={index + 1}
-                                        data={item} key={index}
-                                    />
-                                )
-                            })}
-                        </MDBTableBody>
-                    </MDBTable>
-                </Fade>
+                    >
 
-            )}
+                        <MDBTable striped hover responsive className="w-100 mt-4 busestable">
+                            <MDBTableHead className="z-depth-1">
+                                <tr className="text-center z-depth-1">
+                                    <th>
+                                        <span className="font-weight-bolder">{locale === "en" ? ("Vehicles") : ("Járműveink")}</span>
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                    <th className="pr-3 text-right">
+                                        <span className="font-weight-bolder">{locale === "en" ? ("Prices") : ("Árak")}</span>
+                                    </th>
+                                </tr>
+                            </MDBTableHead>
+                            <MDBTableBody>
+                                {busesdata.map((item, index) => {
+                                    return (
+                                        <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler}
+                                            dataid={index + 1}
+                                            data={item} key={index}
+                                        />
+                                    )
+                                })}
+                            </MDBTableBody>
+                        </MDBTable>
+                    </motion.section>
+
+                )}
+            </AnimatePresence>
+
+
             <Fslightboxes setimgtoggler={setimgtoggler} data={busesdata} imgtoggler={imgtoggler} />
         </>
     )
