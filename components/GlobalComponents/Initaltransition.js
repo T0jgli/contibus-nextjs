@@ -1,6 +1,6 @@
 
 export const pageVariants = {
-    initial: { y: -50, opacity: 0 },
+    initial: { y: -25, opacity: 0 },
     animate: {
         y: 0,
         opacity: 1,
@@ -10,66 +10,6 @@ export const pageVariants = {
         },
     },
 }
-
-export const tableAnimation = {
-    initial: { x: "-2rem", opacity: 0 },
-    animate: {
-        x: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.3,
-            ease: "easeIn",
-        },
-    },
-    exit: {
-        x: "2rem",
-        opacity: 0,
-        transition: {
-            duration: 0.3,
-            ease: "easeOut",
-        },
-    },
-}
-
-export const cardAnimation = {
-    initial: { x: "2rem", opacity: 0 },
-    animate: {
-        x: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.3,
-            ease: "easeIn",
-        },
-    },
-    exit: {
-        x: "-2rem",
-        opacity: 0,
-        transition: {
-            duration: 0.3,
-            ease: "easeOut",
-        },
-    },
-}
-
-export const muzeumAnimation = {
-    initial: { opacity: 0 },
-    animate: {
-        opacity: 1,
-        transition: {
-            duration: 0.3,
-            ease: "easeIn",
-        },
-    },
-    exit: {
-        opacity: 0,
-        transition: {
-            duration: 0.3,
-            ease: "easeOut",
-        },
-    },
-}
-
-
 
 /*
 import { useState } from 'react'

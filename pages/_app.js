@@ -12,14 +12,11 @@ import '../styles/index.scss'
 import DefaultLayout from '../components/DefaultLayout'
 import ReactGA from 'react-ga';
 import { wrapper } from '../lib/redux/store';
-import { AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
 
 ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID)
 
 
 const _app = ({ Component, pageProps }) => {
-  const router = useRouter()
   return (
     <DefaultLayout>
       <Component {...pageProps} />

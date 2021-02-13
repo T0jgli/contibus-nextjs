@@ -6,10 +6,6 @@
 
 //Misc
 
-body {
-    overflow-x: hidden !important;
-}
-
 .flag {
     transition: all 0.5s !important;
 
@@ -392,11 +388,6 @@ body {
     justify-content: center;
     font-size: 1rem !important;
     font-weight: 500 !important;
-}
-
-.MuiButtonBase-root {
-    outline: 0 !important;
-    border: none !important;
 }
 
 //Footer
