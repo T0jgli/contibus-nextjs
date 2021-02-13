@@ -17,7 +17,8 @@ import { useRouter } from 'next/router';
 const Home = () => {
     const { locale } = useRouter()
     return (
-        <motion.div initial="initial"
+        <motion.section
+            initial="initial"
             animate="animate"
             variants={pageVariants}
         >
@@ -34,7 +35,7 @@ const Home = () => {
                 <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
                 <meta property="og:url" content="https://contibus-nextjs.vercel.app" />
             </Head>
-        </motion.div>
+        </motion.section>
     )
 }
 

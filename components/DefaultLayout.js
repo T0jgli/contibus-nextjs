@@ -4,7 +4,6 @@ import { setbusesData, setmuzeumData } from '../lib/redux/reducers'
 
 import Navbar from './GlobalComponents/Navbar'
 
-import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from '../lib/SetContentFulData';
 import { useRouter } from 'next/router';
 import ReactGA from 'react-ga'
@@ -42,9 +41,7 @@ const DefaultLayout = ({ children }) => {
     return (
         <>
             <Navbar />
-            <AnimatePresence exitBeforeEnter>
-                {children}
-            </AnimatePresence>
+            {children}
             <Cookie />
 
             <Footer />

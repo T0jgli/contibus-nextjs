@@ -13,9 +13,11 @@ import { useRouter } from 'next/router';
 const Buses = () => {
   const router = useRouter()
   return (
-    <motion.section initial="initial"
+    <motion.section
+      initial="initial"
       animate="animate"
-      variants={pageVariants}>
+      variants={pageVariants}
+    >
       <Carousel />
       <Busesbody />
       <Head>
