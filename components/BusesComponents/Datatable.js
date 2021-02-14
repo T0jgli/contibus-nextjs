@@ -20,7 +20,7 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                     {data.fields.bus}
                 </h6>
                 <p className="mb-1 mt-2">
-                    {data.fields.title}
+                    {locale === "en" ? data.fields.enTitle : data.fields.title}
                 </p>
                 <p className="" style={{ maxWidth: "100%" }}>
                     {data.fields.desc}

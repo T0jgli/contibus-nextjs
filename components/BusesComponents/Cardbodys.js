@@ -18,7 +18,7 @@ const Cardbodys = ({ item, what }) => {
                             {item.fields.bus}
                         </h4>
                         <p className={`card-text mt-3 ${what !== "Muzeum" && ("d-lg-inline d-sm-none")}`}>
-                            {item.fields.title}
+                            {locale === "en" ? item.fields.enTitle : item.fields.title}
                         </p>
                         {what === "Muzeum" ? (<p className='card-text d-sm-none d-md-inline'>{item.fields.desc}</p>) :
                             (<div className="card-text font-weight-bolder">
