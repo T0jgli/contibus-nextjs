@@ -54,29 +54,32 @@ const Table = ({ tablazat, settablazat }) => {
             </Fade>
 
             <AnimatePresence exitBeforeEnter>
+
                 {!tablazat ? (
-                    busesdata.map((item, index, array) => {
-                        if (index % 3 === 0) {
-                            idd++;
-                            return (
-                                <motion.section
-                                    initial="initial"
-                                    animate="animate"
-                                    variants={tableAnimation}
-                                    exit="exit"
-                                    key="busesCards"
-                                >
+                    <motion.section
+                        initial="initial"
+                        animate="animate"
+                        variants={tableAnimation}
+                        exit="exit"
+                        key={"busesCards"}
+                    >
+                        {busesdata.map((item, index, array) => {
+                            if (index % 3 === 0) {
+                                idd++;
+                                return (
                                     <Carddeck
                                         length={array.length} idd={idd} item={item}
                                         nextnextitem={array[index + 2]} nextitem={array[index + 1]}
-                                        what={"Table"} />
-                                </motion.section>
-                            )
-                        }
-                        else {
-                            return null;
-                        }
-                    })
+                                        what={"Table"}
+                                        key={index}
+                                    />
+                                )
+                            }
+                            else {
+                                return null;
+                            }
+                        })}
+                    </motion.section>
                 ) : null}
 
                 {tablazat && (
