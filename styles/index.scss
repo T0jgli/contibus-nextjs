@@ -243,6 +243,7 @@ body {
 //Modals
 
 .modal {
+    overflow-y: auto !important;
     backdrop-filter: brightness(0.75);
 
     .modal-dialog {
