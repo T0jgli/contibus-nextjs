@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import db from '../../lib/firebase';
-import publicIp from "public-ip";
 import { useDispatch } from 'react-redux';
 import { setsnackbar } from '../../lib/redux/reducers';
 import firebase from "firebase/app"
