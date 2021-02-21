@@ -18,7 +18,8 @@ const Fslightboxes = dynamic(() => import("../GlobalComponents/Fslightboxes"));
 
 const OneBusBody = () => {
     const router = useRouter()
-    const thisbus = useSelector(state => state.app.busesData.find(bus => bus.fields.id === router.query.bus))
+    const buses = useSelector(state => state.app.busesData)
+    const thisbus = buses.find(bus => bus.fields.id === router.query.bus)
     const [notfound, setnotfound] = useState(false)
     const [thispicture, setthispicture] = useState(0)
     const [lightbox, setlightbox] = useState({
@@ -27,9 +28,9 @@ const OneBusBody = () => {
     })
 
     useEffect(() => {
-        if (!thisbus)
+        if (!thisbus && buses.length > 0)
             setnotfound(true)
-    }, [thisbus])
+    }, [thisbus, buses])
 
     return (
         <>

@@ -38,65 +38,28 @@ const Rating = () => {
             setValue(Number(localStorage.getItem("Feedback")) || 0)
     }, [])
 
+
     const SendFeedback = () => {
         setloading(true)
-        publicIp.v4({
-            fallbackUrls: ["https://ifconfig.co/ip"]
-        }).then((ip) => {
-            db.collection("feedbacks").where("ipaddress", "==", ip).get().then((datas) => {
-                let exists = false
-                console.log()
-                datas.forEach(data => {
-                    console.log(data)
-                    if (data)
-                        exists = true
-                })
-                if (exists) {
-                    dispatch(setsnackbar({
-                        snackbar: {
-                            open: true,
-                            type: "error",
-                            hu: "Köszönjük, de Ön már küldött visszajelzést!",
-                            en: "Thank you, but you have already sent a feedback!",
-                        }
-                    }))
-                }
-                else {
-                    db.collection("feedbacks").add({
-                        feedbackstar: value,
-                        feedbacktext: labels[value],
-                        details: textareavalue,
-                        ipaddress: ip,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() =>
-                        dispatch(setsnackbar({
-                            snackbar: {
-                                open: true,
-                                type: "success",
-                                hu: "Köszönjük a visszajelzését!",
-                                en: "Thank you for your feedback!",
-                            }
-                        }))
-                    )
-
-                }
-            })
-
-        }, (error) => {
+        db.collection("feedbacks").add({
+            feedbackstar: value,
+            feedbacktext: labels[value],
+            details: textareavalue,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() =>
             dispatch(setsnackbar({
                 snackbar: {
                     open: true,
-                    type: "error",
-                    hu: error.message,
-                    en: error.message,
+                    type: "success",
+                    hu: "Köszönjük a visszajelzését!",
+                    en: "Thank you for your feedback!",
                 }
             }))
-        }).then(() => {
-            setloading(false)
-            setpopover({ popover: false })
-            settextareavalue("")
-        })
+        )
 
+        setloading(false)
+        setpopover({ popover: false })
+        settextareavalue("")
     }
 
     return (
