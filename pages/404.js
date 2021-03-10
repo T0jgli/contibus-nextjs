@@ -22,8 +22,8 @@ function Notfound () {
             <Head>
                 <title>{locale === "en" ? ("Contibus - Specialist Coach Travel") : ("Contibus - Az utazás szakértői")}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta property="og:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
-                <meta name="twitter:image" content="https://contibus-nextjs.vercel.app/img/3.jpg" />
+                <meta property="og:image" content="https://contibus.kvlk.hu/img/3.jpg" />
+                <meta name="twitter:image" content="https://contibus.kvlk.hu/img/3.jpg" />
             </Head>
         </>
 

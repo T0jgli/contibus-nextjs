@@ -41,9 +41,9 @@ const OneBusBody = () => {
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                         <meta property="og:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
                         <meta name="twitter:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
-                        <meta property="og:url" content={`https://contibus-nextjs.vercel.app/bus/${thisbus.fields.id}`} />
-                        <link rel="alternate" hrefLang="en" href={`https://contibus-nextjs.vercel.app/en/bus/${thisbus.fields.id}`} />
-                        <link rel="alternate" hrefLang="hu" href={`https://contibus-nextjs.vercel.app/bus/${thisbus.fields.id}`} />
+                        <meta property="og:url" content={`https://contibus.kvlk.hu/bus/${thisbus.fields.id}`} />
+                        <link rel="alternate" hrefLang="en" href={`https://contibus.kvlk.hu/en/bus/${thisbus.fields.id}`} />
+                        <link rel="alternate" hrefLang="hu" href={`https://contibus.kvlk.hu/bus/${thisbus.fields.id}`} />
                     </Head>
 
                     <div className="onebus__container w-75 mx-auto my-5 pt-3">
@@ -159,13 +159,13 @@ const OneBusBody = () => {
             ) : notfound ? (
                 <h2 className="flex-center text-center my-5">A keresett autóbusz nem található!</h2>
             ) : (
-                        <div className="flex-center my-5">
-                            <div className="spinner-border" role="status">
-                                <span className="sr-only">Loading...</span>
-                            </div>
-                        </div>
+                <div className="flex-center my-5">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
 
-                    )}
+            )}
         </>
     )
 }
