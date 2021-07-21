@@ -5,5 +5,6 @@ services:
         image: contibus
         container_name: contibus
         build: .
+        restart: always
         ports:
             - 8081:8081
