@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+    contibus:
+        image: contibus
+        container_name: contibus
+        build: .
+        ports:
+            - 8081:8081
