@@ -2,7 +2,7 @@
 
 context("HomePage integration testing", function () {
     before(() => {
-        cy.visit(`http://localhost:3001`);
+        cy.visit(`http://localhost:8081`);
         cy.get(".acceptcookies").click();
     });
 

@@ -3,7 +3,7 @@
 context("Global Components integration testing", function () {
     before(() => {
         const pathnames = ["/", "/offer", "/buses", "/trucks"];
-        cy.visit(`http://localhost:3001${pathnames[Math.floor(Math.random() * (3 - 0) + 0)]}`);
+        cy.visit(`http://localhost:8081${pathnames[Math.floor(Math.random() * (3 - 0) + 0)]}`);
     });
 
     describe("Cookies tests", function () {

@@ -2,7 +2,7 @@
 
 context("OfferPage integration testing", function () {
     before(() => {
-        cy.visit(`http://localhost:3001/offer`);
+        cy.visit(`http://localhost:8081/offer`);
         cy.get(".acceptcookies").click();
     });
 

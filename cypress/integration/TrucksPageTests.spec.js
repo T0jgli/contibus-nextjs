@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 context("TrucksPage integration testing", function () {
     before(() => {
-        cy.visit(`http://localhost:3001/trucks`);
+        cy.visit(`http://localhost:8081/trucks`);
         cy.get(".acceptcookies").click();
     });
 

@@ -14,7 +14,8 @@ jobs:
               uses: cypress-io/github-action@v2
               with:
                   copy env file: echo "${{secrets.ENVIRONMENT_VARIABLES }}" > .env
-                  start: yarn run dev
+                  build: yarn run build
+                  start: yarn run start
 
     deploy:
         runs-on: ubuntu-latest
