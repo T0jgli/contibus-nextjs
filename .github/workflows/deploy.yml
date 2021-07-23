@@ -13,7 +13,7 @@ jobs:
             - name: Cypress run
               uses: cypress-io/github-action@v2
               with:
-                  build: yarn run build
+                  copy env file: echo "${{secrets.ENVIRONMENT_VARIABLES }}" > .env
                   start: yarn run dev
 
     deploy:
