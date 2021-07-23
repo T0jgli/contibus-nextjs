@@ -106,37 +106,6 @@ context("HomePage integration testing", function () {
         });
     });
 
-    describe("Rating component tests", () => {
-        it("should be visible", () => {
-            cy.get(".MuiRating-root").scrollIntoView().should("be.visible");
-        });
-
-        it("should has working stars", () => {
-            const randomNumber = Math.floor(Math.random() * (4 - 0) + 0);
-            cy.get(".MuiRating-root").children("label").eq(randomNumber).click();
-            cy.get(".MuiRating-icon.MuiRating-iconFilled")
-                .last()
-                .parent()
-                .next()
-                .should("have.value", randomNumber + 1);
-            cy.get("#feedback-empty").should("not.exist");
-        });
-
-        it("should has working input field", () => {
-            cy.get(".MuiPopover-root")
-                .find(".MuiPopover-paper")
-                .find("textarea")
-                .type("This test is gonna be awesome")
-                .should("have.value", "This test is gonna be awesome")
-                .clear();
-        });
-
-        it("should has working close button", () => {
-            cy.get(".MuiPaper-root.MuiPopover-paper").find(".card-footer").children("button").eq(1).click();
-            cy.get(".MuiPaper-root.MuiPopover-paper").should("not.exist");
-        });
-    });
-
     describe("Contact component tests", () => {
         it("should be visible", () => {
             cy.get(".contact__div ").scrollIntoView().should("be.visible");
