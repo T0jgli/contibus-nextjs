@@ -40,12 +40,6 @@ context("Global Components integration testing", function () {
             cy.get(".navbar__btn").should("be.visible");
         });
 
-        it("should open and close the travels dropdown", () => {
-            cy.get(".navbar__menu").children().last().click();
-            cy.get(".MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded").should("be.visible");
-            cy.get(".navbar__menu").children().last().click();
-        });
-
         it("should fade when scrolling", () => {
             cy.scrollTo(0, 75).get("nav").should("have.class", "topnav");
         });
