@@ -21,18 +21,18 @@ export default async function formHandler(req, res) {
         const { subject, name, email, message } = req.body;
         try {
             const mail = {
-                from: `"Kapcsolat – ${name}" "kovalikadam00@gmail.com"`,
+                from: `"Kapcsolat – ${name}" "admin@contibus.hu"`,
                 to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "Kovalik.adam.86@unibge.hu",
                 subject: `Kapcsolat > contibus.hu ${subject ? "| " + subject : ""}`,
                 replyTo: email,
-                html: ` <html><body style="text-align: center;">
-                <h1>Kapcsolat űrlap a contibus.hu-n keresztül</h1>
-                <hr>
-                <p style="font-weight: bold;">Név:</p><p style="padding-bottom: 20px">${name}</p>
-                <p style="font-weight: bold;">Email cím:</p><p style="padding-bottom: 20px">${email}</p>
-                <p style="font-weight: bold;">Tárgy:</p><p style="padding-bottom: 20px">${subject || "Nincs"}</p>
+                html: ` <html><body>
+                <h2>Kapcsolat űrlap a contibus.hu-n keresztül</h2>
+                <hr width="50%" style="margin-left: 0">
+                <p><span style="font-weight: bolder;">Név:</span> ${name}</p>
+                <p><span style="font-weight: bolder;">Email cím:</span> ${email}</p>
+                <p><span style="font-weight: bolder;">Tárgy:</span> ${subject || "Nincs"}</p>
                 <br>
-                <p style="font-weight: bold;">Üzenet:</p><p>${message}</p>
+                <p><span style="font-weight: bolder;">Üzenet:</span> ${message}</p>
                 </body>
                 </html> `,
             };

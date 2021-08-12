@@ -35,7 +35,7 @@ export default async function formHandler(req, res) {
         let success = false;
         try {
             const mail = {
-                from: `"Ajánlatkérés – ${name}" "kovalikadam00@gmail.com"`,
+                from: `"Ajánlatkérés – ${name}" "admin@contibus.hu"`,
                 to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "tojgli12@gmail.com",
                 subject: "Autóbusz ajánlat kérés > contibus.hu",
                 replyTo: email,
@@ -48,20 +48,20 @@ export default async function formHandler(req, res) {
                           },
                       ]
                     : null,*/
-                html: ` <html><body style="text-align: center;">
-                <h1>Ajánlatkérő űrlap a contibus.hu-n keresztül</h1>
-                <hr>
-                <p style="font-weight: bold;">Megrendelő neve:</p><p style="padding-bottom: 20px">${name}</p>
-                <p style="font-weight: bold;">Telefonszám:</p><p style="padding-bottom: 20px">${phone}</p>
-                <p style="font-weight: bold;">Email cím:</p><p style="padding-bottom: 20px">${email}</p>
-                <p style="font-weight: bold;">Úticél:</p><p style="padding-bottom: 20px">${uticel}</p>
-                <p style="font-weight: bold;">Tervezett költségkeret:</p><p style="padding-bottom: 20px">${koltseg}</p>
-                <p style="font-weight: bold;">Indulás napja:</p><p style="padding-bottom: 20px">${indulas}</p>
-                <p style="font-weight: bold;">Érkezés napja:</p><p style="padding-bottom: 20px">${erkezes}</p>
-                <p style="font-weight: bold;">Kiválasztott busz:</p><p style="padding-bottom: 20px">${selectedbus || "Nincs"}</p>
-                <p style="font-weight: bold;">Férőhely:</p><p style="padding-bottom: 20px">${seat}</p>
+                html: ` <html><body>
+                <h2>Ajánlatkérő űrlap a contibus.hu-n keresztül</h2>
+                <hr width="50%" style="margin-left: 0">
+                <p><span style="font-weight: bolder;">Megrendelő neve:</span> ${name}</p>
+                <p><span style="font-weight: bolder;">Telefonszám:</span> ${phone}</p>
+                <p><span style="font-weight: bolder;">Email cím:</span> ${email}</p>
+                <p><span style="font-weight: bolder;">Úticél:</span> ${uticel}</p>
+                <p><span style="font-weight: bolder;">Tervezett költségkeret:</span> ${koltseg}</p>
+                <p><span style="font-weight: bolder;">Indulás napja:</span> ${indulas}</p>
+                <p><span style="font-weight: bolder;">Érkezés napja:</span> ${erkezes}</p>
+                <p><span style="font-weight: bolder;">Kiválasztott busz:</span> ${selectedbus || "Nincs"}</p>
+                <p><span style="font-weight: bolder;">Férőhely:</span> ${seat}</p>
                 <br>
-                <p style="font-weight: bold;">Rövid leírás:</p><p>${comment}</p>
+                <p><span style="font-weight: bolder;">Rövid leírás:</span> ${comment}</p>
                 </body>
                 </html> `,
             };

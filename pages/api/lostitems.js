@@ -32,21 +32,21 @@ export default async function formHandler(req, res) {
         let success = false;
         try {
             const mail = {
-                from: `"Elveszett tárgyak – ${name}" "kovalikadam00@gmail.com"`,
+                from: `"Elveszett tárgyak – ${name}" "admin@contibus.hu"`,
                 to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "tojgli12@gmail.com",
                 subject: "Elveszett tárgy > contibus.hu",
                 replyTo: email,
-                html: ` <html><body style="text-align: center;">
-                <h1>Elveszett tárgy űrlap a contibus.hu-n keresztül</h1>
-                <hr>
-                <p style="font-weight: bold;">Utas neve:</p><p style="padding-bottom: 20px">${name}</p>
-                <p style="font-weight: bold;">Utas telefonszáma:</p><p style="padding-bottom: 20px">${phone}</p>
-                <p style="font-weight: bold;">Utas email címe:</p><p style="padding-bottom: 20px">${email}</p>
-                <p style="font-weight: bold;">Utazás dátuma:</p><p style="padding-bottom: 20px">${date}</p>
-                <p style="font-weight: bold;">Busz:</p><p style="padding-bottom: 20px">${bus}</p>
-                <p style="font-weight: bold;">Tárgy leírása:</p><p style="padding-bottom: 20px">${desc}</p>
+                html: ` <html><body>
+                <h2>Elveszett tárgy űrlap a contibus.hu-n keresztül</h2>
+                <hr width="50%" style="margin-left: 0">
+                <p><span style="font-weight: bolder;">Utas neve:</span> ${name}</p>
+                <p><span style="font-weight: bolder;">Utas telefonszáma:</span> ${phone}</p>
+                <p><span style="font-weight: bolder;">Utas email címe:</span> ${email}</p>
+                <p><span style="font-weight: bolder;">Utazás dátuma:</span> ${date}</p>
+                <p><span style="font-weight: bolder;">Busz:</span> ${bus}</p>
+                <p><span style="font-weight: bolder;">Tárgy leírása:</span> ${desc}</p>
                 <br>
-                <p style="font-weight: bold;">Egyéb megjegyzés:</p><p>${comment}</p>
+                <p><span style="font-weight: bolder;">Egyéb megjegyzés:</span> ${comment}</p>
                 </body>
                 </html> `,
             };
