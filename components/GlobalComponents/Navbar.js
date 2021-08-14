@@ -8,6 +8,7 @@ import Link from "next/link";
 import { setCookie } from "../../lib/helpers/CookieHelper";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
+import useScreenWidth from "../../lib/hooks/useScreenWidth";
 
 const menuitems = [
     {
@@ -45,11 +46,7 @@ const Navbar = () => {
     const [langtoast, setlangtoast] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [navbarbg, setnavbarbg] = useState(false);
-    const [menu, setmenu] = useState({
-        open: false,
-        ref: null,
-        placement: null,
-    });
+    const [isMobile] = useScreenWidth(992);
 
     useEffect(() => {
         if (typeof window !== undefined) {
@@ -118,37 +115,39 @@ const Navbar = () => {
                     >
                         <MenuIcon className={`${isOpen ? "navbar__mobileicon__open" : ""}`} fontSize="large" />
                     </div>
-                    <ul className="navbar__menu">
-                        {menuitems.map((item) => (
-                            <li key={item.href + "navbar"} className={`${navbarbg ? "topnav__li" : ""}`}>
-                                <Link href={item.href} passHref>
-                                    <a
-                                        className={`${
-                                            item.title.en === "Home"
-                                                ? router.pathname === "/" || ""
-                                                    ? "active"
+                    {!isMobile && (
+                        <ul className="navbar__menu">
+                            {menuitems.map((item) => (
+                                <li key={item.href + "navbar"} className={`${navbarbg ? "topnav__li" : ""}`}>
+                                    <Link href={item.href} passHref>
+                                        <a
+                                            className={`${
+                                                item.title.en === "Home"
+                                                    ? router.pathname === "/" || ""
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Offer request"
+                                                    ? router.pathname === "/offer"
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Our Buses"
+                                                    ? router.pathname.includes("bus")
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Our Trucks"
+                                                    ? router.pathname.includes("truck")
+                                                        ? "active"
+                                                        : ""
                                                     : ""
-                                                : item.title.en === "Offer request"
-                                                ? router.pathname === "/offer"
-                                                    ? "active"
-                                                    : ""
-                                                : item.title.en === "Our Buses"
-                                                ? router.pathname.includes("bus")
-                                                    ? "active"
-                                                    : ""
-                                                : item.title.en === "Our Trucks"
-                                                ? router.pathname.includes("truck")
-                                                    ? "active"
-                                                    : ""
-                                                : ""
-                                        } navbar__link`}
-                                    >
-                                        {router.locale === "en" ? item.title.en : item.title.hu}
-                                    </a>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                                            } navbar__link`}
+                                        >
+                                            {router.locale === "en" ? item.title.en : item.title.hu}
+                                        </a>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                     <div className="navbar__btn">
                         <a href="https://kalandozas.hu/travels" target="_blank" rel="noopener noreferrer">
                             <MDBIcon icon="calendar-check" className="pr-1" />
@@ -179,80 +178,82 @@ const Navbar = () => {
                     />
                 </div>
             </nav>
-            <aside className={`${isOpen ? "open" : "closed"}`}>
-                <div className="sidebar__icon">
-                    <CloseIcon
-                        fontSize="large"
-                        onClick={() => {
-                            setIsOpen(!isOpen);
-                        }}
-                    />
-                </div>
-                <div>
-                    <ul style={{ listStyleType: "none", padding: "0", margin: "0" }}>
-                        {menuitems.map((item) => (
-                            <li key={item.href + "sidebar"}>
-                                <Link href={item.href} passHref>
-                                    <a
-                                        className={`${
-                                            item.title.en === "Home"
-                                                ? router.pathname === "/"
-                                                    ? "active"
-                                                    : router.pathname === ""
-                                                    ? "active"
-                                                    : ""
-                                                : item.title.en === "Offer request"
-                                                ? router.pathname === "/offer"
-                                                    ? "active"
-                                                    : ""
-                                                : item.title.en === "Our Buses"
-                                                ? router.pathname.includes("bus")
-                                                    ? "active"
-                                                    : ""
-                                                : item.title.en === "Our Trucks"
-                                                ? router.pathname.includes("truck")
-                                                    ? "active"
-                                                    : ""
-                                                : ""
-                                        } sidebar__link`}
-                                    >
-                                        {router.locale === "en" ? item.title.en : item.title.hu}
-                                    </a>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="sidebar__language">
-                        <img
-                            width="30px"
-                            src="/img/svgs/hu.svg"
-                            className={router.locale === "hu" ? "flag activelanguage" : "flag notactivelang"}
-                            id="huicon"
+            {isMobile && (
+                <aside className={`${isOpen ? "open" : "closed"}`}>
+                    <div className="sidebar__icon">
+                        <CloseIcon
+                            fontSize="large"
                             onClick={() => {
-                                switchLanguage("hu");
+                                setIsOpen(!isOpen);
                             }}
-                            alt="Váltás magyar nyelvre zászló (mobil nézet)"
-                        />
-                        <img
-                            width="30px"
-                            src="/img/svgs/uk.svg"
-                            className={router.locale === "en" ? "flag ml-2 activelanguage" : "flag ml-2 notactivelang"}
-                            id="engicon"
-                            onClick={() => {
-                                switchLanguage("en");
-                            }}
-                            alt="Váltás angol nyelvre zászló (mobil nézet)"
                         />
                     </div>
+                    <div>
+                        <ul style={{ listStyleType: "none", padding: "0", margin: "0" }}>
+                            {menuitems.map((item) => (
+                                <li key={item.href + "sidebar"}>
+                                    <Link href={item.href} passHref>
+                                        <a
+                                            className={`${
+                                                item.title.en === "Home"
+                                                    ? router.pathname === "/"
+                                                        ? "active"
+                                                        : router.pathname === ""
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Offer request"
+                                                    ? router.pathname === "/offer"
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Our Buses"
+                                                    ? router.pathname.includes("bus")
+                                                        ? "active"
+                                                        : ""
+                                                    : item.title.en === "Our Trucks"
+                                                    ? router.pathname.includes("truck")
+                                                        ? "active"
+                                                        : ""
+                                                    : ""
+                                            } sidebar__link`}
+                                        >
+                                            {router.locale === "en" ? item.title.en : item.title.hu}
+                                        </a>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="sidebar__language">
+                            <img
+                                width="30px"
+                                src="/img/svgs/hu.svg"
+                                className={router.locale === "hu" ? "flag activelanguage" : "flag notactivelang"}
+                                id="huicon"
+                                onClick={() => {
+                                    switchLanguage("hu");
+                                }}
+                                alt="Váltás magyar nyelvre zászló (mobil nézet)"
+                            />
+                            <img
+                                width="30px"
+                                src="/img/svgs/uk.svg"
+                                className={router.locale === "en" ? "flag ml-2 activelanguage" : "flag ml-2 notactivelang"}
+                                id="engicon"
+                                onClick={() => {
+                                    switchLanguage("en");
+                                }}
+                                alt="Váltás angol nyelvre zászló (mobil nézet)"
+                            />
+                        </div>
 
-                    <div className="sidebar__btn">
-                        <a href="https://kalandozas.hu/travels" target="_blank" rel="noopener noreferrer">
-                            <MDBIcon icon="calendar-check" className="pr-1" />
-                            {router.locale === "en" ? "Our travels" : "Utazásaink"}
-                        </a>
+                        <div className="sidebar__btn">
+                            <a href="https://kalandozas.hu/travels" target="_blank" rel="noopener noreferrer">
+                                <MDBIcon icon="calendar-check" className="pr-1" />
+                                {router.locale === "en" ? "Our travels" : "Utazásaink"}
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </aside>
+                </aside>
+            )}
             <Snackbar
                 autoHideDuration={3000}
                 open={langtoast}

@@ -43,7 +43,7 @@ const Streak = () => {
                         >
                             <div className="text-center row">
                                 <div className="mb-2 col-md-3">
-                                    <h1 className="white-text mb-1 font-weight-bold">
+                                    <h2 className="white-text mb-1 font-weight-bold" style={{ fontSize: "2.5rem" }} aria-label="80000">
                                         <CountUp
                                             start={focus ? 0 : null}
                                             redraw={true}
@@ -53,13 +53,13 @@ const Streak = () => {
                                             separator={" "}
                                             suffix=" +"
                                         />
-                                    </h1>
+                                    </h2>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">
                                         {locale === "en" ? "Happy clients" : "Elégedett ügyfél"}
                                     </p>
                                 </div>
                                 <div className="mb-2 col-md-3">
-                                    <h1 className="white-text mb-1 font-weight-bold">
+                                    <h2 className="white-text mb-1 font-weight-bold" style={{ fontSize: "2.5rem" }} aria-label="100000">
                                         <CountUp
                                             start={focus ? 0 : null}
                                             redraw={true}
@@ -69,13 +69,13 @@ const Streak = () => {
                                             separator={" "}
                                             suffix=" +"
                                         />
-                                    </h1>
+                                    </h2>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">
                                         {locale === "en" ? "Projects completed" : "Sikeres projekt"}
                                     </p>
                                 </div>
                                 <div className="mb-2 col-md-3">
-                                    <h1 className="white-text mb-1 font-weight-bold">
+                                    <h2 className="white-text mb-1 font-weight-bold" style={{ fontSize: "2.5rem" }} aria-label="50000">
                                         <CountUp
                                             start={focus ? 0 : null}
                                             redraw={true}
@@ -85,11 +85,11 @@ const Streak = () => {
                                             separator={" "}
                                             suffix=" +"
                                         />
-                                    </h1>
+                                    </h2>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">{locale === "en" ? "Destinations" : "Úticél"}</p>
                                 </div>
                                 <div className="mb-2 col-md-3">
-                                    <h1 className="white-text mb-1 font-weight-bold">
+                                    <h2 className="white-text mb-1 font-weight-bold" style={{ fontSize: "2.5rem" }} aria-label="150">
                                         <CountUp
                                             start={focus ? 0 : null}
                                             redraw={true}
@@ -99,7 +99,7 @@ const Streak = () => {
                                             separator={" "}
                                             suffix=" +"
                                         />
-                                    </h1>
+                                    </h2>
                                     <p className="white-text text-uppercase mt-3 font-weight-bold">
                                         {locale === "en" ? "Visited country" : "Meglátogatott ország"}
                                     </p>

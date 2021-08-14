@@ -7,4 +7,8 @@ module.exports = withBundleAnalyzer({
         locales: ["hu", "en"],
         defaultLocale: "hu",
     },
+    poweredByHeader: false,
+    experimental: {
+        scrollRestoration: true,
+    },
 });

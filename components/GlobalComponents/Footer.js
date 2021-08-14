@@ -33,7 +33,7 @@ const Footer = () => {
                                 }
                             </div>
                             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-1" id="footer-links">
-                                <h6 className="text-uppercase font-weight-bold">{locale === "en" ? "Others" : "Egyéb"}</h6>
+                                <h5 className="text-uppercase font-weight-bold">{locale === "en" ? "Others" : "Egyéb"}</h5>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
                                     <a
@@ -59,7 +59,7 @@ const Footer = () => {
                             </div>
 
                             <div className="mx-auto col-md-4 col-lg-3 col-xl-3 mb-md-0 mb-xl-1" id="footer-contact">
-                                <h6 className="text-uppercase font-weight-bold">{locale === "en" ? "Contact" : "Kapcsolat"}</h6>
+                                <h5 className="text-uppercase font-weight-bold">{locale === "en" ? "Contact" : "Kapcsolat"}</h5>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
                                     <MDBIcon icon="home" className="mr-3" />
@@ -84,7 +84,7 @@ const Footer = () => {
                         </div>
                         <div className="mx-auto d-flex my-4 row">
                             <div className="mx-auto col text-center" id="footer-opening">
-                                <h6 className="text-uppercase font-weight-bold">{locale === "en" ? "Our Office" : "Irodánk"}</h6>
+                                <h5 className="text-uppercase font-weight-bold">{locale === "en" ? "Our Office" : "Irodánk"}</h5>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p className="pb-2">1075 Budapest, Síp utca 4.</p>
                                 <p>
