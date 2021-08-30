@@ -37,8 +37,10 @@ const OneBus = ({ busData }) => {
     );
 };
 
-export async function getServerSideProps(context) {
-    const busData = await setOneContentfulData("busesData", context.query.bus);
+export async function getServerSideProps({ query, res }) {
+    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600, stale-while-revalidate=59");
+
+    const busData = await setOneContentfulData("busesData", query.bus);
 
     return {
         props: {

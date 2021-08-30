@@ -129,7 +129,43 @@ const OneBusBody = ({ thisbus }) => {
                                     </Tooltip>
                                 </div>
                             </div>
+                            <div className="flex-center my-5 row" style={{ gap: "2rem" }}>
+                                <div className="d-inline-block">
+                                    <div
+                                        onClick={() => {
+                                            window.open(
+                                                `https://www.facebook.com/sharer/sharer.php?u=${`https://contibus.hu/bus/${thisbus.fields.id}`}`,
+                                                "facebook-share-dialog",
+                                                "width=800,height=600"
+                                            );
+                                        }}
+                                        className="rounded font-weight-bolder shadow-md py-1 px-2 text-white flex w-full items-center"
+                                        style={{ background: "#3b5998", cursor: "pointer" }}
+                                    >
+                                        <i className="fab fa-facebook-f" />
+                                        <span className="pl-2 pr-1 ">Megosztás</span>
+                                    </div>
+                                </div>
+                                <div className="inline-block">
+                                    <div
+                                        onClick={() => {
+                                            window.open(
+                                                `https://twitter.com/intent/tweet?url=${`https://contibus.hu/bus/${thisbus.fields.id}`}`,
+                                                "twitter-share-dialog",
+                                                "width=800,height=600"
+                                            );
+                                        }}
+                                        className="rounded font-weight-bolder shadow-md py-1 px-2 text-white flex w-full items-center"
+                                        style={{ background: "#1DA1F2", cursor: "pointer" }}
+                                    >
+                                        <i className="fab fa-twitter" />
+
+                                        <span className="pl-2 pr-1">Tweet</span>
+                                    </div>
+                                </div>
+                            </div>
                         </Fade>
+
                         <div className="flex-center mt-5 pt-2 mx-auto row">
                             <Fade direction="up">
                                 <MDBBtn

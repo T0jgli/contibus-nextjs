@@ -42,7 +42,9 @@ const Buses = ({ busesData, muzeumData }) => {
     );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }) {
+    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600, stale-while-revalidate=59");
+
     const busesData = await SetContentFulData("busesData", "-fields.oradij");
     const muzeumData = await SetContentFulData("muzeumdata", "sys.createdAt");
 

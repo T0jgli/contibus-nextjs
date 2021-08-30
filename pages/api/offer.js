@@ -36,8 +36,8 @@ export default async function formHandler(req, res) {
         try {
             const mail = {
                 from: `"Ajánlatkérés – ${name}" "admin@contibus.hu"`,
-                to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "tojgli12@gmail.com",
-                subject: "Autóbusz ajánlat kérés > contibus.hu",
+                to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "admin@contibus.hu",
+                subject: "Autóbusz ajánlatkérés > contibus.hu",
                 replyTo: email,
                 /*attachments: req.body.file
                     ? [

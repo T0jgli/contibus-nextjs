@@ -22,7 +22,7 @@ export default async function formHandler(req, res) {
         try {
             const mail = {
                 from: `"Teherautó rendelés – ${name}" "admin@contibus.hu"`,
-                to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "tojgli12@gmail.com",
+                to: process.env.NODE_ENV == "production" ? "buszrendeles@contibus.hu" : "admin@contibus.hu",
                 subject: `Teherautórendelés > contibus.hu`,
                 replyTo: email,
                 html: ` <html><body style="text-align: center;">

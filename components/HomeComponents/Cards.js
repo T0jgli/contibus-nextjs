@@ -3,7 +3,6 @@ import ArrowDropUp from "@material-ui/icons/ArrowDropUp";
 import dynamic from "next/dynamic";
 import Spinner from "../GlobalComponents/Spinner";
 
-const Rating = dynamic(() => import("./Rating"), { loading: () => <Spinner /> });
 const Modals = dynamic(() => import("./Modals"), { loading: () => <Spinner /> });
 const Contact = dynamic(() => import("./Contact"), { loading: () => <Spinner /> });
 
@@ -192,7 +191,6 @@ const Cards = () => {
                     </div>
                 </div>
                 <hr className="w-50 mx-auto my-5" />
-                {/* <Rating /> */}
                 <Contact />
             </div>
             <Modals modalsopen={modalsopen} setmodalsopen={setmodalsopen} />
