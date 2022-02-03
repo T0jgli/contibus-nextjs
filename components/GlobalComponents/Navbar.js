@@ -35,7 +35,7 @@ const menuitems = [
     {
         href: "/trucks",
         title: {
-            hu: "Teherautók",
+            hu: "Teherautóink",
             en: "Our Trucks",
         },
     },
@@ -245,7 +245,7 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <div className="sidebar__btn">
+                        <div className="sidebar__btn font-weight-bold">
                             <a href="https://kalandozas.hu/travels" target="_blank" rel="noopener noreferrer">
                                 <MDBIcon icon="calendar-check" className="pr-1" />
                                 {router.locale === "en" ? "Our travels" : "Utazásaink"}

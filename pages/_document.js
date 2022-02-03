@@ -30,7 +30,9 @@ class MyDocument extends Document {
                 />
                 <meta property="og:site_name" content="Contibus - Az utazás szakértői" />
                 <meta property="og:title" content="Contibus - Az utazás szakértői" />
+                <meta property="og:type" content="website" />
                 <meta property="og:locale" content="hu_HU" />
+                <meta property="og:image" content="https://contibus.hu/img/3.jpg" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:title" content="Contibus - Az utazás szakértői" />
                 <meta

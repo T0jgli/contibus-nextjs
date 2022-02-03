@@ -26,6 +26,7 @@ const Cards = () => {
         <>
             <div className="pt-5 z-depth-1" style={{ backgroundColor: "#f0f0f0" }}>
                 <div className="services__container flex-center flex-column">
+                    <img src="/img/wish.png" alt="Wish" className="w-25" title="Wish átvevőpont" />
                     <div className="services__wrapper">
                         <Fade triggerOnce>
                             <div

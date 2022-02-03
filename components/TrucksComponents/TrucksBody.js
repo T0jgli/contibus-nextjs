@@ -21,14 +21,26 @@ const TrucksBody = () => {
                     </h4>
                     <p>
                         {locale === "en"
-                            ? "We currently have 4 vehicles. Our vehicles have a total weight of 12,15,18,18 tonna. We are waiting for our future customers!"
-                            : "Jelenleg 4 db járművel rendelkezünk. Gépjárműveink 12,15,18,18 össztömegűek. Várjuk leendő megrendelőinket!"}
+                            ? "We currently have 4 vehicles. Our vehicles have a gross vehicle weight of 12,15,18 tonna. We are waiting for our future customers!"
+                            : "Jelenleg 4 db járművel rendelkezünk. Gépjárműveink 12,15,18 tonna össztömegűek. Várjuk leendő megrendelőinket!"}
                     </p>
                     <a href="https://www.facebook.com/Neoline-ContiTrans-101101795149788" target="_blank" rel="noopener noreferrer">
                         <MDBIcon fab icon="facebook-square" size="2x" className="" style={{ cursor: "pointer" }} />
                     </a>
                 </div>
             </div>
+            <div className="text-center py-4 main mb-5 busesothers ">
+                <div className="container">
+                    <h4 className="py-3">
+                        {locale === "en"
+                            ? "In 2022, we added another new activity: lorry rescue!"
+                            : "2022-ben újabb tevékenységgel bővültünk: tehergépjármű mentés!"}
+                    </h4>
+                    <hr />
+                    <p>{locale === "en" ? "We are waiting for our future customers!" : "Várjuk leendő megrendelőinket!"}</p>
+                </div>
+            </div>
+
             <Fade direction="down" triggerOnce>
                 <h3 className="text-center text-muted my-4" id="buses-text">
                     {locale === "en" ? "Our trucks" : "Teherautóink"}
