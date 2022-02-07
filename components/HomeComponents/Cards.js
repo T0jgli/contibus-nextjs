@@ -26,7 +26,6 @@ const Cards = () => {
         <>
             <div className="pt-5 z-depth-1" style={{ backgroundColor: "#f0f0f0" }}>
                 <div className="services__container flex-center flex-column">
-                    <img src="/img/wish.png" alt="Wish" className="w-25" title="Wish átvevőpont" />
                     <div className="services__wrapper">
                         <Fade triggerOnce>
                             <div
@@ -187,6 +186,35 @@ const Cards = () => {
                                 </p>
 
                                 <h4>{locale === "en" ? "DPD parcelshop" : "DPD csomagpont"}</h4>
+                            </div>
+                        </Fade>
+                        <Fade triggerOnce>
+                            <div
+                                onClick={async () => {
+                                    ReactGA.modalview("/dpd");
+                                    const { Wishcontent } = await import("./Modalcontents");
+
+                                    setmodalsopen({
+                                        open: true,
+                                        style: "info",
+                                        title: {
+                                            en: "Wish Local",
+                                            hu: "Wish átvevőpont",
+                                        },
+                                        details: <Wishcontent />,
+                                    });
+                                }}
+                                className="services__card rounded d-flex align-items-center flex-column justify-content-start p-0 mt-3"
+                            >
+                                <div className="view mb-3 rounded">
+                                    <img className="icon" src="/img/svgs/package.svg" alt="Wish kép" />
+                                    <img className="icon__edit" src="/img/wish.png" alt="Wish kártya kép" />
+                                </div>
+                                <p className="text-center w-100 d-block mb-3 arrowdropup">
+                                    <ArrowDropUp />
+                                </p>
+
+                                <h4>{locale === "en" ? "Wish Local" : "Wish átvevőpont"}</h4>
                             </div>
                         </Fade>
                     </div>

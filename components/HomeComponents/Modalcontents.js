@@ -217,3 +217,45 @@ export const Dpdcontent = () => {
         </div>
     );
 };
+
+export const Wishcontent = () => {
+    const { locale } = useRouter();
+
+    return (
+        <div className="container">
+            <div className="row">
+                <MDBCard className="w-100">
+                    <MDBCardHeader className="text-center text-small text-muted">
+                        {locale === "en"
+                            ? "Our office, located in the city center, is also operating as a Wish Local point since 2022."
+                            : "Belvárosi központban elhelyezkedő irodánk 2022-tól Wish csomagátvevőként is működik."}
+                        <p className="mb-0 mt-1">
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://www.google.com/maps/place/Budapest,+S%C3%ADp+u.+4,+1075+Magyarorsz%C3%A1g/@47.495689,19.062411,15z/data=!4m5!3m4!1s0x4741dc42c1269771:0x3878225e1730ee6c!8m2!3d47.4956894!4d19.0624112?hl=hu-HU"
+                                id=""
+                            >
+                                <span style={{ color: "rgba(0, 0, 0, 0.85)" }}>1075 Budapest, Síp utca 4.</span>
+                            </a>
+                        </p>
+                    </MDBCardHeader>
+                    <MDBCardBody>
+                        <div className="row">
+                            <div className="flex-center col">
+                                <a
+                                    href="https://localfaq.wish.com/hc/hu/categories/1500001727541-Wish-Local-Els%C5%91-l%C3%A9p%C3%A9sek"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    className="float-center mx-auto d-block mb-3"
+                                >
+                                    <img className="" width={"500px"} src={locale === "en" ? "/img/wish.png" : "/img/wish.png"} alt="Wish logo" />
+                                </a>
+                            </div>
+                        </div>
+                    </MDBCardBody>
+                </MDBCard>
+            </div>
+        </div>
+    );
+};
