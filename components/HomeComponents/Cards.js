@@ -26,7 +26,7 @@ const Cards = () => {
         <>
             <div className="pt-5 z-depth-1" style={{ backgroundColor: "#f0f0f0" }}>
                 <div className="services__container flex-center flex-column">
-                    <div className="services__wrapper">
+                    <div className="services__wrapper" id="services">
                         <Fade triggerOnce>
                             <div
                                 onClick={() => window.open("/files/artablazat.docx", "_parent", "download")}
