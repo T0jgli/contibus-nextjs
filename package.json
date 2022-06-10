@@ -14,7 +14,7 @@
         "@material-ui/icons": "^4.11.2",
         "@material-ui/lab": "^4.0.0-alpha.58",
         "@next/bundle-analyzer": "^11.0.0",
-        "axios": "0.25.0",
+        "axios": "0.27.2",
         "contentful": "8.4.2",
         "express-validator": "6.14.0",
         "firebase": "8.6.7",
