@@ -1241,10 +1241,10 @@ core-util-is@1.0.2:
   resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-countup.js@^1.9.3:
-  version "1.9.3"
-  resolved "https://registry.npmjs.org/countup.js/-/countup.js-1.9.3.tgz"
-  integrity sha1-zj5QzXFgRB5HjwfaMYle3MDxyd0=
+countup.js@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.2.0.tgz#e20e247abf801190056c5eeed51ceb13cef6ea0c"
+  integrity sha512-m0TvFNXm9/eFqJm+QiKVI8e0wRUHzlQSewz9dqVjlhl2DFoZtceLbomwzxHz0hJ1+r4zBC7wSpR/TpthG49h6g==
 
 cross-env@^7.0.3:
   version "7.0.3"
@@ -2832,14 +2832,12 @@ react-chartjs-2@2.9.0:
     lodash "^4.17.4"
     prop-types "^15.5.8"
 
-react-countup@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.npmjs.org/react-countup/-/react-countup-4.3.3.tgz"
-  integrity sha512-pWnxpwdPNRyJFha/YKKbyc4RLAw8PzmULdgCziGIgw6vxhT1VdccrvQgj38HBSoM2qF/MoLmn4M2klvDWVIdaw==
+react-countup@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-6.3.0.tgz#9a345674d571f76c1046a0ded89fc86dbe52a2f0"
+  integrity sha512-uZsE+kuisXp/3OZeAuq2lzp6sXKmzw331Et5CRy4ueR9VcOp7z7T6/O1F04BC2Pa2frKmIITsghi3Hh933qWXQ==
   dependencies:
-    countup.js "^1.9.3"
-    prop-types "^15.7.2"
-    warning "^4.0.3"
+    countup.js "^2.2.0"
 
 react-dom@17.0.1:
   version "17.0.1"
