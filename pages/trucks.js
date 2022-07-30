@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Carousel from "../components/GlobalComponents/Carousel";
 import { pageVariants } from "../components/GlobalComponents/Initaltransition";
@@ -11,17 +11,18 @@ import SetContentFulData from "../lib/SetContentFulData";
 
 const trucks = ({ trucksData }) => {
     const router = useRouter();
-
+    const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(settrucksData(trucksData));
+        setLoading(false);
     }, []);
 
     return (
         <>
             <motion.section initial="initial" animate="animate" variants={pageVariants}>
-                <Carousel />
+                {!loading && <Carousel />}
                 <TrucksBody />
             </motion.section>
             <Head>

@@ -9,7 +9,7 @@ import { pageVariants } from "../components/GlobalComponents/Initaltransition";
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setbusesData, setmuzeumData } from "../lib/redux/reducers";
 import SetContentFulData from "../lib/SetContentFulData";
@@ -17,15 +17,17 @@ import SetContentFulData from "../lib/SetContentFulData";
 const Buses = ({ busesData, muzeumData }) => {
     const router = useRouter();
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         dispatch(setbusesData(busesData));
         dispatch(setmuzeumData(muzeumData));
+        setLoading(false);
     }, []);
 
     return (
         <motion.section initial="initial" animate="animate" variants={pageVariants}>
-            <Carousel />
+            {!loading && <Carousel />}
             <Busesbody />
             <Head>
                 <title>

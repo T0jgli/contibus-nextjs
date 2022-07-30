@@ -4,7 +4,7 @@
     "license": "GPL-3.0-or-later",
     "scripts": {
         "dev": "next dev -p 3001",
-        "integration-test": "cypress open",
+        "cypress": "cypress open",
         "build": "next build",
         "build-analyze": "cross-env ANALYZE=true next build",
         "start": "next start -p 8081"
@@ -36,6 +36,6 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "cypress": "^7.4.0"
+        "cypress": "10.3.1"
     }
 }

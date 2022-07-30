@@ -90,7 +90,7 @@ context("HomePage integration testing", function () {
         });
 
         it("should open and close the modals", () => {
-            for (let i = 1; i < 6; i++) {
+            for (let i = 1; i < 7; i++) {
                 cy.get(".services__wrapper").find(".services__card.rounded.d-flex").eq(i).children(".view").click();
                 const randomNumber = Math.floor(Math.random());
                 cy.get(".cascading-modal").should("be.visible");

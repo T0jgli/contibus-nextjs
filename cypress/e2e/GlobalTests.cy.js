@@ -28,7 +28,6 @@ context("Global Components integration testing", function () {
     describe("Navbar tests", function () {
         it("should render the navbar", () => {
             cy.get("nav").should("be.visible");
-            cy.get("aside").should("have.class", "closed").should("not.be.visible");
         });
 
         it("should render the language icons", () => {
@@ -47,6 +46,7 @@ context("Global Components integration testing", function () {
         it("should contain the mobile icon on mobile", () => {
             cy.get(".navbar__mobileicon").should("not.be.visible");
             cy.viewport(550, 750);
+            cy.get("aside").should("have.class", "closed").should("not.be.visible");
             cy.get(".navbar__mobileicon").should("be.visible");
         });
 
@@ -63,6 +63,7 @@ context("Global Components integration testing", function () {
     describe("Carousel tests", () => {
         let activeItemNumber;
         let carousel;
+        let clickedElementNumber;
 
         before(() => {
             carousel = cy.get(".carousel").eq(0);
@@ -101,7 +102,6 @@ context("Global Components integration testing", function () {
         });
 
         it("should go to the next when clicking next button", () => {
-            let clickedElementNumber;
             cy.get(".carousel-control-next").click();
 
             if (activeItemNumber === 2) clickedElementNumber = 0;
@@ -143,7 +143,7 @@ context("Global Components integration testing", function () {
         });
         it("should contain the copyright", () => {
             const footerCopyright = cy.get(".footer-copyright");
-            footerCopyright.should("contain.text", "© 2021 Copyright:");
+            footerCopyright.should("contain.text", "© 2022 Copyright:");
             footerCopyright.children("span").children("span").eq(0).should("contain.text", "Contibus");
             cy.get(".footer-copyright").children("span").children("a").should("contain.text", "tojglee");
         });
