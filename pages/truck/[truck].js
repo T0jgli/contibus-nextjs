@@ -14,9 +14,15 @@ import { setOneContentfulData } from "../../lib/SetContentFulData";
 
 const OneBus = ({ truckData }) => {
     const router = useRouter();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(false);
+    }, []);
+
     return (
         <motion.section initial="initial" animate="animate" variants={pageVariants}>
-            <Carousel />
+            {!loading && <Carousel />}
             <img src="/img/3.jpg" className="img-fluid mx-auto d-none logo" width="220px" id="contibus-logo" alt="logo" />
             <Fade triggerOnce direction="up">
                 <div className="flex-center mt-5 mx-auto">
