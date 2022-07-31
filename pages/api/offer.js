@@ -1,7 +1,7 @@
 import { transport } from "../../lib/helpers/ApiHelper";
 import logger from "../../lib/helpers/Logger";
 import db from "../../lib/firebase";
-import firebase from "firebase/app";
+import firebase from "firebase/compat/app";
 import { initMiddleware, validateMiddleware } from "../../lib/helpers/middlewares";
 import { check, validationResult } from "express-validator";
 
