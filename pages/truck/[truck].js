@@ -11,6 +11,7 @@ import { MDBBtn } from "mdbreact";
 import { Fade } from "react-awesome-reveal";
 import { useRouter } from "next/router";
 import { setOneContentfulData } from "../../lib/SetContentFulData";
+import { useEffect, useState } from "react";
 
 const OneBus = ({ truckData }) => {
     const router = useRouter();
