@@ -2,9 +2,10 @@ version: "3.3"
 
 services:
     contibus:
-        image: contibus
+        image: contibus/web
         container_name: contibus
-        build: .
+        #        build: .
+        env_file: .env
         restart: always
         ports:
             - 8081:8081
