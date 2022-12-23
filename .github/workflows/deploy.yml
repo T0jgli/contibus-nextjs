@@ -22,6 +22,7 @@ jobs:
               with:
                   push: true
                   tags: contibus/web:latest
+                  build-args: ${{ secrets.ENV_FILE }}
     deploy:
         needs: build
         runs-on: ubuntu-latest
@@ -37,5 +38,5 @@ jobs:
                       cd /home/ubuntu
                       cd contibus
                       git pull
-                      sudo docker --config ~/.contibus compose pull contibustravel
+                      sudo docker --config ~/.contibus compose pull contibus/web
                       sudo docker --config ~/.contibus compose up -d
