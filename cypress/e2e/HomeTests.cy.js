@@ -7,12 +7,6 @@ context("HomePage integration testing", function () {
         cy.visit(`http://localhost:3001`);
     });
 
-    describe("Info components tests", () => {
-        it("should render the main image", () => {
-            cy.get("img[alt='Contibus logo']").scrollIntoView().should("be.visible");
-        });
-    });
-
     describe("Gallery components tests", () => {
         let activeItemNumber;
 

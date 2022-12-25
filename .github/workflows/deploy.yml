@@ -8,14 +8,15 @@ jobs:
     e2e-tests:
         runs-on: ubuntu-latest
         steps:
-            - name: "Check out"
+            - name: Checkout
               uses: actions/checkout@v3
-            - name: "Create env file"
+            - name: Create env file
               run: |
                   echo "${{ secrets.ENV_FILE }}" > .env
             - name: Cypress run
               uses: cypress-io/github-action@v5
               with:
+                  browser: chrome
                   install-command: yarn --frozen-lockfile --silent
                   start: yarn run dev
                   wait-on: "http://localhost:3001"
