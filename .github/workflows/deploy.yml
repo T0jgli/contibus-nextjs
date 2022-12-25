@@ -15,7 +15,15 @@ jobs:
               with:
                   node-version: 16
                   cache: "npm"
-            - run: yarn
+            - name: Cache dependencies
+              id: cache
+              uses: actions/cache@v2
+              with:
+                  path: ./node_modules
+                  key: modules-${{ hashFiles('yarn.lock') }}
+            - name: Install dependencies
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: yarn
             - run: yarn run e2e
     build:
         needs: e2e-tests
