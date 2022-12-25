@@ -10,13 +10,15 @@ jobs:
         steps:
             - name: "Check out"
               uses: actions/checkout@v3
+            - name: "Create env file"
+              run: |
+                  echo "${{ secrets.ENV_FILE }}" > .env
             - name: Cypress run
               uses: cypress-io/github-action@v5
               with:
                   install-command: yarn --frozen-lockfile --silent
                   start: yarn run dev
                   wait-on: "http://localhost:3001"
-              env: ${{ secrets.ENV_FILE }}
     build:
         needs: e2e-tests
         runs-on: ubuntu-latest
