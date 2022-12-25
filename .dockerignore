@@ -6,3 +6,4 @@ Dockerfile
 Dockerfile.prod
 cypress
 .git
+.env

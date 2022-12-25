@@ -24,6 +24,7 @@ jobs:
             - name: Install dependencies
               if: steps.cache.outputs.cache-hit != 'true'
               run: yarn
+            - run: echo ${{ secrets.ENV_FILE }} | base64 -d > .env
             - run: yarn run e2e
     build:
         needs: e2e-tests
@@ -44,6 +45,8 @@ jobs:
                   push: true
                   tags: contibus/web:latest
                   build-args: ${{ secrets.ENV_FILE }}
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max
     deploy:
         needs: build
         runs-on: ubuntu-latest
