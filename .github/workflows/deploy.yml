@@ -24,8 +24,8 @@ jobs:
             - name: Install dependencies
               if: steps.cache.outputs.cache-hit != 'true'
               run: yarn
-            - run: echo ${{ secrets.ENV_FILE }} | base64 -d > .env
             - run: yarn run e2e
+              env: ${{ secrets.ENV_FILE }}
     build:
         needs: e2e-tests
         runs-on: ubuntu-latest
