@@ -33,10 +33,14 @@ const menuitems = [
         },
     },
     {
-        href: "/trucks",
+        href: "https://neoline-contitrans.hu",
         title: {
             hu: "Teherautóink",
             en: "Our Trucks",
+        },
+        params: {
+            rel: "noopener noreferrer",
+            target: "_blank",
         },
     },
 ];
@@ -121,6 +125,7 @@ const Navbar = () => {
                                 <li key={item.href + "navbar"} className={`${navbarbg ? "topnav__li" : ""}`}>
                                     <Link href={item.href} passHref>
                                         <a
+                                            {...item?.params}
                                             className={`${
                                                 item.title.en === "Home"
                                                     ? router.pathname === "/" || ""
@@ -194,6 +199,7 @@ const Navbar = () => {
                                 <li key={item.href + "sidebar"}>
                                     <Link href={item.href} passHref>
                                         <a
+                                            {...item?.params}
                                             className={`${
                                                 item.title.en === "Home"
                                                     ? router.pathname === "/"

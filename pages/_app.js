@@ -8,6 +8,7 @@ import "../styles/index.scss";
 import DefaultLayout from "../components/DefaultLayout";
 import ReactGA from "react-ga";
 import { wrapper, store } from "../lib/redux/store";
+import { Provider } from "react-redux";
 
 if (process.env.NODE_ENV == "production") ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID);
 else {
@@ -16,12 +17,16 @@ else {
     }
 }
 
-const _app = ({ Component, pageProps }) => {
+const _app = ({ Component, ...rest }) => {
+    const { store, props } = wrapper.useWrappedStore(rest);
+
     return (
-        <DefaultLayout>
-            <Component {...pageProps} />
-        </DefaultLayout>
+        <Provider store={store}>
+            <DefaultLayout>
+                <Component {...props.pageProps} />
+            </DefaultLayout>
+        </Provider>
     );
 };
 
-export default wrapper.withRedux(_app);
+export default _app;
