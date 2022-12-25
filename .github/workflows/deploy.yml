@@ -5,7 +5,18 @@ on:
         branches: [main]
 
 jobs:
+    e2e-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Use Node.js 16
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: "npm"
+            - run: yarn
+            - run: yarn run e2e
     build:
+        needs: e2e-tests
         runs-on: ubuntu-latest
         steps:
             - name: Set up QEMU
@@ -38,5 +49,5 @@ jobs:
                       cd /home/ubuntu
                       cd contibus
                       git pull
-                      sudo docker --config ~/.contibus compose pull contibus/web
+                      sudo docker --config ~/.contibus compose pull contibus
                       sudo docker --config ~/.contibus compose up -d

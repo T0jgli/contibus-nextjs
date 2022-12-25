@@ -1,9 +1,10 @@
 /// <reference types="cypress" />
 
 context("HomePage integration testing", function () {
+    Cypress.config("defaultCommandTimeout", 10000);
+
     before(() => {
-        cy.visit(`http://localhost:8081`);
-        cy.get(".acceptcookies").click();
+        cy.visit(`http://localhost:3001`);
     });
 
     describe("Info components tests", () => {

@@ -1,9 +1,11 @@
 /// <reference types="cypress" />
 
 context("Global Components integration testing", function () {
+    Cypress.config("defaultCommandTimeout", 10000);
+
     before(() => {
-        const pathnames = ["/", "/offer", "/buses", "/trucks"];
-        cy.visit(`http://localhost:8081${pathnames[Math.floor(Math.random() * (3 - 0) + 0)]}`);
+        const pathnames = ["/", "/offer", "/buses"];
+        cy.visit(`http://localhost:3001${pathnames[Math.floor(Math.random() * (2 - 0) + 0)]}`);
     });
 
     describe("Cookies tests", function () {

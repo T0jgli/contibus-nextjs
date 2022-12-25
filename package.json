@@ -5,6 +5,8 @@
     "scripts": {
         "dev": "next dev -p 3001",
         "cypress": "cypress open",
+        "cy:run": "cypress run --config video=false --e2e",
+        "e2e": "start-server-and-test dev http://localhost:3001 cy:run",
         "build": "next build",
         "build-analyze": "cross-env ANALYZE=true next build",
         "start": "next start -p 8081"
@@ -36,6 +38,7 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "cypress": "10.8.0"
+        "cypress": "12.2.0",
+        "start-server-and-test": "^1.15.2"
     }
 }
