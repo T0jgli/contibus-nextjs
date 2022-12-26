@@ -17,7 +17,7 @@ jobs:
               uses: cypress-io/github-action@v5
               with:
                   browser: chrome
-                  install-command: yarn --frozen-lockfile --silent
+                  install-command: yarn --frozen-lockfile --silent --legacy-peer-deps
                   start: yarn run dev
                   wait-on: "http://localhost:3001"
     build:
