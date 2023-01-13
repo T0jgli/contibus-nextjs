@@ -83,6 +83,12 @@ context("OfferPage integration testing", function () {
                 .uncheck()
                 .should("not.be.checked");
         });
+        it("should get code 200 from smtp verification", () => {
+            cy.request("/api/verify").should((res) => {
+                expect(res.status).to.eq(200);
+                expect(res.body).to.have.property("message", "Success");
+            });
+        });
     });
 
     describe("Gallery component test", () => {
