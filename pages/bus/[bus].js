@@ -44,26 +44,15 @@ const OneBus = ({ busData }) => {
     );
 };
 
-export async function getStaticProps(context) {
-    const busData = await setOneContentfulData("busesData", context.params.bus);
+export async function getServerSideProps({ query, res }) {
+    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600, stale-while-revalidate=59");
+
+    const busData = await setOneContentfulData("busesData", query.bus);
 
     return {
         props: {
             busData: busData ? busData[0] : null,
         },
-    };
-}
-export async function getStaticPaths() {
-    const entries = await setIDs("busesData");
-    const ids = entries?.map((e) => ({
-        params: {
-            bus: e.fields.id,
-        },
-    }));
-
-    return {
-        paths: ids,
-        fallback: true, // can also be true or 'blocking'
     };
 }
 
