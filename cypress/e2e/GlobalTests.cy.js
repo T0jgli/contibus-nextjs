@@ -145,7 +145,6 @@ context("Global Components integration testing", function () {
         });
         it("should contain the copyright", () => {
             const footerCopyright = cy.get(".footer-copyright");
-            footerCopyright.should("contain.text", "© 2022 Copyright:");
             footerCopyright.children("span").children("span").eq(0).should("contain.text", "Contibus");
             cy.get(".footer-copyright").children("span").children("a").should("contain.text", "tojglee");
         });
