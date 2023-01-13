@@ -25,13 +25,13 @@ const OneBusBody = ({ thisbus }) => {
             {thisbus ? (
                 <>
                     <Head>
-                        <title>{thisbus.fields.bus} - ContiBus</title>
+                        <title>{thisbus?.fields.bus} - ContiBus</title>
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                        <meta property="og:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
-                        <meta name="twitter:image" content={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
-                        <meta property="og:url" content={`https://contibus.hu/bus/${thisbus.fields.id}`} />
-                        <link rel="alternate" hrefLang="en" href={`https://contibus.hu/en/bus/${thisbus.fields.id}`} />
-                        <link rel="alternate" hrefLang="hu" href={`https://contibus.hu/bus/${thisbus.fields.id}`} />
+                        <meta property="og:image" content={`https://${thisbus?.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
+                        <meta name="twitter:image" content={`https://${thisbus?.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`} />
+                        <meta property="og:url" content={`https://contibus.hu/bus/${thisbus?.fields.id}`} />
+                        <link rel="alternate" hrefLang="en" href={`https://contibus.hu/en/bus/${thisbus?.fields.id}`} />
+                        <link rel="alternate" hrefLang="hu" href={`https://contibus.hu/bus/${thisbus?.fields.id}`} />
                     </Head>
 
                     <div className="onebus__container w-75 mx-auto my-5 pt-3">
@@ -39,8 +39,8 @@ const OneBusBody = ({ thisbus }) => {
                             <div className="text-sm-right text-center col">
                                 <Fade triggerOnce>
                                     <img
-                                        alt={`${thisbus.fields.bus} kép`}
-                                        src={`https://${thisbus.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`}
+                                        alt={`${thisbus?.fields.bus} kép`}
+                                        src={`https://${thisbus?.fields.pictures[thispicture].fields.file.url}?&fm=webp&q=80`}
                                         style={{ cursor: "pointer", borderRadius: "1rem" }}
                                         onClick={() =>
                                             setlightbox({
@@ -53,13 +53,13 @@ const OneBusBody = ({ thisbus }) => {
                                 </Fade>
                                 <Fade triggerOnce>
                                     <div className="mt-2 otherpictures mb-5 mb-md-0">
-                                        {thisbus.fields.pictures.map((pict, i) => {
+                                        {thisbus?.fields.pictures.map((pict, i) => {
                                             if (i !== thispicture)
                                                 return (
                                                     <img
-                                                        alt={`${thisbus.fields.bus} kép (${i + 1})`}
+                                                        alt={`${thisbus?.fields.bus} kép (${i + 1})`}
                                                         style={{ borderRadius: "1rem" }}
-                                                        key={`${thisbus.fields.bus} (${i + 1})`}
+                                                        key={`${thisbus?.fields.bus} (${i + 1})`}
                                                         src={`https://${pict.fields.file.url}?&fm=webp&q=80`}
                                                         onClick={() => setthispicture(i)}
                                                         className="p-2"
@@ -75,13 +75,13 @@ const OneBusBody = ({ thisbus }) => {
                             <div className="col">
                                 <Fade triggerOnce>
                                     <div className="onebus__detailscontainer">
-                                        <h2 className="text-center text-lg-left">{thisbus.fields.bus}</h2>
+                                        <h2 className="text-center text-lg-left">{thisbus?.fields.bus}</h2>
                                         <div className="onebus__oradijcontainer d-flex align-items-center pb-2 mt-5">
                                             <UpdateIcon fontSize="large" />
                                             <div>
                                                 <p className="grey-text m-0 pl-4">PER {router.locale === "en" ? "HOUR" : "ÓRA"}</p>
                                                 <p className="grey-text h4 font-weight-bold pt-2 m-0 pl-4">
-                                                    {thisbus.fields.oradij.toLocaleString()} {router.locale === "en" ? "Ft / hour" : "Ft / óra"}
+                                                    {thisbus?.fields.oradij.toLocaleString()} {router.locale === "en" ? "Ft / hour" : "Ft / óra"}
                                                 </p>
                                             </div>
                                         </div>
@@ -91,7 +91,7 @@ const OneBusBody = ({ thisbus }) => {
                                             <div>
                                                 <p className="grey-text m-0 pl-4">PER KM</p>
                                                 <p className="grey-text h4 font-weight-bold pt-2 m-0 pl-4">
-                                                    {thisbus.fields.kmdij.toLocaleString()} Ft / km
+                                                    {thisbus?.fields.kmdij.toLocaleString()} Ft / km
                                                 </p>
                                             </div>
                                         </div>
@@ -103,7 +103,7 @@ const OneBusBody = ({ thisbus }) => {
                                                     {router.locale === "en" ? "NUMBER OF SEATS" : "SZÁLLÍTHATÓ SZEMÉLYEK"}
                                                 </p>
                                                 <h4 className="grey-text font-weight-bold pt-2 m-0 pl-4">
-                                                    {thisbus.fields.title.split(" ").slice(0, 3).join(" ")}
+                                                    {thisbus?.fields.title.split(" ").slice(0, 3).join(" ")}
                                                 </h4>
                                             </div>
                                         </div>
@@ -114,7 +114,7 @@ const OneBusBody = ({ thisbus }) => {
                         <Fade triggerOnce>
                             <div className="mt-5 pt-4 mx-auto flex-center row">
                                 <div className="text-center col-lg-8">
-                                    <p className="grey-text">{thisbus.fields.desc}</p>
+                                    <p className="grey-text">{thisbus?.fields.desc}</p>
                                 </div>
                             </div>
                             <div className="mx-auto mt-3 flex-center row">
@@ -122,7 +122,7 @@ const OneBusBody = ({ thisbus }) => {
                                     <Tooltip title={router.locale === "en" ? "Seat positions" : "Ülésrend"}>
                                         <IconButton
                                             aria-label="seats"
-                                            onClick={() => window.open(`https:${thisbus.fields.seats.fields.file.url}`, "_blank")}
+                                            onClick={() => window.open(`https:${thisbus?.fields.seats.fields.file.url}`, "_blank")}
                                         >
                                             <AirlineSeatReclineNormalIcon />
                                         </IconButton>
@@ -134,7 +134,7 @@ const OneBusBody = ({ thisbus }) => {
                                     <div
                                         onClick={() => {
                                             window.open(
-                                                `https://www.facebook.com/sharer/sharer.php?u=${`https://contibus.hu/bus/${thisbus.fields.id}`}`,
+                                                `https://www.facebook.com/sharer/sharer.php?u=${`https://contibus.hu/bus/${thisbus?.fields.id}`}`,
                                                 "facebook-share-dialog",
                                                 "width=800,height=600"
                                             );
@@ -150,7 +150,7 @@ const OneBusBody = ({ thisbus }) => {
                                     <div
                                         onClick={() => {
                                             window.open(
-                                                `https://twitter.com/intent/tweet?url=${`https://contibus.hu/bus/${thisbus.fields.id}`}`,
+                                                `https://twitter.com/intent/tweet?url=${`https://contibus.hu/bus/${thisbus?.fields.id}`}`,
                                                 "twitter-share-dialog",
                                                 "width=800,height=600"
                                             );
@@ -174,7 +174,7 @@ const OneBusBody = ({ thisbus }) => {
                                         router.push({
                                             pathname: "/offer",
                                             query: {
-                                                selectedbus: thisbus.fields.bus.replaceAll(/\s/g, "-"),
+                                                selectedbus: thisbus?.fields.bus.replaceAll(/\s/g, "-"),
                                             },
                                         });
                                     }}
@@ -185,7 +185,7 @@ const OneBusBody = ({ thisbus }) => {
                             </Fade>
                         </div>
                     </div>
-                    <Fslightboxes name={thisbus.fields.bus} data={thisbus.fields.pictures} imgtoggler={lightbox} setimgtoggler={setlightbox} />
+                    <Fslightboxes name={thisbus?.fields.bus} data={thisbus?.fields.pictures} imgtoggler={lightbox} setimgtoggler={setlightbox} />
                 </>
             ) : (
                 <h2 className="flex-center text-center my-5">A keresett autóbusz nem található!</h2>

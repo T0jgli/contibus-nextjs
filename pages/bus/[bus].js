@@ -55,7 +55,7 @@ export async function getStaticProps(context) {
 }
 export async function getStaticPaths() {
     const entries = await setIDs("busesData");
-    const ids = entries.map((e) => ({
+    const ids = entries?.map((e) => ({
         params: {
             bus: e.fields.id,
         },
@@ -63,7 +63,7 @@ export async function getStaticPaths() {
 
     return {
         paths: ids,
-        fallback: false, // can also be true or 'blocking'
+        fallback: true, // can also be true or 'blocking'
     };
 }
 
