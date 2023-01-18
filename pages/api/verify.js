@@ -6,18 +6,12 @@ const transporter = nodemailer.createTransport(transport);
 export default async (req, res) => {
     switch (req.method) {
         case "GET":
-            try {
-                const result = await transporter.verify();
-                if (result) {
-                    res.status(200).json({ message: "Success" });
-                } else {
-                    res.status(500).json({
-                        message: result,
-                    });
-                }
-            } catch (error) {
+            const result = await transporter.verify();
+            if (result) {
+                res.status(200).json({ message: "Success" });
+            } else {
                 res.status(500).json({
-                    message: error,
+                    message: result,
                 });
             }
             break;

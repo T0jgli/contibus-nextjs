@@ -39,20 +39,32 @@ const OneBus = ({ busData }) => {
                     </MDBBtn>
                 </div>
             </Fade>
+            {process.env.NEXT_PUBLIC_TEST}
             <OneBusBody thisbus={busData} />
         </motion.section>
     );
 };
 
-export async function getServerSideProps({ query, res }) {
-    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600, stale-while-revalidate=59");
-
-    const busData = await setOneContentfulData("busesData", query.bus);
+export async function getStaticProps(context) {
+    const busData = await setOneContentfulData("busesData", context.params.bus);
 
     return {
         props: {
             busData: busData ? busData[0] : null,
         },
+    };
+}
+export async function getStaticPaths() {
+    const entries = await setIDs("busesData");
+    const ids = entries.map((e) => ({
+        params: {
+            bus: e.fields.id,
+        },
+    }));
+
+    return {
+        paths: ids,
+        fallback: false, // can also be true or 'blocking'
     };
 }
 
