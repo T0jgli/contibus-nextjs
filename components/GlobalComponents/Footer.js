@@ -24,7 +24,7 @@ const Footer = () => {
                                                 title="Google Maps Iframe"
                                                 src={
                                                     "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key=" +
-                                                    process.env.NEXT_PUBLIC_GOOGLE_MAPSKEY
+                                                    "AIzaSyAVrzvJDl2UwZyguKmLLASl6KSt8ytQ5IA"
                                                 }
                                                 frameBorder="0"
                                             />
