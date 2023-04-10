@@ -20,7 +20,7 @@
         "contentful": "^9.3.5",
         "express-validator": "^6.15.0",
         "firebase": "9.18.0",
-        "framer-motion": "6.5.1",
+        "framer-motion": "10.11.2",
         "mdbreact": "^5.2.0",
         "next": "12.3.1",
         "next-redux-wrapper": "8.0.0",
