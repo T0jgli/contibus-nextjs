@@ -53,8 +53,8 @@ jobs:
                   username: ${{secrets.SSH_USERNAME}}
 
                   script: |
-                      cd /home/ubuntu
+                      cd /home/github
                       cd contibus
                       git pull
-                      sudo docker --config ~/.contibus compose pull contibus
-                      sudo docker --config ~/.contibus compose up -d
+                      docker --config ~/.contibus compose pull contibus
+                      docker --config ~/.contibus compose up -d
