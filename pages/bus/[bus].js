@@ -39,7 +39,6 @@ const OneBus = ({ busData }) => {
                     </MDBBtn>
                 </div>
             </Fade>
-            {process.env.NEXT_PUBLIC_TEST}
             <OneBusBody thisbus={busData} />
         </motion.section>
     );
@@ -54,16 +53,22 @@ export async function getStaticProps(context) {
         },
     };
 }
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
+    let paths = [];
     const entries = await setIDs("busesData");
-    const ids = entries.map((e) => ({
-        params: {
-            bus: e.fields.id,
-        },
-    }));
+    entries.forEach((e) => {
+        for (const locale of locales) {
+            paths.push({
+                params: {
+                    bus: e.fields.id,
+                },
+                locale,
+            });
+        }
+    });
 
     return {
-        paths: ids,
+        paths: paths,
         fallback: false, // can also be true or 'blocking'
     };
 }
