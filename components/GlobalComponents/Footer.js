@@ -3,7 +3,7 @@ import { MDBFooter, MDBIcon } from "mdbreact";
 
 import Lostitems from "./Lostitems";
 import { Fade } from "react-awesome-reveal";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { useRouter } from "next/router";
 
 const Footer = () => {
@@ -39,7 +39,7 @@ const Footer = () => {
                                     <a
                                         onClick={() => {
                                             setelveszett(!elveszett);
-                                            ReactGA.modalview("/lostitems");
+                                            ReactGA.send({ hitType: "pageview", page: "/lostitems" });
                                         }}
                                     >
                                         {locale === "en" ? "Lost items" : "Elvesztett tárgyak"}

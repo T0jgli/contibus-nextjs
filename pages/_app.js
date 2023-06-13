@@ -6,7 +6,7 @@ import "react-image-lightbox/style.css";
 import "../styles/index.scss";
 
 import DefaultLayout from "../components/DefaultLayout";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { wrapper, store } from "../lib/redux/store";
 import { Provider } from "react-redux";
 

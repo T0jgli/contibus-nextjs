@@ -1,11 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setbusesData, setmuzeumData, settrucksData } from "../lib/redux/reducers";
 
 import Navbar from "./GlobalComponents/Navbar";
-import SetContentFulData from "../lib/SetContentFulData";
 import { useRouter } from "next/router";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import dynamic from "next/dynamic";
 import Spinner from "./GlobalComponents/Spinner";
 import FullscreenLoading from "./GlobalComponents/Initaltransition";
@@ -16,11 +13,10 @@ const Cookie = dynamic(() => import("./GlobalComponents/Cookie"));
 const Snackbars = dynamic(() => import("./GlobalComponents/Snackbars"));
 
 const DefaultLayout = ({ children }) => {
-    const dispatch = useDispatch();
     const { pathname } = useRouter();
 
     useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
+        ReactGA.send({ hitType: "pageview", page: window.location.pathname });
     }, [pathname]);
 
     return (

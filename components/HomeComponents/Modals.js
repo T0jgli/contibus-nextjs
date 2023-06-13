@@ -1,5 +1,5 @@
 import { MDBBtn, MDBModal, MDBModalBody, MDBCard, MDBCardFooter, MDBModalHeader } from "mdbreact";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { useRouter } from "next/router";
 
 const Modals = ({ modalsopen, setmodalsopen }) => {
@@ -12,7 +12,7 @@ const Modals = ({ modalsopen, setmodalsopen }) => {
                 isOpen={modalsopen?.open}
                 toggle={() => {
                     setmodalsopen({ ...modalsopen, open: false });
-                    ReactGA.pageview(window.location.pathname);
+                    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
                 }}
                 size="lg"
                 className="rounded"
@@ -22,7 +22,7 @@ const Modals = ({ modalsopen, setmodalsopen }) => {
                     titleClass="heading lead font-weight-bolder"
                     toggle={() => {
                         setmodalsopen({ ...modalsopen, open: false });
-                        ReactGA.pageview(window.location.pathname);
+                        ReactGA.send({ hitType: "pageview", page: window.location.pathname });
                     }}
                 >
                     {locale === "en" ? modalsopen?.title.en : modalsopen?.title.hu}
@@ -36,7 +36,7 @@ const Modals = ({ modalsopen, setmodalsopen }) => {
                             className="float-right roundedbtn"
                             onClick={() => {
                                 setmodalsopen({ ...modalsopen, open: false });
-                                ReactGA.pageview(window.location.pathname);
+                                ReactGA.send({ hitType: "pageview", page: window.location.pathname });
                             }}
                         >
                             {locale === "en" ? "Close" : "Bezárás"}
