@@ -4,8 +4,8 @@ import { setsnackbar } from "../../lib/redux/reducers";
 import { useDispatch } from "react-redux";
 
 import { MDBModal, MDBModalBody, MDBBtn, MDBCard, MDBCardFooter, MDBCardHeader, MDBCardBody, MDBInput, MDBModalHeader } from "mdbreact";
-import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
-import { Checkbox, FormControlLabel, FormGroup } from "@material-ui/core";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import ReactGA from "react-ga4";
 import { useRouter } from "next/router";
 

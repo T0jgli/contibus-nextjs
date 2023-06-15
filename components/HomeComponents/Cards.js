@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ArrowDropUp from "@material-ui/icons/ArrowDropUp";
+import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 import dynamic from "next/dynamic";
 import Spinner from "../GlobalComponents/Spinner";
 

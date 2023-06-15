@@ -190,7 +190,7 @@ export default InitialTransition */
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const FullscreenLoading = () => {
     const router = useRouter();

@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import { MDBBtn } from "mdbreact";
-import UpdateIcon from "@material-ui/icons/Update";
-import SpeedIcon from "@material-ui/icons/Speed";
-import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
-import { IconButton, Tooltip } from "@material-ui/core";
-import AirlineSeatReclineNormalIcon from "@material-ui/icons/AirlineSeatReclineNormal";
+import UpdateIcon from "@mui/icons-material/Update";
+import SpeedIcon from "@mui/icons-material/Speed";
+import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
+import { IconButton, Tooltip } from "@mui/material";
+import AirlineSeatReclineNormalIcon from "@mui/icons-material/AirlineSeatReclineNormal";
 import { Fade } from "react-awesome-reveal";
 import { useRouter } from "next/router";
 import Head from "next/head";

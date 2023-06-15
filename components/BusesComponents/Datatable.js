@@ -1,7 +1,7 @@
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 
-import { Tooltip } from "@material-ui/core";
-import ControlPointIcon from "@material-ui/icons/ControlPoint";
+import { Tooltip } from "@mui/material";
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

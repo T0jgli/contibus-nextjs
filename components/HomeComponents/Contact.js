@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setsnackbar } from "../../lib/redux/reducers";
 import axios from "axios";
-import { Tooltip } from "@material-ui/core";
+import { Tooltip } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
 
 const initialState = {

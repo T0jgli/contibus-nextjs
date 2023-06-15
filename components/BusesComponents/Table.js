@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { MDBTableBody, MDBTable, MDBTableHead, MDBBtn, MDBBtnGroup } from "mdbreact";
-import { Tooltip } from "@material-ui/core";
-import ViewAgendaIcon from "@material-ui/icons/ViewAgenda";
-import TableChartIcon from "@material-ui/icons/TableChart";
+import { Tooltip } from "@mui/material";
+import ViewAgendaIcon from "@mui/icons-material/ViewAgenda";
+import TableChartIcon from "@mui/icons-material/TableChart";
 import { Fade } from "react-awesome-reveal";
 
 import { useRouter } from "next/router";

@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { MDBIcon } from "mdbreact";
-import { Snackbar, SnackbarContent } from "@material-ui/core";
+import { Snackbar, SnackbarContent } from "@mui/material";
 import Link from "next/link";
 
 import { setCookie } from "../../lib/helpers/CookieHelper";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import useScreenWidth from "../../lib/hooks/useScreenWidth";
 
 const menuitems = [

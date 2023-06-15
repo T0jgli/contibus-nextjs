@@ -2,14 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 
 import { MDBCardHeader, MDBCardBody, MDBBtn, MDBIcon } from "mdbreact";
-import ArrowDropUp from "@material-ui/icons/ArrowDropUp";
+import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 
-import { Checkbox, FormControlLabel, FormGroup, IconButton, Tooltip } from "@material-ui/core";
+import { Checkbox, FormControlLabel, FormGroup, IconButton, Tooltip } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
 
 import { setsnackbar } from "../../lib/redux/reducers";
 import { useDispatch } from "react-redux";
-import ClearIcon from "@material-ui/icons/Clear";
+import ClearIcon from "@mui/icons-material/Clear";
 import { useRouter } from "next/router";
 
 const initialstate = {
