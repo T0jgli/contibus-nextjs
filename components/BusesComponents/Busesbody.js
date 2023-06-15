@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { MDBBtn } from "mdbreact";
 import dynamic from "next/dynamic";
@@ -13,7 +13,11 @@ import { useRouter } from "next/router";
 const Busesbody = () => {
     const { locale } = useRouter();
     const [showMuzeum, setshowMuzeum] = useState(false);
-    const [tablazat, settablazat] = useState(typeof window !== "undefined" && localStorage.getItem("defaultBusView") === "table" ? true : false);
+    const [tablazat, settablazat] = useState(undefined);
+
+    useEffect(() => {
+        settablazat(typeof window !== "undefined" && localStorage.getItem("defaultBusView") === "table" ? true : false);
+    }, []);
 
     return (
         <>

@@ -39,7 +39,7 @@ const Table = ({ tablazat, settablazat }) => {
             <Fade triggerOnce direction="up">
                 <MDBBtnGroup className="my-3" id="buses-btngroup">
                     <MDBBtn
-                        disabled={!tablazat}
+                        disabled={tablazat === undefined ? false : !tablazat}
                         color="elegant"
                         aria-label="Kártyákra váltás"
                         style={{ borderRadius: "10px 0 0 10px", color: "white", marginRight: "0" }}
@@ -53,7 +53,7 @@ const Table = ({ tablazat, settablazat }) => {
                         </Tooltip>
                     </MDBBtn>
                     <MDBBtn
-                        disabled={tablazat}
+                        disabled={tablazat === undefined ? false : tablazat}
                         color="elegant"
                         aria-label="Táblázatra váltás"
                         style={{ borderRadius: "0 10px 10px 0", color: "white" }}
