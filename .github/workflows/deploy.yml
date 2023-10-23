@@ -24,7 +24,7 @@ jobs:
         needs: e2e-tests
         runs-on: ubuntu-latest
         outputs:
-            image: contibus/web:${{ steps.build-image.outputs.digest }}
+            image: ${{ steps.build-image.outputs.digest }}
         steps:
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
@@ -73,7 +73,7 @@ jobs:
               with:
                   task-definition: task-definition.json
                   container-name: contibus
-                  image: ${{ needs.build.outputs.image }}
+                  image: contibus/web:${{ needs.build.outputs.image }}
             - name: Deploy Amazon ECS task definition
               uses: aws-actions/amazon-ecs-deploy-task-definition@v1
               with:
