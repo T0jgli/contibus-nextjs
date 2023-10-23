@@ -23,6 +23,8 @@ jobs:
     build:
         needs: e2e-tests
         runs-on: ubuntu-latest
+        outputs:
+            image: ${{ steps.build-image.outputs.digest }}
         steps:
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
@@ -34,6 +36,7 @@ jobs:
                   username: ${{ secrets.DOCKERHUB_USERNAME }}
                   password: ${{ secrets.DOCKERHUB_TOKEN }}
             - name: Build and push
+              id: build-image
               uses: docker/build-push-action@v3
               with:
                   push: true
@@ -45,16 +48,37 @@ jobs:
         needs: build
         runs-on: ubuntu-latest
         steps:
-            - name: Deploy app
-              uses: appleboy/ssh-action@v0.1.2
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
               with:
-                  host: ${{secrets.SSH_HOST}}
-                  key: ${{secrets.SSH_KEY}}
-                  username: ${{secrets.SSH_USERNAME}}
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: eu-central-1
+            - name: Fill in the new image ID in the Amazon ECS task definition
+              id: task-def
+              uses: aws-actions/amazon-ecs-render-task-definition@v1
+              with:
+                  task-definition: contibus
+                  container-name: contibus
+                  image: ${{ needs.build.outputs.image }}
+            - name: Deploy Amazon ECS task definition
+              uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+              with:
+                  task-definition: ${{ steps.task-def.outputs.task-definition }}
+                  service: contibus-
+                  cluster: neoline
+                  wait-for-service-stability: true
 
-                  script: |
-                      cd /home/github
-                      cd contibus
-                      git pull
-                      docker --config ~/.contibus compose pull contibus
-                      docker --config ~/.contibus compose up -d
+            # - name: Deploy app
+            #   uses: appleboy/ssh-action@v0.1.2
+            #   with:
+            #       host: ${{secrets.SSH_HOST}}
+            #       key: ${{secrets.SSH_KEY}}
+            #       username: ${{secrets.SSH_USERNAME}}
+
+            #       script: |
+            #           cd /home/github
+            #           cd contibus
+            #           git pull
+            #           docker --config ~/.contibus compose pull contibus
+            #           docker --config ~/.contibus compose up -d
