@@ -24,7 +24,7 @@ jobs:
         needs: e2e-tests
         runs-on: ubuntu-latest
         outputs:
-            image: ${{ steps.build-image.outputs.digest }}
+            image: contibus/web:${{ steps.build-image.outputs.digest }}
         steps:
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
