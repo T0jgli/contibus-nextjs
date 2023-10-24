@@ -64,8 +64,8 @@ const Info2 = () => {
                                 ? `Our services also include the organization of individual trips, 
                         with which we can provide our passengers with an unforgettable experience. You can request a quotation by clicking`
                                 : `Szolgatásaink közé tartozik az egyedik utazások lebonyolítása is, melyekkel felejthetetlen élményt tudunk nyújtani utasainknak. Kérjen árajánlatot `}{" "}
-                            <Link href="/offer" passHref>
-                                <a className="privacytext">{router.locale === "en" ? "here." : "ide"}</a>
+                            <Link href="/offer" passHref className="privacytext">
+                                {router.locale === "en" ? "here." : "ide"}
                             </Link>
                             {router.locale !== "en" && " kattintva"}
                         </p>

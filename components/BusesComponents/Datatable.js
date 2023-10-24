@@ -29,7 +29,7 @@ const Datatable = ({ data, imgtoggler, setimgtoggler, dataid }) => {
                 </p>
                 <hr className="mb-2 mt-2 mb-lg-3 mt-lg-3 d-none d-lg-block" />
                 <div className="d-flex mx-3 justify-content-center">
-                    <Link href={`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`}>
+                    <Link href={`/bus/${data.fields.id.replaceAll(/\s+/g, "-")}`} legacyBehavior>
                         <Tooltip title={locale === "en" ? "More" : "Bővebben"}>
                             <IconButton className="morebtn">
                                 <ControlPointIcon />

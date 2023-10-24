@@ -52,8 +52,8 @@ const Info = () => {
                                 {router.locale === "en"
                                     ? `We currently have 4 vehicles. Our vehicles have a total weight of 12,15,18,18 tonna, which you can view by clicking `
                                     : `Jelenleg 4 db járművel rendelkezünk. Gépjárműveink 12,15,18,18 össztömegűek, melyeket `}
-                                <Link href="/trucks" passHref>
-                                    <a className="privacytext">{router.locale === "en" ? "HERE. " : "IDE "}</a>
+                                <Link href="/trucks" passHref className="privacytext">
+                                    {router.locale === "en" ? "HERE. " : "IDE "}
                                 </Link>
                                 {router.locale === "en"
                                     ? "We are waiting for our future customers!"
