@@ -33,7 +33,7 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   role-to-assume: arn:aws:iam::574681690878:role/githubRole
-                  aws-region: aws-region-1
+                  aws-region: eu-central-1
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
             - name: Set up Docker Buildx
@@ -79,7 +79,7 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   role-to-assume: arn:aws:iam::574681690878:role/githubRole
-                  aws-region: aws-region-1
+                  aws-region: eu-central-1
             - name: Download task definition
               run: |
                   aws ecs describe-task-definition --task-definition contibus --query taskDefinition > task-definition.json
