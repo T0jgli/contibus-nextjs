@@ -26,24 +26,45 @@ jobs:
         outputs:
             image: ${{ steps.build-image.outputs.digest }}
         steps:
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::574681690878:role/githubRole
+                  aws-region: aws-region-1
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v2
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v2
-            - name: Login to Docker Hub
-              uses: docker/login-action@v2
-              with:
-                  username: ${{ secrets.DOCKERHUB_USERNAME }}
-                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v2
             - name: Build and push
               id: build-image
               uses: docker/build-push-action@v3
+              env:
+                  REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                  REPOSITORY: contibus
+                  IMAGE_TAG: ${{ github.sha }}
               with:
                   push: true
-                  tags: contibus/web:latest
+                  tags: $REGISTRY/$REPOSITORY:latest
                   build-args: ${{ secrets.ENV_FILE }}
                   cache-from: type=gha
                   cache-to: type=gha,mode=max
+            # - name: Login to Docker Hub
+            #   uses: docker/login-action@v2
+            #   with:
+            #       username: ${{ secrets.DOCKERHUB_USERNAME }}
+            #       password: ${{ secrets.DOCKERHUB_TOKEN }}
+            # - name: Build and push
+            #   id: build-image
+            #   uses: docker/build-push-action@v3
+            #   with:
+            #       push: true
+            #       tags: contibus/web:latest
+            #       build-args: ${{ secrets.ENV_FILE }}
+            #       cache-from: type=gha
+            #       cache-to: type=gha,mode=max
     deploy:
         needs: build
         runs-on: ubuntu-latest
@@ -51,9 +72,8 @@ jobs:
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: eu-central-1
+                  role-to-assume: arn:aws:iam::574681690878:role/githubRole
+                  aws-region: aws-region-1
             - name: Download task definition
               run: |
                   aws ecs describe-task-definition --task-definition contibus --query taskDefinition > task-definition.json
