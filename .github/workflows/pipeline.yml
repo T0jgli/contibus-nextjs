@@ -28,7 +28,7 @@ jobs:
             contents: read
             packages: write
         outputs:
-            image: ${{ steps.build-image.outputs.imageid }}
+            image: ${{ steps.login-ecr.outputs.registry }}/contibus
             digest: ${{ steps.build-image.outputs.digest }}
         steps:
             - name: Configure AWS credentials
@@ -72,6 +72,7 @@ jobs:
         permissions:
             id-token: write
             contents: read
+            packages: write
         steps:
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
