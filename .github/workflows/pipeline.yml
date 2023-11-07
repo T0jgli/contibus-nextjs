@@ -28,7 +28,8 @@ jobs:
             contents: read
             packages: write
         outputs:
-            image: ${{ steps.build-image.outputs.digest }}
+            image: ${{ steps.build-image.outputs.imageid }}
+            digest: ${{ steps.build-image.outputs.digest }}
         steps:
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
@@ -95,7 +96,7 @@ jobs:
               with:
                   task-definition: task-definition.json
                   container-name: contibus
-                  image: contibus/web@${{ needs.build.outputs.image }}
+                  image: ${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }}
             - name: Deploy Amazon ECS task definition
               uses: aws-actions/amazon-ecs-deploy-task-definition@v1
               with:
