@@ -44,13 +44,9 @@ jobs:
             - name: Build and push
               id: build-image
               uses: docker/build-push-action@v3
-              env:
-                  REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                  REPOSITORY: contibus
-                  IMAGE_TAG: ${{ github.sha }}
               with:
                   push: true
-                  tags: $REGISTRY/$REPOSITORY:latest
+                  tags: ${{ steps.login-ecr.outputs.registry }}/contibus:latest
                   build-args: ${{ secrets.ENV_FILE }}
                   cache-from: type=gha
                   cache-to: type=gha,mode=max
