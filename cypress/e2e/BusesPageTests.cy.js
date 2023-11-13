@@ -53,10 +53,11 @@ context("BusesPage integration testing", function () {
                 .find(".card-deck")
                 .each((e) => {
                     cy.wrap(e.children(".card").filter(":visible")).each((c) => {
-                        cy.wrap(c).click();
-                        cy.wrap(c).children(".card-body").should("not.have.class", "close");
-                        cy.wrap(c).click();
-                        cy.wrap(c).children(".card-body").should("have.class", "close");
+                        const component = c.filter(":visible");
+                        cy.wrap(component).click();
+                        cy.wrap(component).children(".card-body").should("not.have.class", "close");
+                        cy.wrap(component).click();
+                        cy.wrap(component).children(".card-body").should("have.class", "close");
                     });
                 });
         });
