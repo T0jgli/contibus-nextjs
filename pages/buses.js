@@ -53,7 +53,7 @@ export async function getStaticProps() {
             busesData: busesData || null,
             muzeumData: muzeumData || null,
         },
-        revalidate: 150,
+        revalidate: 2000,
     };
 }
 

@@ -50,7 +50,7 @@ export async function getStaticProps(context) {
     return {
         props: {
             busData: busData ? busData[0] : null,
-            revalidate: 150,
+            revalidate: 2000,
         },
     };
 }
