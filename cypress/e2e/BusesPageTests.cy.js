@@ -52,7 +52,7 @@ context("BusesPage integration testing", function () {
             cy.get("#muzeum-cards")
                 .find(".card-deck")
                 .each((e) => {
-                    cy.wrap(e.children(".card").filter(":visible")).each((c) => {
+                    cy.wrap(e.children(".card")).each((c) => {
                         cy.wrap(c).click();
                         cy.wrap(c).children(".card-body").should("not.have.class", "close");
                         cy.wrap(c).click();
