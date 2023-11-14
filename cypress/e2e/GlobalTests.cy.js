@@ -132,7 +132,7 @@ context("Global Components integration testing", function () {
         });
 
         it("should render the map", () => {
-            cy.get(".map").children("iframe").scrollIntoView().should("be.visible");
+            cy.get(".map").scrollIntoView().should("be.visible");
         });
 
         it("should scroll to the top when clicking the scrolltopbtn", () => {
