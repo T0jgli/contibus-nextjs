@@ -140,5 +140,5 @@ jobs:
                       cd /home/github
                       cd contibus
                       git pull
-                      docker --config ~/.contibus compose pull contibus
-                      docker --config ~/.contibus compose up -d
+                      docker compose pull contibus
+                      docker compose up -d
