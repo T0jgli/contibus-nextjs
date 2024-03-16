@@ -63,7 +63,7 @@ jobs:
               with:
                   platforms: linux/amd64,linux/arm64
                   push: true
-                  tags: europe-west3-docker.pkg.dev/kalandozastravel/contibus/contibus:latest
+                  tags: europe-west3-docker.pkg.dev/kalandozastravel/contibus:latest
                   build-args: ${{ secrets.ENV_FILE }}
                   cache-from: type=gha
                   cache-to: type=gha,mode=max
