@@ -61,7 +61,7 @@ jobs:
               id: build-image
               uses: docker/build-push-action@v3
               with:
-                  platforms: linux/amd64,linux/arm64
+                  platforms: linux/arm64
                   push: true
                   tags: europe-west3-docker.pkg.dev/kalandozastravel/contibus:latest
                   build-args: ${{ secrets.ENV_FILE }}
