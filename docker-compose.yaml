@@ -2,10 +2,23 @@ version: "3.3"
 
 services:
     contibus:
-        image: contibus/web
+        image: europe-west3-docker.pkg.dev/kalandozastravel/contibus/contibus
         container_name: contibus
         #        build: .
         env_file: .env
         restart: always
         ports:
             - 8081:8081
+        labels:
+            - traefik.http.routers.contibus.rule=Host(`contibus.hu`) || Host(`www.contibus.hu`)
+            - traefik.http.routers.contibus.tls=true
+            - traefik.http.routers.contibus.tls.certresolver=le
+            - traefik.http.routers.contibus.middlewares=security-headers@file
+            - traefik.http.routers.contibus.middlewares=redirect-www@file
+            - "com.centurylinklabs.watchtower.enable=false"
+            - traefik.http.services.contibus.loadbalancer.server.port=8081
+        networks:
+            - web
+networks:
+    web:
+        external: true
