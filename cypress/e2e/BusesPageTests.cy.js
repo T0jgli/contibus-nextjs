@@ -51,6 +51,7 @@ context("BusesPage integration testing", function () {
         it("should have open and close the cards on click", () => {
             cy.get("#muzeum-cards")
                 .find(".card-deck")
+                .filter(":visible")
                 .each((e) => {
                     cy.wrap(e.children(".card")).each((c) => {
                         cy.wrap(c).click();
