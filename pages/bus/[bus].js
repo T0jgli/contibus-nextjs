@@ -50,8 +50,8 @@ export async function getStaticProps(context) {
     return {
         props: {
             busData: busData ? busData[0] : null,
-            revalidate: 2000,
         },
+        revalidate: 2000,
     };
 }
 export async function getStaticPaths({ locales }) {
