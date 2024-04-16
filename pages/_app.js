@@ -10,8 +10,9 @@ import ReactGA from "react-ga4";
 import { wrapper, store } from "../lib/redux/store";
 import { Provider } from "react-redux";
 
-if (process.env.NODE_ENV == "production") ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID);
-else {
+if (process.env.NODE_ENV == "production") {
+    // ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID);
+} else {
     if (typeof window !== "undefined" && window.Cypress) {
         window.store = store;
     }

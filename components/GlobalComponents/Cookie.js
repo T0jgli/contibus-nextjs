@@ -3,11 +3,18 @@ import { useEffect } from "react";
 import { MDBBtn, MDBAlert } from "mdbreact";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import ReactGA from "react-ga4";
 
 const Cookie = () => {
     const { locale } = useRouter();
     const [show, setshow] = useState(false);
     const [ready, setready] = useState(false);
+
+    function addGtag() {
+        if (process?.env.NODE_ENV === "production") {
+            ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID);
+        }
+    }
 
     useEffect(() => {
         setready(true);
@@ -15,6 +22,8 @@ const Cookie = () => {
             setTimeout(() => {
                 setshow(true);
             }, 750);
+        } else {
+            addGtag();
         }
     }, []);
     return (
@@ -30,7 +39,8 @@ const Cookie = () => {
                                 {locale === "en" ? (
                                     <span>
                                         {" "}
-                                        We use cookies to ensure you get the best experience on our website. By browsing this site, you accept the
+                                        We use cookies to ensure you get the best experience on our website. By clicking the accept button, you accept
+                                        the
                                         <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder">
                                             {" "}
                                             privacy policy
@@ -40,7 +50,7 @@ const Cookie = () => {
                                 ) : (
                                     <span>
                                         {" "}
-                                        Az oldal sütiket használ a felhasználói élmény fokozása céljából. A weblap további böngészésével elfogadja az
+                                        Az oldal sütiket használ a felhasználói élmény fokozása céljából. Az elfogadom gombra kattintva elfogadja az{" "}
                                         <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder">
                                             {" "}
                                             adatvédelmi tájékoztatót
@@ -58,9 +68,10 @@ const Cookie = () => {
                                 onClick={() => {
                                     setshow(false);
                                     localStorage.setItem("EnableCookies", "true");
+                                    addGtag();
                                 }}
                             >
-                                {locale === "en" ? "I understand" : "Rendben"}
+                                {locale === "en" ? "Accept" : "Elfogadom"}
                             </MDBBtn>
                         </div>
                     </div>
