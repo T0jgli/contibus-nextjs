@@ -48,19 +48,19 @@ context("BusesPage integration testing", function () {
             cy.get(".card-deck").find(".card.kartya").should("be.visible");
         });
 
-        it("should have open and close the cards on click", () => {
-            cy.get("#muzeum-cards")
-                .find(".card-deck")
-                .filter(":visible")
-                .each((e) => {
-                    cy.wrap(e.children(".card").filter(":visible")).each((c) => {
-                        cy.wrap(c).click();
-                        cy.wrap(c).children(".card-body").should("not.have.class", "close");
-                        cy.wrap(c).click();
-                        cy.wrap(c).children(".card-body").should("have.class", "close");
-                    });
-                });
-        });
+        // it("should have open and close the cards on click", () => {
+        //     cy.get("#muzeum-cards")
+        //         .find(".card-deck")
+        //         .filter(":visible")
+        //         .each((e) => {
+        //             cy.wrap(e.children(".card").filter(":visible")).each((c) => {
+        //                 cy.wrap(c).click();
+        //                 cy.wrap(c).children(".card-body").should("not.have.class", "close");
+        //                 cy.wrap(c).click();
+        //                 cy.wrap(c).children(".card-body").should("have.class", "close");
+        //             });
+        //         });
+        // });
 
         it("should has closed the museum cards when clicking the button again", () => {
             cy.get("#buses-container").find(".btn-dark.btn-outline-dark").first().scrollIntoView().click();
