@@ -13,11 +13,16 @@ const Cookie = dynamic(() => import("./GlobalComponents/Cookie"));
 const Snackbars = dynamic(() => import("./GlobalComponents/Snackbars"));
 
 const DefaultLayout = ({ children }) => {
-    const { pathname } = useRouter();
-
+    const router = useRouter();
     useEffect(() => {
-        pageview(window.location.pathname);
-    }, [pathname]);
+        const handleRouteChange = (url) => {
+            pageview(url);
+        };
+        router.events.on("routeChangeComplete", handleRouteChange);
+        return () => {
+            router.events.off("routeChangeComplete", handleRouteChange);
+        };
+    }, [router.events]);
 
     return (
         <>
