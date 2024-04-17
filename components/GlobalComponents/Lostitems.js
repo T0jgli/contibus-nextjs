@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { MDBModal, MDBModalBody, MDBBtn, MDBCard, MDBCardFooter, MDBCardHeader, MDBCardBody, MDBInput, MDBModalHeader } from "mdbreact";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-import ReactGA from "react-ga4";
 import { useRouter } from "next/router";
+import { pageview } from "../../lib/helpers/gtag";
 
 const initialState = {
     name: "",
@@ -54,7 +54,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
         }).then((response) => {
             setstate(initialState);
             setelveszett(!elveszett);
-            ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+            pageview(window.location.pathname);
             window.scrollTo(0, 0);
 
             if (response.status == 200) {
@@ -93,7 +93,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                 isOpen={elveszett}
                 toggle={() => {
                     setelveszett(!elveszett);
-                    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+                    pageview(window.location.pathname);
                 }}
                 size="lg"
             >
@@ -102,7 +102,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                     titleClass="heading lead font-weight-bolder"
                     toggle={() => {
                         setelveszett(!elveszett);
-                        ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+                        pageview(window.location.pathname);
                     }}
                 >
                     {locale === "en" ? "Lost items" : "Elvesztett tárgyak"}
@@ -304,7 +304,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                             className="float-right roundedbtn closetext"
                             onClick={() => {
                                 setelveszett(!elveszett);
-                                ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+                                pageview(window.location.pathname);
                             }}
                         >
                             {locale === "en" ? "Close" : "Bezárás"}

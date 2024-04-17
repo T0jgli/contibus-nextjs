@@ -7,8 +7,8 @@ const Modals = dynamic(() => import("./Modals"), { loading: () => <Spinner /> })
 const Contact = dynamic(() => import("./Contact"), { loading: () => <Spinner /> });
 
 import { Fade } from "react-awesome-reveal";
-import ReactGA from "react-ga4";
 import { useRouter } from "next/router";
+import { pageview } from "../../lib/helpers/gtag";
 
 const Cards = () => {
     const { locale } = useRouter();
@@ -46,7 +46,7 @@ const Cards = () => {
                         <Fade triggerOnce>
                             <div
                                 onClick={async () => {
-                                    ReactGA.send({ hitType: "pageview", page: "/modal/drivingtime" });
+                                    pageview("/modal/drivingtime");
                                     const { Vezetesiidocontent } = await import("./Modalcontents");
                                     setmodalsopen({
                                         open: true,
@@ -74,7 +74,7 @@ const Cards = () => {
                         <Fade triggerOnce>
                             <div
                                 onClick={async () => {
-                                    ReactGA.send({ hitType: "pageview", page: "/modal/joboffers" });
+                                    pageview("/modal/joboffers");
                                     const { Allasajanlatcontent } = await import("./Modalcontents");
 
                                     setmodalsopen({
@@ -103,7 +103,7 @@ const Cards = () => {
                         <Fade triggerOnce>
                             <div
                                 onClick={async () => {
-                                    ReactGA.send({ hitType: "pageview", page: "/modal/gls" });
+                                    pageview("/modal/gls");
                                     const { Glscontent } = await import("./Modalcontents");
 
                                     setmodalsopen({
@@ -133,7 +133,7 @@ const Cards = () => {
                         <Fade triggerOnce>
                             <div
                                 onClick={async () => {
-                                    ReactGA.send({ hitType: "pageview", page: "/modal/luggagestore" });
+                                    pageview("/modal/luggagestore");
                                     const { Csomagmegorzescontent } = await import("./Modalcontents");
 
                                     setmodalsopen({
@@ -162,7 +162,7 @@ const Cards = () => {
                         <Fade triggerOnce>
                             <div
                                 onClick={async () => {
-                                    ReactGA.send({ hitType: "pageview", page: "/modal/dpd" });
+                                    pageview("/modal/dpd");
                                     const { Dpdcontent } = await import("./Modalcontents");
 
                                     setmodalsopen({
@@ -191,7 +191,7 @@ const Cards = () => {
                         <Fade triggerOnce>
                             <div
                                 onClick={async () => {
-                                    ReactGA.send({ hitType: "pageview", page: "/modal/wish" });
+                                    pageview("/modal/wish");
                                     const { Wishcontent } = await import("./Modalcontents");
 
                                     setmodalsopen({

@@ -3,9 +3,9 @@ import { MDBFooter, MDBIcon } from "mdbreact";
 
 import Lostitems from "./Lostitems";
 import { Fade } from "react-awesome-reveal";
-import ReactGA from "react-ga4";
 import { useRouter } from "next/router";
 import { GoogleMapsEmbed } from "@next/third-parties/google";
+import { pageview } from "../../lib/helpers/gtag";
 
 const Footer = () => {
     const [elveszett, setelveszett] = useState(false);
@@ -39,7 +39,7 @@ const Footer = () => {
                                     <a
                                         onClick={() => {
                                             setelveszett(!elveszett);
-                                            ReactGA.send({ hitType: "pageview", page: "/lostitems" });
+                                            pageview("/lostitems");
                                         }}
                                     >
                                         {locale === "en" ? "Lost items" : "Elvesztett tárgyak"}

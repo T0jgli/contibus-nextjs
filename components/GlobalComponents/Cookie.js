@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { MDBBtn, MDBAlert } from "mdbreact";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import ReactGA from "react-ga4";
 
 const Cookie = () => {
     const { locale } = useRouter();
@@ -12,7 +11,24 @@ const Cookie = () => {
 
     function addGtag() {
         if (process?.env.NODE_ENV === "production") {
-            ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_GAID);
+            const script = document.createElement("script");
+            script.src = `https://www.googletagmanager.com/gtag/js?id=${process?.env.NEXT_PUBLIC_GOOGLE_GAID}`;
+            script.setAttribute("rel", "preconnect");
+            document?.head.appendChild(script);
+            const gtag = document.createElement("script");
+            gtag.textContent = `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'update', {
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                ad_storage: 'denied',
+                analytics_storage: 'granted'
+            });            
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_GAID}', {
+                page_path: window.location.pathname,
+            });`;
+            document?.head.appendChild(gtag);
         }
     }
 
