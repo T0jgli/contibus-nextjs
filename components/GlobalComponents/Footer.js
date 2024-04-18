@@ -53,8 +53,23 @@ const Footer = () => {
                                 <p>
                                     <a href="/files/megrendelolap.docx">{locale === "en" ? "Order form" : "Megrendelőlap"}</a>
                                 </p>
-                                <p>
+                                {/* <p>
                                     <a href="#">{locale === "en" ? "Baggage regulations" : "Poggyász szabályzat"}</a>
+                                </p> */}
+                                <p>
+                                    <a
+                                        onClick={() => {
+                                            localStorage.clear();
+                                            document.cookie.split(";").forEach(function (c) {
+                                                document.cookie = c
+                                                    .replace(/^ +/, "")
+                                                    .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                                            });
+                                            window.location.reload(false);
+                                        }}
+                                    >
+                                        {locale === "en" ? "Clear cookies" : "Sütik törlése"}
+                                    </a>
                                 </p>
                             </div>
 
