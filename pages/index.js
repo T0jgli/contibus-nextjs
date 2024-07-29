@@ -18,7 +18,7 @@ import Testimonials from "../components/HomeComponents/Testimonials";
 const Home = () => {
     const { locale } = useRouter();
     return (
-        <motion.section initial="initial" animate="animate" variants={pageVariants}>
+        <motion.section initial="initial" animate="animate" variants={pageVariants} className="motion">
             <Carousel />
             <Info />
             <Gallery />

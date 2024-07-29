@@ -22,7 +22,7 @@ const OneBus = ({ busData }) => {
     }, []);
 
     return (
-        <motion.section initial="initial" animate="animate" variants={pageVariants}>
+        <motion.section initial="initial" animate="animate" variants={pageVariants} className="motion">
             {!loading && <Carousel />}
             <img src="/img/3.jpg" className="img-fluid mx-auto d-none logo" width="220px" id="contibus-logo" alt="logo" />
             <Fade triggerOnce direction="up">

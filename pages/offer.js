@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 const Offer = () => {
     const { locale } = useRouter();
     return (
-        <motion.section initial="initial" animate="animate" variants={pageVariants}>
+        <motion.section initial="initial" animate="animate" variants={pageVariants} className="motion">
             <Carousel />
             <Formoffer />
             <Gallery />

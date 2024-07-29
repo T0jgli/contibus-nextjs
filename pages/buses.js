@@ -26,7 +26,7 @@ const Buses = ({ busesData, muzeumData }) => {
     }, []);
 
     return (
-        <motion.section initial="initial" animate="animate" variants={pageVariants}>
+        <motion.section initial="initial" animate="animate" variants={pageVariants} className="motion">
             {!loading && <Carousel />}
             <Busesbody />
             <Head>

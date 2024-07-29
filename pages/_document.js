@@ -40,6 +40,15 @@ class MyDocument extends Document {
                     content="1990 óta foglalkozunk belföldi és nemzetközi autóbuszos személyszállítással. Szolgáltatásunk közé tartozik többek között: autóbusz bérlés és kölcsönzés, iskolai osztálykirándulások, szakmai utak, dolgozók szállítása és munkásjáratok szervezése."
                 />
                 <title>ContiBus</title>
+                <noscript
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                    <style>
+                        .motion { opacity: 1 !important; y: 0; }
+                    </style>
+                    `,
+                    }}
+                />
                 <body>
                     <Main />
                     <NextScript />
